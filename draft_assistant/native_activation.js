@@ -56,17 +56,22 @@ function inspectNativeControls(body) {
       });
     }
   }
-  const matches = controls.filter((control) => /^resume(?:\s+draft)?$/i.test(control.name));
-  const visibleMatches = matches.filter((control) => control.visible);
-  const usable = visibleMatches.filter((control) => control.enabled);
-  let status;
-  let reason;
-  if (!outer.length) { status = "no_region"; reason = "League Manager control region is not present"; }
-  else if (!matches.length) { status = "missing"; reason = "no Resume control inside the League Manager control region"; }
-  else if (!visibleMatches.length) { status = "hidden"; reason = "Resume control exists but is not visible"; }
-  else if (usable.length > 1) { status = "ambiguous"; reason = `${usable.length} visible enabled Resume controls match; refusing to guess`; }
-  else if (!usable.length) { status = "disabled"; reason = "visible Resume control is disabled"; }
-  else { status = "unique"; reason = "exactly one visible enabled Resume control"; }
+  const statusFor = (label, controlsForLabel) => {
+    const named = controlsForLabel.filter((control) => new RegExp(`^${label}(?:\\s+draft)?$`, "i").test(control.name));
+    const visibleNamed = named.filter((control) => control.visible);
+    const usableNamed = visibleNamed.filter((control) => control.enabled);
+    let namedStatus;
+    let namedReason;
+    if (!outer.length) { namedStatus = "no_region"; namedReason = "League Manager control region is not present"; }
+    else if (!named.length) { namedStatus = "missing"; namedReason = `no ${label} control inside the League Manager control region`; }
+    else if (!visibleNamed.length) { namedStatus = "hidden"; namedReason = `${label} control exists but is not visible`; }
+    else if (usableNamed.length > 1) { namedStatus = "ambiguous"; namedReason = `${usableNamed.length} visible enabled ${label} controls match; refusing to guess`; }
+    else if (!usableNamed.length) { namedStatus = "disabled"; namedReason = `visible ${label} control is disabled`; }
+    else { namedStatus = "unique"; namedReason = `exactly one visible enabled ${label} control`; }
+    return { status: namedStatus, reason: namedReason, match_count: named.length, visible_count: visibleNamed.length, usable_count: usableNamed.length };
+  };
+  const resume = statusFor("Resume", controls);
+  const pause = statusFor("Pause", controls);
 
   // Configured per-pick timer read-back (not the running clock).
   const timerSelects = Array.from(body.querySelectorAll("select")).filter((select) => {
@@ -83,13 +88,104 @@ function inspectNativeControls(body) {
     if (Number.isFinite(number) && number > 0) timerSeconds = number >= 1000 ? number / 1000 : number;
   }
   return {
-    resume: { status, reason, region_count: outer.length, match_count: matches.length, visible_count: visibleMatches.length, usable_count: usable.length },
+    resume: { ...resume, region_count: outer.length },
+    pause: { ...pause, region_count: outer.length },
     controls,
-    native_paused: status === "unique" || status === "disabled" || status === "ambiguous" ? true : null,
+    native_paused: resume.status === "unique" || resume.status === "disabled" || resume.status === "ambiguous"
+      ? true
+      : pause.status === "unique" ? false : null,
     native_timer_seconds: timerSeconds,
     native_timer_label: timerLabel,
     timer_select_count: timerSelects.length,
   };
+}
+
+/**
+ * Read the small amount of visible room state needed before a scan.  This is
+ * intentionally independent of the coordinator: a practice banner is page
+ * evidence, while the coordinator still verifies the attached session before
+ * reading rules or players.
+ */
+function inspectDraftLifecycle(body) {
+  const clean = (value) => (value === undefined || value === null ? "" : String(value).replace(/\s+/g, " ").trim());
+  const visible = (node) => {
+    if (!node) return false;
+    const style = typeof window !== "undefined" && window.getComputedStyle ? window.getComputedStyle(node) : null;
+    return (!style || (style.display !== "none" && style.visibility !== "hidden"))
+      && (typeof node.getClientRects !== "function" || node.getClientRects().length > 0);
+  };
+  const headings = Array.from(body.querySelectorAll("h1,h2,h3,[role=heading]")).filter(visible).map((node) => clean(node.textContent)).filter(Boolean);
+  const heading = headings.find((value) => /practice\s+draft/i.test(value)) || headings[0] || "";
+  const practice = /practice\s+draft/i.test(headings.join(" "));
+  const clockNodes = Array.from(body.querySelectorAll(".clock__digits,[aria-label*='clock' i]")).filter(visible);
+  const clock = clockNodes.map((node) => clean(node.textContent)).find((value) => /^\d{1,3}:\d{2}$/.test(value)) || "";
+  const onClock = Array.from(body.querySelectorAll(".on-the-clock,[class*='on-the-clock' i]")).filter(visible).map((node) => clean(node.textContent)).find(Boolean) || "";
+  const bodyText = clean(body.innerText || body.textContent);
+  const complete = /draft\s+(?:is\s+)?complete/i.test(bodyText);
+  const controls = inspectNativeControls(body);
+  const started = complete || controls.pause.status === "unique" || controls.resume.status === "unique" && Boolean(clock && onClock);
+  const running = controls.pause.status === "unique";
+  const paused = controls.resume.status === "unique" && !running;
+  return {
+    practice,
+    heading,
+    started,
+    running,
+    paused,
+    complete,
+    clock,
+    on_clock: onClock,
+    native: controls,
+  };
+}
+
+/**
+ * Wait for ESPN to expose a started draft without clicking Start/Resume.
+ * The caller owns the visible page and can keep the scan button busy while
+ * the practice room is waiting for its native start condition.
+ */
+async function waitForDraftStart({ read, sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms)), now = Date.now, timeoutMs = 300_000, pollMs = 250, onProgress = null } = {}) {
+  if (typeof read !== "function") throw new ActivationError("a lifecycle reader is required", "invalid_lifecycle_reader");
+  const startedAt = Number(now());
+  const deadline = startedAt + Math.max(0, Number(timeoutMs));
+  let last = null;
+  while (true) {
+    last = await read();
+    if (last && last.started === true) return last;
+    if (typeof onProgress === "function") onProgress({ phase: "waiting_for_start", started: false });
+    if (Number(now()) >= deadline) throw new ActivationError("practice draft did not start before the scan wait expired", "draft_not_started", { last });
+    await sleep(Math.max(0, Math.min(Number(pollMs) || 0, deadline - Number(now()))));
+  }
+}
+
+/**
+ * The only in-page pause mutation used by Scan/Rescan.  It follows the same
+ * scoped, exact-one-control rule as native Resume activation.
+ */
+function clickPauseInPage(body) {
+  if (typeof document !== "undefined" && document.visibilityState !== undefined && document.visibilityState !== "visible") {
+    return { clicked: false, usable_count: 0, reason: "document_hidden" };
+  }
+  const clean = (value) => (value === undefined || value === null ? "" : String(value).replace(/\s+/g, " ").trim());
+  const visible = (node) => {
+    const style = typeof window !== "undefined" && window.getComputedStyle ? window.getComputedStyle(node) : null;
+    return (!style || (style.display !== "none" && style.visibility !== "hidden"))
+      && (typeof node.getClientRects !== "function" || node.getClientRects().length > 0);
+  };
+  const enabled = (node) => !node.disabled && node.getAttribute("aria-disabled") !== "true";
+  const regionSelector = '[data-testid="league-manager-controls"], .league-manager-controls, .league-manager-container, .league-manager-control__container, [aria-label="League Manager" i], [aria-label="League Manager controls" i]';
+  const regions = Array.from(body.querySelectorAll(regionSelector));
+  const outer = regions.filter((region) => !regions.some((other) => other !== region && Array.from(other.querySelectorAll(regionSelector)).includes(region)));
+  const candidates = [];
+  for (const region of outer) {
+    for (const node of Array.from(region.querySelectorAll("button, [role=button]"))) {
+      const name = clean(node.getAttribute("aria-label") || node.getAttribute("title") || node.textContent);
+      if (/^pause(?:\s+draft)?$/i.test(name) && visible(node) && enabled(node) && !candidates.includes(node)) candidates.push(node);
+    }
+  }
+  if (candidates.length !== 1) return { clicked: false, usable_count: candidates.length, reason: candidates.length ? "ambiguous_pause_control" : "pause_control_missing" };
+  candidates[0].click();
+  return { clicked: true, usable_count: 1 };
 }
 
 /**
@@ -274,5 +370,8 @@ module.exports = {
   DEFAULT_ACTIVATION_BUDGET_MS,
   activateDraft,
   clickResumeInPage,
+  clickPauseInPage,
+  inspectDraftLifecycle,
   inspectNativeControls,
+  waitForDraftStart,
 };

@@ -35,6 +35,21 @@ promotion artifact; `--foundation-only` is an explicit opt-out. Lookahead
 remains advisory and queue fallback remains disabled. When no session exists,
 there is no current session revision or recommendation yet.
 
+To set up a room, paste either the ESPN team URL or draft-room URL into the
+panel. The setup flow extracts `leagueId`, `teamId`, and `seasonId` from the
+query string automatically and stores the normalized draft-room URL. For
+example:
+
+```text
+https://fantasy.espn.com/basketball/team?leagueId=1000000000&teamId=15&seasonId=2027
+```
+
+The equivalent CLI command accepts the same URL:
+
+```powershell
+python -m draft_assistant --db runtime/control.sqlite3 connect "<espn-team-or-draft-url>"
+```
+
 If Python is installed elsewhere, pass its full path using `-Python`.
 `-Port` is available for isolated launcher tests only. Attended browser
 helpers use the fixed loopback port `8765`. Do not expose the service beyond

@@ -115,9 +115,17 @@ New-Item -ItemType Directory -Force -Path (Split-Path -Parent $database) | Out-N
 $leagueConfigPath = Join-Path $repoRoot 'runtime\league.json'
 if (-not (Test-Path -LiteralPath $leagueConfigPath)) {
     Write-Host 'First-time setup: league details are saved locally under runtime, never in Git.'
-    $leagueId = Read-Host 'ESPN league ID (digits from your league URL)'
-    $seasonId = Read-Host 'ESPN season ID (digits from your league URL)'
-    $teamId = Read-Host 'ESPN team ID (digits from your league URL)'
+    $teamUrl = Read-Host 'Paste your ESPN team URL (containing leagueId, teamId, and seasonId)'
+    Push-Location -LiteralPath $repoRoot
+    try {
+        $parsedRoom = & $pythonCommand.Source @pythonPrefix -c 'import json, sys; from dataclasses import asdict; from draft_assistant.contracts import RoomIdentity; print(json.dumps(asdict(RoomIdentity.from_url(sys.argv[1]))))' $teamUrl
+        if ($LASTEXITCODE -ne 0) { throw 'Enter a valid HTTPS ESPN basketball team or draft URL with all three IDs.' }
+        $roomIdentity = $parsedRoom | ConvertFrom-Json
+    }
+    finally { Pop-Location }
+    $leagueId = $roomIdentity.league_id
+    $seasonId = $roomIdentity.season_id
+    $teamId = $roomIdentity.team_id
     $teamName = Read-Host 'Your exact ESPN team name'
     if ($leagueId -notmatch '^\d+$' -or $seasonId -notmatch '^\d+$' -or $teamId -notmatch '^\d+$' -or -not $teamName.Trim()) {
         throw 'League, season, and team IDs must be numeric; the team name cannot be empty.'

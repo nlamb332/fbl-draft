@@ -20,6 +20,10 @@ def room_url(league_id: str, season_id: str = "2027", team_id: str = "15") -> st
     return f"https://fantasy.espn.com/basketball/draft?leagueId={league_id}&seasonId={season_id}&teamId={team_id}"
 
 
+def team_url(league_id: str, season_id: str = "2027", team_id: str = "15") -> str:
+    return f"https://fantasy.espn.com/basketball/team?leagueId={league_id}&teamId={team_id}&seasonId={season_id}"
+
+
 class AdvisorConnectHTTPTests(unittest.TestCase):
     def setUp(self) -> None:
         self.coordinator = Coordinator(":memory:", recover=False)
@@ -55,6 +59,8 @@ class AdvisorConnectHTTPTests(unittest.TestCase):
         self,
         league_id: str = "1000000012",
         *,
+        practice: bool = True,
+        heading: str = HEADING,
         origin: str | None = ESPN,
         token: str | None = "default",
         **extra: object,
@@ -62,7 +68,8 @@ class AdvisorConnectHTTPTests(unittest.TestCase):
         return self.post({
             "operation": "connect-advisor",
             "current_room_url": room_url(league_id),
-            "visible_practice_heading": HEADING,
+            "practice": practice,
+            "visible_heading": heading,
             "expected_seat": 13,
             # These fields deliberately must not control server identity.
             "own_team": "attacker supplied team",
@@ -113,6 +120,21 @@ class AdvisorConnectHTTPTests(unittest.TestCase):
         self.assertEqual(result["own_team"], own_team)
         self.assertEqual(result["expected_seat"], 7)
 
+    def test_configured_real_room_is_accepted_without_practice_attestation(self) -> None:
+        heading = "ESPN Fantasy Basketball Draft - Example League"
+        status, result = self.connect(
+            self.coordinator.config.league_id,
+            practice=False,
+            heading=heading,
+            current_room_url=team_url(self.coordinator.config.league_id),
+        )
+        self.assertEqual(status, 200, result)
+        self.assertEqual(result["room"]["practice"], False)
+        self.assertIsNone(result.get("practice_attestation"))
+        connected = self.coordinator.status(result["session_id"])
+        self.assertEqual(connected["room"]["practice"], False)
+        self.assertIsNone(connected["practice_attestation"])
+
     def test_loader_can_defer_seat_readback_until_after_server_returns_own_team(self) -> None:
         status, result = self.post({
             "operation": "connect-advisor",
@@ -128,7 +150,7 @@ class AdvisorConnectHTTPTests(unittest.TestCase):
             {"current_room_url": room_url("1000000012", season_id="2026")},
             {"current_room_url": room_url("1000000012", team_id="14")},
             {"current_room_url": room_url(self.coordinator.config.league_id)},
-            {"current_room_url": room_url("1000000012"), "visible_practice_heading": "ESPN Fantasy Basketball Draft - Live Draft for Example League"},
+            {"current_room_url": room_url("1000000012"), "visible_heading": "ESPN Fantasy Basketball Draft - Live Draft for Example League"},
         ]
         for override in invalid:
             payload = {

@@ -535,8 +535,9 @@ function createPageRunner({
     if (!pageRoom || ["league_id", "season_id", "team_id"].some((key) => String(pageRoom[key]) !== String(sessionRoom[key]))) {
       throw new PageRunnerError("this tab is not the room connected to the session", "room_mismatch", { pageRoom, sessionRoom });
     }
-    if (sessionRoom.practice !== true || !status.practice_attestation) throw new PageRunnerError("the session is not an attested practice room", "not_attested_practice");
-    return { ...pageRoom, practice: true };
+    if (typeof sessionRoom.practice !== "boolean") throw new PageRunnerError("the connected session does not identify practice status", "room_status_incomplete");
+    if (sessionRoom.practice === true && !status.practice_attestation) throw new PageRunnerError("the practice session is not attested", "not_attested_practice");
+    return { ...pageRoom, practice: sessionRoom.practice };
   }
 
   async function showTab(pattern) {
@@ -650,6 +651,84 @@ function createPageRunner({
     } finally {
       captureProgress = null;
     }
+  }
+
+  async function readDraftLifecycle() {
+    return tab.playwright.locator("body").evaluate(nativeActivation.inspectDraftLifecycle);
+  }
+
+  async function pausePracticeDraft({ onProgress = null, pausePollMs = 150, pausePolls = 40 } = {}) {
+    let lifecycle = await readDraftLifecycle();
+    if (lifecycle.paused) return lifecycle;
+    if (!lifecycle.running) {
+      throw new PageRunnerError("the practice draft started, but its native Pause/Resume state is not readable", "native_pause_state_unknown", { lifecycle });
+    }
+
+    // ESPN has rendered the control on League Manager in some room versions.
+    // Use the current view first, then move once to the anchored control view.
+    if (!lifecycle.native || lifecycle.native.pause.status !== "unique") {
+      await switcher.showLeagueManager();
+      lifecycle = await readDraftLifecycle();
+    }
+    if (!lifecycle.native || lifecycle.native.pause.status !== "unique") {
+      throw new PageRunnerError(`native Pause locator: ${(lifecycle.native && lifecycle.native.pause && lifecycle.native.pause.reason) || "control unavailable"}`, "native_pause_unresolved", { lifecycle });
+    }
+    if (typeof onProgress === "function") onProgress({ phase: "pausing_draft" });
+    const click = await tab.playwright.locator("body").evaluate(nativeActivation.clickPauseInPage);
+    if (!click || !click.clicked) {
+      throw new PageRunnerError(`native Pause was not clicked: ${(click && click.reason) || "control changed"}`, "native_pause_not_clicked", { lifecycle, click });
+    }
+    for (let attempt = 0; attempt < pausePolls; attempt += 1) {
+      lifecycle = await readDraftLifecycle();
+      if (lifecycle.paused) return lifecycle;
+      if (pausePollMs > 0) await sleep(pausePollMs);
+    }
+    throw new PageRunnerError("native Pause was clicked but the room did not read back paused", "native_pause_unconfirmed", { lifecycle });
+  }
+
+  /**
+   * User-facing Scan/Rescan orchestration. Practice rooms are the one case in
+   * which scanning must control the native clock: wait for ESPN to actually
+   * start, pause it once, and then capture the complete rules/player catalog.
+   * A non-practice room is scanned immediately and is never paused here.
+   */
+  async function scanInputs({ maxPlayers = 1500, onProgress = null, waitForStartMs = 300_000, waitPollMs = 250, pausePollMs = 150, pausePolls = 40 } = {}) {
+    const report = (progress) => {
+      if (typeof onProgress === "function") {
+        try { onProgress(progress); } catch (_error) { /* advisory UI callback */ }
+      }
+    };
+    const room = await verifiedRoom();
+    let lifecycle = await readDraftLifecycle();
+    const practice = room.practice === true;
+    if (practice) {
+      if (!lifecycle || lifecycle.practice !== true) {
+        throw new PageRunnerError("the verified practice room is missing its visible practice-draft heading", "practice_heading_missing", { lifecycle });
+      }
+      // The native Pause control is mounted in League Manager in some ESPN
+      // room versions.  Anchor that view before the start wait so a running
+      // practice draft can always be paused exactly once.
+      await switcher.showLeagueManager();
+      lifecycle = await readDraftLifecycle();
+      if (!lifecycle.started) {
+        report({ phase: "waiting_for_start" });
+        lifecycle = await nativeActivation.waitForDraftStart({
+          read: readDraftLifecycle,
+          sleep,
+          now,
+          timeoutMs: waitForStartMs,
+          pollMs: waitPollMs,
+          onProgress: report,
+        });
+      }
+      if (!lifecycle.paused) {
+        lifecycle = await pausePracticeDraft({ onProgress: report, pausePollMs, pausePolls });
+      }
+    } else {
+      report({ phase: "scan" });
+    }
+    const result = await captureInputs({ maxPlayers, onProgress: report });
+    return { ...result, scan_mode: practice ? "practice_wait_pause_scan" : "immediate_scan" };
   }
 
   async function ensureRunner() {
@@ -1351,6 +1430,7 @@ function createPageRunner({
 
   return Object.freeze({
     captureInputs,
+    scanInputs,
     preflight,
     activate,
     startBatch,

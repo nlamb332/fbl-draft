@@ -11,8 +11,9 @@ Choose **Code → Download ZIP** on GitHub, extract the archive, and double-clic
 **Launch Advisor.cmd** on Windows. Python 3.10 or newer must be installed and
 available on PATH. Keep the launcher window open while using the advisor.
 
-On first launch, enter your ESPN league ID, season ID, team ID, and exact team
-name. These details are saved only in ignored `runtime/league.json`. Public
+On first launch, paste your ESPN team URL and enter your exact team name. The
+launcher reads the league, season, and team IDs from the URL. These details
+are saved only in ignored `runtime/league.json`. Public
 defaults are examples. CLI users can copy `league.example.json` to
 `runtime/league.json`, edit it locally, and pass `--league-config runtime/league.json`
 before `serve`. See the [privacy notes](docs/PUBLIC_RELEASE_PRIVACY.md).

@@ -1,8 +1,9 @@
 # Publication privacy
 
 Application defaults and checked-in configuration examples use generic league
-and team identities. On first launch, the Windows launcher asks for your ESPN
-league ID, season ID, team ID, and exact team name. It stores them only in the
+and team identities. On first launch, the Windows launcher reads the league,
+season, and team IDs from your ESPN team URL and asks for your exact team name.
+It stores them only in the
 ignored `runtime/league.json` file. Do not add runtime files or browser state
 to Git. CLI users can pass `--league-config runtime/league.json` before the
 subcommand.

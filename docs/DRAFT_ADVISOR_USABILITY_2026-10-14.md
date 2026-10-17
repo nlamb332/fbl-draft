@@ -6,6 +6,12 @@ Implemented after the user could not reach ESPN's Resume control behind the fixe
 
 The advisor has a draggable handle, arrow-key movement, viewport clamping, Dock left/right, and a collapsible compact bar retaining the current recommendation and turn distance. Moving or collapsing it does not stop observation. Remounting it recognizes an already-running observer. Capture displays scan/repair phase, captured count and progress. Loaded inputs show their source and capture time; the capture button becomes Rescan players.
 
+Scan/Rescan now owns the room lifecycle needed for a complete capture. When the
+verified room is a practice draft, it waits for the draft to start, pauses the
+native clock once, and then scans the full rules/player catalog. A verified real
+room is accepted when its league ID matches the configured live league; it
+begins scanning immediately and is never natively paused by the advisor.
+
 ## Capture
 
 Capture reads the rendered DOM rather than screenshots. ESPN virtualizes rows, so scrolling remains necessary. A cheap identity/GP read covers the player universe; expensive horizontal projection reads are skipped for no-data windows and resume if a later positive-GP window appears. Repair skips complete or unscorable windows and stops when missing-field signatures stop improving. The initial verified catalog boundary is preserved separately from best-effort repair outcomes.

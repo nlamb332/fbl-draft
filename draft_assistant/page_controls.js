@@ -186,7 +186,7 @@ function captureProgressText(progress) {
   if (!current) return "";
   const rawPhase = text(first(current, "phase", "status"), "Scanning player IDs");
   const phaseKey = rawPhase.toLowerCase().replace(/[_-]+/g, " ");
-  const phase = phaseKey.includes("repair") ? "Repairing player IDs" : phaseKey.includes("complete") || phaseKey.includes("done") ? "Capture complete" : phaseKey.includes("scan") || phaseKey.includes("catalog") || phaseKey.includes("player") ? "Scanning player IDs" : phaseKey.includes("rule") ? "Reading scoring rules" : rawPhase;
+  const phase = phaseKey.includes("wait") || phaseKey.includes("start") ? "Waiting for practice draft to start" : phaseKey.includes("paus") ? "Pausing practice draft" : phaseKey.includes("repair") ? "Repairing player IDs" : phaseKey.includes("complete") || phaseKey.includes("done") ? "Capture complete" : phaseKey.includes("scan") || phaseKey.includes("catalog") || phaseKey.includes("player") ? "Scanning player IDs" : phaseKey.includes("rule") ? "Reading scoring rules" : rawPhase;
   const captured = first(current, "catalog_count", "captured", "catalog_players", "player_count");
   const percentage = finiteNumber(first(current, "progress", "fraction", "percent"));
   const percentValue = percentage === undefined ? undefined : percentage <= 1 ? Math.round(percentage * 100) : Math.round(percentage);
@@ -256,13 +256,16 @@ function mountPageControls({
   const actionBar = document.createElement("div");
   actionBar.style.cssText = "display:flex;flex-wrap:wrap;gap:7px;margin:0 0 12px";
   root.appendChild(actionBar);
-  const captureButton = button(document, actionBar, "Capture inputs", () => runAction("capture", async () => runner.captureInputs({
-    onProgress: progress => {
-      if (disposed) return;
-      captureProgress = captureProgressValue(progress);
-      applyStatus();
-    },
-  })));
+  const captureButton = button(document, actionBar, "Capture inputs", () => runAction("capture", async () => {
+    const scan = typeof runner.scanInputs === "function" ? runner.scanInputs.bind(runner) : runner.captureInputs.bind(runner);
+    return scan({
+      onProgress: progress => {
+        if (disposed) return;
+        captureProgress = captureProgressValue(progress);
+        applyStatus();
+      },
+    });
+  }));
   const startButton = button(document, actionBar, "Start observing", () => runAction("start", async () => runner.startRecommendations()));
   const refreshButton = button(document, actionBar, "Refresh recommendation", () => runAction("refresh", refreshRecommendation));
   const stopButton = button(document, actionBar, "Stop observing", () => runAction("stop", async () => runner.stopRecommendations()));

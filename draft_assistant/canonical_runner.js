@@ -42,7 +42,7 @@ function createCanonicalPracticeRunner({
   if (!sessionId || !ownerToken || !ownTeam || !Number.isInteger(expectedSeat) || expectedSeat < 1 || expectedSeat > 14) {
     throw new TypeError("sessionId, private ownerToken, ownTeam, and verified expectedSeat (1-14) are required");
   }
-  if (!room || room.practice !== true) throw new TypeError("this runner only accepts a verified practice room");
+  if (!room || typeof room.practice !== "boolean") throw new TypeError("this runner requires an explicit practice/real room identity");
   if (!freshlyVerifiedRules || !projectionCatalog) throw new TypeError("freshly verified rules and a captured projection catalog are required");
 
   const counter = { n: 0 };
@@ -134,6 +134,7 @@ function createCanonicalPracticeRunner({
   }
 
   async function activate() {
+    if (room.practice !== true) throw new Error("native activation is disabled for a real draft room");
     if (activated || activationInFlight || (activationAttempted && !activated)) {
       throw new Error("native activation is one-shot; inspect the returned result and room state before any further action");
     }
@@ -248,6 +249,7 @@ function createCanonicalPracticeRunner({
   }
 
   async function recover(stop, { readPreflight: preflightReader } = {}) {
+    if (room.practice !== true) throw new Error("native recovery is disabled for a real draft room");
     if (!activated) throw new Error("recovery is disabled until practice activation succeeds");
     if (typeof control !== "function") throw new TypeError("a coordinator control transport is required for explicit recovery");
     const recovered = await modules.recoverAfterStop({

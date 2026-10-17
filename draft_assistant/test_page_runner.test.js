@@ -71,6 +71,28 @@ function cacheInputs(capturedAt = "2026-10-14T13:00:00.000Z", overrides = {}) {
   };
 }
 
+function scanCatalog(size = 24) {
+  const stats = { PTS: 1, FGM: 1, FGA: 2, FTM: 1, FTA: 2, "3PM": 1, REB: 1, AST: 1, STL: 1, BLK: 1, TO: 1 };
+  return Array.from({ length: size }, (_, index) => ({
+    player_id: `scan-${index + 1}`,
+    name: `Scan Player ${index + 1}`,
+    eligibility: ["G"],
+    stats: { ...stats, PTS: index + 1 },
+    projected_gp: 70,
+    draft_rank: index + 1,
+  }));
+}
+
+function livePageDocument(simulator, pageWindow) {
+  return {
+    get body() { return simulator.liveBody(); },
+    get defaultView() { return pageWindow; },
+    visibilityState: "visible",
+    querySelector(selector) { return this.body.querySelector(selector); },
+    querySelectorAll(selector) { return this.body.querySelectorAll(selector); },
+  };
+}
+
 function cachedRecommendationRunner(storage, { leagueId = ROOM.league_id, ownTeam = OWN, teamId = ROOM.team_id } = {}) {
   const io = transport();
   const factory = runnerStub(io);
@@ -91,7 +113,7 @@ function cachedRecommendationRunner(storage, { leagueId = ROOM.league_id, ownTea
   });
 }
 
-function transport({ actions = [], ownPick = true } = {}) {
+function transport({ actions = [], ownPick = true, room = ROOM } = {}) {
   const calls = [];
   const state = {
     state: "observing",
@@ -104,7 +126,7 @@ function transport({ actions = [], ownPick = true } = {}) {
     status: state.state,
     state: state.state,
     latest_revision: state.latest_revision,
-    room: ROOM,
+    room,
     observation: state.observation,
     actions: state.actions,
     unresolved_actions: [],
@@ -271,6 +293,105 @@ test("page tab refuses a Draft click after the document becomes hidden", async (
     assert.equal(error.code, "page_hidden");
     return true;
   });
+});
+
+test("scanInputs waits only for practice lifecycle and pauses it before a complete capture", async () => {
+  const { EspnRoomSimulator } = require("./room_simulator.js");
+  const scanRoom = { ...ROOM };
+  const simulator = new EspnRoomSimulator({
+    catalog: scanCatalog(),
+    order: ORDER,
+    ownTeam: OWN,
+    room: scanRoom,
+    paused: false,
+    playersWindow: 14,
+  });
+  const io = transport();
+  const pageWindow = {
+    getComputedStyle: () => ({ display: "block", visibility: "visible" }),
+    localStorage: memoryStorage(),
+  };
+  const document = livePageDocument(simulator, pageWindow);
+  const runner = createPageRunner({
+    document,
+    window: pageWindow,
+    location: { href: simulator.url() },
+    fetchFn: io.fetchFn,
+    csrfToken: "csrf",
+    sessionId: SESSION,
+    ownerToken: "owner",
+    ownTeam: OWN,
+    expectedSeat: 1,
+    wheelScroller: async (deltaX, deltaY) => simulator.scrollPlayers(deltaX, deltaY),
+    sleep: async () => {},
+    mode: "recommendation",
+  });
+  const previousWindow = global.window;
+  const previousDocument = global.document;
+  global.window = pageWindow;
+  global.document = document;
+  try {
+    const result = await runner.scanInputs({ maxPlayers: 50 });
+    assert.equal(result.scan_mode, "practice_wait_pause_scan");
+    assert.equal(simulator.paused, true);
+    assert.equal(result.catalog_complete, true);
+    assert.ok(result.catalog_players >= 24);
+  } finally {
+    if (previousWindow === undefined) delete global.window;
+    else global.window = previousWindow;
+    if (previousDocument === undefined) delete global.document;
+    else global.document = previousDocument;
+  }
+});
+
+test("scanInputs drives a non-practice room immediately without pausing it", async () => {
+  const { EspnRoomSimulator } = require("./room_simulator.js");
+  const realRoom = { ...ROOM, practice: false };
+  const simulator = new EspnRoomSimulator({
+    catalog: scanCatalog(),
+    order: ORDER,
+    ownTeam: OWN,
+    room: realRoom,
+    heading: "ESPN Fantasy Basketball Draft for Example League",
+    paused: false,
+    playersWindow: 14,
+  });
+  const io = transport({ room: realRoom });
+  const pageWindow = {
+    getComputedStyle: () => ({ display: "block", visibility: "visible" }),
+    localStorage: memoryStorage(),
+  };
+  const document = livePageDocument(simulator, pageWindow);
+  const runner = createPageRunner({
+    document,
+    window: pageWindow,
+    location: { href: simulator.url() },
+    fetchFn: io.fetchFn,
+    csrfToken: "csrf",
+    sessionId: SESSION,
+    ownerToken: "owner",
+    ownTeam: OWN,
+    expectedSeat: 1,
+    wheelScroller: async (deltaX, deltaY) => simulator.scrollPlayers(deltaX, deltaY),
+    sleep: async () => {},
+    mode: "recommendation",
+  });
+  const previousWindow = global.window;
+  const previousDocument = global.document;
+  global.window = pageWindow;
+  global.document = document;
+  try {
+    const result = await runner.scanInputs({ maxPlayers: 50 });
+    assert.equal(result.scan_mode, "immediate_scan");
+    assert.equal(simulator.paused, false);
+    assert.equal(result.catalog_complete, true);
+    assert.equal(io.calls.some(call => call.operation === "pause"), false);
+  } finally {
+    if (previousWindow === undefined) delete global.window;
+    else global.window = previousWindow;
+    if (previousDocument === undefined) delete global.document;
+    else global.document = previousDocument;
+  }
 });
 
 test("recommendation mode has no actor path and polls a full-catalog preview", async () => {

@@ -3,7 +3,7 @@
 const assert = require("node:assert/strict");
 const test = require("node:test");
 
-const { activateDraft, inspectNativeControls } = require("./native_activation.js");
+const { activateDraft, clickPauseInPage, inspectDraftLifecycle, inspectNativeControls, waitForDraftStart } = require("./native_activation.js");
 const { EspnRoomSimulator } = require("./room_simulator.js");
 const { filterLiveAvailablePlayers } = require("./live_projection_inputs.js");
 
@@ -23,6 +23,10 @@ function room(options = {}) {
 
 async function inspect(simulator) {
   return simulator.tab().playwright.locator("body").evaluate(inspectNativeControls);
+}
+
+async function lifecycle(simulator) {
+  return simulator.tab().playwright.locator("body").evaluate(inspectDraftLifecycle);
 }
 
 const VIEWS = ["players", "history", "league_manager"];
@@ -111,6 +115,48 @@ test("native Resume refuses a hidden document and pauses the coordinator", async
 test("configured timer is read back from the select, not the running clock", async () => {
   assert.equal((await inspect(room({ timerSeconds: 90 }))).native_timer_seconds, 90);
   assert.equal((await inspect(room({ timerSeconds: 30 }))).native_timer_seconds, 30);
+});
+
+test("draft lifecycle identifies the practice banner and native running/paused state", async () => {
+  const paused = await lifecycle(room({ paused: true }));
+  assert.equal(paused.practice, true);
+  assert.equal(paused.started, true);
+  assert.equal(paused.paused, true);
+  assert.equal(paused.running, false);
+
+  const running = await lifecycle(room({ paused: false }));
+  assert.equal(running.practice, true);
+  assert.equal(running.started, true);
+  assert.equal(running.paused, false);
+  assert.equal(running.running, true);
+});
+
+test("Scan/Rescan pause mutation clicks one scoped native Pause and reads it back", async () => {
+  const simulator = room({ paused: false });
+  const result = await simulator.tab().playwright.locator("body").evaluate(clickPauseInPage);
+  assert.deepEqual(result, { clicked: true, usable_count: 1 });
+  assert.equal(simulator.paused, true);
+  assert.equal((await lifecycle(simulator)).paused, true);
+});
+
+test("practice scan wait reports progress and resolves when ESPN starts", async () => {
+  let clock = 0;
+  let reads = 0;
+  const progress = [];
+  const result = await waitForDraftStart({
+    read: async () => {
+      reads += 1;
+      return { started: reads > 1 };
+    },
+    now: () => clock,
+    sleep: async () => { clock += 1; },
+    timeoutMs: 10,
+    pollMs: 1,
+    onProgress: event => progress.push(event.phase),
+  });
+  assert.equal(result.started, true);
+  assert.equal(reads, 2);
+  assert.deepEqual(progress, ["waiting_for_start"]);
 });
 
 function harness({ simulator = room(), preflight = async () => ({ status: "preflight_ok", ok: true }), start = async () => ({ status: "running" }) } = {}) {

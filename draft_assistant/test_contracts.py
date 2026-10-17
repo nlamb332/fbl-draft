@@ -16,6 +16,16 @@ class ContractTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 RoomIdentity.from_url(url)
 
+    def test_team_url_parses_setup_identity_and_normalizes_to_draft_room(self):
+        room = RoomIdentity.from_url(
+            "https://fantasy.espn.com/basketball/team?leagueId=1000000000&teamId=15&seasonId=2027"
+        )
+        self.assertEqual((room.league_id, room.team_id, room.season_id), ("1000000000", "15", "2027"))
+        self.assertEqual(
+            room.safe_url(),
+            "https://fantasy.espn.com/basketball/draft?leagueId=1000000000&seasonId=2027&teamId=15",
+        )
+
     def test_observation_roundtrip_keeps_unknowns(self):
         observation = DraftObservation("session", RoomIdentity("1", "2027", "15", True), utc_now())
         self.assertEqual(observation, DraftObservation.from_dict(observation.to_dict()))

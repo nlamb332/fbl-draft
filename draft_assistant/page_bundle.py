@@ -134,12 +134,13 @@ def recommendation_loader_snippet(
 ) -> str:
     """Return a room-agnostic, recommendation-only ESPN page loader.
 
-    The page supplies the transient practice-room URL and its visible heading;
-    the local server performs the practice attestation and returns an
-    observer-only session token.  The snippet deliberately sends only the
-    three numeric room IDs in ``url`` (never ESPN's member ID), sends the full
-    visible roster order so the server can derive the configured seat, and
-    never invokes Resume, Draft, or any actor operation.
+    The page supplies the current room URL, visible draft heading, and the
+    explicit practice/real classification.  The local server attests practice
+    rooms or verifies the configured live league for real rooms before
+    returning an observer-only session token.  The snippet deliberately sends
+    only the three numeric room IDs in ``url`` (never ESPN's member ID), sends
+    the full visible roster order so the server can derive the configured
+    seat, and never invokes Resume, Draft, or any actor operation.
     """
     bundle = build_bundle(module_dir)
     if csrf_token is None:
@@ -174,8 +175,9 @@ def recommendation_loader_snippet(
   const nodeText = (node) => String(node?.innerText || node?.textContent || "").replace(/\s+/g, " ").trim();
   const headings = Array.from(pageDocument.querySelectorAll("h1,h2,h3,[role='heading']"))
     .filter(isVisible).map(nodeText).filter(Boolean);
-  const practiceHeading = headings.find(value => /practice/i.test(value) && /basketball/i.test(value));
-  if (!practiceHeading) throw new Error("The visible ESPN practice-draft heading is missing");
+  const visibleHeading = headings.find(value => /ESPN\s+Fantasy\s+Basketball\s+Draft/i.test(value));
+  if (!visibleHeading) throw new Error("The visible ESPN Fantasy Basketball draft heading is missing");
+  const practice = /practice\s+draft/i.test(visibleHeading);
 
   const normalize = (value) => String(value || "").replace(/\s+/g, " ").trim().toLowerCase();
   const readVisiblePickOrder = () => {
@@ -229,7 +231,7 @@ def recommendation_loader_snippet(
   };
   const sameRoom = (status) => {
     const connected = status && status.room;
-    return Boolean(connected && connected.practice === true
+    return Boolean(connected && connected.practice === practice
       && String(connected.league_id) === roomIds.leagueId
       && String(connected.season_id) === roomIds.seasonId
       && String(connected.team_id) === roomIds.teamId);
@@ -287,7 +289,7 @@ def recommendation_loader_snippet(
   const response = await pageWindow.fetch(`${baseUrl}/api/operator`, {
     method: "POST",
     headers: { "Content-Type": "application/json", "X-CSRF-Token": csrfToken },
-    body: JSON.stringify({ operation: "connect-advisor", url: safeRoom.toString(), heading: practiceHeading, pick_order: pickOrder }),
+    body: JSON.stringify({ operation: "connect-advisor", url: safeRoom.toString(), practice, visible_heading: visibleHeading, pick_order: pickOrder }),
   });
   const connection = await response.json();
   if (!response.ok || connection?.error) throw new Error(connection?.error || "the advisor connection was refused");

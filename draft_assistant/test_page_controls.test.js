@@ -189,6 +189,17 @@ test("observation UI captures, starts, refreshes, and stops without actor method
   assert.equal(ui.button("Stop observing").disabled, true);
 });
 
+test("Scan/Rescan delegates to the lifecycle-aware scan when the runner provides it", async () => {
+  const ui = setup();
+  ui.runner.scanInputs = async () => {
+    ui.calls.push("scanInputs");
+    return { catalog_players: 12, catalog_complete: true };
+  };
+  await ui.button("Capture inputs").click();
+  assert.equal(ui.calls.includes("scanInputs"), true);
+  assert.equal(ui.calls.includes("captureInputs"), false);
+});
+
 test("pre-supplied inputs enable observation without forcing another capture", () => {
   const ui = setup({ inputs: { source: "supplied", catalog_players: 439 } });
   assert.equal(ui.button("Rescan players").disabled, false);

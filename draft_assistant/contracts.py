@@ -40,9 +40,15 @@ class RoomIdentity:
 
     @classmethod
     def from_url(cls, url: str, *, practice: bool = False) -> RoomIdentity:
+        """Extract the room identity from an ESPN team or draft URL.
+
+        The team URL is the convenient setup input; ``safe_url`` emits the
+        canonical draft-room URL used by the observer and coordinator.
+        """
         parsed = urlparse(url)
-        if parsed.scheme != "https" or parsed.hostname != "fantasy.espn.com" or parsed.path.rstrip("/") != "/basketball/draft":
-            raise ValueError("expected an HTTPS ESPN basketball draft-room URL")
+        accepted_paths = {"/basketball/draft", "/basketball/team"}
+        if parsed.scheme != "https" or parsed.hostname != "fantasy.espn.com" or parsed.path.rstrip("/") not in accepted_paths:
+            raise ValueError("expected an HTTPS ESPN basketball team or draft-room URL")
         query = parse_qs(parsed.query)
         values = []
         for key in ("leagueId", "seasonId", "teamId"):

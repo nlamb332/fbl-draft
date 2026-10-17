@@ -26,6 +26,8 @@ class RecommendationLoaderTests(unittest.TestCase):
         self.assertIn("pick_order", snippet)
         self.assertIn("safeRoom", snippet)
         self.assertNotIn("memberId", snippet)
+        self.assertIn("visible_heading", snippet)
+        self.assertIn("practice,", snippet)
         self.assertIn("mode: \"recommendation\"", snippet)
         self.assertIn("controls.dock?.(\"left\")", snippet)
         self.assertIn("controls.collapse?.()", snippet)
@@ -54,6 +56,23 @@ class RecommendationLoaderTests(unittest.TestCase):
             self.assertNotIn("memberId", body["url"])
             self.assertEqual(case["mount"]["dock"], ["left"])
             self.assertEqual(case["mount"]["collapse"], 1)
+
+    def test_real_room_loader_connects_without_practice_classification(self) -> None:
+        bundle = build_bundle(MODULE_DIR)
+        snippet = recommendation_loader_snippet(
+            "http://127.0.0.1:8765",
+            csrf_token="test-csrf",
+            module_dir=MODULE_DIR,
+        )
+        script = self._harness(snippet, bundle.bundle_hash, real_room=True)
+        result = self._run_node(script)
+        result = result[0]
+
+        self.assertEqual(result["result"]["status"], "connected")
+        body = result["posts"][0]["body"]
+        self.assertEqual(body["practice"], False)
+        self.assertIn("ESPN Fantasy Basketball Draft", body["visible_heading"])
+        self.assertNotIn("Practice Draft", body["visible_heading"])
 
     def test_same_room_reuses_attached_runner_without_connect_or_replace(self) -> None:
         bundle = build_bundle(MODULE_DIR)
@@ -103,20 +122,22 @@ class RecommendationLoaderTests(unittest.TestCase):
         return json.loads(output[-1])
 
     @staticmethod
-    def _harness(snippet: str, bundle_hash: str, *, same_room: bool = False, wrong_room: bool = False) -> str:
+    def _harness(snippet: str, bundle_hash: str, *, same_room: bool = False, wrong_room: bool = False, real_room: bool = False) -> str:
         snippet_json = json.dumps(snippet)
         hash_json = json.dumps(bundle_hash)
         mode_call = "runWrong()" if wrong_room else "runReuse()" if same_room else "runFresh()"
+        real_room_json = "true" if real_room else "false"
         return f"""
 const vm = require("vm");
 const snippet = {snippet_json};
 const expectedHash = {hash_json};
+const realRoom = {real_room_json};
 
 function makeCase(index) {{
   const teams = Array.from({{length: 14}}, (_, seat) => `Visible Team ${{index}}-${{seat + 1}}`);
   const ownSeat = index === 1 ? 4 : 11;
   const ownTeam = teams[ownSeat - 1];
-  const heading = {{textContent: `ESPN Fantasy Basketball Draft - Practice Draft ${{index}}`, getAttribute() {{ return null; }}}};
+  const heading = {{textContent: realRoom ? `ESPN Fantasy Basketball Draft - Live Draft ${{index}}` : `ESPN Fantasy Basketball Draft - Practice Draft ${{index}}`, getAttribute() {{ return null; }}}};
   const options = teams.map((text, seat) => ({{
     textContent: text,
     getAttribute(name) {{ return name === "data-seat" ? String(seat + 1) : null; }},
@@ -173,7 +194,7 @@ function makeCase(index) {{
       return {{ok: true, async json() {{ return {{session_id: `session-${{index}}`, observer_token: `observer-${{index}}`, own_team: ownTeam, expected_seat: ownSeat}}; }}}};
     }},
   }};
-  const context = {{window: pageWindow, document, location: {{href: `https://fantasy.espn.com/basketball/draft?leagueId=1000000014${{index}}&seasonId=2027&teamId=15`}}, URL, console}};
+  const context = {{window: pageWindow, document, location: {{href: realRoom ? `https://fantasy.espn.com/basketball/draft?leagueId=1000000000&seasonId=2027&teamId=15` : `https://fantasy.espn.com/basketball/draft?leagueId=1000000014${{index}}&seasonId=2027&teamId=15`}}, URL, console}};
   context.window.location = context.location;
   return {{context, posts, attached, mounts, runner}};
 }}

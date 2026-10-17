@@ -196,7 +196,7 @@ class DraftRequestHandler(BaseHTTPRequestHandler):
             panel = panel.replace("__BOOKMARKLET_HREF__", html.escape(bookmarklet, quote=True))
             panel = panel.replace(
                 "__BOOKMARKLET_NOTE__",
-                "Drag the link to your bookmarks bar, then click it from the ESPN practice room."
+                "Drag the link to your bookmarks bar, then click it from the ESPN practice or real draft room."
                 if getattr(self.server, "page_runner_enabled", False)
                 else "Start the panel with --page-runner to enable the recommendation-only bookmarklet.",
             )
@@ -364,9 +364,12 @@ class DraftRequestHandler(BaseHTTPRequestHandler):
         raw_url = body.get("current_room_url", body.get("room_url", body.get("url")))
         if not isinstance(raw_url, str) or not raw_url:
             raise ValueError("current_room_url is required")
-        heading = body.get("visible_practice_heading", body.get("practice_heading", body.get("heading")))
+        heading = body.get("visible_heading", body.get("visible_practice_heading", body.get("practice_heading", body.get("heading"))))
         if not isinstance(heading, str) or not heading.strip():
-            raise ValueError("visible_practice_heading is required")
+            raise ValueError("visible_heading is required")
+        requested_practice = body.get("practice", True)
+        if not isinstance(requested_practice, bool):
+            raise ValueError("practice must be an explicit boolean")
         config = self.coordinator.config
         expected_seat = body.get("expected_seat")
         if expected_seat is not None and (
@@ -395,17 +398,22 @@ class DraftRequestHandler(BaseHTTPRequestHandler):
                 raise IdentityError("expected_seat does not match the visible pick_order")
             expected_seat = derived_seat
         try:
-            room = RoomIdentity.from_url(raw_url, practice=True)
+            room = RoomIdentity.from_url(raw_url, practice=requested_practice)
         except (TypeError, ValueError) as exc:
             raise IdentityError(str(exc)) from exc
         if room.season_id != config.season_id or room.team_id != config.team_id:
-            raise IdentityError("practice room season and team must match the configured source team")
-        if room.league_id == config.league_id:
-            raise IdentityError("the configured live league cannot be labeled as a practice room")
+            raise IdentityError("draft room season and team must match the configured source team")
         try:
             normalized_heading = self.coordinator._normalize_practice_heading(heading)  # type: ignore[attr-defined]
-            if not self.coordinator._valid_practice_heading(normalized_heading):  # type: ignore[attr-defined]
-                raise IdentityError("observed heading must explicitly identify an ESPN Fantasy Basketball practice draft")
+            if requested_practice:
+                if room.league_id == config.league_id:
+                    raise IdentityError("the configured live league cannot be labeled as a practice room")
+                if not self.coordinator._valid_practice_heading(normalized_heading):  # type: ignore[attr-defined]
+                    raise IdentityError("observed heading must explicitly identify an ESPN Fantasy Basketball practice draft")
+            elif room.league_id != config.league_id:
+                raise IdentityError("real draft room must match the configured live league")
+            elif not normalized_heading.casefold().startswith("espn fantasy basketball draft"):
+                raise IdentityError("observed heading must identify an ESPN Fantasy Basketball draft")
         except IdentityError:
             raise
         except (TypeError, ValueError) as exc:
@@ -433,11 +441,13 @@ class DraftRequestHandler(BaseHTTPRequestHandler):
                 "reused": True,
             }
 
-        connected = self.coordinator.connect(room.safe_url(), practice=True)
+        connected = self.coordinator.connect(room.safe_url(), practice=requested_practice)
         session_id = connected["session_id"]
-        # Use only server-side configuration for the source league. The client
-        # cannot redirect attestation to another league by supplying a field.
-        attested = self.coordinator.attest_practice(session_id, normalized_heading, config.league_id)
+        if requested_practice:
+            # Use only server-side configuration for the source league. The
+            # client cannot redirect attestation to another league by
+            # supplying a field.
+            connected = self.coordinator.attest_practice(session_id, normalized_heading, config.league_id)
         observer_token = secrets.token_urlsafe(32)
         self.server.advisor_tokens[observer_token] = session_id
         if nonce:
@@ -453,9 +463,9 @@ class DraftRequestHandler(BaseHTTPRequestHandler):
             "observer_token": observer_token,
             "own_team": config.our_team,
             "expected_seat": expected_seat,
-            "room": attested["room"],
+            "room": connected["room"],
             "source_league_id": config.league_id,
-            "practice_attestation": attested.get("practice_attestation"),
+            "practice_attestation": connected.get("practice_attestation"),
             "reused": False,
         }
 

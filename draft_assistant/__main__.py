@@ -49,8 +49,8 @@ def build_parser() -> argparse.ArgumentParser:
     loader.add_argument("--base", default="http://127.0.0.1:8765")
     advisor_loader = sub.add_parser("advisor-loader", help="print the reusable room-agnostic recommendation-only loader")
     advisor_loader.add_argument("--base", default="http://127.0.0.1:8765")
-    connect = sub.add_parser("connect")
-    connect.add_argument("url")
+    connect = sub.add_parser("connect", help="connect using an ESPN team or draft-room URL")
+    connect.add_argument("url", help="URL containing leagueId, teamId, and seasonId")
     connect.add_argument("--practice", action="store_true")
     connect.add_argument("--session-id")
     verify_practice = sub.add_parser(

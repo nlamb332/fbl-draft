@@ -388,6 +388,9 @@ class EspnRoomSimulator {
     for (const button of body.querySelectorAll("button.resume-btn")) {
       button.onclick = () => { this.resumeClicks += 1; this.resume(); };
     }
+    for (const button of body.querySelectorAll("button")) {
+      if (/^pause(?:\s+draft)?$/i.test(String(button.textContent || "").trim())) button.onclick = () => this.pause();
+    }
     for (const toggle of body.querySelectorAll(".draft-players-toggle")) {
       const handler = () => {
         this.showDrafted = !this.showDrafted;

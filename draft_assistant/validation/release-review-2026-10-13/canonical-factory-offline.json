@@ -1,0 +1,1494 @@
+{
+  "actions": [
+    {
+      "action_id": "18d1190dcd0241c7a4b155405120e031",
+      "action_type": "draft",
+      "claimed": true,
+      "created_at": "2026-10-13T16:43:18.080423+00:00",
+      "dispatched": true,
+      "pick": 13,
+      "player_id": "3000014",
+      "player_name": "PatO Hoop014",
+      "revision": 15,
+      "status": "confirmed",
+      "updated_at": "2026-10-13T16:43:18.274499+00:00"
+    },
+    {
+      "action_id": "4cf1f1bbb6ad408a9340a82706d034da",
+      "action_type": "draft",
+      "claimed": true,
+      "created_at": "2026-10-13T16:43:18.374072+00:00",
+      "dispatched": true,
+      "pick": 16,
+      "player_id": "3000028",
+      "player_name": "PatC Hoop028",
+      "revision": 19,
+      "status": "confirmed",
+      "updated_at": "2026-10-13T16:43:18.570682+00:00"
+    },
+    {
+      "action_id": "92ea808c4d984345b5d4260765aea465",
+      "action_type": "draft",
+      "claimed": true,
+      "created_at": "2026-10-13T16:43:19.496273+00:00",
+      "dispatched": true,
+      "pick": 41,
+      "player_id": "3000049",
+      "player_name": "PatX Hoop049",
+      "revision": 45,
+      "status": "confirmed",
+      "updated_at": "2026-10-13T16:43:19.689666+00:00"
+    },
+    {
+      "action_id": "9274fc4eb2db447885ee8fe28382d836",
+      "action_type": "draft",
+      "claimed": true,
+      "created_at": "2026-10-13T16:43:19.786388+00:00",
+      "dispatched": true,
+      "pick": 44,
+      "player_id": "3000044",
+      "player_name": "PatS Hoop044",
+      "revision": 49,
+      "status": "confirmed",
+      "updated_at": "2026-10-13T16:43:19.990237+00:00"
+    },
+    {
+      "action_id": "84cd013e4c4b43ab8c700ca0865b46c8",
+      "action_type": "draft",
+      "claimed": true,
+      "created_at": "2026-10-13T16:43:20.883937+00:00",
+      "dispatched": true,
+      "pick": 69,
+      "player_id": "3000077",
+      "player_name": "PatZ Hoop077",
+      "revision": 75,
+      "status": "confirmed",
+      "updated_at": "2026-10-13T16:43:21.087915+00:00"
+    },
+    {
+      "action_id": "31d42f3822dd470b9c4bb1941052ff7e",
+      "action_type": "draft",
+      "claimed": true,
+      "created_at": "2026-10-13T16:43:21.174475+00:00",
+      "dispatched": true,
+      "pick": 72,
+      "player_id": "3000079",
+      "player_name": "PatB Hoop079",
+      "revision": 79,
+      "status": "confirmed",
+      "updated_at": "2026-10-13T16:43:21.384242+00:00"
+    },
+    {
+      "action_id": "2383e082c03e4e1baa218cdb8a933bca",
+      "action_type": "draft",
+      "claimed": true,
+      "created_at": "2026-10-13T16:43:22.509432+00:00",
+      "dispatched": true,
+      "pick": 97,
+      "player_id": "3000099",
+      "player_name": "PatV Hoop099",
+      "revision": 105,
+      "status": "confirmed",
+      "updated_at": "2026-10-13T16:43:22.712086+00:00"
+    },
+    {
+      "action_id": "5268af5bf5064f668e8d330d81212f70",
+      "action_type": "draft",
+      "claimed": true,
+      "created_at": "2026-10-13T16:43:22.804412+00:00",
+      "dispatched": true,
+      "pick": 100,
+      "player_id": "3000098",
+      "player_name": "PatU Hoop098",
+      "revision": 109,
+      "status": "confirmed",
+      "updated_at": "2026-10-13T16:43:23.004919+00:00"
+    },
+    {
+      "action_id": "9894dfd243c04323aeb34d62701f26ea",
+      "action_type": "draft",
+      "claimed": true,
+      "created_at": "2026-10-13T16:43:24.156031+00:00",
+      "dispatched": true,
+      "pick": 125,
+      "player_id": "3000134",
+      "player_name": "PatE Hoop134",
+      "revision": 135,
+      "status": "confirmed",
+      "updated_at": "2026-10-13T16:43:24.365184+00:00"
+    },
+    {
+      "action_id": "d32a4a8652b04cefbe6eba04b3dcd31f",
+      "action_type": "draft",
+      "claimed": true,
+      "created_at": "2026-10-13T16:43:24.473163+00:00",
+      "dispatched": true,
+      "pick": 128,
+      "player_id": "3000133",
+      "player_name": "PatD Hoop133",
+      "revision": 139,
+      "status": "confirmed",
+      "updated_at": "2026-10-13T16:43:24.687775+00:00"
+    }
+  ],
+  "artifact_version": "sanitized-session-v1",
+  "batches": [
+    {
+      "cycles": 130,
+      "ended_at": "2026-10-13T16:43:25.216Z",
+      "own_picks_confirmed": 10,
+      "reason": null,
+      "started_at": "2026-10-13T16:43:17.632Z",
+      "status": "completed"
+    }
+  ],
+  "exported_at": "2026-10-13T16:43:25.457885Z",
+  "final_observation": {
+    "autopick": false,
+    "available_pool_complete": false,
+    "complete": true,
+    "current_pick": null,
+    "history": [
+      {
+        "pick_number": 1,
+        "player_id": "3000000",
+        "player_name": "PatA Hoop000",
+        "team": "Opponent 1"
+      },
+      {
+        "pick_number": 2,
+        "player_id": "3000001",
+        "player_name": "PatB Hoop001",
+        "team": "Opponent 2"
+      },
+      {
+        "pick_number": 3,
+        "player_id": "3000002",
+        "player_name": "PatC Hoop002",
+        "team": "Opponent 3"
+      },
+      {
+        "pick_number": 4,
+        "player_id": "3000003",
+        "player_name": "PatD Hoop003",
+        "team": "Opponent 4"
+      },
+      {
+        "pick_number": 5,
+        "player_id": "3000004",
+        "player_name": "PatE Hoop004",
+        "team": "Opponent 5"
+      },
+      {
+        "pick_number": 6,
+        "player_id": "3000005",
+        "player_name": "PatF Hoop005",
+        "team": "Opponent 6"
+      },
+      {
+        "pick_number": 7,
+        "player_id": "3000006",
+        "player_name": "PatG Hoop006",
+        "team": "Opponent 7"
+      },
+      {
+        "pick_number": 8,
+        "player_id": "3000007",
+        "player_name": "PatH Hoop007",
+        "team": "Opponent 8"
+      },
+      {
+        "pick_number": 9,
+        "player_id": "3000008",
+        "player_name": "PatI Hoop008",
+        "team": "Opponent 9"
+      },
+      {
+        "pick_number": 10,
+        "player_id": "3000009",
+        "player_name": "PatJ Hoop009",
+        "team": "Opponent 10"
+      },
+      {
+        "pick_number": 11,
+        "player_id": "3000010",
+        "player_name": "PatK Hoop010",
+        "team": "Opponent 11"
+      },
+      {
+        "pick_number": 12,
+        "player_id": "3000011",
+        "player_name": "PatL Hoop011",
+        "team": "Opponent 12"
+      },
+      {
+        "pick_number": 13,
+        "player_id": "3000014",
+        "player_name": "PatO Hoop014",
+        "team": "Example Team"
+      },
+      {
+        "pick_number": 14,
+        "player_id": "3000012",
+        "player_name": "PatM Hoop012",
+        "team": "Opponent 14"
+      },
+      {
+        "pick_number": 15,
+        "player_id": "3000013",
+        "player_name": "PatN Hoop013",
+        "team": "Opponent 14"
+      },
+      {
+        "pick_number": 16,
+        "player_id": "3000028",
+        "player_name": "PatC Hoop028",
+        "team": "Example Team"
+      },
+      {
+        "pick_number": 17,
+        "player_id": "3000015",
+        "player_name": "PatP Hoop015",
+        "team": "Opponent 12"
+      },
+      {
+        "pick_number": 18,
+        "player_id": "3000016",
+        "player_name": "PatQ Hoop016",
+        "team": "Opponent 11"
+      },
+      {
+        "pick_number": 19,
+        "player_id": "3000017",
+        "player_name": "PatR Hoop017",
+        "team": "Opponent 10"
+      },
+      {
+        "pick_number": 20,
+        "player_id": "3000018",
+        "player_name": "PatS Hoop018",
+        "team": "Opponent 9"
+      },
+      {
+        "pick_number": 21,
+        "player_id": "3000019",
+        "player_name": "PatT Hoop019",
+        "team": "Opponent 8"
+      },
+      {
+        "pick_number": 22,
+        "player_id": "3000020",
+        "player_name": "PatU Hoop020",
+        "team": "Opponent 7"
+      },
+      {
+        "pick_number": 23,
+        "player_id": "3000021",
+        "player_name": "PatV Hoop021",
+        "team": "Opponent 6"
+      },
+      {
+        "pick_number": 24,
+        "player_id": "3000022",
+        "player_name": "PatW Hoop022",
+        "team": "Opponent 5"
+      },
+      {
+        "pick_number": 25,
+        "player_id": "3000023",
+        "player_name": "PatX Hoop023",
+        "team": "Opponent 4"
+      },
+      {
+        "pick_number": 26,
+        "player_id": "3000024",
+        "player_name": "PatY Hoop024",
+        "team": "Opponent 3"
+      },
+      {
+        "pick_number": 27,
+        "player_id": "3000025",
+        "player_name": "PatZ Hoop025",
+        "team": "Opponent 2"
+      },
+      {
+        "pick_number": 28,
+        "player_id": "3000026",
+        "player_name": "PatA Hoop026",
+        "team": "Opponent 1"
+      },
+      {
+        "pick_number": 29,
+        "player_id": "3000027",
+        "player_name": "PatB Hoop027",
+        "team": "Opponent 1"
+      },
+      {
+        "pick_number": 30,
+        "player_id": "3000029",
+        "player_name": "PatD Hoop029",
+        "team": "Opponent 2"
+      },
+      {
+        "pick_number": 31,
+        "player_id": "3000030",
+        "player_name": "PatE Hoop030",
+        "team": "Opponent 3"
+      },
+      {
+        "pick_number": 32,
+        "player_id": "3000031",
+        "player_name": "PatF Hoop031",
+        "team": "Opponent 4"
+      },
+      {
+        "pick_number": 33,
+        "player_id": "3000032",
+        "player_name": "PatG Hoop032",
+        "team": "Opponent 5"
+      },
+      {
+        "pick_number": 34,
+        "player_id": "3000033",
+        "player_name": "PatH Hoop033",
+        "team": "Opponent 6"
+      },
+      {
+        "pick_number": 35,
+        "player_id": "3000034",
+        "player_name": "PatI Hoop034",
+        "team": "Opponent 7"
+      },
+      {
+        "pick_number": 36,
+        "player_id": "3000035",
+        "player_name": "PatJ Hoop035",
+        "team": "Opponent 8"
+      },
+      {
+        "pick_number": 37,
+        "player_id": "3000036",
+        "player_name": "PatK Hoop036",
+        "team": "Opponent 9"
+      },
+      {
+        "pick_number": 38,
+        "player_id": "3000037",
+        "player_name": "PatL Hoop037",
+        "team": "Opponent 10"
+      },
+      {
+        "pick_number": 39,
+        "player_id": "3000038",
+        "player_name": "PatM Hoop038",
+        "team": "Opponent 11"
+      },
+      {
+        "pick_number": 40,
+        "player_id": "3000039",
+        "player_name": "PatN Hoop039",
+        "team": "Opponent 12"
+      },
+      {
+        "pick_number": 41,
+        "player_id": "3000049",
+        "player_name": "PatX Hoop049",
+        "team": "Example Team"
+      },
+      {
+        "pick_number": 42,
+        "player_id": "3000040",
+        "player_name": "PatO Hoop040",
+        "team": "Opponent 14"
+      },
+      {
+        "pick_number": 43,
+        "player_id": "3000041",
+        "player_name": "PatP Hoop041",
+        "team": "Opponent 14"
+      },
+      {
+        "pick_number": 44,
+        "player_id": "3000044",
+        "player_name": "PatS Hoop044",
+        "team": "Example Team"
+      },
+      {
+        "pick_number": 45,
+        "player_id": "3000042",
+        "player_name": "PatQ Hoop042",
+        "team": "Opponent 12"
+      },
+      {
+        "pick_number": 46,
+        "player_id": "3000043",
+        "player_name": "PatR Hoop043",
+        "team": "Opponent 11"
+      },
+      {
+        "pick_number": 47,
+        "player_id": "3000045",
+        "player_name": "PatT Hoop045",
+        "team": "Opponent 10"
+      },
+      {
+        "pick_number": 48,
+        "player_id": "3000046",
+        "player_name": "PatU Hoop046",
+        "team": "Opponent 9"
+      },
+      {
+        "pick_number": 49,
+        "player_id": "3000047",
+        "player_name": "PatV Hoop047",
+        "team": "Opponent 8"
+      },
+      {
+        "pick_number": 50,
+        "player_id": "3000048",
+        "player_name": "PatW Hoop048",
+        "team": "Opponent 7"
+      },
+      {
+        "pick_number": 51,
+        "player_id": "3000050",
+        "player_name": "PatY Hoop050",
+        "team": "Opponent 6"
+      },
+      {
+        "pick_number": 52,
+        "player_id": "3000051",
+        "player_name": "PatZ Hoop051",
+        "team": "Opponent 5"
+      },
+      {
+        "pick_number": 53,
+        "player_id": "3000052",
+        "player_name": "PatA Hoop052",
+        "team": "Opponent 4"
+      },
+      {
+        "pick_number": 54,
+        "player_id": "3000053",
+        "player_name": "PatB Hoop053",
+        "team": "Opponent 3"
+      },
+      {
+        "pick_number": 55,
+        "player_id": "3000054",
+        "player_name": "PatC Hoop054",
+        "team": "Opponent 2"
+      },
+      {
+        "pick_number": 56,
+        "player_id": "3000055",
+        "player_name": "PatD Hoop055",
+        "team": "Opponent 1"
+      },
+      {
+        "pick_number": 57,
+        "player_id": "3000056",
+        "player_name": "PatE Hoop056",
+        "team": "Opponent 1"
+      },
+      {
+        "pick_number": 58,
+        "player_id": "3000057",
+        "player_name": "PatF Hoop057",
+        "team": "Opponent 2"
+      },
+      {
+        "pick_number": 59,
+        "player_id": "3000058",
+        "player_name": "PatG Hoop058",
+        "team": "Opponent 3"
+      },
+      {
+        "pick_number": 60,
+        "player_id": "3000059",
+        "player_name": "PatH Hoop059",
+        "team": "Opponent 4"
+      },
+      {
+        "pick_number": 61,
+        "player_id": "3000060",
+        "player_name": "PatI Hoop060",
+        "team": "Opponent 5"
+      },
+      {
+        "pick_number": 62,
+        "player_id": "3000061",
+        "player_name": "PatJ Hoop061",
+        "team": "Opponent 6"
+      },
+      {
+        "pick_number": 63,
+        "player_id": "3000062",
+        "player_name": "PatK Hoop062",
+        "team": "Opponent 7"
+      },
+      {
+        "pick_number": 64,
+        "player_id": "3000063",
+        "player_name": "PatL Hoop063",
+        "team": "Opponent 8"
+      },
+      {
+        "pick_number": 65,
+        "player_id": "3000064",
+        "player_name": "PatM Hoop064",
+        "team": "Opponent 9"
+      },
+      {
+        "pick_number": 66,
+        "player_id": "3000065",
+        "player_name": "PatN Hoop065",
+        "team": "Opponent 10"
+      },
+      {
+        "pick_number": 67,
+        "player_id": "3000066",
+        "player_name": "PatO Hoop066",
+        "team": "Opponent 11"
+      },
+      {
+        "pick_number": 68,
+        "player_id": "3000067",
+        "player_name": "PatP Hoop067",
+        "team": "Opponent 12"
+      },
+      {
+        "pick_number": 69,
+        "player_id": "3000077",
+        "player_name": "PatZ Hoop077",
+        "team": "Example Team"
+      },
+      {
+        "pick_number": 70,
+        "player_id": "3000068",
+        "player_name": "PatQ Hoop068",
+        "team": "Opponent 14"
+      },
+      {
+        "pick_number": 71,
+        "player_id": "3000069",
+        "player_name": "PatR Hoop069",
+        "team": "Opponent 14"
+      },
+      {
+        "pick_number": 72,
+        "player_id": "3000079",
+        "player_name": "PatB Hoop079",
+        "team": "Example Team"
+      },
+      {
+        "pick_number": 73,
+        "player_id": "3000070",
+        "player_name": "PatS Hoop070",
+        "team": "Opponent 12"
+      },
+      {
+        "pick_number": 74,
+        "player_id": "3000071",
+        "player_name": "PatT Hoop071",
+        "team": "Opponent 11"
+      },
+      {
+        "pick_number": 75,
+        "player_id": "3000072",
+        "player_name": "PatU Hoop072",
+        "team": "Opponent 10"
+      },
+      {
+        "pick_number": 76,
+        "player_id": "3000073",
+        "player_name": "PatV Hoop073",
+        "team": "Opponent 9"
+      },
+      {
+        "pick_number": 77,
+        "player_id": "3000074",
+        "player_name": "PatW Hoop074",
+        "team": "Opponent 8"
+      },
+      {
+        "pick_number": 78,
+        "player_id": "3000075",
+        "player_name": "PatX Hoop075",
+        "team": "Opponent 7"
+      },
+      {
+        "pick_number": 79,
+        "player_id": "3000076",
+        "player_name": "PatY Hoop076",
+        "team": "Opponent 6"
+      },
+      {
+        "pick_number": 80,
+        "player_id": "3000078",
+        "player_name": "PatA Hoop078",
+        "team": "Opponent 5"
+      },
+      {
+        "pick_number": 81,
+        "player_id": "3000080",
+        "player_name": "PatC Hoop080",
+        "team": "Opponent 4"
+      },
+      {
+        "pick_number": 82,
+        "player_id": "3000081",
+        "player_name": "PatD Hoop081",
+        "team": "Opponent 3"
+      },
+      {
+        "pick_number": 83,
+        "player_id": "3000082",
+        "player_name": "PatE Hoop082",
+        "team": "Opponent 2"
+      },
+      {
+        "pick_number": 84,
+        "player_id": "3000083",
+        "player_name": "PatF Hoop083",
+        "team": "Opponent 1"
+      },
+      {
+        "pick_number": 85,
+        "player_id": "3000084",
+        "player_name": "PatG Hoop084",
+        "team": "Opponent 1"
+      },
+      {
+        "pick_number": 86,
+        "player_id": "3000085",
+        "player_name": "PatH Hoop085",
+        "team": "Opponent 2"
+      },
+      {
+        "pick_number": 87,
+        "player_id": "3000086",
+        "player_name": "PatI Hoop086",
+        "team": "Opponent 3"
+      },
+      {
+        "pick_number": 88,
+        "player_id": "3000087",
+        "player_name": "PatJ Hoop087",
+        "team": "Opponent 4"
+      },
+      {
+        "pick_number": 89,
+        "player_id": "3000088",
+        "player_name": "PatK Hoop088",
+        "team": "Opponent 5"
+      },
+      {
+        "pick_number": 90,
+        "player_id": "3000089",
+        "player_name": "PatL Hoop089",
+        "team": "Opponent 6"
+      },
+      {
+        "pick_number": 91,
+        "player_id": "3000090",
+        "player_name": "PatM Hoop090",
+        "team": "Opponent 7"
+      },
+      {
+        "pick_number": 92,
+        "player_id": "3000091",
+        "player_name": "PatN Hoop091",
+        "team": "Opponent 8"
+      },
+      {
+        "pick_number": 93,
+        "player_id": "3000092",
+        "player_name": "PatO Hoop092",
+        "team": "Opponent 9"
+      },
+      {
+        "pick_number": 94,
+        "player_id": "3000093",
+        "player_name": "PatP Hoop093",
+        "team": "Opponent 10"
+      },
+      {
+        "pick_number": 95,
+        "player_id": "3000094",
+        "player_name": "PatQ Hoop094",
+        "team": "Opponent 11"
+      },
+      {
+        "pick_number": 96,
+        "player_id": "3000095",
+        "player_name": "PatR Hoop095",
+        "team": "Opponent 12"
+      },
+      {
+        "pick_number": 97,
+        "player_id": "3000099",
+        "player_name": "PatV Hoop099",
+        "team": "Example Team"
+      },
+      {
+        "pick_number": 98,
+        "player_id": "3000096",
+        "player_name": "PatS Hoop096",
+        "team": "Opponent 14"
+      },
+      {
+        "pick_number": 99,
+        "player_id": "3000097",
+        "player_name": "PatT Hoop097",
+        "team": "Opponent 14"
+      },
+      {
+        "pick_number": 100,
+        "player_id": "3000098",
+        "player_name": "PatU Hoop098",
+        "team": "Example Team"
+      },
+      {
+        "pick_number": 101,
+        "player_id": "3000100",
+        "player_name": "PatW Hoop100",
+        "team": "Opponent 12"
+      },
+      {
+        "pick_number": 102,
+        "player_id": "3000101",
+        "player_name": "PatX Hoop101",
+        "team": "Opponent 11"
+      },
+      {
+        "pick_number": 103,
+        "player_id": "3000102",
+        "player_name": "PatY Hoop102",
+        "team": "Opponent 10"
+      },
+      {
+        "pick_number": 104,
+        "player_id": "3000103",
+        "player_name": "PatZ Hoop103",
+        "team": "Opponent 9"
+      },
+      {
+        "pick_number": 105,
+        "player_id": "3000104",
+        "player_name": "PatA Hoop104",
+        "team": "Opponent 8"
+      },
+      {
+        "pick_number": 106,
+        "player_id": "3000105",
+        "player_name": "PatB Hoop105",
+        "team": "Opponent 7"
+      },
+      {
+        "pick_number": 107,
+        "player_id": "3000106",
+        "player_name": "PatC Hoop106",
+        "team": "Opponent 6"
+      },
+      {
+        "pick_number": 108,
+        "player_id": "3000107",
+        "player_name": "PatD Hoop107",
+        "team": "Opponent 5"
+      },
+      {
+        "pick_number": 109,
+        "player_id": "3000108",
+        "player_name": "PatE Hoop108",
+        "team": "Opponent 4"
+      },
+      {
+        "pick_number": 110,
+        "player_id": "3000109",
+        "player_name": "PatF Hoop109",
+        "team": "Opponent 3"
+      },
+      {
+        "pick_number": 111,
+        "player_id": "3000110",
+        "player_name": "PatG Hoop110",
+        "team": "Opponent 2"
+      },
+      {
+        "pick_number": 112,
+        "player_id": "3000111",
+        "player_name": "PatH Hoop111",
+        "team": "Opponent 1"
+      },
+      {
+        "pick_number": 113,
+        "player_id": "3000112",
+        "player_name": "PatI Hoop112",
+        "team": "Opponent 1"
+      },
+      {
+        "pick_number": 114,
+        "player_id": "3000113",
+        "player_name": "PatJ Hoop113",
+        "team": "Opponent 2"
+      },
+      {
+        "pick_number": 115,
+        "player_id": "3000114",
+        "player_name": "PatK Hoop114",
+        "team": "Opponent 3"
+      },
+      {
+        "pick_number": 116,
+        "player_id": "3000115",
+        "player_name": "PatL Hoop115",
+        "team": "Opponent 4"
+      },
+      {
+        "pick_number": 117,
+        "player_id": "3000116",
+        "player_name": "PatM Hoop116",
+        "team": "Opponent 5"
+      },
+      {
+        "pick_number": 118,
+        "player_id": "3000117",
+        "player_name": "PatN Hoop117",
+        "team": "Opponent 6"
+      },
+      {
+        "pick_number": 119,
+        "player_id": "3000118",
+        "player_name": "PatO Hoop118",
+        "team": "Opponent 7"
+      },
+      {
+        "pick_number": 120,
+        "player_id": "3000119",
+        "player_name": "PatP Hoop119",
+        "team": "Opponent 8"
+      },
+      {
+        "pick_number": 121,
+        "player_id": "3000120",
+        "player_name": "PatQ Hoop120",
+        "team": "Opponent 9"
+      },
+      {
+        "pick_number": 122,
+        "player_id": "3000121",
+        "player_name": "PatR Hoop121",
+        "team": "Opponent 10"
+      },
+      {
+        "pick_number": 123,
+        "player_id": "3000122",
+        "player_name": "PatS Hoop122",
+        "team": "Opponent 11"
+      },
+      {
+        "pick_number": 124,
+        "player_id": "3000123",
+        "player_name": "PatT Hoop123",
+        "team": "Opponent 12"
+      },
+      {
+        "pick_number": 125,
+        "player_id": "3000134",
+        "player_name": "PatE Hoop134",
+        "team": "Example Team"
+      },
+      {
+        "pick_number": 126,
+        "player_id": "3000124",
+        "player_name": "PatU Hoop124",
+        "team": "Opponent 14"
+      },
+      {
+        "pick_number": 127,
+        "player_id": "3000125",
+        "player_name": "PatV Hoop125",
+        "team": "Opponent 14"
+      },
+      {
+        "pick_number": 128,
+        "player_id": "3000133",
+        "player_name": "PatD Hoop133",
+        "team": "Example Team"
+      },
+      {
+        "pick_number": 129,
+        "player_id": "3000126",
+        "player_name": "PatW Hoop126",
+        "team": "Opponent 12"
+      },
+      {
+        "pick_number": 130,
+        "player_id": "3000127",
+        "player_name": "PatX Hoop127",
+        "team": "Opponent 11"
+      },
+      {
+        "pick_number": 131,
+        "player_id": "3000128",
+        "player_name": "PatY Hoop128",
+        "team": "Opponent 10"
+      },
+      {
+        "pick_number": 132,
+        "player_id": "3000129",
+        "player_name": "PatZ Hoop129",
+        "team": "Opponent 9"
+      },
+      {
+        "pick_number": 133,
+        "player_id": "3000130",
+        "player_name": "PatA Hoop130",
+        "team": "Opponent 8"
+      },
+      {
+        "pick_number": 134,
+        "player_id": "3000131",
+        "player_name": "PatB Hoop131",
+        "team": "Opponent 7"
+      },
+      {
+        "pick_number": 135,
+        "player_id": "3000132",
+        "player_name": "PatC Hoop132",
+        "team": "Opponent 6"
+      },
+      {
+        "pick_number": 136,
+        "player_id": "3000135",
+        "player_name": "PatF Hoop135",
+        "team": "Opponent 5"
+      },
+      {
+        "pick_number": 137,
+        "player_id": "3000136",
+        "player_name": "PatG Hoop136",
+        "team": "Opponent 4"
+      },
+      {
+        "pick_number": 138,
+        "player_id": "3000137",
+        "player_name": "PatH Hoop137",
+        "team": "Opponent 3"
+      },
+      {
+        "pick_number": 139,
+        "player_id": "3000138",
+        "player_name": "PatI Hoop138",
+        "team": "Opponent 2"
+      },
+      {
+        "pick_number": 140,
+        "player_id": "3000139",
+        "player_name": "PatJ Hoop139",
+        "team": "Opponent 1"
+      }
+    ],
+    "history_complete": true,
+    "history_summary": {
+      "count": 140,
+      "first_pick": "PatA Hoop000",
+      "last_pick": "PatJ Hoop139",
+      "our_confirmed_picks": [
+        13,
+        16,
+        41,
+        44,
+        69,
+        72,
+        97,
+        100,
+        125,
+        128
+      ],
+      "unique_player_ids": 140
+    },
+    "observed_at": "2026-10-13T16:43:25.162Z",
+    "on_clock_team": null,
+    "phase": "complete",
+    "pick_order": [
+      "Opponent 1",
+      "Opponent 2",
+      "Opponent 3",
+      "Opponent 4",
+      "Opponent 5",
+      "Opponent 6",
+      "Opponent 7",
+      "Opponent 8",
+      "Opponent 9",
+      "Opponent 10",
+      "Opponent 11",
+      "Opponent 12",
+      "Example Team",
+      "Opponent 14"
+    ],
+    "revision": 154,
+    "room": {
+      "league_id": "1000000012",
+      "practice": true,
+      "season_id": "2027",
+      "team_id": "15"
+    },
+    "roster": [
+      {
+        "eligibility": [
+          "F"
+        ],
+        "name": "PatO Hoop014",
+        "player_id": "3000014"
+      },
+      {
+        "eligibility": [
+          "C",
+          "F"
+        ],
+        "name": "PatC Hoop028",
+        "player_id": "3000028"
+      },
+      {
+        "eligibility": [
+          "G"
+        ],
+        "name": "PatX Hoop049",
+        "player_id": "3000049"
+      },
+      {
+        "eligibility": [
+          "G",
+          "F"
+        ],
+        "name": "PatS Hoop044",
+        "player_id": "3000044"
+      },
+      {
+        "eligibility": [
+          "G"
+        ],
+        "name": "PatZ Hoop077",
+        "player_id": "3000077"
+      },
+      {
+        "eligibility": [
+          "C",
+          "F"
+        ],
+        "name": "PatB Hoop079",
+        "player_id": "3000079"
+      },
+      {
+        "eligibility": [
+          "G",
+          "F"
+        ],
+        "name": "PatV Hoop099",
+        "player_id": "3000099"
+      },
+      {
+        "eligibility": [
+          "F"
+        ],
+        "name": "PatU Hoop098",
+        "player_id": "3000098"
+      },
+      {
+        "eligibility": [
+          "F"
+        ],
+        "name": "PatE Hoop134",
+        "player_id": "3000134"
+      },
+      {
+        "eligibility": [
+          "G"
+        ],
+        "name": "PatD Hoop133",
+        "player_id": "3000133"
+      }
+    ],
+    "roster_summary": {
+      "eligibility_counts": {
+        "C": 2,
+        "F": 7,
+        "G": 5
+      },
+      "legal_roster": true,
+      "players": 10
+    },
+    "rules": {
+      "bench_slots": 4,
+      "ir_slots": 3,
+      "rounds": 10,
+      "scoring": {
+        "3PM": 1,
+        "AST": 2,
+        "BLK": 4,
+        "DD": 3,
+        "EJ": -5,
+        "FGA": -1,
+        "FGM": 2,
+        "FTA": -1,
+        "FTM": 1,
+        "PF": -1,
+        "PTS": 1,
+        "QD": 100,
+        "REB": 2,
+        "STL": 4,
+        "TD": 5,
+        "TF": -2,
+        "TO": -2
+      },
+      "starting_slots": [
+        "C",
+        "G",
+        "G",
+        "F",
+        "F",
+        "UTIL"
+      ],
+      "teams": 14
+    },
+    "schema_version": 1,
+    "seconds_remaining": null,
+    "session_id": "example-278b5e8b9593236d",
+    "warnings": [
+      "fast_capture_not_confirmable",
+      "show_drafted_state_unknown",
+      "players_grid_missing",
+      "available_ids_not_authorized_until_show_drafted_off",
+      "no live candidate has complete core projections and GP"
+    ]
+  },
+  "journal": {
+    "action_lifecycle": [
+      {
+        "action_id": "18d1190dcd0241c7a4b155405120e031",
+        "events": [
+          "action_proposed",
+          "action_claimed",
+          "action_submitted",
+          "action_confirmed"
+        ]
+      },
+      {
+        "action_id": "4cf1f1bbb6ad408a9340a82706d034da",
+        "events": [
+          "action_proposed",
+          "action_claimed",
+          "action_submitted",
+          "action_confirmed"
+        ]
+      },
+      {
+        "action_id": "92ea808c4d984345b5d4260765aea465",
+        "events": [
+          "action_proposed",
+          "action_claimed",
+          "action_submitted",
+          "action_confirmed"
+        ]
+      },
+      {
+        "action_id": "9274fc4eb2db447885ee8fe28382d836",
+        "events": [
+          "action_proposed",
+          "action_claimed",
+          "action_submitted",
+          "action_confirmed"
+        ]
+      },
+      {
+        "action_id": "84cd013e4c4b43ab8c700ca0865b46c8",
+        "events": [
+          "action_proposed",
+          "action_claimed",
+          "action_submitted",
+          "action_confirmed"
+        ]
+      },
+      {
+        "action_id": "31d42f3822dd470b9c4bb1941052ff7e",
+        "events": [
+          "action_proposed",
+          "action_claimed",
+          "action_submitted",
+          "action_confirmed"
+        ]
+      },
+      {
+        "action_id": "2383e082c03e4e1baa218cdb8a933bca",
+        "events": [
+          "action_proposed",
+          "action_claimed",
+          "action_submitted",
+          "action_confirmed"
+        ]
+      },
+      {
+        "action_id": "5268af5bf5064f668e8d330d81212f70",
+        "events": [
+          "action_proposed",
+          "action_claimed",
+          "action_submitted",
+          "action_confirmed"
+        ]
+      },
+      {
+        "action_id": "9894dfd243c04323aeb34d62701f26ea",
+        "events": [
+          "action_proposed",
+          "action_claimed",
+          "action_submitted",
+          "action_confirmed"
+        ]
+      },
+      {
+        "action_id": "d32a4a8652b04cefbe6eba04b3dcd31f",
+        "events": [
+          "action_proposed",
+          "action_claimed",
+          "action_submitted",
+          "action_confirmed"
+        ]
+      }
+    ],
+    "confirmation_detail": "confirmed by authoritative board history and roster",
+    "control_events": [
+      {
+        "created_at": "2026-10-13T16:43:17.368595+00:00",
+        "event": "connect",
+        "payload": {
+          "practice": true,
+          "safe_url": "https://fantasy.espn.com/basketball/draft?leagueId=1000000012&seasonId=2027&teamId=15"
+        },
+        "seq": 1
+      },
+      {
+        "created_at": "2026-10-13T16:43:17.369537+00:00",
+        "event": "practice_attested",
+        "payload": {
+          "heading": "ESPN Fantasy Basketball Draft - Practice Draft for Example League",
+          "room": {
+            "league_id": "1000000012",
+            "practice": true,
+            "season_id": "2027",
+            "team_id": "15"
+          },
+          "source_league_id": "1000000000"
+        },
+        "seq": 2
+      },
+      {
+        "created_at": "2026-10-13T16:43:17.490144+00:00",
+        "event": "ownership_claimed",
+        "payload": {
+          "epoch": 1,
+          "label": "",
+          "revision": null
+        },
+        "seq": 3
+      },
+      {
+        "created_at": "2026-10-13T16:43:17.609735+00:00",
+        "event": "start",
+        "payload": {
+          "from": "observing"
+        },
+        "seq": 6
+      },
+      {
+        "created_at": "2026-10-13T16:43:25.177802+00:00",
+        "event": "completed",
+        "payload": {
+          "history": 140,
+          "revision": 154,
+          "roster": 10
+        },
+        "seq": 207
+      }
+    ],
+    "event_counts": {
+      "action_claimed": 10,
+      "action_confirmed": 10,
+      "action_proposed": 10,
+      "action_submitted": 10,
+      "completed": 1,
+      "connect": 1,
+      "observation": 152,
+      "ownership_claimed": 1,
+      "practice_attested": 1,
+      "recommendation": 10,
+      "start": 1
+    },
+    "omitted_event_classes": [
+      "observation",
+      "recommendation"
+    ],
+    "omitted_event_note": "The final observation below is the terminal observation projection; repeated observation and recommendation payloads were omitted from this sanitized journal export.",
+    "pause_resume_events_after_start": [],
+    "sequence_end": 207,
+    "sequence_start": 1,
+    "source_table": "coordinator.journal"
+  },
+  "latency": {
+    "clean_timing_gate": "not_evaluated_offline",
+    "provenance": "offline canonical factory over real localhost HTTP; simulated ESPN DOM and opponents",
+    "rows": [
+      {
+        "click_to_confirm_ms": 182,
+        "clock_seconds": 90,
+        "history_and_roster_confirmed": true,
+        "observation_to_click_ms": 72,
+        "pick": 13,
+        "player": "PatO Hoop014"
+      },
+      {
+        "click_to_confirm_ms": 180,
+        "clock_seconds": 90,
+        "history_and_roster_confirmed": true,
+        "observation_to_click_ms": 71,
+        "pick": 16,
+        "player": "PatC Hoop028"
+      },
+      {
+        "click_to_confirm_ms": 176,
+        "clock_seconds": 90,
+        "history_and_roster_confirmed": true,
+        "observation_to_click_ms": 72,
+        "pick": 41,
+        "player": "PatX Hoop049"
+      },
+      {
+        "click_to_confirm_ms": 183,
+        "clock_seconds": 90,
+        "history_and_roster_confirmed": true,
+        "observation_to_click_ms": 72,
+        "pick": 44,
+        "player": "PatS Hoop044"
+      },
+      {
+        "click_to_confirm_ms": 185,
+        "clock_seconds": 90,
+        "history_and_roster_confirmed": true,
+        "observation_to_click_ms": 74,
+        "pick": 69,
+        "player": "PatZ Hoop077"
+      },
+      {
+        "click_to_confirm_ms": 194,
+        "clock_seconds": 90,
+        "history_and_roster_confirmed": true,
+        "observation_to_click_ms": 71,
+        "pick": 72,
+        "player": "PatB Hoop079"
+      },
+      {
+        "click_to_confirm_ms": 184,
+        "clock_seconds": 90,
+        "history_and_roster_confirmed": true,
+        "observation_to_click_ms": 77,
+        "pick": 97,
+        "player": "PatV Hoop099"
+      },
+      {
+        "click_to_confirm_ms": 179,
+        "clock_seconds": 90,
+        "history_and_roster_confirmed": true,
+        "observation_to_click_ms": 78,
+        "pick": 100,
+        "player": "PatU Hoop098"
+      },
+      {
+        "click_to_confirm_ms": 189,
+        "clock_seconds": 90,
+        "history_and_roster_confirmed": true,
+        "observation_to_click_ms": 79,
+        "pick": 125,
+        "player": "PatE Hoop134"
+      },
+      {
+        "click_to_confirm_ms": 200,
+        "clock_seconds": 90,
+        "history_and_roster_confirmed": true,
+        "observation_to_click_ms": 84,
+        "pick": 128,
+        "player": "PatD Hoop133"
+      }
+    ],
+    "units": {
+      "click_to_confirm": "milliseconds",
+      "clock": "seconds remaining at prepare observation",
+      "observation_to_click": "milliseconds"
+    }
+  },
+  "practice_attestation": {
+    "created_at": "2026-10-13T16:43:17.369537+00:00",
+    "heading": "ESPN Fantasy Basketball Draft - Practice Draft for Example League",
+    "room": {
+      "league_id": "1000000012",
+      "practice": true,
+      "season_id": "2027",
+      "team_id": "15"
+    },
+    "source_league_id": "1000000000"
+  },
+  "release_limits": [
+    "Offline only; live browser selectors and connectivity remain unverified."
+  ],
+  "runner": "canonical-practice-runner-v1",
+  "sanitization": {
+    "omitted": [
+      "claim_token",
+      "owner_token",
+      "available_players",
+      "known_players",
+      "recommendation payloads",
+      "repeated observation payloads"
+    ],
+    "projection": "session/actions/journal/final_observation",
+    "reason": "Durable audit projection keeps control and final-state evidence without credentials, claim material, or the full player catalog."
+  },
+  "session": {
+    "control_version": 2,
+    "created_at": "2026-10-13T16:43:17.368595+00:00",
+    "foreground_invocation": {
+      "invocation_count": 1,
+      "invocations": [
+        {
+          "cycles": 130,
+          "ended_at": "2026-10-13T16:43:25.216Z",
+          "own_picks_confirmed": 10,
+          "reason": null,
+          "started_at": "2026-10-13T16:43:17.632Z",
+          "status": "completed"
+        }
+      ]
+    },
+    "latest_revision": 154,
+    "manual_override": false,
+    "reason": "authoritative final draft frame",
+    "room": {
+      "league_id": "1000000012",
+      "practice": true,
+      "season_id": "2027",
+      "team_id": "15"
+    },
+    "session_id": "example-278b5e8b9593236d",
+    "state": "completed",
+    "updated_at": "2026-10-13T16:43:25.177802+00:00"
+  },
+  "verification": {
+    "confirmed_action_player_ids_match_history": true,
+    "contiguous_pick_numbers": true,
+    "history_rows_exported": 140,
+    "snake_order_matches_pick_order": true,
+    "snake_order_mismatches": [],
+    "source": "coordinator terminal observation revision 154",
+    "unique_history_player_ids": 140
+  }
+}

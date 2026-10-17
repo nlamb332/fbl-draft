@@ -1,0 +1,193 @@
+{
+  "captured_at": "2026-10-11T21:01:08.098Z",
+  "room": {
+    "league_id": "1000000016",
+    "season_id": "2027",
+    "team_id": "15",
+    "practice": true
+  },
+  "session_id": "example-6dcd73354ff0c487",
+  "native_pause_verified": true,
+  "current_pick": 30,
+  "on_clock_team": "Example Opponent 26",
+  "seconds_remaining": null,
+  "history_count": 29,
+  "history_complete": true,
+  "history": [
+    {
+      "pick_number": 1,
+      "team": "Example Opponent 22",
+      "player_id": "3112335",
+      "player_name": "Nikola Jokic"
+    },
+    {
+      "pick_number": 2,
+      "team": "Example Opponent 26",
+      "player_id": "4278073",
+      "player_name": "Shai Gilgeous-Alexander"
+    },
+    {
+      "pick_number": 3,
+      "team": "Example Opponent 03",
+      "player_id": "3945274",
+      "player_name": "Luka Doncic"
+    },
+    {
+      "pick_number": 4,
+      "team": "Example Opponent 24",
+      "player_id": "5104157",
+      "player_name": "Victor Wembanyama"
+    },
+    {
+      "pick_number": 5,
+      "team": "Example Opponent 05",
+      "player_id": "3032977",
+      "player_name": "Giannis Antetokounmpo"
+    },
+    {
+      "pick_number": 6,
+      "team": "Example Opponent 07",
+      "player_id": "4594268",
+      "player_name": "Anthony Edwards"
+    },
+    {
+      "pick_number": 7,
+      "team": "Example Opponent 21",
+      "player_id": "4065648",
+      "player_name": "Jayson Tatum"
+    },
+    {
+      "pick_number": 8,
+      "team": "Example Opponent 04",
+      "player_id": "4701230",
+      "player_name": "Jalen Johnson"
+    },
+    {
+      "pick_number": 9,
+      "team": "Team 16",
+      "player_id": "4432166",
+      "player_name": "Cade Cunningham"
+    },
+    {
+      "pick_number": 10,
+      "team": "Example Opponent 01",
+      "player_id": "4432816",
+      "player_name": "LaMelo Ball"
+    },
+    {
+      "pick_number": 11,
+      "team": "Example Opponent 06",
+      "player_id": "3908809",
+      "player_name": "Donovan Mitchell"
+    },
+    {
+      "pick_number": 12,
+      "team": "Example Opponent 27",
+      "player_id": "4431678",
+      "player_name": "Tyrese Maxey"
+    },
+    {
+      "pick_number": 13,
+      "team": "Example Team",
+      "player_id": "3155942",
+      "player_name": "Domantas Sabonis"
+    },
+    {
+      "pick_number": 14,
+      "team": "Example Opponent 23",
+      "player_id": "4277905",
+      "player_name": "Trae Young"
+    },
+    {
+      "pick_number": 15,
+      "team": "Example Opponent 23",
+      "player_id": "5041939",
+      "player_name": "Cooper Flagg"
+    },
+    {
+      "pick_number": 16,
+      "team": "Example Team",
+      "player_id": "3934672",
+      "player_name": "Jalen Brunson"
+    },
+    {
+      "pick_number": 17,
+      "team": "Example Opponent 27",
+      "player_id": "4396993",
+      "player_name": "Tyrese Haliburton"
+    },
+    {
+      "pick_number": 18,
+      "team": "Example Opponent 06",
+      "player_id": "4871145",
+      "player_name": "Josh Giddey"
+    },
+    {
+      "pick_number": 19,
+      "team": "Example Opponent 01",
+      "player_id": "4433134",
+      "player_name": "Scottie Barnes"
+    },
+    {
+      "pick_number": 20,
+      "team": "Team 16",
+      "player_id": "3136193",
+      "player_name": "Devin Booker"
+    },
+    {
+      "pick_number": 21,
+      "team": "Example Opponent 04",
+      "player_id": "4871144",
+      "player_name": "Alperen Sengun"
+    },
+    {
+      "pick_number": 22,
+      "team": "Example Opponent 21",
+      "player_id": "3202",
+      "player_name": "Kevin Durant"
+    },
+    {
+      "pick_number": 23,
+      "team": "Example Opponent 07",
+      "player_id": "3136195",
+      "player_name": "Karl-Anthony Towns"
+    },
+    {
+      "pick_number": 24,
+      "team": "Example Opponent 05",
+      "player_id": "4684740",
+      "player_name": "Amen Thompson"
+    },
+    {
+      "pick_number": 25,
+      "team": "Example Opponent 24",
+      "player_id": "3149673",
+      "player_name": "Pascal Siakam"
+    },
+    {
+      "pick_number": 26,
+      "team": "Example Opponent 03",
+      "player_id": "3992",
+      "player_name": "James Harden"
+    },
+    {
+      "pick_number": 27,
+      "team": "Example Opponent 26",
+      "player_id": "4433621",
+      "player_name": "Jalen Duren"
+    },
+    {
+      "pick_number": 28,
+      "team": "Example Opponent 22",
+      "player_id": "4683021",
+      "player_name": "Deni Avdija"
+    },
+    {
+      "pick_number": 29,
+      "team": "Example Opponent 22",
+      "player_id": "6450",
+      "player_name": "Kawhi Leonard"
+    }
+  ],
+  "warning": "Native timer elapsed before canonical direct runtime dispatch; own picks at 13 and 16 were ESPN native fallback and are excluded from direct-pick evidence."
+}

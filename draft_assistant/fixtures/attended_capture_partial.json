@@ -1,0 +1,52 @@
+{
+  "rules": {
+    "source": "sanitized attended-room fixture"
+  },
+  "catalog": [
+    {
+      "player_id": "fixture-001",
+      "name": "Fixture Guard",
+      "eligibility": ["G"],
+      "projected_gp": 82,
+      "draft_rank": 1,
+      "source": "attended capture 2026-10-13T12:00:00Z room 723024336",
+      "stats": {
+        "PTS": 10, "FGM": 4, "FGA": 8, "FTM": 2, "FTA": 2,
+        "3PM": 2, "REB": 3, "AST": 4, "STL": 1, "BLK": 0, "TO": 1
+      }
+    },
+    {
+      "player_id": "fixture-002",
+      "name": "Fixture Center",
+      "eligibility": ["C", "F"],
+      "projected_gp": 80,
+      "draft_rank": 2,
+      "source": "attended capture 2026-10-13T12:00:00Z room 723024336",
+      "stats": {
+        "PTS": 9, "FGM": 3, "FGA": 7, "FTM": 3, "FTA": 4,
+        "3PM": 0, "REB": 8, "AST": 2, "STL": 0, "BLK": 2, "TO": 2
+      }
+    },
+    {
+      "player_id": "fixture-003",
+      "name": "Fixture Incomplete",
+      "eligibility": ["F"],
+      "projected_gp": 70,
+      "draft_rank": 3,
+      "source": "attended capture 2026-10-13T12:00:00Z room 723024336",
+      "stats": {
+        "PTS": 8, "FGM": 3, "FGA": 7, "FTM": 2, "FTA": 3,
+        "3PM": 1, "REB": 5, "AST": 1, "STL": 1, "BLK": 0
+      }
+    },
+    {
+      "player_id": "fixture-004",
+      "name": "Fixture Empty",
+      "eligibility": ["G"],
+      "projected_gp": 60,
+      "draft_rank": 4,
+      "source": "attended capture 2026-10-13T12:00:00Z room 723024336",
+      "stats": {}
+    }
+  ]
+}

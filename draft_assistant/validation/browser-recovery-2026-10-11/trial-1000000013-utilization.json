@@ -1,0 +1,132 @@
+{
+  "source": "trial-1000000013.json final_observation.roster",
+  "real_schedule_available": false,
+  "structural": {
+    "roster_size": 10,
+    "legal_final_roster": true,
+    "eligibility_counts": {
+      "C": 7,
+      "G": 2,
+      "F": 4
+    },
+    "center_only_count": 5,
+    "structural_start_capacity": 6,
+    "schedule_available": false,
+    "days_analyzed": 0,
+    "active_starter_rate": null,
+    "active_roster_rate": null,
+    "mean_busy_collisions": null,
+    "mean_inactive_starters": null,
+    "daily": [],
+    "errors": []
+  },
+  "synthetic_mechanics_only": {
+    "center_only_active": {
+      "roster_size": 10,
+      "legal_final_roster": true,
+      "eligibility_counts": {
+        "C": 7,
+        "G": 2,
+        "F": 4
+      },
+      "center_only_count": 5,
+      "structural_start_capacity": 6,
+      "schedule_available": true,
+      "days_analyzed": 1,
+      "active_starter_rate": 0.3333333333333333,
+      "active_roster_rate": 0.5,
+      "mean_busy_collisions": 0.0,
+      "mean_inactive_starters": 4.0,
+      "daily": [
+        {
+          "day": 0,
+          "slots": {
+            "C": "3032976",
+            "G1": "3995",
+            "G2": "5174563",
+            "F1": "3064514",
+            "F2": "3155942",
+            "UTIL": "4066328"
+          },
+          "starter_ids": [
+            "3032976",
+            "3995",
+            "5174563",
+            "3064514",
+            "3155942",
+            "4066328"
+          ],
+          "bench_ids": [
+            "3908845",
+            "4433621",
+            "5105565",
+            "6478"
+          ],
+          "active_starter_count": 2,
+          "active_roster_count": 5,
+          "score": 2.0,
+          "inactive_starters": [
+            "3995",
+            "5174563",
+            "3064514",
+            "3155942"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    "non_center_only_active": {
+      "roster_size": 10,
+      "legal_final_roster": true,
+      "eligibility_counts": {
+        "C": 7,
+        "G": 2,
+        "F": 4
+      },
+      "center_only_count": 5,
+      "structural_start_capacity": 6,
+      "schedule_available": true,
+      "days_analyzed": 1,
+      "active_starter_rate": 0.5,
+      "active_roster_rate": 0.3,
+      "mean_busy_collisions": 0.0,
+      "mean_inactive_starters": 3.0,
+      "daily": [
+        {
+          "day": 0,
+          "slots": {
+            "C": "3032976",
+            "G1": "3995",
+            "G2": "5174563",
+            "F1": "3064514",
+            "F2": "3155942",
+            "UTIL": "3908845"
+          },
+          "starter_ids": [
+            "3032976",
+            "3995",
+            "5174563",
+            "3064514",
+            "3155942",
+            "3908845"
+          ],
+          "bench_ids": [
+            "4433621",
+            "4066328",
+            "5105565",
+            "6478"
+          ],
+          "active_starter_count": 3,
+          "active_roster_count": 3,
+          "score": 3.0,
+          "inactive_starters": [
+            "3032976",
+            "3155942",
+            "3908845"
+          ]
+        }
+      ],
+      "errors": []
+    }
+  }
+}

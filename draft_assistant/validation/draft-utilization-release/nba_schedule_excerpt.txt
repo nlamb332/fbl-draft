@@ -1,0 +1,57 @@
+SOURCE: https://cdn.nba.com/manage/2026/08/2026-27-NBA-Regular-Season-Schedule-By-Date.pdf
+RELEASE: 2026-08-13; PDF pages 0-1; captured from official PDF text lines p0 L0-L50 and p1 L53-L108 on 2026-10-11.
+NOTE: Official PDF marks the schedule SUBJECT TO CHANGE. Rows below are the opening-week rows used by the release artifact.
+
+DATE | TEAM 1 | TEAM 2
+2026-10-20 | Boston | Detroit
+2026-10-20 | Philadelphia | New York
+2026-10-20 | Oklahoma City | San Antonio
+2026-10-21 | Atlanta | Orlando
+2026-10-21 | Milwaukee | Washington
+2026-10-21 | Charlotte | Brooklyn
+2026-10-21 | Minnesota | Miami
+2026-10-21 | Chicago | Toronto
+2026-10-21 | Utah | Memphis
+2026-10-21 | Indiana | New Orleans
+2026-10-21 | Dallas | Houston
+2026-10-21 | Golden State | Los Angeles Lakers
+2026-10-21 | Phoenix | Portland
+2026-10-21 | Sacramento | Los Angeles Clippers
+2026-10-22 | Cleveland | Philadelphia
+2026-10-22 | Denver | Oklahoma City
+2026-10-23 | New York | Boston
+2026-10-23 | Atlanta | Charlotte
+2026-10-23 | Dallas | Indiana
+2026-10-23 | Minnesota | Orlando
+2026-10-23 | Toronto | Washington
+2026-10-23 | Detroit | Miami
+2026-10-23 | Chicago | Milwaukee
+2026-10-23 | Houston | San Antonio
+2026-10-23 | New Orleans | Utah
+2026-10-23 | Memphis | Golden State
+2026-10-23 | Los Angeles Clippers | Los Angeles Lakers
+2026-10-23 | Portland | Sacramento
+2026-10-24 | Miami | Charlotte
+2026-10-24 | Brooklyn | Cleveland
+2026-10-24 | Milwaukee | Philadelphia
+2026-10-24 | Houston | Atlanta
+2026-10-24 | Washington | Chicago
+2026-10-24 | San Antonio | Dallas
+2026-10-24 | New Orleans | Denver
+2026-10-24 | Golden State | Phoenix
+2026-10-25 | Los Angeles Lakers | Utah
+2026-10-25 | Indiana | Brooklyn
+2026-10-25 | Orlando | New York
+2026-10-25 | Toronto | Minnesota
+2026-10-25 | Los Angeles Clippers | Oklahoma City
+2026-10-25 | Detroit | Philadelphia
+2026-10-25 | Memphis | Sacramento
+2026-10-26 | Washington | Charlotte
+2026-10-26 | Minnesota | Cleveland
+2026-10-26 | Chicago | Boston
+2026-10-26 | Dallas | Miami
+2026-10-26 | Indiana | Milwaukee
+2026-10-26 | Phoenix | Oklahoma City
+2026-10-26 | Atlanta | Houston
+2026-10-26 | Memphis | Utah
+2026-10-26 | Golden State | Denver

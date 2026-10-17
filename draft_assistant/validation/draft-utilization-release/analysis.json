@@ -1,0 +1,1942 @@
+{
+  "artifact_version": "draft-utilization-release-v1",
+  "status": "advisory_only",
+  "generated_at": "2026-10-11T20:20:59Z",
+  "league": {
+    "teams": 14,
+    "opponents": 13,
+    "seats": 14,
+    "rounds": 10,
+    "starting_slots": [
+      "C",
+      "G",
+      "G",
+      "F",
+      "F",
+      "UTIL"
+    ],
+    "bench_slots": 4
+  },
+  "sources": {
+    "schedule": {
+      "source": "https://cdn.nba.com/manage/2026/08/2026-27-NBA-Regular-Season-Schedule-By-Date.pdf",
+      "source_index": "https://www.nba.com/news/2026-27-schedule-team-by-team-index",
+      "released_as_of": "2026-08-13",
+      "captured_at": "2026-10-11",
+      "subject_to_change": true,
+      "evidence": {
+        "excerpt_file": "nba_schedule_excerpt.txt",
+        "pdf_pages": "0-1",
+        "pdf_line_ranges": [
+          "p0 L0-L50",
+          "p1 L53-L108"
+        ],
+        "content_sha256": "cf00a564d208f305ff0e83a2f6763709071e37eb3de56cc71d6cae63c0b42188"
+      },
+      "window": {
+        "start": "2026-10-20",
+        "end": "2026-10-26",
+        "days": [
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-25",
+          "2026-10-26"
+        ]
+      },
+      "games": [
+        [
+          "2026-10-20",
+          "BOS",
+          "DET"
+        ],
+        [
+          "2026-10-20",
+          "PHI",
+          "NY"
+        ],
+        [
+          "2026-10-20",
+          "OKC",
+          "SA"
+        ],
+        [
+          "2026-10-21",
+          "ATL",
+          "ORL"
+        ],
+        [
+          "2026-10-21",
+          "MIL",
+          "WSH"
+        ],
+        [
+          "2026-10-21",
+          "CHA",
+          "BKN"
+        ],
+        [
+          "2026-10-21",
+          "MIN",
+          "MIA"
+        ],
+        [
+          "2026-10-21",
+          "CHI",
+          "TOR"
+        ],
+        [
+          "2026-10-21",
+          "UTAH",
+          "MEM"
+        ],
+        [
+          "2026-10-21",
+          "IND",
+          "NO"
+        ],
+        [
+          "2026-10-21",
+          "DAL",
+          "HOU"
+        ],
+        [
+          "2026-10-21",
+          "GS",
+          "LAL"
+        ],
+        [
+          "2026-10-21",
+          "PHX",
+          "POR"
+        ],
+        [
+          "2026-10-21",
+          "SAC",
+          "LAC"
+        ],
+        [
+          "2026-10-22",
+          "CLE",
+          "PHI"
+        ],
+        [
+          "2026-10-22",
+          "DEN",
+          "OKC"
+        ],
+        [
+          "2026-10-23",
+          "NY",
+          "BOS"
+        ],
+        [
+          "2026-10-23",
+          "ATL",
+          "CHA"
+        ],
+        [
+          "2026-10-23",
+          "DAL",
+          "IND"
+        ],
+        [
+          "2026-10-23",
+          "MIN",
+          "ORL"
+        ],
+        [
+          "2026-10-23",
+          "TOR",
+          "WSH"
+        ],
+        [
+          "2026-10-23",
+          "DET",
+          "MIA"
+        ],
+        [
+          "2026-10-23",
+          "CHI",
+          "MIL"
+        ],
+        [
+          "2026-10-23",
+          "HOU",
+          "SA"
+        ],
+        [
+          "2026-10-23",
+          "NO",
+          "UTAH"
+        ],
+        [
+          "2026-10-23",
+          "MEM",
+          "GS"
+        ],
+        [
+          "2026-10-23",
+          "LAC",
+          "LAL"
+        ],
+        [
+          "2026-10-23",
+          "POR",
+          "SAC"
+        ],
+        [
+          "2026-10-24",
+          "MIA",
+          "CHA"
+        ],
+        [
+          "2026-10-24",
+          "BKN",
+          "CLE"
+        ],
+        [
+          "2026-10-24",
+          "MIL",
+          "PHI"
+        ],
+        [
+          "2026-10-24",
+          "HOU",
+          "ATL"
+        ],
+        [
+          "2026-10-24",
+          "WSH",
+          "CHI"
+        ],
+        [
+          "2026-10-24",
+          "SA",
+          "DAL"
+        ],
+        [
+          "2026-10-24",
+          "NO",
+          "DEN"
+        ],
+        [
+          "2026-10-24",
+          "GS",
+          "PHX"
+        ],
+        [
+          "2026-10-25",
+          "LAL",
+          "UTAH"
+        ],
+        [
+          "2026-10-25",
+          "IND",
+          "BKN"
+        ],
+        [
+          "2026-10-25",
+          "ORL",
+          "NY"
+        ],
+        [
+          "2026-10-25",
+          "TOR",
+          "MIN"
+        ],
+        [
+          "2026-10-25",
+          "LAC",
+          "OKC"
+        ],
+        [
+          "2026-10-25",
+          "DET",
+          "PHI"
+        ],
+        [
+          "2026-10-25",
+          "MEM",
+          "SAC"
+        ],
+        [
+          "2026-10-26",
+          "WSH",
+          "CHA"
+        ],
+        [
+          "2026-10-26",
+          "MIN",
+          "CLE"
+        ],
+        [
+          "2026-10-26",
+          "CHI",
+          "BOS"
+        ],
+        [
+          "2026-10-26",
+          "DAL",
+          "MIA"
+        ],
+        [
+          "2026-10-26",
+          "IND",
+          "MIL"
+        ],
+        [
+          "2026-10-26",
+          "PHX",
+          "OKC"
+        ],
+        [
+          "2026-10-26",
+          "ATL",
+          "HOU"
+        ],
+        [
+          "2026-10-26",
+          "MEM",
+          "UTAH"
+        ],
+        [
+          "2026-10-26",
+          "GS",
+          "DEN"
+        ]
+      ],
+      "team_games": {
+        "BOS": [
+          "2026-10-20",
+          "2026-10-23",
+          "2026-10-26"
+        ],
+        "DET": [
+          "2026-10-20",
+          "2026-10-23",
+          "2026-10-25"
+        ],
+        "PHI": [
+          "2026-10-20",
+          "2026-10-22",
+          "2026-10-24",
+          "2026-10-25"
+        ],
+        "NY": [
+          "2026-10-20",
+          "2026-10-23",
+          "2026-10-25"
+        ],
+        "OKC": [
+          "2026-10-20",
+          "2026-10-22",
+          "2026-10-25",
+          "2026-10-26"
+        ],
+        "SA": [
+          "2026-10-20",
+          "2026-10-23",
+          "2026-10-24"
+        ],
+        "ATL": [
+          "2026-10-21",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-26"
+        ],
+        "ORL": [
+          "2026-10-21",
+          "2026-10-23",
+          "2026-10-25"
+        ],
+        "MIL": [
+          "2026-10-21",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-26"
+        ],
+        "WSH": [
+          "2026-10-21",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-26"
+        ],
+        "CHA": [
+          "2026-10-21",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-26"
+        ],
+        "BKN": [
+          "2026-10-21",
+          "2026-10-24",
+          "2026-10-25"
+        ],
+        "MIN": [
+          "2026-10-21",
+          "2026-10-23",
+          "2026-10-25",
+          "2026-10-26"
+        ],
+        "MIA": [
+          "2026-10-21",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-26"
+        ],
+        "CHI": [
+          "2026-10-21",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-26"
+        ],
+        "TOR": [
+          "2026-10-21",
+          "2026-10-23",
+          "2026-10-25"
+        ],
+        "UTAH": [
+          "2026-10-21",
+          "2026-10-23",
+          "2026-10-25",
+          "2026-10-26"
+        ],
+        "MEM": [
+          "2026-10-21",
+          "2026-10-23",
+          "2026-10-25",
+          "2026-10-26"
+        ],
+        "IND": [
+          "2026-10-21",
+          "2026-10-23",
+          "2026-10-25",
+          "2026-10-26"
+        ],
+        "NO": [
+          "2026-10-21",
+          "2026-10-23",
+          "2026-10-24"
+        ],
+        "DAL": [
+          "2026-10-21",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-26"
+        ],
+        "HOU": [
+          "2026-10-21",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-26"
+        ],
+        "GS": [
+          "2026-10-21",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-26"
+        ],
+        "LAL": [
+          "2026-10-21",
+          "2026-10-23",
+          "2026-10-25"
+        ],
+        "PHX": [
+          "2026-10-21",
+          "2026-10-24",
+          "2026-10-26"
+        ],
+        "POR": [
+          "2026-10-21",
+          "2026-10-23"
+        ],
+        "SAC": [
+          "2026-10-21",
+          "2026-10-23",
+          "2026-10-25"
+        ],
+        "LAC": [
+          "2026-10-21",
+          "2026-10-23",
+          "2026-10-25"
+        ],
+        "CLE": [
+          "2026-10-22",
+          "2026-10-24",
+          "2026-10-26"
+        ],
+        "DEN": [
+          "2026-10-22",
+          "2026-10-24",
+          "2026-10-26"
+        ]
+      }
+    },
+    "forecast": {
+      "source": "mock_draft/data/players_2026-27_espn_projection.csv",
+      "captured_at": "2026-10-10",
+      "source_label": "ESPN rendered projections UI snapshot 2026-10-10",
+      "limitations": [
+        "market rank is rendered row order proxy, not measured ADP",
+        "PF/TF/EJ/DD/TD/QD forecasts are missing",
+        "availability is a rough implied-GP proxy and is not used as health in this review"
+      ]
+    },
+    "health": {
+      "capture_statuses": {
+        "Jalen Duren": "DTD",
+        "Walker Kessler": "DTD"
+      },
+      "capture_status_note": "DTD is a capture-time label only",
+      "draft_date_status": "unknown; no dated health probability matrix supplied"
+    }
+  },
+  "actual_roster": {
+    "players": [
+      "Karl-Anthony Towns",
+      "Jalen Duren",
+      "Jarrett Allen",
+      "Julius Randle",
+      "Walker Kessler",
+      "Kel'el Ware",
+      "Nikola Vucevic",
+      "John Collins",
+      "Kyshawn George",
+      "Jrue Holiday"
+    ],
+    "eligibility_counts": {
+      "C": 7,
+      "G": 2,
+      "F": 3
+    },
+    "center_only_count": 6,
+    "roster_capture_observed_at": "2026-10-11T15:16:04.271Z",
+    "opening_week": {
+      "roster_size": 10,
+      "legal_final_roster": true,
+      "eligibility_counts": {
+        "C": 7,
+        "G": 2,
+        "F": 3
+      },
+      "center_only_count": 6,
+      "structural_start_capacity": 6,
+      "schedule_available": true,
+      "days_analyzed": 7,
+      "active_starter_rate": 0.5952380952380952,
+      "active_starter_rate_of_scheduled_games": 0.8064516129032258,
+      "active_roster_rate": 0.44285714285714284,
+      "mean_busy_collisions": 0.2857142857142857,
+      "mean_inactive_starters": 2.4285714285714284,
+      "daily": [
+        {
+          "day": 0,
+          "slots": {
+            "C": "jalen-duren",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "karl-anthony-towns"
+          },
+          "starter_ids": [
+            "jalen-duren",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "karl-anthony-towns"
+          ],
+          "bench_ids": [
+            "jarrett-allen",
+            "walker-kessler",
+            "kel-el-ware",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 3,
+          "active_roster_count": 3,
+          "score": 148.8,
+          "inactive_starters": [
+            "jrue-holiday",
+            "kyshawn-george",
+            "julius-randle"
+          ]
+        },
+        {
+          "day": 1,
+          "slots": {
+            "C": "kel-el-ware",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "walker-kessler"
+          },
+          "starter_ids": [
+            "kel-el-ware",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "walker-kessler"
+          ],
+          "bench_ids": [
+            "karl-anthony-towns",
+            "jalen-duren",
+            "jarrett-allen",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 5,
+          "active_roster_count": 6,
+          "score": 208.4,
+          "inactive_starters": [
+            "john-collins"
+          ]
+        },
+        {
+          "day": 2,
+          "slots": {
+            "C": "jalen-duren",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "jarrett-allen"
+          },
+          "starter_ids": [
+            "jalen-duren",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "jarrett-allen"
+          ],
+          "bench_ids": [
+            "karl-anthony-towns",
+            "walker-kessler",
+            "kel-el-ware",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 1,
+          "active_roster_count": 1,
+          "score": 46.900000000000006,
+          "inactive_starters": [
+            "jalen-duren",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle"
+          ]
+        },
+        {
+          "day": 3,
+          "slots": {
+            "C": "karl-anthony-towns",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "jalen-duren"
+          },
+          "starter_ids": [
+            "karl-anthony-towns",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "jalen-duren"
+          ],
+          "bench_ids": [
+            "jarrett-allen",
+            "walker-kessler",
+            "kel-el-ware",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 5,
+          "active_roster_count": 8,
+          "score": 216.70000000000002,
+          "inactive_starters": [
+            "julius-randle"
+          ]
+        },
+        {
+          "day": 4,
+          "slots": {
+            "C": "jarrett-allen",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "kel-el-ware"
+          },
+          "starter_ids": [
+            "jarrett-allen",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "kel-el-ware"
+          ],
+          "bench_ids": [
+            "karl-anthony-towns",
+            "jalen-duren",
+            "walker-kessler",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 4,
+          "active_roster_count": 4,
+          "score": 171.8,
+          "inactive_starters": [
+            "jrue-holiday",
+            "john-collins"
+          ]
+        },
+        {
+          "day": 5,
+          "slots": {
+            "C": "karl-anthony-towns",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "jalen-duren"
+          },
+          "starter_ids": [
+            "karl-anthony-towns",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "jalen-duren"
+          ],
+          "bench_ids": [
+            "jarrett-allen",
+            "walker-kessler",
+            "kel-el-ware",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 4,
+          "active_roster_count": 6,
+          "score": 193.9,
+          "inactive_starters": [
+            "jrue-holiday",
+            "kyshawn-george"
+          ]
+        },
+        {
+          "day": 6,
+          "slots": {
+            "C": "jarrett-allen",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "kel-el-ware"
+          },
+          "starter_ids": [
+            "jarrett-allen",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "kel-el-ware"
+          ],
+          "bench_ids": [
+            "karl-anthony-towns",
+            "jalen-duren",
+            "walker-kessler",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 3,
+          "active_roster_count": 3,
+          "score": 126.70000000000002,
+          "inactive_starters": [
+            "jrue-holiday",
+            "john-collins",
+            "julius-randle"
+          ]
+        }
+      ],
+      "errors": [],
+      "scheduled_games_by_player": {
+        "karl-anthony-towns": 3,
+        "jalen-duren": 3,
+        "jarrett-allen": 3,
+        "julius-randle": 3,
+        "walker-kessler": 3,
+        "kel-el-ware": 4,
+        "nikola-vucevic": 3,
+        "john-collins": 3,
+        "kyshawn-george": 4,
+        "jrue-holiday": 2
+      }
+    },
+    "repeatable_fixture_4x": {
+      "roster_size": 10,
+      "legal_final_roster": true,
+      "eligibility_counts": {
+        "C": 7,
+        "G": 2,
+        "F": 3
+      },
+      "center_only_count": 6,
+      "structural_start_capacity": 6,
+      "schedule_available": true,
+      "days_analyzed": 28,
+      "active_starter_rate": 0.5952380952380952,
+      "active_starter_rate_of_scheduled_games": 0.8064516129032258,
+      "active_roster_rate": 0.44285714285714284,
+      "mean_busy_collisions": 0.2857142857142857,
+      "mean_inactive_starters": 2.4285714285714284,
+      "daily": [
+        {
+          "day": 0,
+          "slots": {
+            "C": "jalen-duren",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "karl-anthony-towns"
+          },
+          "starter_ids": [
+            "jalen-duren",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "karl-anthony-towns"
+          ],
+          "bench_ids": [
+            "jarrett-allen",
+            "walker-kessler",
+            "kel-el-ware",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 3,
+          "active_roster_count": 3,
+          "score": 148.8,
+          "inactive_starters": [
+            "jrue-holiday",
+            "kyshawn-george",
+            "julius-randle"
+          ]
+        },
+        {
+          "day": 1,
+          "slots": {
+            "C": "kel-el-ware",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "walker-kessler"
+          },
+          "starter_ids": [
+            "kel-el-ware",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "walker-kessler"
+          ],
+          "bench_ids": [
+            "karl-anthony-towns",
+            "jalen-duren",
+            "jarrett-allen",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 5,
+          "active_roster_count": 6,
+          "score": 208.4,
+          "inactive_starters": [
+            "john-collins"
+          ]
+        },
+        {
+          "day": 2,
+          "slots": {
+            "C": "jalen-duren",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "jarrett-allen"
+          },
+          "starter_ids": [
+            "jalen-duren",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "jarrett-allen"
+          ],
+          "bench_ids": [
+            "karl-anthony-towns",
+            "walker-kessler",
+            "kel-el-ware",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 1,
+          "active_roster_count": 1,
+          "score": 46.900000000000006,
+          "inactive_starters": [
+            "jalen-duren",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle"
+          ]
+        },
+        {
+          "day": 3,
+          "slots": {
+            "C": "karl-anthony-towns",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "jalen-duren"
+          },
+          "starter_ids": [
+            "karl-anthony-towns",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "jalen-duren"
+          ],
+          "bench_ids": [
+            "jarrett-allen",
+            "walker-kessler",
+            "kel-el-ware",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 5,
+          "active_roster_count": 8,
+          "score": 216.70000000000002,
+          "inactive_starters": [
+            "julius-randle"
+          ]
+        },
+        {
+          "day": 4,
+          "slots": {
+            "C": "jarrett-allen",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "kel-el-ware"
+          },
+          "starter_ids": [
+            "jarrett-allen",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "kel-el-ware"
+          ],
+          "bench_ids": [
+            "karl-anthony-towns",
+            "jalen-duren",
+            "walker-kessler",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 4,
+          "active_roster_count": 4,
+          "score": 171.8,
+          "inactive_starters": [
+            "jrue-holiday",
+            "john-collins"
+          ]
+        },
+        {
+          "day": 5,
+          "slots": {
+            "C": "karl-anthony-towns",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "jalen-duren"
+          },
+          "starter_ids": [
+            "karl-anthony-towns",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "jalen-duren"
+          ],
+          "bench_ids": [
+            "jarrett-allen",
+            "walker-kessler",
+            "kel-el-ware",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 4,
+          "active_roster_count": 6,
+          "score": 193.9,
+          "inactive_starters": [
+            "jrue-holiday",
+            "kyshawn-george"
+          ]
+        },
+        {
+          "day": 6,
+          "slots": {
+            "C": "jarrett-allen",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "kel-el-ware"
+          },
+          "starter_ids": [
+            "jarrett-allen",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "kel-el-ware"
+          ],
+          "bench_ids": [
+            "karl-anthony-towns",
+            "jalen-duren",
+            "walker-kessler",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 3,
+          "active_roster_count": 3,
+          "score": 126.70000000000002,
+          "inactive_starters": [
+            "jrue-holiday",
+            "john-collins",
+            "julius-randle"
+          ]
+        },
+        {
+          "day": 7,
+          "slots": {
+            "C": "jalen-duren",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "karl-anthony-towns"
+          },
+          "starter_ids": [
+            "jalen-duren",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "karl-anthony-towns"
+          ],
+          "bench_ids": [
+            "jarrett-allen",
+            "walker-kessler",
+            "kel-el-ware",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 3,
+          "active_roster_count": 3,
+          "score": 148.8,
+          "inactive_starters": [
+            "jrue-holiday",
+            "kyshawn-george",
+            "julius-randle"
+          ]
+        },
+        {
+          "day": 8,
+          "slots": {
+            "C": "kel-el-ware",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "walker-kessler"
+          },
+          "starter_ids": [
+            "kel-el-ware",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "walker-kessler"
+          ],
+          "bench_ids": [
+            "karl-anthony-towns",
+            "jalen-duren",
+            "jarrett-allen",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 5,
+          "active_roster_count": 6,
+          "score": 208.4,
+          "inactive_starters": [
+            "john-collins"
+          ]
+        },
+        {
+          "day": 9,
+          "slots": {
+            "C": "jalen-duren",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "jarrett-allen"
+          },
+          "starter_ids": [
+            "jalen-duren",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "jarrett-allen"
+          ],
+          "bench_ids": [
+            "karl-anthony-towns",
+            "walker-kessler",
+            "kel-el-ware",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 1,
+          "active_roster_count": 1,
+          "score": 46.900000000000006,
+          "inactive_starters": [
+            "jalen-duren",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle"
+          ]
+        },
+        {
+          "day": 10,
+          "slots": {
+            "C": "karl-anthony-towns",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "jalen-duren"
+          },
+          "starter_ids": [
+            "karl-anthony-towns",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "jalen-duren"
+          ],
+          "bench_ids": [
+            "jarrett-allen",
+            "walker-kessler",
+            "kel-el-ware",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 5,
+          "active_roster_count": 8,
+          "score": 216.70000000000002,
+          "inactive_starters": [
+            "julius-randle"
+          ]
+        },
+        {
+          "day": 11,
+          "slots": {
+            "C": "jarrett-allen",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "kel-el-ware"
+          },
+          "starter_ids": [
+            "jarrett-allen",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "kel-el-ware"
+          ],
+          "bench_ids": [
+            "karl-anthony-towns",
+            "jalen-duren",
+            "walker-kessler",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 4,
+          "active_roster_count": 4,
+          "score": 171.8,
+          "inactive_starters": [
+            "jrue-holiday",
+            "john-collins"
+          ]
+        },
+        {
+          "day": 12,
+          "slots": {
+            "C": "karl-anthony-towns",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "jalen-duren"
+          },
+          "starter_ids": [
+            "karl-anthony-towns",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "jalen-duren"
+          ],
+          "bench_ids": [
+            "jarrett-allen",
+            "walker-kessler",
+            "kel-el-ware",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 4,
+          "active_roster_count": 6,
+          "score": 193.9,
+          "inactive_starters": [
+            "jrue-holiday",
+            "kyshawn-george"
+          ]
+        },
+        {
+          "day": 13,
+          "slots": {
+            "C": "jarrett-allen",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "kel-el-ware"
+          },
+          "starter_ids": [
+            "jarrett-allen",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "kel-el-ware"
+          ],
+          "bench_ids": [
+            "karl-anthony-towns",
+            "jalen-duren",
+            "walker-kessler",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 3,
+          "active_roster_count": 3,
+          "score": 126.70000000000002,
+          "inactive_starters": [
+            "jrue-holiday",
+            "john-collins",
+            "julius-randle"
+          ]
+        },
+        {
+          "day": 14,
+          "slots": {
+            "C": "jalen-duren",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "karl-anthony-towns"
+          },
+          "starter_ids": [
+            "jalen-duren",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "karl-anthony-towns"
+          ],
+          "bench_ids": [
+            "jarrett-allen",
+            "walker-kessler",
+            "kel-el-ware",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 3,
+          "active_roster_count": 3,
+          "score": 148.8,
+          "inactive_starters": [
+            "jrue-holiday",
+            "kyshawn-george",
+            "julius-randle"
+          ]
+        },
+        {
+          "day": 15,
+          "slots": {
+            "C": "kel-el-ware",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "walker-kessler"
+          },
+          "starter_ids": [
+            "kel-el-ware",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "walker-kessler"
+          ],
+          "bench_ids": [
+            "karl-anthony-towns",
+            "jalen-duren",
+            "jarrett-allen",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 5,
+          "active_roster_count": 6,
+          "score": 208.4,
+          "inactive_starters": [
+            "john-collins"
+          ]
+        },
+        {
+          "day": 16,
+          "slots": {
+            "C": "jalen-duren",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "jarrett-allen"
+          },
+          "starter_ids": [
+            "jalen-duren",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "jarrett-allen"
+          ],
+          "bench_ids": [
+            "karl-anthony-towns",
+            "walker-kessler",
+            "kel-el-ware",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 1,
+          "active_roster_count": 1,
+          "score": 46.900000000000006,
+          "inactive_starters": [
+            "jalen-duren",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle"
+          ]
+        },
+        {
+          "day": 17,
+          "slots": {
+            "C": "karl-anthony-towns",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "jalen-duren"
+          },
+          "starter_ids": [
+            "karl-anthony-towns",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "jalen-duren"
+          ],
+          "bench_ids": [
+            "jarrett-allen",
+            "walker-kessler",
+            "kel-el-ware",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 5,
+          "active_roster_count": 8,
+          "score": 216.70000000000002,
+          "inactive_starters": [
+            "julius-randle"
+          ]
+        },
+        {
+          "day": 18,
+          "slots": {
+            "C": "jarrett-allen",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "kel-el-ware"
+          },
+          "starter_ids": [
+            "jarrett-allen",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "kel-el-ware"
+          ],
+          "bench_ids": [
+            "karl-anthony-towns",
+            "jalen-duren",
+            "walker-kessler",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 4,
+          "active_roster_count": 4,
+          "score": 171.8,
+          "inactive_starters": [
+            "jrue-holiday",
+            "john-collins"
+          ]
+        },
+        {
+          "day": 19,
+          "slots": {
+            "C": "karl-anthony-towns",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "jalen-duren"
+          },
+          "starter_ids": [
+            "karl-anthony-towns",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "jalen-duren"
+          ],
+          "bench_ids": [
+            "jarrett-allen",
+            "walker-kessler",
+            "kel-el-ware",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 4,
+          "active_roster_count": 6,
+          "score": 193.9,
+          "inactive_starters": [
+            "jrue-holiday",
+            "kyshawn-george"
+          ]
+        },
+        {
+          "day": 20,
+          "slots": {
+            "C": "jarrett-allen",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "kel-el-ware"
+          },
+          "starter_ids": [
+            "jarrett-allen",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "kel-el-ware"
+          ],
+          "bench_ids": [
+            "karl-anthony-towns",
+            "jalen-duren",
+            "walker-kessler",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 3,
+          "active_roster_count": 3,
+          "score": 126.70000000000002,
+          "inactive_starters": [
+            "jrue-holiday",
+            "john-collins",
+            "julius-randle"
+          ]
+        },
+        {
+          "day": 21,
+          "slots": {
+            "C": "jalen-duren",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "karl-anthony-towns"
+          },
+          "starter_ids": [
+            "jalen-duren",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "karl-anthony-towns"
+          ],
+          "bench_ids": [
+            "jarrett-allen",
+            "walker-kessler",
+            "kel-el-ware",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 3,
+          "active_roster_count": 3,
+          "score": 148.8,
+          "inactive_starters": [
+            "jrue-holiday",
+            "kyshawn-george",
+            "julius-randle"
+          ]
+        },
+        {
+          "day": 22,
+          "slots": {
+            "C": "kel-el-ware",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "walker-kessler"
+          },
+          "starter_ids": [
+            "kel-el-ware",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "walker-kessler"
+          ],
+          "bench_ids": [
+            "karl-anthony-towns",
+            "jalen-duren",
+            "jarrett-allen",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 5,
+          "active_roster_count": 6,
+          "score": 208.4,
+          "inactive_starters": [
+            "john-collins"
+          ]
+        },
+        {
+          "day": 23,
+          "slots": {
+            "C": "jalen-duren",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "jarrett-allen"
+          },
+          "starter_ids": [
+            "jalen-duren",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "jarrett-allen"
+          ],
+          "bench_ids": [
+            "karl-anthony-towns",
+            "walker-kessler",
+            "kel-el-ware",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 1,
+          "active_roster_count": 1,
+          "score": 46.900000000000006,
+          "inactive_starters": [
+            "jalen-duren",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle"
+          ]
+        },
+        {
+          "day": 24,
+          "slots": {
+            "C": "karl-anthony-towns",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "jalen-duren"
+          },
+          "starter_ids": [
+            "karl-anthony-towns",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "jalen-duren"
+          ],
+          "bench_ids": [
+            "jarrett-allen",
+            "walker-kessler",
+            "kel-el-ware",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 5,
+          "active_roster_count": 8,
+          "score": 216.70000000000002,
+          "inactive_starters": [
+            "julius-randle"
+          ]
+        },
+        {
+          "day": 25,
+          "slots": {
+            "C": "jarrett-allen",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "kel-el-ware"
+          },
+          "starter_ids": [
+            "jarrett-allen",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "kel-el-ware"
+          ],
+          "bench_ids": [
+            "karl-anthony-towns",
+            "jalen-duren",
+            "walker-kessler",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 4,
+          "active_roster_count": 4,
+          "score": 171.8,
+          "inactive_starters": [
+            "jrue-holiday",
+            "john-collins"
+          ]
+        },
+        {
+          "day": 26,
+          "slots": {
+            "C": "karl-anthony-towns",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "jalen-duren"
+          },
+          "starter_ids": [
+            "karl-anthony-towns",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "jalen-duren"
+          ],
+          "bench_ids": [
+            "jarrett-allen",
+            "walker-kessler",
+            "kel-el-ware",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 4,
+          "active_roster_count": 6,
+          "score": 193.9,
+          "inactive_starters": [
+            "jrue-holiday",
+            "kyshawn-george"
+          ]
+        },
+        {
+          "day": 27,
+          "slots": {
+            "C": "jarrett-allen",
+            "G1": "jrue-holiday",
+            "G2": "kyshawn-george",
+            "F1": "john-collins",
+            "F2": "julius-randle",
+            "UTIL": "kel-el-ware"
+          },
+          "starter_ids": [
+            "jarrett-allen",
+            "jrue-holiday",
+            "kyshawn-george",
+            "john-collins",
+            "julius-randle",
+            "kel-el-ware"
+          ],
+          "bench_ids": [
+            "karl-anthony-towns",
+            "jalen-duren",
+            "walker-kessler",
+            "nikola-vucevic"
+          ],
+          "active_starter_count": 3,
+          "active_roster_count": 3,
+          "score": 126.70000000000002,
+          "inactive_starters": [
+            "jrue-holiday",
+            "john-collins",
+            "julius-randle"
+          ]
+        }
+      ],
+      "errors": [],
+      "scheduled_games_by_player": {
+        "karl-anthony-towns": 12,
+        "jalen-duren": 12,
+        "jarrett-allen": 12,
+        "julius-randle": 12,
+        "walker-kessler": 12,
+        "kel-el-ware": 16,
+        "nikola-vucevic": 12,
+        "john-collins": 12,
+        "kyshawn-george": 16,
+        "jrue-holiday": 8
+      }
+    },
+    "schedule_warnings": [
+      "schedule-only matrix: player health/availability was not supplied"
+    ]
+  },
+  "candidate_comparison": {
+    "drop_player_id": "kel-el-ware",
+    "candidate_filter": "same captured ESPN catalog; G/F eligible; market proxy ranks 80..180",
+    "top_candidates": [
+      {
+        "player_id": "jimmy-butler-iii",
+        "name": "Jimmy Butler III",
+        "production_value": 44.00000000000001,
+        "marginal_usable_value": 80.70000000000005,
+        "marginal_active_starts": 2.0,
+        "balance_delta": 3.0,
+        "score": 130.70000000000005,
+        "warnings": [
+          "production value omits missing scoring fields: EJ, PF, TF, DD, TD, QD",
+          "injury status at capture: O; this does not establish draft-date availability",
+          "player health at draft date is unknown; schedule-only value is advisory"
+        ],
+        "schedule_source": "NBA 2026-27 Regular Season Schedule By Date PDF (as of 2026-08-13)",
+        "health_status": "unknown at draft date; schedule-only matrix"
+      },
+      {
+        "player_id": "alex-sarr",
+        "name": "Alex Sarr",
+        "production_value": 44.2,
+        "marginal_usable_value": 81.5,
+        "marginal_active_starts": 2.0,
+        "balance_delta": 1.0,
+        "score": 127.7,
+        "warnings": [
+          "production value omits missing scoring fields: EJ, PF, TF, DD, TD, QD",
+          "injury status at capture: DTD; this does not establish draft-date availability",
+          "player health at draft date is unknown; schedule-only value is advisory"
+        ],
+        "schedule_source": "NBA 2026-27 Regular Season Schedule By Date PDF (as of 2026-08-13)",
+        "health_status": "unknown at draft date; schedule-only matrix"
+      },
+      {
+        "player_id": "ty-jerome",
+        "name": "Ty Jerome",
+        "production_value": 43.0,
+        "marginal_usable_value": 76.70000000000005,
+        "marginal_active_starts": 2.0,
+        "balance_delta": 3.0,
+        "score": 125.70000000000005,
+        "warnings": [
+          "production value omits missing scoring fields: EJ, PF, TF, DD, TD, QD",
+          "player health at draft date is unknown; schedule-only value is advisory"
+        ],
+        "schedule_source": "NBA 2026-27 Regular Season Schedule By Date PDF (as of 2026-08-13)",
+        "health_status": "unknown at draft date; schedule-only matrix"
+      },
+      {
+        "player_id": "caleb-wilson",
+        "name": "Caleb Wilson",
+        "production_value": 42.99999999999999,
+        "marginal_usable_value": 76.70000000000005,
+        "marginal_active_starts": 2.0,
+        "balance_delta": 2.0,
+        "score": 123.70000000000005,
+        "warnings": [
+          "production value omits missing scoring fields: EJ, PF, TF, DD, TD, QD",
+          "player health at draft date is unknown; schedule-only value is advisory"
+        ],
+        "schedule_source": "NBA 2026-27 Regular Season Schedule By Date PDF (as of 2026-08-13)",
+        "health_status": "unknown at draft date; schedule-only matrix"
+      },
+      {
+        "player_id": "kristaps-porzingis",
+        "name": "Kristaps Porzingis",
+        "production_value": 43.39999999999999,
+        "marginal_usable_value": 78.29999999999995,
+        "marginal_active_starts": 2.0,
+        "balance_delta": 1.0,
+        "score": 123.69999999999995,
+        "warnings": [
+          "production value omits missing scoring fields: EJ, PF, TF, DD, TD, QD",
+          "injury status at capture: DTD; this does not establish draft-date availability",
+          "player health at draft date is unknown; schedule-only value is advisory"
+        ],
+        "schedule_source": "NBA 2026-27 Regular Season Schedule By Date PDF (as of 2026-08-13)",
+        "health_status": "unknown at draft date; schedule-only matrix"
+      },
+      {
+        "player_id": "matas-buzelis",
+        "name": "Matas Buzelis",
+        "production_value": 38.599999999999994,
+        "marginal_usable_value": 59.09999999999991,
+        "marginal_active_starts": 2.0,
+        "balance_delta": 2.0,
+        "score": 101.6999999999999,
+        "warnings": [
+          "production value omits missing scoring fields: EJ, PF, TF, DD, TD, QD",
+          "injury status at capture: DTD; this does not establish draft-date availability",
+          "player health at draft date is unknown; schedule-only value is advisory"
+        ],
+        "schedule_source": "NBA 2026-27 Regular Season Schedule By Date PDF (as of 2026-08-13)",
+        "health_status": "unknown at draft date; schedule-only matrix"
+      },
+      {
+        "player_id": "kevin-porter-jr",
+        "name": "Kevin Porter Jr.",
+        "production_value": 37.3,
+        "marginal_usable_value": 53.90000000000009,
+        "marginal_active_starts": 2.0,
+        "balance_delta": 3.0,
+        "score": 97.20000000000009,
+        "warnings": [
+          "production value omits missing scoring fields: EJ, PF, TF, DD, TD, QD",
+          "player health at draft date is unknown; schedule-only value is advisory"
+        ],
+        "schedule_source": "NBA 2026-27 Regular Season Schedule By Date PDF (as of 2026-08-13)",
+        "health_status": "unknown at draft date; schedule-only matrix"
+      },
+      {
+        "player_id": "fred-vanvleet",
+        "name": "Fred VanVleet",
+        "production_value": 36.800000000000004,
+        "marginal_usable_value": 51.90000000000009,
+        "marginal_active_starts": 2.0,
+        "balance_delta": 3.0,
+        "score": 94.7000000000001,
+        "warnings": [
+          "production value omits missing scoring fields: EJ, PF, TF, DD, TD, QD",
+          "injury status at capture: DTD; this does not establish draft-date availability",
+          "player health at draft date is unknown; schedule-only value is advisory"
+        ],
+        "schedule_source": "NBA 2026-27 Regular Season Schedule By Date PDF (as of 2026-08-13)",
+        "health_status": "unknown at draft date; schedule-only matrix"
+      },
+      {
+        "player_id": "brandin-podziemski",
+        "name": "Brandin Podziemski",
+        "production_value": 36.49999999999999,
+        "marginal_usable_value": 50.700000000000045,
+        "marginal_active_starts": 2.0,
+        "balance_delta": 3.0,
+        "score": 93.20000000000005,
+        "warnings": [
+          "production value omits missing scoring fields: EJ, PF, TF, DD, TD, QD",
+          "injury status at capture: DTD; this does not establish draft-date availability",
+          "player health at draft date is unknown; schedule-only value is advisory"
+        ],
+        "schedule_source": "NBA 2026-27 Regular Season Schedule By Date PDF (as of 2026-08-13)",
+        "health_status": "unknown at draft date; schedule-only matrix"
+      },
+      {
+        "player_id": "andrew-wiggins",
+        "name": "Andrew Wiggins",
+        "production_value": 36.8,
+        "marginal_usable_value": 51.90000000000009,
+        "marginal_active_starts": 2.0,
+        "balance_delta": 2.0,
+        "score": 92.70000000000009,
+        "warnings": [
+          "production value omits missing scoring fields: EJ, PF, TF, DD, TD, QD",
+          "player health at draft date is unknown; schedule-only value is advisory"
+        ],
+        "schedule_source": "NBA 2026-27 Regular Season Schedule By Date PDF (as of 2026-08-13)",
+        "health_status": "unknown at draft date; schedule-only matrix"
+      },
+      {
+        "player_id": "cedric-coward",
+        "name": "Cedric Coward",
+        "production_value": 36.2,
+        "marginal_usable_value": 49.5,
+        "marginal_active_starts": 2.0,
+        "balance_delta": 3.0,
+        "score": 91.7,
+        "warnings": [
+          "production value omits missing scoring fields: EJ, PF, TF, DD, TD, QD",
+          "player health at draft date is unknown; schedule-only value is advisory"
+        ],
+        "schedule_source": "NBA 2026-27 Regular Season Schedule By Date PDF (as of 2026-08-13)",
+        "health_status": "unknown at draft date; schedule-only matrix"
+      },
+      {
+        "player_id": "ryan-rollins",
+        "name": "Ryan Rollins",
+        "production_value": 35.800000000000004,
+        "marginal_usable_value": 47.90000000000009,
+        "marginal_active_starts": 2.0,
+        "balance_delta": 3.0,
+        "score": 89.7000000000001,
+        "warnings": [
+          "production value omits missing scoring fields: EJ, PF, TF, DD, TD, QD",
+          "player health at draft date is unknown; schedule-only value is advisory"
+        ],
+        "schedule_source": "NBA 2026-27 Regular Season Schedule By Date PDF (as of 2026-08-13)",
+        "health_status": "unknown at draft date; schedule-only matrix"
+      }
+    ],
+    "candidate_count": 79,
+    "scoring_note": "known custom components only; missing fields remain warnings"
+  },
+  "policy_evaluation": {
+    "policy": "schedule-aware marginal usable value + soft balance adjustment",
+    "mode": "advisory_only",
+    "teams": 14,
+    "opponents": 13,
+    "seats": 14,
+    "development_seed_clusters": 0,
+    "heldout_seed_clusters": 0,
+    "promotion_gate_pass": false,
+    "gate_reasons": [
+      "bounded review is not a 100-seed development/100-seed held-out policy validation",
+      "player health at draft date is unknown",
+      "the schedule window is one captured opening week; repeated fixture is synthetic",
+      "ESPN custom scoring inputs omit PF/TF/EJ/DD/TD/QD"
+    ],
+    "foundation_decision": "retain frozen foundation scorer and lookahead benchmark; use this policy only as an advisory review column"
+  },
+  "frozen_artifacts": {
+    "changed": false,
+    "paths": [
+      "draft_assistant/valuation.py",
+      "draft_assistant/validation/heldout-v2",
+      "mock_draft/results/synthetic",
+      "mock_draft/results/real_verified"
+    ]
+  }
+}

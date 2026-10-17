@@ -1,0 +1,228 @@
+{
+  "artifact_version": "browser-events-v1",
+  "durable_journal_source": "trial-1000000013.json",
+  "durable_journal_sources": [
+    "trial-1000000013.json",
+    "clean-1000000004.json",
+    "recovery-1000000008.json",
+    "clean-1000000009.json",
+    "uninterrupted-1000000007.json"
+  ],
+  "durable_trial": {
+    "session_id": "trial-1000000013",
+    "room": {
+      "league_id": "1000000013",
+      "season_id": "2027",
+      "team_id": "15",
+      "practice": true
+    },
+    "final_state": "completed",
+    "final_observation": {
+      "history_count": 140,
+      "unique_history_player_ids": 140,
+      "roster_count": 10,
+      "legal_roster": true,
+      "complete": true,
+      "history_complete": true,
+      "phase": "complete",
+      "eligibility_counts": {"C": 7, "G": 2, "F": 4},
+      "center_only_count": 5
+    },
+    "action_counts": {
+      "proposed": 11,
+      "claimed": 11,
+      "submitted": 10,
+      "confirmed": 10,
+      "cancelled": 1
+    },
+    "confirmed_direct_picks": [13, 16, 41, 44, 69, 72, 97, 100, 125, 128],
+    "cancelled_unlicked_command": {
+      "pick": 16,
+      "player": "Jalen Duren",
+      "browser_click_invoked": false,
+      "reason": "operator form timed out before returning; the native room remained paused"
+    },
+    "latency_units": {
+      "observation_to_click_ms": "milliseconds",
+      "click_to_confirm_ms": "milliseconds",
+      "clock_seconds": "seconds remaining at prepare observation"
+    },
+    "latency": [
+      {"pick": 13, "player": "Domantas Sabonis", "observation_to_click_ms": 1221, "click_to_confirm_ms": 3555, "clock_seconds": 84, "history_and_roster_confirmed": true},
+      {"pick": 16, "player": "Jalen Duren", "observation_to_click_ms": 1513, "click_to_confirm_ms": 7552, "clock_seconds": 54, "history_and_roster_confirmed": true},
+      {"pick": 41, "player": "Jarrett Allen", "observation_to_click_ms": 1993, "click_to_confirm_ms": 5135, "clock_seconds": 79, "history_and_roster_confirmed": true, "state_note": "room was paused after the Players view became empty post-read"},
+      {"pick": 44, "player": "Julius Randle", "observation_to_click_ms": 1270, "click_to_confirm_ms": 4480, "clock_seconds": 45, "history_and_roster_confirmed": true},
+      {"pick": 69, "player": "Rudy Gobert", "observation_to_click_ms": 1511, "click_to_confirm_ms": 2131, "clock_seconds": 67, "history_and_roster_confirmed": true},
+      {"pick": 72, "player": "Donovan Clingan", "observation_to_click_ms": 1599, "click_to_confirm_ms": 2453, "clock_seconds": 15, "history_and_roster_confirmed": true, "state_note": "late low-clock pick"},
+      {"pick": 97, "player": "Nikola Vucevic", "observation_to_click_ms": 1548, "click_to_confirm_ms": 1651, "clock_seconds": 85, "history_and_roster_confirmed": true},
+      {"pick": 100, "player": "John Collins", "observation_to_click_ms": 1846, "click_to_confirm_ms": 2411, "clock_seconds": 85, "history_and_roster_confirmed": true},
+      {"pick": 125, "player": "Kyshawn George", "observation_to_click_ms": 1719, "click_to_confirm_ms": 2411, "clock_seconds": 59, "history_and_roster_confirmed": true},
+      {"pick": 128, "player": "Jrue Holiday", "observation_to_click_ms": 2156, "click_to_confirm_ms": 22004, "clock_seconds": 82, "history_and_roster_confirmed": true, "state_note": "final confirmation was delayed about 22 seconds"}
+    ],
+    "clean_pass": false,
+    "clean_pass_limits": [
+      "multiple pauses and explicit resumes occurred",
+      "pick 16 required cancellation of an unclicked command and a later retry",
+      "pick 72 reached a low 15-second clock; the empty Players post-read pause is recorded on pick 41",
+      "final pick confirmation took 22004 milliseconds"
+    ]
+  },
+  "supplementary_rooms": {
+    "clean-1000000004": {
+      "source": "clean-1000000004.json",
+      "durable": true,
+      "final_state": "completed",
+      "history_count": 140,
+      "unique_history_player_ids": 140,
+      "confirmed_direct_picks": [13, 16, 41, 44, 69, 72, 97, 100, 125, 128],
+      "roster_count": 10,
+      "legal_roster": true,
+      "eligibility_counts": {"C": 7, "G": 2, "F": 4},
+      "center_only_count": 5,
+      "pause_count": 1,
+      "pause": {
+        "root_summary_reason": "prototype Feed identity incomplete transient row",
+        "durable_journal_event": "stale_pause",
+        "durable_journal_age_seconds": 11.228127,
+        "resumed_before_pick": 125
+      },
+      "latency": [
+        {"pick": 13, "player": "Jayson Tatum", "observation_to_click_ms": 1389, "click_to_confirm_ms": 1406, "clock_seconds": 81, "history_and_roster_confirmed": true},
+        {"pick": 16, "player": "Jalen Duren", "observation_to_click_ms": 2177, "click_to_confirm_ms": 1729, "clock_seconds": 85, "history_and_roster_confirmed": true},
+        {"pick": 41, "player": "Jarrett Allen", "observation_to_click_ms": 1849, "click_to_confirm_ms": 2243, "clock_seconds": 85, "history_and_roster_confirmed": true},
+        {"pick": 44, "player": "Julius Randle", "observation_to_click_ms": 1884, "click_to_confirm_ms": 1853, "clock_seconds": 83, "history_and_roster_confirmed": true},
+        {"pick": 69, "player": "Rudy Gobert", "observation_to_click_ms": 1157, "click_to_confirm_ms": 1692, "clock_seconds": 85, "history_and_roster_confirmed": true},
+        {"pick": 72, "player": "Donovan Clingan", "observation_to_click_ms": 1731, "click_to_confirm_ms": 2103, "clock_seconds": 86, "history_and_roster_confirmed": true},
+        {"pick": 97, "player": "Nikola Vucevic", "observation_to_click_ms": 1827, "click_to_confirm_ms": 2083, "clock_seconds": 85, "history_and_roster_confirmed": true},
+        {"pick": 100, "player": "John Collins", "observation_to_click_ms": 1898, "click_to_confirm_ms": 5143, "clock_seconds": 86, "history_and_roster_confirmed": true},
+        {"pick": 125, "player": "Kyshawn George", "observation_to_click_ms": 1085, "click_to_confirm_ms": 4488, "clock_seconds": 83, "history_and_roster_confirmed": true},
+        {"pick": 128, "player": "Jrue Holiday", "observation_to_click_ms": 2008, "click_to_confirm_ms": 2344, "clock_seconds": 86, "history_and_roster_confirmed": true}
+      ],
+      "clean_pass": false,
+      "clean_pass_limits": ["single pause before pick 125; all ten picks were later confirmed and the final roster was legal"]
+    },
+    "uninterrupted-1000000007": {
+      "source": "uninterrupted-1000000007.json",
+      "durable": true,
+      "final_state": "completed",
+      "history_count": 140,
+      "unique_history_player_ids": 140,
+      "confirmed_direct_picks": [13, 16, 41, 44, 69, 72, 97, 100, 125, 128],
+      "roster_count": 10,
+      "legal_roster": true,
+      "eligibility_counts": {"C": 7, "G": 2, "F": 3},
+      "center_only_count": 6,
+      "recovery_pause_resume_after_start": false,
+      "foreground_invocation": {
+        "started_at": "2026-10-11T15:12:04.885Z",
+        "ended_at": "2026-10-11T15:16:05.351Z",
+        "duration_seconds": 240.5786,
+        "invocation_count": 1,
+        "provenance": "root CUA summary"
+      },
+      "picks": [
+        {"pick": 13, "player": "Karl-Anthony Towns", "observation_to_click_ms": 1445, "click_to_confirm_ms": 1954, "clock_seconds": 81, "history_and_roster_confirmed": true},
+        {"pick": 16, "player": "Jalen Duren", "observation_to_click_ms": 1703, "click_to_confirm_ms": 2067, "clock_seconds": 85, "history_and_roster_confirmed": true},
+        {"pick": 41, "player": "Jarrett Allen", "observation_to_click_ms": 1698, "click_to_confirm_ms": 1856, "clock_seconds": 86, "history_and_roster_confirmed": true},
+        {"pick": 44, "player": "Julius Randle", "observation_to_click_ms": 1867, "click_to_confirm_ms": 2607, "clock_seconds": 85, "history_and_roster_confirmed": true},
+        {"pick": 69, "player": "Walker Kessler", "observation_to_click_ms": 1832, "click_to_confirm_ms": 1583, "clock_seconds": 85, "history_and_roster_confirmed": true},
+        {"pick": 72, "player": "Kel'el Ware", "observation_to_click_ms": 1769, "click_to_confirm_ms": 2122, "clock_seconds": 85, "history_and_roster_confirmed": true},
+        {"pick": 97, "player": "Nikola Vucevic", "observation_to_click_ms": 1777, "click_to_confirm_ms": 1945, "clock_seconds": 86, "history_and_roster_confirmed": true},
+        {"pick": 100, "player": "John Collins", "observation_to_click_ms": 1802, "click_to_confirm_ms": 2072, "clock_seconds": 85, "history_and_roster_confirmed": true},
+        {"pick": 125, "player": "Kyshawn George", "observation_to_click_ms": 1652, "click_to_confirm_ms": 1485, "clock_seconds": 85, "history_and_roster_confirmed": true},
+        {"pick": 128, "player": "Jrue Holiday", "observation_to_click_ms": 1814, "click_to_confirm_ms": 1977, "clock_seconds": 85, "history_and_roster_confirmed": true}
+      ],
+      "clean_timing_gate": "passed",
+      "production_gate": "not_all_passed",
+      "limits": [
+        "exact canonical module runner only unit-tested; live run used equivalent root REPL prototype",
+        "real ninety-minute foreground continuity not rehearsed",
+        "queue fallback disabled or only partially evidenced",
+        "center-heavy final roster requires strategy review"
+      ]
+    },
+    "fresh-1000000002": {
+      "source": "root-agent summary and current database export; no standalone durable JSON in this directory",
+      "durable": false,
+      "final_state": "paused",
+      "stored_not_terminal": true,
+      "latest_history_snapshot_may_end_at": 17,
+      "native_paused_at_pick": 41,
+      "autopick": false,
+      "roster_only_count": 2,
+      "no_autopicks_observed": true,
+      "confirmed_direct_picks": [13, 16],
+      "latency": [
+        {"pick": 13, "player": "Karl-Anthony Towns", "observation_to_click_ms": 1848, "click_to_confirm_ms": 1963, "clock_seconds": 86, "history_and_roster_confirmed": true},
+        {"pick": 16, "player": "Jalen Duren", "observation_to_click_ms": 1744, "click_to_confirm_ms": 1576, "clock_seconds": 85, "history_and_roster_confirmed": true}
+      ],
+      "stale_pause": {
+        "age_seconds": 10.569,
+        "latest_publish_at": "2026-10-11T15:07:05.947Z",
+        "next_frame_at": "2026-10-11T15:07:16.480Z",
+        "gap_seconds": 10.533,
+        "interpretation": "about the ten-second CUA boundary even with an immediate next tool call"
+      },
+      "pending_outcome": true,
+      "handoff_note": "user updates after agent handoff failed the tab claim; root agent remains sole owner"
+    }
+  },
+  "operator_summary_provenance": {
+    "source": "root-agent summary supplied alongside durable journal exports",
+    "durable": false,
+    "queue": {
+      "timer_seconds": 15,
+      "autopick_initially": false,
+      "insertion_order": ["Shai Gilgeous-Alexander", "Nikola Jokic"],
+      "queued_at": "2026-10-11T14:01:05.866Z",
+      "timeout_at": "2026-10-11T14:01:46.274Z",
+      "readback": {
+        "shai_in_history_and_roster": true,
+        "autopick": true,
+        "opponent_jokic_pick": 6,
+        "queue_empty": true
+      },
+      "interpretation": "narrow queue timeout/read-back evidence; deterministic fallback remains unverified"
+    },
+    "takeover": {
+      "manual_siakam_pick": 28,
+      "restart_paused_at_pick": 29,
+      "explicit_resume_bam_pick": 29,
+      "recovered_sabonis_pick": 13,
+      "recovered_duren_pick": 16,
+      "later_pause_pick": 41,
+      "later_pause_reason": "operator SQLite API error"
+    },
+    "fresh_clean_room": {
+      "league_id": "1000000004",
+      "state": "completed",
+      "history_count": 140,
+      "confirmed_direct_picks": 10,
+      "legal_roster": true,
+      "interpretation": "durable clean-1000000004.json is now exported; its single pause keeps the run outside the no-pause clean gate"
+    },
+    "latest_uninterrupted_clean_room": {
+      "league_id": "1000000007",
+      "state": "completed",
+      "history_count": 140,
+      "confirmed_direct_picks": 10,
+      "legal_roster": true,
+      "recovery_pause_resume_after_start": false,
+      "clean_timing_gate": "passed",
+      "interpretation": "single foreground invocation completed in 240.5786 seconds; production release remains gated by canonical-runner, continuity, queue-fallback, and strategy-review limits"
+    },
+    "latest_pending_room": {
+      "league_id": "1000000002",
+      "state": "paused",
+      "paused_at_pick": 41,
+      "pending_outcome": true,
+      "interpretation": "latest stored snapshot is not terminal; root agent owns the pending outcome"
+    }
+  },
+  "validation_inventory": {
+    "python_total": 75,
+    "python_draft_assistant": 67,
+    "python_mock_draft": 8,
+    "node_total": 39
+  }
+}

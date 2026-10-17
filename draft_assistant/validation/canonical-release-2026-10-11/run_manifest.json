@@ -1,0 +1,44 @@
+{
+  "artifact_version": "canonical-release-browser-v1",
+  "captured_at": "2026-10-11T21:01:17Z",
+  "practice_attestation": {
+    "source_league_id": "1000000000",
+    "room_league_id": "1000000016",
+    "season_id": "2027",
+    "team_id": "15",
+    "practice": true,
+    "heading": "ESPN Fantasy Basketball Draft - Practice Draft for Example League"
+  },
+  "control_plane": {
+    "session_id": "example-6dcd73354ff0c487",
+    "safe_url": "https://fantasy.espn.com/basketball/draft?leagueId=1000000016&seasonId=2027&teamId=15",
+    "connected": true,
+    "observed_frames": 7,
+    "operator_commands_executed": 0
+  },
+  "reviewed_source_hashes_sha256": {
+    "draft_assistant/browser_observer.js": "2D8ABB53E92292CDB19037C3E35EEEDA7F65091C994D66DD34660AE5FAA08084",
+    "draft_assistant/operator_runtime.js": "AAF8C37F07C42CB31D5A0C8D9F74FEDD028F2638FE05035FCCDAFE1C1972F911"
+  },
+  "room_state": {
+    "native_paused": true,
+    "pause_reason": "explicit League Manager pause before catalog capture",
+    "current_pick": 30,
+    "own_team": "Example Team",
+    "timer_seconds": 30,
+    "autopick_ours": false
+  },
+  "live_canonical_run": {
+    "status": "blocked_after_native_fallback",
+    "history_count": 29,
+    "confirmed_own_actions": 0,
+    "roster_count": null,
+    "roster_count_observed": 0,
+    "roster_parse_status": "unknown",
+    "roster_parse_note": "The parser returned zero roster rows while the visible history contained two Example Team picks; roster completeness was therefore unknown and the native fallback picks remain excluded from direct evidence.",
+    "queue_pilot_started": false,
+    "wall_clock_90_minute_claim": false,
+    "reason": "The native timer elapsed before the foreground runner dispatched, so ESPN fallback selected our players at picks 13 and 16. The room was explicitly paused at pick 30; native fallback history is excluded from direct evidence and a clean practice room is required."
+  },
+  "source_provenance": "Visible ESPN practice room UI and local control-plane read-back only; no runtime database, credential, hidden state, or HTTP ESPN data included."
+}

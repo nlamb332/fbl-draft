@@ -1,0 +1,60 @@
+{
+  "artifact_version": "canonical-release-activation-diagnostic-v1",
+  "captured_at": "2026-10-12T02:34:00.556Z",
+  "room": {
+    "league_id": "1000000012",
+    "season_id": "2027",
+    "team_id": "15",
+    "practice": true,
+    "heading": "ESPN Fantasy Basketball Draft - Practice Draft for Example League",
+    "source_league_id": "1000000000"
+  },
+  "session_id": "example-9b004bf44387175e",
+  "native_state": {
+    "paused": true,
+    "league_manager_selected": true,
+    "visible_controls": ["Resume"],
+    "clock_seconds": null
+  },
+  "observer_binding": {
+    "createBrowserObserver_callable": true,
+    "captureFrame_callable": true,
+    "captureFastFrame_callable": true,
+    "source_hash_sha256": "9B6355E885E0D3A778322ED770D687F1BACE5CC2ABCD5101691DBAEDA469FFBB",
+    "catalog_players": 230,
+    "catalog_value_ready_players": 208,
+    "catalog_incomplete_players_retained": 22
+  },
+  "guarded_attempts": [
+    {
+      "tool_wall_time_seconds": 17.472,
+      "native_resume_clicked": false,
+      "stop_reason": "paused publish failed: DraftObservation.__init__() rejected the diagnostic _live_filter field"
+    },
+    {
+      "tool_wall_time_seconds": 15.701,
+      "native_resume_clicked": false,
+      "stop_reason": "Resume locator did not uniquely resolve while the room was on Players; finally left the native room paused"
+    },
+    {
+      "tool_wall_time_seconds": 21.986,
+      "native_resume_clicked": false,
+      "stop_reason": "Exact-case Resume locator did not uniquely resolve after League Manager switch; a visible DOM Resume control was read back"
+    }
+  ],
+  "durable_readback": {
+    "confirmed_direct_actions": 1,
+    "unresolved_actions": 0,
+    "history_picks": 15,
+    "roster_players": 1,
+    "next_pick": 16,
+    "coordinator_state": "paused"
+  },
+  "scope": {
+    "canonical_10_pick_run_complete": false,
+    "queue_pilot_run": false,
+    "live_90_second_wait_evidence": false,
+    "simulated_90_minute_endurance": false,
+    "provenance": "Visible ESPN UI, visible local control panel, and reviewed local module bindings; no ESPN HTTP/API or hidden page state"
+  }
+}

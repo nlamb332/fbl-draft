@@ -1,0 +1,959 @@
+{
+  "protocol": "development seeds only; frozen before held-out",
+  "dev_seeds": [
+    20260000,
+    20260023,
+    24
+  ],
+  "objective": "maximize the smaller of the two catalog mean paired deltas; require worst-seat loss <= 5% and no fallbacks",
+  "grid": [
+    {
+      "config": {
+        "weeks": 6,
+        "completion_days": 14,
+        "vor_weight": 0.0,
+        "depth_scale": 0.75,
+        "opponent_market_weight": 0.25,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 15.341889904736826,
+        "real": -20.656031159473965
+      },
+      "ci_lower": {
+        "synthetic": -1.2891990511330145,
+        "real": -31.130798213401118
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.021198620274704705,
+        "real": -0.0510864453228179
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 6,
+        "completion_days": 14,
+        "vor_weight": 0.0,
+        "depth_scale": 0.75,
+        "opponent_market_weight": 0.5,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 8.775673471524373,
+        "real": -9.316699504895462
+      },
+      "ci_lower": {
+        "synthetic": -6.368504690730405,
+        "real": -20.51739366698213
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.012996116916347158,
+        "real": -0.04200712390578247
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 6,
+        "completion_days": 14,
+        "vor_weight": 0.0,
+        "depth_scale": 0.75,
+        "opponent_market_weight": 0.75,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": -2.787537978536074,
+        "real": -34.988942498047074
+      },
+      "ci_lower": {
+        "synthetic": -16.441571834466345,
+        "real": -48.06583601626195
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.02674669405439483,
+        "real": -0.06285226871834142
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 6,
+        "completion_days": 14,
+        "vor_weight": 0.0,
+        "depth_scale": 1.0,
+        "opponent_market_weight": 0.25,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 23.305121010461054,
+        "real": -19.909582094356384
+      },
+      "ci_lower": {
+        "synthetic": 8.76702821411967,
+        "real": -32.878220308452576
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.0027947497307256363,
+        "real": -0.03597772637718379
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 6,
+        "completion_days": 14,
+        "vor_weight": 0.0,
+        "depth_scale": 1.0,
+        "opponent_market_weight": 0.5,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 7.807573713666872,
+        "real": -5.375199626753642
+      },
+      "ci_lower": {
+        "synthetic": -5.294215116433148,
+        "real": -19.912762747668534
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.010170690872291744,
+        "real": -0.043864698589652765
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 6,
+        "completion_days": 14,
+        "vor_weight": 0.0,
+        "depth_scale": 1.0,
+        "opponent_market_weight": 0.75,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 3.840954775722357,
+        "real": -16.862452849492758
+      },
+      "ci_lower": {
+        "synthetic": -10.112081039906727,
+        "real": -28.17699942600321
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.009156107875327524,
+        "real": -0.04686167698459803
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 6,
+        "completion_days": 14,
+        "vor_weight": 0.0,
+        "depth_scale": 1.25,
+        "opponent_market_weight": 0.25,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 25.39543169104125,
+        "real": -12.967091893985065
+      },
+      "ci_lower": {
+        "synthetic": 11.560588718739618,
+        "real": -25.386651718007013
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": 0.0005373009201680436,
+        "real": -0.03522931828779842
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 6,
+        "completion_days": 14,
+        "vor_weight": 0.0,
+        "depth_scale": 1.25,
+        "opponent_market_weight": 0.5,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 12.09949020531382,
+        "real": -15.477267782470491
+      },
+      "ci_lower": {
+        "synthetic": -2.4715229981570417,
+        "real": -27.315512135556855
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.010452924745200137,
+        "real": -0.0344042302749212
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 6,
+        "completion_days": 14,
+        "vor_weight": 0.0,
+        "depth_scale": 1.25,
+        "opponent_market_weight": 0.75,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 1.179706108716839,
+        "real": -18.42167869857828
+      },
+      "ci_lower": {
+        "synthetic": -10.700641385658464,
+        "real": -28.289205178926647
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.035310665194240594,
+        "real": -0.04565921291007399
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 6,
+        "completion_days": 14,
+        "vor_weight": 0.5,
+        "depth_scale": 0.75,
+        "opponent_market_weight": 0.25,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 35.358094318156894,
+        "real": -1.53712486325752
+      },
+      "ci_lower": {
+        "synthetic": 20.912541050775996,
+        "real": -13.173287934997632
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": 0.005267417775845537,
+        "real": -0.02970669715979533
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 6,
+        "completion_days": 14,
+        "vor_weight": 0.5,
+        "depth_scale": 0.75,
+        "opponent_market_weight": 0.5,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 19.525248398259524,
+        "real": 3.9484923645347387
+      },
+      "ci_lower": {
+        "synthetic": 6.726611242907748,
+        "real": -8.269374116281785
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.010077011384002556,
+        "real": -0.02448417050954838
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 6,
+        "completion_days": 14,
+        "vor_weight": 0.5,
+        "depth_scale": 0.75,
+        "opponent_market_weight": 0.75,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 19.43093886673815,
+        "real": -8.324382579885796
+      },
+      "ci_lower": {
+        "synthetic": 6.380912789079244,
+        "real": -20.54808342077734
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.007078777837350482,
+        "real": -0.02893337744637232
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 6,
+        "completion_days": 14,
+        "vor_weight": 0.5,
+        "depth_scale": 1.0,
+        "opponent_market_weight": 0.25,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 36.83126476327867,
+        "real": -4.585357952267979
+      },
+      "ci_lower": {
+        "synthetic": 24.201093733167813,
+        "real": -16.655386807472247
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": 0.01523733518989603,
+        "real": -0.029884334501691062
+      },
+      "fallbacks": 13
+    },
+    {
+      "config": {
+        "weeks": 6,
+        "completion_days": 14,
+        "vor_weight": 0.5,
+        "depth_scale": 1.0,
+        "opponent_market_weight": 0.5,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 24.59209895867011,
+        "real": 6.957542224005375
+      },
+      "ci_lower": {
+        "synthetic": 9.458804865743817,
+        "real": -5.868262183697873
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": 0.0025813568619008605,
+        "real": -0.019700621014777955
+      },
+      "fallbacks": 5
+    },
+    {
+      "config": {
+        "weeks": 6,
+        "completion_days": 14,
+        "vor_weight": 0.5,
+        "depth_scale": 1.0,
+        "opponent_market_weight": 0.75,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 23.662074148143173,
+        "real": 0.2159446165961176
+      },
+      "ci_lower": {
+        "synthetic": 8.373203879894307,
+        "real": -10.58223901256517
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.003049938713632116,
+        "real": -0.0255383773503267
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 6,
+        "completion_days": 14,
+        "vor_weight": 0.5,
+        "depth_scale": 1.25,
+        "opponent_market_weight": 0.25,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 36.829180719591065,
+        "real": 0.7395360480319882
+      },
+      "ci_lower": {
+        "synthetic": 23.622256647615206,
+        "real": -11.844263297902655
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": 0.0072595396417190075,
+        "real": -0.022304565468557108
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 6,
+        "completion_days": 14,
+        "vor_weight": 0.5,
+        "depth_scale": 1.25,
+        "opponent_market_weight": 0.5,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 25.41904993281671,
+        "real": 1.0991308492940772
+      },
+      "ci_lower": {
+        "synthetic": 8.410294724110765,
+        "real": -11.236944639139253
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": 0.00422543384020378,
+        "real": -0.021144484146457417
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 6,
+        "completion_days": 14,
+        "vor_weight": 0.5,
+        "depth_scale": 1.25,
+        "opponent_market_weight": 0.75,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 21.64271895508685,
+        "real": -5.774880360123357
+      },
+      "ci_lower": {
+        "synthetic": 8.588766097104878,
+        "real": -15.053351185678622
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.010482403558014294,
+        "real": -0.02493882468492372
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 12,
+        "completion_days": 14,
+        "vor_weight": 0.0,
+        "depth_scale": 0.75,
+        "opponent_market_weight": 0.25,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 24.696091317190987,
+        "real": -12.907025580636967
+      },
+      "ci_lower": {
+        "synthetic": 9.672950504284012,
+        "real": -25.240331455214193
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.0014689119087160259,
+        "real": -0.03083430283778871
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 12,
+        "completion_days": 14,
+        "vor_weight": 0.0,
+        "depth_scale": 0.75,
+        "opponent_market_weight": 0.5,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 0.7583396331471418,
+        "real": -12.806652897512357
+      },
+      "ci_lower": {
+        "synthetic": -18.480250480726227,
+        "real": -25.393171969749854
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.025992228893565002,
+        "real": -0.056637900151631414
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 12,
+        "completion_days": 14,
+        "vor_weight": 0.0,
+        "depth_scale": 0.75,
+        "opponent_market_weight": 0.75,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": -3.4985438386318095,
+        "real": -5.495642091587849
+      },
+      "ci_lower": {
+        "synthetic": -17.20097885747395,
+        "real": -19.97966999091045
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.02927904130878737,
+        "real": -0.03538301648691673
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 12,
+        "completion_days": 14,
+        "vor_weight": 0.0,
+        "depth_scale": 1.0,
+        "opponent_market_weight": 0.25,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 33.10693350930044,
+        "real": -6.861862909165853
+      },
+      "ci_lower": {
+        "synthetic": 17.131630526564454,
+        "real": -18.30840122232976
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": 0.014283926330879384,
+        "real": -0.03879886593370125
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 12,
+        "completion_days": 14,
+        "vor_weight": 0.0,
+        "depth_scale": 1.0,
+        "opponent_market_weight": 0.5,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 22.004156548725422,
+        "real": -17.664036244873934
+      },
+      "ci_lower": {
+        "synthetic": 9.99668208911712,
+        "real": -30.041560355114115
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": 0.004526775443041628,
+        "real": -0.03666834490613538
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 12,
+        "completion_days": 14,
+        "vor_weight": 0.0,
+        "depth_scale": 1.0,
+        "opponent_market_weight": 0.75,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 13.763484287556937,
+        "real": -12.858615941078634
+      },
+      "ci_lower": {
+        "synthetic": -1.3122234409404838,
+        "real": -21.864176774756753
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.02004415514288824,
+        "real": -0.049983723820478325
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 12,
+        "completion_days": 14,
+        "vor_weight": 0.0,
+        "depth_scale": 1.25,
+        "opponent_market_weight": 0.25,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 32.0832642484203,
+        "real": -2.2094431048019976
+      },
+      "ci_lower": {
+        "synthetic": 19.866681966918392,
+        "real": -12.478860950073633
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": 0.01073029309363623,
+        "real": -0.04502605757827517
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 12,
+        "completion_days": 14,
+        "vor_weight": 0.0,
+        "depth_scale": 1.25,
+        "opponent_market_weight": 0.5,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 13.771703410129605,
+        "real": -5.01231632483482
+      },
+      "ci_lower": {
+        "synthetic": -2.5989815203847013,
+        "real": -16.080025564410573
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.02143470933908786,
+        "real": -0.032987203279368285
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 12,
+        "completion_days": 14,
+        "vor_weight": 0.0,
+        "depth_scale": 1.25,
+        "opponent_market_weight": 0.75,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 1.3171250340242984,
+        "real": -13.823904159656784
+      },
+      "ci_lower": {
+        "synthetic": -14.590566042609995,
+        "real": -28.25618475700277
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.019181943586704595,
+        "real": -0.033279481784258956
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 12,
+        "completion_days": 14,
+        "vor_weight": 0.5,
+        "depth_scale": 0.75,
+        "opponent_market_weight": 0.25,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 34.298982728613275,
+        "real": -0.7596393266956931
+      },
+      "ci_lower": {
+        "synthetic": 19.956249389918245,
+        "real": -15.61256944552518
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": 0.008239072021944864,
+        "real": -0.023830014554122713
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 12,
+        "completion_days": 14,
+        "vor_weight": 0.5,
+        "depth_scale": 0.75,
+        "opponent_market_weight": 0.5,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 36.11116498279976,
+        "real": 3.353208836077799
+      },
+      "ci_lower": {
+        "synthetic": 21.09208142223235,
+        "real": -7.774067544985573
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": 0.009101636442984387,
+        "real": -0.04598945798189968
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 12,
+        "completion_days": 14,
+        "vor_weight": 0.5,
+        "depth_scale": 0.75,
+        "opponent_market_weight": 0.75,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 18.248471932215597,
+        "real": 6.541000024547608
+      },
+      "ci_lower": {
+        "synthetic": 5.087787235769697,
+        "real": -5.751314374871055
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.011234322408341322,
+        "real": -0.029912714198134203
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 12,
+        "completion_days": 14,
+        "vor_weight": 0.5,
+        "depth_scale": 1.0,
+        "opponent_market_weight": 0.25,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 44.4518138498334,
+        "real": 0.2826196461502108
+      },
+      "ci_lower": {
+        "synthetic": 29.13831586776327,
+        "real": -13.359246555632147
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": 0.005978453610997037,
+        "real": -0.025460773055740436
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 12,
+        "completion_days": 14,
+        "vor_weight": 0.5,
+        "depth_scale": 1.0,
+        "opponent_market_weight": 0.5,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 31.7427622984537,
+        "real": -3.8783030763695496
+      },
+      "ci_lower": {
+        "synthetic": 18.08359085961111,
+        "real": -17.18437193097738
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.0013708602007438384,
+        "real": -0.03167645418680483
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 12,
+        "completion_days": 14,
+        "vor_weight": 0.5,
+        "depth_scale": 1.0,
+        "opponent_market_weight": 0.75,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 29.636193520785465,
+        "real": 0.921520085977024
+      },
+      "ci_lower": {
+        "synthetic": 16.154457317967243,
+        "real": -9.93980582052705
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": 0.002538824446822753,
+        "real": -0.03195454930371213
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 12,
+        "completion_days": 14,
+        "vor_weight": 0.5,
+        "depth_scale": 1.25,
+        "opponent_market_weight": 0.25,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 46.174805267748326,
+        "real": 11.479694964577469
+      },
+      "ci_lower": {
+        "synthetic": 33.36115927063236,
+        "real": -0.6967654961899048
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": 0.0005711782406395839,
+        "real": -0.02221269476042387
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 12,
+        "completion_days": 14,
+        "vor_weight": 0.5,
+        "depth_scale": 1.25,
+        "opponent_market_weight": 0.5,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 28.18890372876831,
+        "real": 4.573275319086441
+      },
+      "ci_lower": {
+        "synthetic": 15.03367663208079,
+        "real": -6.569943727850473
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.004711321516794733,
+        "real": -0.023490725895479837
+      },
+      "fallbacks": 0
+    },
+    {
+      "config": {
+        "weeks": 12,
+        "completion_days": 14,
+        "vor_weight": 0.5,
+        "depth_scale": 1.25,
+        "opponent_market_weight": 0.75,
+        "use_imputation": true,
+        "pf_scale": 1.0,
+        "util_share": 1.0,
+        "max_candidates": null
+      },
+      "mean_delta": {
+        "synthetic": 26.556520453094947,
+        "real": 5.847417865385899
+      },
+      "ci_lower": {
+        "synthetic": 11.26509257120771,
+        "real": -5.477247980417001
+      },
+      "worst_seat_loss_fraction": {
+        "synthetic": -0.009034549671011981,
+        "real": -0.026886945082418016
+      },
+      "fallbacks": 0
+    }
+  ],
+  "chosen": {
+    "weeks": 12,
+    "completion_days": 14,
+    "vor_weight": 0.5,
+    "depth_scale": 1.25,
+    "opponent_market_weight": 0.25,
+    "use_imputation": true,
+    "pf_scale": 1.0,
+    "util_share": 1.0,
+    "max_candidates": null
+  },
+  "chosen_met_constraints": true
+}

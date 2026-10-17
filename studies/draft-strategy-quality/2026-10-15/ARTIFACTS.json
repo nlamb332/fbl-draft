@@ -1,0 +1,106 @@
+{
+  "data/counterfactual.json.gz": {
+    "sha256": "98885c4c39d109490cbfe84fab512057ab9c86b3762d067608b1953d6b16bfdb",
+    "bytes": 1472798
+  },
+  "data/espn-ranks.json": {
+    "sha256": "a60aa8a14b426c4b25f5f711c7cc8ad32844d214debd99e63eb8603555d41c45",
+    "bytes": 38155
+  },
+  "data/espn_drafts.jsonl.gz": {
+    "sha256": "2884b40770e5c1d09487d7e6afd56c424c475a9be1e35864d0740b4206e1940e",
+    "bytes": 2731306
+  },
+  "data/espn_manifest.json": {
+    "sha256": "4afd88ec148d189bacdc1a5a01501cebb281fcf7325d86cbbc2eb302045ced58",
+    "bytes": 57414
+  },
+  "data/espn_rank_summary.json": {
+    "sha256": "1f85c72d531ba8989d3c2aa25022d2c720d074db7f89a9e4cf47b17e0c64baa4",
+    "bytes": 6797
+  },
+  "data/espn_rows.json.gz": {
+    "sha256": "5d71d18cce4949b9d3605ec98be0aa81eeb86de396229d212cb329f9fef1b15b",
+    "bytes": 80621
+  },
+  "data/espn_sources.zip": {
+    "sha256": "42630939e17f8c798706e05fe3a8afcf7ac22027f6650dbae9e3d25bbfd8a185",
+    "bytes": 100646
+  },
+  "data/frozen-draft.json.gz": {
+    "sha256": "f996c8021a106ab4cb7cc35f54d56f44e37d6f6b902671d5e3de8c7d1840a3e5",
+    "bytes": 158778
+  },
+  "data/historical_acquisition_attempts.json": {
+    "sha256": "475cf7397661db1276f9e2883eead9728d2af6b38959aa3f9d55f6ee6628d1e8",
+    "bytes": 1155
+  },
+  "data/historical_status.json": {
+    "sha256": "8c8905c1fc43d4f41e37ba3a81f59c9f37c76307e03cbaf35094416c4ddd18ba",
+    "bytes": 2985
+  },
+  "data/initial_drafts.jsonl.gz": {
+    "sha256": "f525ab9af1a690016a8d4b05f9e9fd7eed12bc20d38b11be8eb56ba8ec3f0fea",
+    "bytes": 39051604
+  },
+  "data/initial_manifest.json": {
+    "sha256": "b547673127cf5f504e869a69ae6daf5df69e2630928cebbbac7ecb8d9d49fdf9",
+    "bytes": 1865
+  },
+  "data/initial_rows.json.gz": {
+    "sha256": "d3ba62ba8fd22e582e8f18e97acd650db072219a6285003c2a1aa51f4e776fd9",
+    "bytes": 555011
+  },
+  "data/initial_sources.zip": {
+    "sha256": "43ef8fd7d05ef552cc000fde92efd7aa4ac96f48e478ab86ec67d23a0081f762",
+    "bytes": 99662
+  },
+  "data/projection.json": {
+    "sha256": "1b1eb24516992942d37e2f995a66d0074ff22cad3090e5407349e4b40de61551",
+    "bytes": 122219
+  },
+  "data/resume_audit.json": {
+    "sha256": "e360c589ed5b85ed1c0b85c1071e755d7e68be829db6b93b8a5aa93c79545e73",
+    "bytes": 812
+  },
+  "data/summary.json": {
+    "sha256": "918716c194f93a7d8890bab0010883d62208953b0f11e5c6e10e1eb31d40bd63",
+    "bytes": 521678
+  },
+  "ESPN_RANK_RESULTS.md": {
+    "sha256": "b7c3d6dbc41a2a60d7c2fc6173d623469dee7c1d91d8eee7c4569ed10373943b",
+    "bytes": 3547
+  },
+  "METHODS.md": {
+    "sha256": "33e6096f8c9d6f26b06b0983e43ad58cbc808449a9e7757384734af76b5f302f",
+    "bytes": 6982
+  },
+  "README.md": {
+    "sha256": "9c23f56296f8caaa4dc52085dc318477f9307ded4bdb0dca0d154d02cbb77f48",
+    "bytes": 8643
+  },
+  "RESULTS.md": {
+    "sha256": "920cd3098e15217eb6c6f649a958e4c13225fc7db2afe70bb00bb451208fe92a",
+    "bytes": 8407
+  },
+  "strategy_outcomes.png": {
+    "sha256": "37547b345d1699573d4c8666e5faef185308b83b6b3f197a9062b002a85d77e7",
+    "bytes": 345627
+  },
+  "strategy_outcomes.svg": {
+    "sha256": "3267870bfabc2f87b08fa1aaabba145c8f638ecba5a960b47b72c88c4ce849e2",
+    "bytes": 45528
+  },
+  "strategy_outcomes_with_espn_rank.png": {
+    "sha256": "591c6323a269b06511b25d3d694bdbe2d42d987b4007a71ee594f8c3f3c66cb5",
+    "bytes": 364389
+  },
+  "strategy_outcomes_with_espn_rank.svg": {
+    "sha256": "efd6ef6997c0053033b9aa6ebb7c44cd947a0eb3dcd106f9382663e7715a5e94",
+    "bytes": 48795
+  },
+  "verify.py": {
+    "sha256": "a26550b33d67392e9a71bb1df759b7d54942b261b9a14701e00886d031fa9e7b",
+    "bytes": 3415
+  }
+}

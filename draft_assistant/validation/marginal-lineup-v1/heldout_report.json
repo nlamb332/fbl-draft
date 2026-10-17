@@ -1,0 +1,3110 @@
+{
+  "metadata": {
+    "runner": "draft_assistant.validation_marginal",
+    "policy": "marginal-lineup-v1",
+    "foundation": "draft-strategy-v2",
+    "heldout_seed_range": [
+      20280000,
+      20280099
+    ],
+    "independent_seed_clusters": 100,
+    "dev_seed_range": [
+      20260000,
+      20260023
+    ],
+    "teams": 14,
+    "opponents": 13,
+    "rounds": 10,
+    "picks_per_draft": 140,
+    "seats_per_seed": 14,
+    "scenarios": [
+      "nominal",
+      "market_misspecified",
+      "custom_misspecified"
+    ],
+    "catalogs": {
+      "synthetic": "synthetic_fixture(195 players, per-seed)",
+      "real": "mock_draft/data/players_2026-27_espn_projection.csv with seeded synthetic schedule"
+    },
+    "foundation_vs_marginal_lineup": true,
+    "primary_metric": "validation_runner._weekly_points (exact DP lineup, +-10% realized-stat noise, synthetic week); known scoring components only on the real catalog",
+    "sensitivity_metric": "imputed_truth_points: same drafted rosters scored with PF/DD/TD imputed into the realized stats (real catalog only)",
+    "bootstrap": "4000 percentile resamples of per-seed cluster means",
+    "frozen_params": {
+      "weeks": 12,
+      "completion_days": 14,
+      "vor_weight": 0.5,
+      "depth_scale": 1.25,
+      "opponent_market_weight": 0.25,
+      "use_imputation": true,
+      "pf_scale": 1.0,
+      "util_share": 1.0,
+      "max_candidates": null
+    },
+    "max_marginal_pick_seconds_in_validation": 0.41646060001221485,
+    "foundation_fingerprint": "dc4c94b93b4219e4c317dd54660886f9b84c2f36437a5cc83c56dd8cab0fcd2d"
+  },
+  "decision": {
+    "status": "promotable",
+    "rule": "promote only if the paired 95% bootstrap lower bound (by seed cluster) > 0 and no seat mean loss exceeds 5% on BOTH catalogs (nominal opponents), with at least 100 seed clusters and no budget fallback",
+    "per_catalog": {
+      "synthetic": {
+        "mean_delta": 32.08062054053233,
+        "paired_bootstrap_95_lower": 25.284007282519106,
+        "paired_bootstrap_95_upper": 39.62107362002907,
+        "worst_seat": 4,
+        "worst_seat_mean_delta": 6.555850496848845,
+        "worst_seat_loss_fraction": 0.005458066432127872,
+        "gate_pass": true,
+        "fallbacks": 0
+      },
+      "real": {
+        "mean_delta": 12.07463915588397,
+        "paired_bootstrap_95_lower": 6.2174560601612825,
+        "paired_bootstrap_95_upper": 18.12658292599435,
+        "worst_seat": 11,
+        "worst_seat_mean_delta": -9.1315750956039,
+        "worst_seat_loss_fraction": -0.007075639799477652,
+        "gate_pass": true,
+        "fallbacks": 0
+      }
+    }
+  },
+  "summaries": [
+    {
+      "catalog": "synthetic",
+      "scenario": "nominal",
+      "variant": "marginal",
+      "baseline": "foundation",
+      "metric": "weekly_points",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 32.08062054053233,
+      "paired_bootstrap_95_lower": 25.284007282519106,
+      "paired_bootstrap_95_upper": 39.62107362002907,
+      "baseline_mean": 1179.220470158996,
+      "worst_seat": 4,
+      "worst_seat_mean_delta": 6.555850496848845,
+      "worst_seat_loss_fraction": 0.005458066432127872,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 39.65223709311866,
+          "baseline_mean": 1200.6168637051462,
+          "mean_delta_fraction": 0.03302655350912734
+        },
+        {
+          "seat": 2,
+          "mean_delta": 44.58254582412886,
+          "baseline_mean": 1160.7755303692088,
+          "mean_delta_fraction": 0.03840755138071221
+        },
+        {
+          "seat": 3,
+          "mean_delta": 27.40651698111411,
+          "baseline_mean": 1178.5012062526646,
+          "mean_delta_fraction": 0.023255400024799203
+        },
+        {
+          "seat": 4,
+          "mean_delta": 6.555850496848845,
+          "baseline_mean": 1201.13057955086,
+          "mean_delta_fraction": 0.005458066432127872
+        },
+        {
+          "seat": 5,
+          "mean_delta": 45.148888057942294,
+          "baseline_mean": 1183.4653090893307,
+          "mean_delta_fraction": 0.03814973511364189
+        },
+        {
+          "seat": 6,
+          "mean_delta": 26.2878139764461,
+          "baseline_mean": 1180.9429413172172,
+          "mean_delta_fraction": 0.02226002040972853
+        },
+        {
+          "seat": 7,
+          "mean_delta": 24.095127628760544,
+          "baseline_mean": 1184.4579062173386,
+          "mean_delta_fraction": 0.020342747093233787
+        },
+        {
+          "seat": 8,
+          "mean_delta": 37.306495694730046,
+          "baseline_mean": 1172.256189121826,
+          "mean_delta_fraction": 0.031824524400828724
+        },
+        {
+          "seat": 9,
+          "mean_delta": 35.066986371152986,
+          "baseline_mean": 1179.9792840814239,
+          "mean_delta_fraction": 0.0297183067908277
+        },
+        {
+          "seat": 10,
+          "mean_delta": 39.46087876123426,
+          "baseline_mean": 1168.5176127293478,
+          "mean_delta_fraction": 0.03377003335796035
+        },
+        {
+          "seat": 11,
+          "mean_delta": 35.755577820669984,
+          "baseline_mean": 1178.1904858492326,
+          "mean_delta_fraction": 0.030347875195153678
+        },
+        {
+          "seat": 12,
+          "mean_delta": 12.737908115724064,
+          "baseline_mean": 1180.2304702340007,
+          "mean_delta_fraction": 0.010792729417669211
+        },
+        {
+          "seat": 13,
+          "mean_delta": 39.91813330863745,
+          "baseline_mean": 1171.56807482741,
+          "mean_delta_fraction": 0.034072397640673165
+        },
+        {
+          "seat": 14,
+          "mean_delta": 35.15372743694437,
+          "baseline_mean": 1168.4541288809364,
+          "mean_delta_fraction": 0.03008567180177809
+        }
+      ],
+      "c_only": {
+        "foundation": {
+          "histogram": {
+            "0": 65,
+            "1": 261,
+            "2": 507,
+            "3": 398,
+            "4": 130,
+            "5": 35,
+            "6": 4
+          },
+          "median": 2.0,
+          "mean": 2.277142857142857
+        },
+        "policy": {
+          "histogram": {
+            "0": 110,
+            "1": 596,
+            "2": 682,
+            "3": 12
+          },
+          "median": 1.0,
+          "mean": 1.4257142857142857
+        }
+      },
+      "center_eligible_mean": {
+        "foundation": 4.0285714285714285,
+        "policy": 3.237142857142857
+      },
+      "usable_starts": {
+        "foundation": 30.09857142857143,
+        "policy": 31.534285714285716
+      },
+      "games_benched": {
+        "foundation": 3.1692857142857145,
+        "policy": 1.4214285714285715
+      },
+      "busy_collisions": {
+        "foundation": 2.1007142857142855,
+        "policy": 1.0757142857142856
+      },
+      "fallbacks": 0,
+      "gate_pass": true
+    },
+    {
+      "catalog": "synthetic",
+      "scenario": "market_misspecified",
+      "variant": "marginal",
+      "baseline": "foundation",
+      "metric": "weekly_points",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 23.30036993672997,
+      "paired_bootstrap_95_lower": 16.63445401470861,
+      "paired_bootstrap_95_upper": 30.05661892778528,
+      "baseline_mean": 1255.9672240500383,
+      "worst_seat": 4,
+      "worst_seat_mean_delta": 11.657653994436364,
+      "worst_seat_loss_fraction": 0.009125086520888033,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 25.074900071688102,
+          "baseline_mean": 1254.39553728923,
+          "mean_delta_fraction": 0.01998962793336732
+        },
+        {
+          "seat": 2,
+          "mean_delta": 34.849716628443716,
+          "baseline_mean": 1243.2182709107074,
+          "mean_delta_fraction": 0.028031856870085168
+        },
+        {
+          "seat": 3,
+          "mean_delta": 18.397626354211262,
+          "baseline_mean": 1258.4352863037293,
+          "mean_delta_fraction": 0.014619445715201369
+        },
+        {
+          "seat": 4,
+          "mean_delta": 11.657653994436364,
+          "baseline_mean": 1277.5390093837561,
+          "mean_delta_fraction": 0.009125086520888033
+        },
+        {
+          "seat": 5,
+          "mean_delta": 29.520230983197063,
+          "baseline_mean": 1250.9870804711818,
+          "mean_delta_fraction": 0.023597550641432943
+        },
+        {
+          "seat": 6,
+          "mean_delta": 12.224835104231818,
+          "baseline_mean": 1270.3213711602998,
+          "mean_delta_fraction": 0.009623419224275323
+        },
+        {
+          "seat": 7,
+          "mean_delta": 21.245509825978758,
+          "baseline_mean": 1252.0594693668777,
+          "mean_delta_fraction": 0.016968451056659364
+        },
+        {
+          "seat": 8,
+          "mean_delta": 19.628060011491772,
+          "baseline_mean": 1261.969541299474,
+          "mean_delta_fraction": 0.015553513273609113
+        },
+        {
+          "seat": 9,
+          "mean_delta": 14.289286611685139,
+          "baseline_mean": 1265.2153913214001,
+          "mean_delta_fraction": 0.011293955724614845
+        },
+        {
+          "seat": 10,
+          "mean_delta": 29.08475535241648,
+          "baseline_mean": 1253.7361322285963,
+          "mean_delta_fraction": 0.023198466251998708
+        },
+        {
+          "seat": 11,
+          "mean_delta": 17.8688487295122,
+          "baseline_mean": 1257.326599440795,
+          "mean_delta_fraction": 0.014211779769440573
+        },
+        {
+          "seat": 12,
+          "mean_delta": 24.68326284510251,
+          "baseline_mean": 1251.4137033100349,
+          "mean_delta_fraction": 0.019724302826327044
+        },
+        {
+          "seat": 13,
+          "mean_delta": 31.236858393790254,
+          "baseline_mean": 1252.525939264071,
+          "mean_delta_fraction": 0.0249390910116749
+        },
+        {
+          "seat": 14,
+          "mean_delta": 36.44363420803417,
+          "baseline_mean": 1234.3978049503844,
+          "mean_delta_fraction": 0.029523411384791785
+        }
+      ],
+      "c_only": {
+        "foundation": {
+          "histogram": {
+            "0": 45,
+            "1": 310,
+            "2": 506,
+            "3": 383,
+            "4": 133,
+            "5": 21,
+            "6": 2
+          },
+          "median": 2.0,
+          "mean": 2.2285714285714286
+        },
+        "policy": {
+          "histogram": {
+            "0": 81,
+            "1": 622,
+            "2": 682,
+            "3": 15
+          },
+          "median": 1.0,
+          "mean": 1.4507142857142856
+        }
+      },
+      "center_eligible_mean": {
+        "foundation": 4.5007142857142854,
+        "policy": 3.527857142857143
+      },
+      "usable_starts": {
+        "foundation": 30.111428571428572,
+        "policy": 31.26642857142857
+      },
+      "games_benched": {
+        "foundation": 2.9192857142857145,
+        "policy": 1.4607142857142856
+      },
+      "busy_collisions": {
+        "foundation": 2.005714285714286,
+        "policy": 1.12
+      },
+      "fallbacks": 0,
+      "gate_pass": true
+    },
+    {
+      "catalog": "synthetic",
+      "scenario": "custom_misspecified",
+      "variant": "marginal",
+      "baseline": "foundation",
+      "metric": "weekly_points",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 22.930593101214278,
+      "paired_bootstrap_95_lower": 17.7137921512266,
+      "paired_bootstrap_95_upper": 28.097104469406943,
+      "baseline_mean": 1165.0078271530542,
+      "worst_seat": 4,
+      "worst_seat_mean_delta": 4.945639536384798,
+      "worst_seat_loss_fraction": 0.004158770720172632,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 25.768213911557776,
+          "baseline_mean": 1182.679966569961,
+          "mean_delta_fraction": 0.021787985456700867
+        },
+        {
+          "seat": 2,
+          "mean_delta": 28.788292795373128,
+          "baseline_mean": 1162.4104239667647,
+          "mean_delta_fraction": 0.02476603117264908
+        },
+        {
+          "seat": 3,
+          "mean_delta": 22.059302798197646,
+          "baseline_mean": 1161.71664880925,
+          "mean_delta_fraction": 0.018988539779306982
+        },
+        {
+          "seat": 4,
+          "mean_delta": 4.945639536384798,
+          "baseline_mean": 1189.207068424177,
+          "mean_delta_fraction": 0.004158770720172632
+        },
+        {
+          "seat": 5,
+          "mean_delta": 33.19133558242024,
+          "baseline_mean": 1168.1354912251395,
+          "mean_delta_fraction": 0.02841394327263286
+        },
+        {
+          "seat": 6,
+          "mean_delta": 8.347428669397402,
+          "baseline_mean": 1179.514088802163,
+          "mean_delta_fraction": 0.007077006327134677
+        },
+        {
+          "seat": 7,
+          "mean_delta": 27.047587520818183,
+          "baseline_mean": 1170.345776493857,
+          "mean_delta_fraction": 0.023110766120631315
+        },
+        {
+          "seat": 8,
+          "mean_delta": 18.022252641259588,
+          "baseline_mean": 1174.2908153914507,
+          "mean_delta_fraction": 0.015347350422094426
+        },
+        {
+          "seat": 9,
+          "mean_delta": 20.59782576639717,
+          "baseline_mean": 1171.3802438435066,
+          "mean_delta_fraction": 0.01758423524270142
+        },
+        {
+          "seat": 10,
+          "mean_delta": 28.04225646983694,
+          "baseline_mean": 1147.1262154803817,
+          "mean_delta_fraction": 0.024445659153638725
+        },
+        {
+          "seat": 11,
+          "mean_delta": 16.132573095753205,
+          "baseline_mean": 1158.6432814961854,
+          "mean_delta_fraction": 0.013923675520666555
+        },
+        {
+          "seat": 12,
+          "mean_delta": 28.172991887602237,
+          "baseline_mean": 1151.1465439699293,
+          "mean_delta_fraction": 0.024473853511684764
+        },
+        {
+          "seat": 13,
+          "mean_delta": 34.92238224473291,
+          "baseline_mean": 1151.1141182604156,
+          "mean_delta_fraction": 0.030337897599160925
+        },
+        {
+          "seat": 14,
+          "mean_delta": 24.990220497268627,
+          "baseline_mean": 1142.398897409576,
+          "mean_delta_fraction": 0.021875214125236558
+        }
+      ],
+      "c_only": {
+        "foundation": {
+          "histogram": {
+            "0": 70,
+            "1": 386,
+            "2": 503,
+            "3": 337,
+            "4": 94,
+            "5": 9,
+            "6": 1
+          },
+          "median": 2.0,
+          "mean": 2.0214285714285714
+        },
+        "policy": {
+          "histogram": {
+            "0": 161,
+            "1": 666,
+            "2": 567,
+            "3": 6
+          },
+          "median": 1.0,
+          "mean": 1.2985714285714285
+        }
+      },
+      "center_eligible_mean": {
+        "foundation": 4.116428571428571,
+        "policy": 3.225
+      },
+      "usable_starts": {
+        "foundation": 30.46142857142857,
+        "policy": 31.707142857142856
+      },
+      "games_benched": {
+        "foundation": 2.940714285714286,
+        "policy": 1.43
+      },
+      "busy_collisions": {
+        "foundation": 1.9714285714285715,
+        "policy": 1.0807142857142857
+      },
+      "fallbacks": 0,
+      "gate_pass": true
+    },
+    {
+      "catalog": "real",
+      "scenario": "nominal",
+      "variant": "marginal",
+      "baseline": "foundation",
+      "metric": "weekly_points",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 12.07463915588397,
+      "paired_bootstrap_95_lower": 6.2174560601612825,
+      "paired_bootstrap_95_upper": 18.12658292599435,
+      "baseline_mean": 1294.810629872762,
+      "worst_seat": 11,
+      "worst_seat_mean_delta": -9.1315750956039,
+      "worst_seat_loss_fraction": -0.007075639799477652,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 27.29810052447129,
+          "baseline_mean": 1331.9716302281172,
+          "mean_delta_fraction": 0.0204945059676655
+        },
+        {
+          "seat": 2,
+          "mean_delta": 15.187487846359069,
+          "baseline_mean": 1338.9430478241513,
+          "mean_delta_fraction": 0.011342893090964166
+        },
+        {
+          "seat": 3,
+          "mean_delta": 23.670852400582767,
+          "baseline_mean": 1295.8754386166102,
+          "mean_delta_fraction": 0.01826630221948815
+        },
+        {
+          "seat": 4,
+          "mean_delta": 16.156239782285088,
+          "baseline_mean": 1300.0366757140246,
+          "mean_delta_fraction": 0.01242752614914616
+        },
+        {
+          "seat": 5,
+          "mean_delta": 1.5394229986056711,
+          "baseline_mean": 1305.4403480494636,
+          "mean_delta_fraction": 0.0011792365701778827
+        },
+        {
+          "seat": 6,
+          "mean_delta": -2.488331916668908,
+          "baseline_mean": 1320.51948367167,
+          "mean_delta_fraction": -0.0018843583509651565
+        },
+        {
+          "seat": 7,
+          "mean_delta": 14.947877351322804,
+          "baseline_mean": 1294.8831576264317,
+          "mean_delta_fraction": 0.011543803982069556
+        },
+        {
+          "seat": 8,
+          "mean_delta": 3.3131225006166107,
+          "baseline_mean": 1289.94627335281,
+          "mean_delta_fraction": 0.0025684189869436885
+        },
+        {
+          "seat": 9,
+          "mean_delta": 24.102381954515703,
+          "baseline_mean": 1272.9226682518793,
+          "mean_delta_fraction": 0.01893467887378878
+        },
+        {
+          "seat": 10,
+          "mean_delta": 15.45056377590643,
+          "baseline_mean": 1266.3761524299814,
+          "mean_delta_fraction": 0.012200611758409356
+        },
+        {
+          "seat": 11,
+          "mean_delta": -9.1315750956039,
+          "baseline_mean": 1290.565285174356,
+          "mean_delta_fraction": -0.007075639799477652
+        },
+        {
+          "seat": 12,
+          "mean_delta": 13.03624873856465,
+          "baseline_mean": 1282.2790486751878,
+          "mean_delta_fraction": 0.010166467862072074
+        },
+        {
+          "seat": 13,
+          "mean_delta": 8.358459392282873,
+          "baseline_mean": 1271.5106403371492,
+          "mean_delta_fraction": 0.006573644865501538
+        },
+        {
+          "seat": 14,
+          "mean_delta": 17.604097929135406,
+          "baseline_mean": 1266.078968266839,
+          "mean_delta_fraction": 0.013904423318265852
+        }
+      ],
+      "c_only": {
+        "foundation": {
+          "histogram": {
+            "0": 30,
+            "1": 252,
+            "2": 571,
+            "3": 400,
+            "4": 125,
+            "5": 22
+          },
+          "median": 2.0,
+          "mean": 2.2885714285714287
+        },
+        "policy": {
+          "histogram": {
+            "0": 30,
+            "1": 387,
+            "2": 852,
+            "3": 129,
+            "4": 2
+          },
+          "median": 2.0,
+          "mean": 1.7757142857142858
+        }
+      },
+      "center_eligible_mean": {
+        "foundation": 3.0107142857142857,
+        "policy": 2.8307142857142855
+      },
+      "usable_starts": {
+        "foundation": 29.428571428571427,
+        "policy": 29.970714285714287
+      },
+      "games_benched": {
+        "foundation": 2.2914285714285714,
+        "policy": 1.2814285714285714
+      },
+      "busy_collisions": {
+        "foundation": 1.6614285714285715,
+        "policy": 1.0
+      },
+      "fallbacks": 0,
+      "gate_pass": true
+    },
+    {
+      "catalog": "real",
+      "scenario": "market_misspecified",
+      "variant": "marginal",
+      "baseline": "foundation",
+      "metric": "weekly_points",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 48.533783355347616,
+      "paired_bootstrap_95_lower": 42.809281392212895,
+      "paired_bootstrap_95_upper": 54.3392562471971,
+      "baseline_mean": 1264.147867190856,
+      "worst_seat": 13,
+      "worst_seat_mean_delta": 29.37806219387984,
+      "worst_seat_loss_fraction": 0.023214909359552983,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 92.21634728151626,
+          "baseline_mean": 1261.6338839308635,
+          "mean_delta_fraction": 0.07309279534740971
+        },
+        {
+          "seat": 2,
+          "mean_delta": 101.41376961994774,
+          "baseline_mean": 1252.3712596755388,
+          "mean_delta_fraction": 0.08097740093957582
+        },
+        {
+          "seat": 3,
+          "mean_delta": 54.69319113077964,
+          "baseline_mean": 1253.8899925881153,
+          "mean_delta_fraction": 0.04361881142211616
+        },
+        {
+          "seat": 4,
+          "mean_delta": 36.74027177731224,
+          "baseline_mean": 1285.3475143245294,
+          "mean_delta_fraction": 0.028583920976903928
+        },
+        {
+          "seat": 5,
+          "mean_delta": 39.24838325319125,
+          "baseline_mean": 1296.26306683702,
+          "mean_delta_fraction": 0.030278100377387342
+        },
+        {
+          "seat": 6,
+          "mean_delta": 33.38029597417289,
+          "baseline_mean": 1263.1971950388217,
+          "mean_delta_fraction": 0.02642524548445266
+        },
+        {
+          "seat": 7,
+          "mean_delta": 57.64091501158894,
+          "baseline_mean": 1259.8178770801749,
+          "mean_delta_fraction": 0.045753371229483406
+        },
+        {
+          "seat": 8,
+          "mean_delta": 49.16865689093464,
+          "baseline_mean": 1244.193109900976,
+          "mean_delta_fraction": 0.03951850922470381
+        },
+        {
+          "seat": 9,
+          "mean_delta": 46.3278394075234,
+          "baseline_mean": 1246.7331643007738,
+          "mean_delta_fraction": 0.037159386414097856
+        },
+        {
+          "seat": 10,
+          "mean_delta": 44.876581561619076,
+          "baseline_mean": 1253.4844804059676,
+          "mean_delta_fraction": 0.03580146564485971
+        },
+        {
+          "seat": 11,
+          "mean_delta": 31.32922655194843,
+          "baseline_mean": 1279.8981488146812,
+          "mean_delta_fraction": 0.024477905981005247
+        },
+        {
+          "seat": 12,
+          "mean_delta": 31.105839794851,
+          "baseline_mean": 1270.9586817589768,
+          "mean_delta_fraction": 0.024474312376387603
+        },
+        {
+          "seat": 13,
+          "mean_delta": 29.37806219387984,
+          "baseline_mean": 1265.4825284420378,
+          "mean_delta_fraction": 0.023214909359552983
+        },
+        {
+          "seat": 14,
+          "mean_delta": 31.953586525601313,
+          "baseline_mean": 1264.7992375735098,
+          "mean_delta_fraction": 0.025263761691463053
+        }
+      ],
+      "c_only": {
+        "foundation": {
+          "histogram": {
+            "0": 3,
+            "1": 13,
+            "2": 127,
+            "3": 375,
+            "4": 499,
+            "5": 302,
+            "6": 81
+          },
+          "median": 4.0,
+          "mean": 3.8457142857142856
+        },
+        "policy": {
+          "histogram": {
+            "0": 7,
+            "1": 149,
+            "2": 886,
+            "3": 358
+          },
+          "median": 2.0,
+          "mean": 2.1392857142857142
+        }
+      },
+      "center_eligible_mean": {
+        "foundation": 4.408571428571428,
+        "policy": 2.96
+      },
+      "usable_starts": {
+        "foundation": 28.027142857142856,
+        "policy": 29.415714285714287
+      },
+      "games_benched": {
+        "foundation": 3.2064285714285714,
+        "policy": 1.3907142857142858
+      },
+      "busy_collisions": {
+        "foundation": 2.244285714285714,
+        "policy": 1.0907142857142857
+      },
+      "fallbacks": 0,
+      "gate_pass": true
+    },
+    {
+      "catalog": "real",
+      "scenario": "custom_misspecified",
+      "variant": "marginal",
+      "baseline": "foundation",
+      "metric": "weekly_points",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": -1.5551228384281257,
+      "paired_bootstrap_95_lower": -6.566693127364783,
+      "paired_bootstrap_95_upper": 3.5709063673738677,
+      "baseline_mean": 1315.0613809157203,
+      "worst_seat": 7,
+      "worst_seat_mean_delta": -23.29721585913473,
+      "worst_seat_loss_fraction": -0.017451641646038022,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 16.25539523567123,
+          "baseline_mean": 1354.5669964410138,
+          "mean_delta_fraction": 0.012000436507297622
+        },
+        {
+          "seat": 2,
+          "mean_delta": -1.9944065184546411,
+          "baseline_mean": 1366.9490854510755,
+          "mean_delta_fraction": -0.0014590203392956021
+        },
+        {
+          "seat": 3,
+          "mean_delta": 18.528661795058174,
+          "baseline_mean": 1319.5730136239733,
+          "mean_delta_fraction": 0.014041407033758965
+        },
+        {
+          "seat": 4,
+          "mean_delta": 8.761762558835429,
+          "baseline_mean": 1329.9261840384195,
+          "mean_delta_fraction": 0.006588157045099817
+        },
+        {
+          "seat": 5,
+          "mean_delta": -8.859744950748334,
+          "baseline_mean": 1332.715448460606,
+          "mean_delta_fraction": -0.006647889435799709
+        },
+        {
+          "seat": 6,
+          "mean_delta": -10.017352728493915,
+          "baseline_mean": 1310.2052425461734,
+          "mean_delta_fraction": -0.007645636273769444
+        },
+        {
+          "seat": 7,
+          "mean_delta": -23.29721585913473,
+          "baseline_mean": 1334.9584143233772,
+          "mean_delta_fraction": -0.017451641646038022
+        },
+        {
+          "seat": 8,
+          "mean_delta": 11.368651836534468,
+          "baseline_mean": 1304.8034156299543,
+          "mean_delta_fraction": 0.008712923111904735
+        },
+        {
+          "seat": 9,
+          "mean_delta": -16.14461641427844,
+          "baseline_mean": 1312.8318201138752,
+          "mean_delta_fraction": -0.012297551115784238
+        },
+        {
+          "seat": 10,
+          "mean_delta": -11.781272567190745,
+          "baseline_mean": 1300.2264860391508,
+          "mean_delta_fraction": -0.00906093876235344
+        },
+        {
+          "seat": 11,
+          "mean_delta": -12.98336366878381,
+          "baseline_mean": 1299.0453618809815,
+          "mean_delta_fraction": -0.009994542184411682
+        },
+        {
+          "seat": 12,
+          "mean_delta": -6.807643415182814,
+          "baseline_mean": 1283.0557599314488,
+          "mean_delta_fraction": -0.00530580480426395
+        },
+        {
+          "seat": 13,
+          "mean_delta": 10.9980849705946,
+          "baseline_mean": 1282.152729544126,
+          "mean_delta_fraction": 0.008577827521768807
+        },
+        {
+          "seat": 14,
+          "mean_delta": 4.20133998757977,
+          "baseline_mean": 1279.849374795909,
+          "mean_delta_fraction": 0.003282683158125335
+        }
+      ],
+      "c_only": {
+        "foundation": {
+          "histogram": {
+            "0": 146,
+            "1": 556,
+            "2": 510,
+            "3": 164,
+            "4": 22,
+            "5": 2
+          },
+          "median": 1.0,
+          "mean": 1.5471428571428572
+        },
+        "policy": {
+          "histogram": {
+            "0": 76,
+            "1": 507,
+            "2": 751,
+            "3": 66
+          },
+          "median": 2.0,
+          "mean": 1.5764285714285715
+        }
+      },
+      "center_eligible_mean": {
+        "foundation": 2.3864285714285716,
+        "policy": 2.8142857142857145
+      },
+      "usable_starts": {
+        "foundation": 30.048571428571428,
+        "policy": 30.259285714285713
+      },
+      "games_benched": {
+        "foundation": 2.0,
+        "policy": 1.2357142857142858
+      },
+      "busy_collisions": {
+        "foundation": 1.4321428571428572,
+        "policy": 0.9435714285714286
+      },
+      "fallbacks": 0,
+      "gate_pass": false
+    }
+  ],
+  "sensitivity": [
+    {
+      "catalog": "real",
+      "scenario": "nominal",
+      "variant": "marginal_no_imputation",
+      "baseline": "foundation",
+      "metric": "weekly_points",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 7.810439873441089,
+      "paired_bootstrap_95_lower": 1.626610058635489,
+      "paired_bootstrap_95_upper": 14.089797708085397,
+      "baseline_mean": 1294.810629872762,
+      "worst_seat": 11,
+      "worst_seat_mean_delta": -9.438184914450208,
+      "worst_seat_loss_fraction": -0.007313217721624292,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 22.71136135883281,
+          "baseline_mean": 1331.9716302281172,
+          "mean_delta_fraction": 0.017050934752223815
+        },
+        {
+          "seat": 2,
+          "mean_delta": -7.433547964002377,
+          "baseline_mean": 1338.9430478241513,
+          "mean_delta_fraction": -0.0055518029509038945
+        },
+        {
+          "seat": 3,
+          "mean_delta": 37.10533212198568,
+          "baseline_mean": 1295.8754386166102,
+          "mean_delta_fraction": 0.02863340952090029
+        },
+        {
+          "seat": 4,
+          "mean_delta": 10.15082217500569,
+          "baseline_mean": 1300.0366757140246,
+          "mean_delta_fraction": 0.007808104467076293
+        },
+        {
+          "seat": 5,
+          "mean_delta": 15.686684252411714,
+          "baseline_mean": 1305.4403480494636,
+          "mean_delta_fraction": 0.012016392994019317
+        },
+        {
+          "seat": 6,
+          "mean_delta": -6.5771101974375075,
+          "baseline_mean": 1320.51948367167,
+          "mean_delta_fraction": -0.004980699095139455
+        },
+        {
+          "seat": 7,
+          "mean_delta": 16.27662706626424,
+          "baseline_mean": 1294.8831576264317,
+          "mean_delta_fraction": 0.012569958123557568
+        },
+        {
+          "seat": 8,
+          "mean_delta": 8.032657941568338,
+          "baseline_mean": 1289.94627335281,
+          "mean_delta_fraction": 0.006227125972223609
+        },
+        {
+          "seat": 9,
+          "mean_delta": 11.030752171011175,
+          "baseline_mean": 1272.9226682518793,
+          "mean_delta_fraction": 0.008665689162531645
+        },
+        {
+          "seat": 10,
+          "mean_delta": 7.767944163052372,
+          "baseline_mean": 1266.3761524299814,
+          "mean_delta_fraction": 0.0061339943492673
+        },
+        {
+          "seat": 11,
+          "mean_delta": -9.438184914450208,
+          "baseline_mean": 1290.565285174356,
+          "mean_delta_fraction": -0.007313217721624292
+        },
+        {
+          "seat": 12,
+          "mean_delta": -6.6867257992879,
+          "baseline_mean": 1282.2790486751878,
+          "mean_delta_fraction": -0.005214719686948347
+        },
+        {
+          "seat": 13,
+          "mean_delta": -2.5794431480966136,
+          "baseline_mean": 1271.5106403371492,
+          "mean_delta_fraction": -0.0020286445636134493
+        },
+        {
+          "seat": 14,
+          "mean_delta": 13.298989001317837,
+          "baseline_mean": 1266.078968266839,
+          "mean_delta_fraction": 0.010504075444459117
+        }
+      ],
+      "c_only": {
+        "foundation": {
+          "histogram": {
+            "0": 30,
+            "1": 252,
+            "2": 571,
+            "3": 400,
+            "4": 125,
+            "5": 22
+          },
+          "median": 2.0,
+          "mean": 2.2885714285714287
+        },
+        "policy": {
+          "histogram": {
+            "0": 65,
+            "1": 416,
+            "2": 787,
+            "3": 132
+          },
+          "median": 2.0,
+          "mean": 1.7042857142857142
+        }
+      },
+      "center_eligible_mean": {
+        "foundation": 3.0107142857142857,
+        "policy": 2.782857142857143
+      },
+      "usable_starts": {
+        "foundation": 29.428571428571427,
+        "policy": 30.055
+      },
+      "games_benched": {
+        "foundation": 2.2914285714285714,
+        "policy": 1.3014285714285714
+      },
+      "busy_collisions": {
+        "foundation": 1.6614285714285715,
+        "policy": 0.9978571428571429
+      },
+      "fallbacks": 0,
+      "gate_pass": true
+    },
+    {
+      "catalog": "real",
+      "scenario": "market_misspecified",
+      "variant": "marginal_no_imputation",
+      "baseline": "foundation",
+      "metric": "weekly_points",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 51.654324126571474,
+      "paired_bootstrap_95_lower": 45.62263180113272,
+      "paired_bootstrap_95_upper": 57.735466879156085,
+      "baseline_mean": 1264.147867190856,
+      "worst_seat": 13,
+      "worst_seat_mean_delta": 16.65625123466199,
+      "worst_seat_loss_fraction": 0.013161976447962385,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 92.67738226613508,
+          "baseline_mean": 1261.6338839308635,
+          "mean_delta_fraction": 0.07345822226760496
+        },
+        {
+          "seat": 2,
+          "mean_delta": 104.58554893576938,
+          "baseline_mean": 1252.3712596755388,
+          "mean_delta_fraction": 0.0835100199942828
+        },
+        {
+          "seat": 3,
+          "mean_delta": 58.484477307662964,
+          "baseline_mean": 1253.8899925881153,
+          "mean_delta_fraction": 0.0466424308778053
+        },
+        {
+          "seat": 4,
+          "mean_delta": 47.07273361865487,
+          "baseline_mean": 1285.3475143245294,
+          "mean_delta_fraction": 0.03662257334616028
+        },
+        {
+          "seat": 5,
+          "mean_delta": 36.83427875301102,
+          "baseline_mean": 1296.26306683702,
+          "mean_delta_fraction": 0.028415743451589228
+        },
+        {
+          "seat": 6,
+          "mean_delta": 50.10968650357033,
+          "baseline_mean": 1263.1971950388217,
+          "mean_delta_fraction": 0.03966893427279208
+        },
+        {
+          "seat": 7,
+          "mean_delta": 42.629826705880056,
+          "baseline_mean": 1259.8178770801749,
+          "mean_delta_fraction": 0.03383808682305839
+        },
+        {
+          "seat": 8,
+          "mean_delta": 56.35553163753934,
+          "baseline_mean": 1244.193109900976,
+          "mean_delta_fraction": 0.04529484305054914
+        },
+        {
+          "seat": 9,
+          "mean_delta": 56.61972704573042,
+          "baseline_mean": 1246.7331643007738,
+          "mean_delta_fraction": 0.04541447092849689
+        },
+        {
+          "seat": 10,
+          "mean_delta": 36.76016302668841,
+          "baseline_mean": 1253.4844804059676,
+          "mean_delta_fraction": 0.029326380662314105
+        },
+        {
+          "seat": 11,
+          "mean_delta": 41.27320058417751,
+          "baseline_mean": 1279.8981488146812,
+          "mean_delta_fraction": 0.03224725391032152
+        },
+        {
+          "seat": 12,
+          "mean_delta": 40.98805025149661,
+          "baseline_mean": 1270.9586817589768,
+          "mean_delta_fraction": 0.03224971105651532
+        },
+        {
+          "seat": 13,
+          "mean_delta": 16.65625123466199,
+          "baseline_mean": 1265.4825284420378,
+          "mean_delta_fraction": 0.013161976447962385
+        },
+        {
+          "seat": 14,
+          "mean_delta": 42.11367990102261,
+          "baseline_mean": 1264.7992375735098,
+          "mean_delta_fraction": 0.03329673093558848
+        }
+      ],
+      "c_only": {
+        "foundation": {
+          "histogram": {
+            "0": 3,
+            "1": 13,
+            "2": 127,
+            "3": 375,
+            "4": 499,
+            "5": 302,
+            "6": 81
+          },
+          "median": 4.0,
+          "mean": 3.8457142857142856
+        },
+        "policy": {
+          "histogram": {
+            "0": 9,
+            "1": 155,
+            "2": 918,
+            "3": 318
+          },
+          "median": 2.0,
+          "mean": 2.1035714285714286
+        }
+      },
+      "center_eligible_mean": {
+        "foundation": 4.408571428571428,
+        "policy": 2.927857142857143
+      },
+      "usable_starts": {
+        "foundation": 28.027142857142856,
+        "policy": 29.602857142857143
+      },
+      "games_benched": {
+        "foundation": 3.2064285714285714,
+        "policy": 1.3992857142857142
+      },
+      "busy_collisions": {
+        "foundation": 2.244285714285714,
+        "policy": 1.082857142857143
+      },
+      "fallbacks": 0,
+      "gate_pass": true
+    },
+    {
+      "catalog": "real",
+      "scenario": "custom_misspecified",
+      "variant": "marginal_no_imputation",
+      "baseline": "foundation",
+      "metric": "weekly_points",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": -3.9934791964817977,
+      "paired_bootstrap_95_lower": -9.27218164168096,
+      "paired_bootstrap_95_upper": 1.4011292041265273,
+      "baseline_mean": 1315.0613809157203,
+      "worst_seat": 9,
+      "worst_seat_mean_delta": -29.028238503521514,
+      "worst_seat_loss_fraction": -0.022111163104656925,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 6.5604137651535215,
+          "baseline_mean": 1354.5669964410138,
+          "mean_delta_fraction": 0.004843181461227342
+        },
+        {
+          "seat": 2,
+          "mean_delta": -2.478861449825938,
+          "baseline_mean": 1366.9490854510755,
+          "mean_delta_fraction": -0.001813426320123654
+        },
+        {
+          "seat": 3,
+          "mean_delta": 21.551302924084865,
+          "baseline_mean": 1319.5730136239733,
+          "mean_delta_fraction": 0.016332027634376998
+        },
+        {
+          "seat": 4,
+          "mean_delta": 7.5801315256561566,
+          "baseline_mean": 1329.9261840384195,
+          "mean_delta_fraction": 0.005699663347208133
+        },
+        {
+          "seat": 5,
+          "mean_delta": -9.909287040419832,
+          "baseline_mean": 1332.715448460606,
+          "mean_delta_fraction": -0.007435410951276852
+        },
+        {
+          "seat": 6,
+          "mean_delta": -9.755706428542599,
+          "baseline_mean": 1310.2052425461734,
+          "mean_delta_fraction": -0.007445937561342641
+        },
+        {
+          "seat": 7,
+          "mean_delta": -28.007117969155914,
+          "baseline_mean": 1334.9584143233772,
+          "mean_delta_fraction": -0.020979768110118476
+        },
+        {
+          "seat": 8,
+          "mean_delta": -3.9794576698824526,
+          "baseline_mean": 1304.8034156299543,
+          "mean_delta_fraction": -0.003049852278292194
+        },
+        {
+          "seat": 9,
+          "mean_delta": -29.028238503521514,
+          "baseline_mean": 1312.8318201138752,
+          "mean_delta_fraction": -0.022111163104656925
+        },
+        {
+          "seat": 10,
+          "mean_delta": -7.943207202601294,
+          "baseline_mean": 1300.2264860391508,
+          "mean_delta_fraction": -0.0061090950598910645
+        },
+        {
+          "seat": 11,
+          "mean_delta": -11.597485940967697,
+          "baseline_mean": 1299.0453618809815,
+          "mean_delta_fraction": -0.008927698971323728
+        },
+        {
+          "seat": 12,
+          "mean_delta": 4.550810732606102,
+          "baseline_mean": 1283.0557599314488,
+          "mean_delta_fraction": 0.0035468534374914797
+        },
+        {
+          "seat": 13,
+          "mean_delta": -0.6536001226832923,
+          "baseline_mean": 1282.152729544126,
+          "mean_delta_fraction": -0.0005097677582573817
+        },
+        {
+          "seat": 14,
+          "mean_delta": 7.201594629354725,
+          "baseline_mean": 1279.849374795909,
+          "mean_delta_fraction": 0.0056269079558702965
+        }
+      ],
+      "c_only": {
+        "foundation": {
+          "histogram": {
+            "0": 146,
+            "1": 556,
+            "2": 510,
+            "3": 164,
+            "4": 22,
+            "5": 2
+          },
+          "median": 1.0,
+          "mean": 1.5471428571428572
+        },
+        "policy": {
+          "histogram": {
+            "0": 93,
+            "1": 494,
+            "2": 719,
+            "3": 94
+          },
+          "median": 2.0,
+          "mean": 1.5814285714285714
+        }
+      },
+      "center_eligible_mean": {
+        "foundation": 2.3864285714285716,
+        "policy": 2.7964285714285713
+      },
+      "usable_starts": {
+        "foundation": 30.048571428571428,
+        "policy": 30.360714285714284
+      },
+      "games_benched": {
+        "foundation": 2.0,
+        "policy": 1.3014285714285714
+      },
+      "busy_collisions": {
+        "foundation": 1.4321428571428572,
+        "policy": 1.0092857142857143
+      },
+      "fallbacks": 0,
+      "gate_pass": false
+    },
+    {
+      "catalog": "real",
+      "scenario": "nominal",
+      "variant": "marginal",
+      "baseline": "foundation",
+      "metric": "imputed_truth_points",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 14.052572512537512,
+      "paired_bootstrap_95_lower": 8.51012633243579,
+      "paired_bootstrap_95_upper": 19.585959274598594,
+      "baseline_mean": 1243.504632924173,
+      "worst_seat": 11,
+      "worst_seat_mean_delta": -7.394082657148565,
+      "worst_seat_loss_fraction": -0.005953844603207414,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 27.197572971318,
+          "baseline_mean": 1285.368707253902,
+          "mean_delta_fraction": 0.021159355146760702
+        },
+        {
+          "seat": 2,
+          "mean_delta": 19.281782965407906,
+          "baseline_mean": 1289.9992266846523,
+          "mean_delta_fraction": 0.014947127538179098
+        },
+        {
+          "seat": 3,
+          "mean_delta": 25.841125535567425,
+          "baseline_mean": 1242.7763159075237,
+          "mean_delta_fraction": 0.02079306243995906
+        },
+        {
+          "seat": 4,
+          "mean_delta": 19.000764423059696,
+          "baseline_mean": 1246.6851967773464,
+          "mean_delta_fraction": 0.015241028346350988
+        },
+        {
+          "seat": 5,
+          "mean_delta": 8.996870885170516,
+          "baseline_mean": 1244.7801262619726,
+          "mean_delta_fraction": 0.007227678764592569
+        },
+        {
+          "seat": 6,
+          "mean_delta": 2.9795679868273783,
+          "baseline_mean": 1263.8665255444487,
+          "mean_delta_fraction": 0.002357502099000398
+        },
+        {
+          "seat": 7,
+          "mean_delta": 16.217344887807318,
+          "baseline_mean": 1247.9371620801992,
+          "mean_delta_fraction": 0.012995321704158935
+        },
+        {
+          "seat": 8,
+          "mean_delta": -1.0719185242090838,
+          "baseline_mean": 1240.3002933478565,
+          "mean_delta_fraction": -0.00086424112769959
+        },
+        {
+          "seat": 9,
+          "mean_delta": 26.241321631388427,
+          "baseline_mean": 1222.7034340975795,
+          "mean_delta_fraction": 0.02146172236013709
+        },
+        {
+          "seat": 10,
+          "mean_delta": 19.015006104882517,
+          "baseline_mean": 1214.381130625519,
+          "mean_delta_fraction": 0.015658186400745556
+        },
+        {
+          "seat": 11,
+          "mean_delta": -7.394082657148565,
+          "baseline_mean": 1241.900511337712,
+          "mean_delta_fraction": -0.005953844603207414
+        },
+        {
+          "seat": 12,
+          "mean_delta": 16.030053338287964,
+          "baseline_mean": 1228.2910236255727,
+          "mean_delta_fraction": 0.01305069647987145
+        },
+        {
+          "seat": 13,
+          "mean_delta": 10.127890691079443,
+          "baseline_mean": 1219.9503241991117,
+          "mean_delta_fraction": 0.008301887781970408
+        },
+        {
+          "seat": 14,
+          "mean_delta": 14.272714936086247,
+          "baseline_mean": 1220.1248831950256,
+          "mean_delta_fraction": 0.011697749249004446
+        }
+      ],
+      "c_only": {
+        "foundation": {
+          "histogram": {
+            "0": 30,
+            "1": 252,
+            "2": 571,
+            "3": 400,
+            "4": 125,
+            "5": 22
+          },
+          "median": 2.0,
+          "mean": 2.2885714285714287
+        },
+        "policy": {
+          "histogram": {
+            "0": 30,
+            "1": 387,
+            "2": 852,
+            "3": 129,
+            "4": 2
+          },
+          "median": 2.0,
+          "mean": 1.7757142857142858
+        }
+      },
+      "center_eligible_mean": {
+        "foundation": 3.0107142857142857,
+        "policy": 2.8307142857142855
+      },
+      "usable_starts": {
+        "foundation": 29.428571428571427,
+        "policy": 29.970714285714287
+      },
+      "games_benched": {
+        "foundation": 2.2914285714285714,
+        "policy": 1.2814285714285714
+      },
+      "busy_collisions": {
+        "foundation": 1.6614285714285715,
+        "policy": 1.0
+      },
+      "fallbacks": 0,
+      "gate_pass": true
+    },
+    {
+      "catalog": "real",
+      "scenario": "nominal",
+      "variant": "marginal_no_imputation",
+      "baseline": "foundation",
+      "metric": "imputed_truth_points",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 7.597581355115692,
+      "paired_bootstrap_95_lower": 1.7752958957625689,
+      "paired_bootstrap_95_upper": 13.175349271278714,
+      "baseline_mean": 1243.504632924173,
+      "worst_seat": 11,
+      "worst_seat_mean_delta": -15.012547096893654,
+      "worst_seat_loss_fraction": -0.012088365339927996,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 17.708217232199075,
+          "baseline_mean": 1285.368707253902,
+          "mean_delta_fraction": 0.01377676080976906
+        },
+        {
+          "seat": 2,
+          "mean_delta": -2.1114277995547672,
+          "baseline_mean": 1289.9992266846523,
+          "mean_delta_fraction": -0.0016367667172803026
+        },
+        {
+          "seat": 3,
+          "mean_delta": 36.826130063512494,
+          "baseline_mean": 1242.7763159075237,
+          "mean_delta_fraction": 0.029632146663996103
+        },
+        {
+          "seat": 4,
+          "mean_delta": 13.54874239517515,
+          "baseline_mean": 1246.6851967773464,
+          "mean_delta_fraction": 0.010867813647100606
+        },
+        {
+          "seat": 5,
+          "mean_delta": 18.53160911173524,
+          "baseline_mean": 1244.7801262619726,
+          "mean_delta_fraction": 0.014887455801037697
+        },
+        {
+          "seat": 6,
+          "mean_delta": 1.0523559380601706,
+          "baseline_mean": 1263.8665255444487,
+          "mean_delta_fraction": 0.0008326480026099564
+        },
+        {
+          "seat": 7,
+          "mean_delta": 10.62314964054096,
+          "baseline_mean": 1247.9371620801992,
+          "mean_delta_fraction": 0.008512567750473208
+        },
+        {
+          "seat": 8,
+          "mean_delta": 3.3121793088008324,
+          "baseline_mean": 1240.3002933478565,
+          "mean_delta_fraction": 0.002670465633657553
+        },
+        {
+          "seat": 9,
+          "mean_delta": 15.07668103219557,
+          "baseline_mean": 1222.7034340975795,
+          "mean_delta_fraction": 0.012330611505416247
+        },
+        {
+          "seat": 10,
+          "mean_delta": 5.623558186066635,
+          "baseline_mean": 1214.381130625519,
+          "mean_delta_fraction": 0.00463080168511016
+        },
+        {
+          "seat": 11,
+          "mean_delta": -15.012547096893654,
+          "baseline_mean": 1241.900511337712,
+          "mean_delta_fraction": -0.012088365339927996
+        },
+        {
+          "seat": 12,
+          "mean_delta": -3.9831440465318475,
+          "baseline_mean": 1228.2910236255727,
+          "mean_delta_fraction": -0.0032428341247457107
+        },
+        {
+          "seat": 13,
+          "mean_delta": -6.194366496569557,
+          "baseline_mean": 1219.9503241991117,
+          "mean_delta_fraction": -0.005077556334628717
+        },
+        {
+          "seat": 14,
+          "mean_delta": 11.365001502883382,
+          "baseline_mean": 1220.1248831950256,
+          "mean_delta_fraction": 0.00931462152720214
+        }
+      ],
+      "c_only": {
+        "foundation": {
+          "histogram": {
+            "0": 30,
+            "1": 252,
+            "2": 571,
+            "3": 400,
+            "4": 125,
+            "5": 22
+          },
+          "median": 2.0,
+          "mean": 2.2885714285714287
+        },
+        "policy": {
+          "histogram": {
+            "0": 65,
+            "1": 416,
+            "2": 787,
+            "3": 132
+          },
+          "median": 2.0,
+          "mean": 1.7042857142857142
+        }
+      },
+      "center_eligible_mean": {
+        "foundation": 3.0107142857142857,
+        "policy": 2.782857142857143
+      },
+      "usable_starts": {
+        "foundation": 29.428571428571427,
+        "policy": 30.055
+      },
+      "games_benched": {
+        "foundation": 2.2914285714285714,
+        "policy": 1.3014285714285714
+      },
+      "busy_collisions": {
+        "foundation": 1.6614285714285715,
+        "policy": 0.9978571428571429
+      },
+      "fallbacks": 0,
+      "gate_pass": true
+    },
+    {
+      "catalog": "real",
+      "scenario": "market_misspecified",
+      "variant": "marginal",
+      "baseline": "foundation",
+      "metric": "imputed_truth_points",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 48.34164843653827,
+      "paired_bootstrap_95_lower": 42.83066172785737,
+      "paired_bootstrap_95_upper": 53.98542273724516,
+      "baseline_mean": 1223.1310306238229,
+      "worst_seat": 14,
+      "worst_seat_mean_delta": 24.609574898797195,
+      "worst_seat_loss_fraction": 0.020032337010551887,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 94.33181065860785,
+          "baseline_mean": 1223.9246129546775,
+          "mean_delta_fraction": 0.07707321975565255
+        },
+        {
+          "seat": 2,
+          "mean_delta": 102.15784021691951,
+          "baseline_mean": 1215.1877984463308,
+          "mean_delta_fraction": 0.08406753289288507
+        },
+        {
+          "seat": 3,
+          "mean_delta": 61.13764909691892,
+          "baseline_mean": 1207.8248879825471,
+          "mean_delta_fraction": 0.05061797426532442
+        },
+        {
+          "seat": 4,
+          "mean_delta": 31.448503904479438,
+          "baseline_mean": 1244.84427462968,
+          "mean_delta_fraction": 0.025263002405529665
+        },
+        {
+          "seat": 5,
+          "mean_delta": 35.58129157092625,
+          "baseline_mean": 1252.6634985095482,
+          "mean_delta_fraction": 0.02840450896291127
+        },
+        {
+          "seat": 6,
+          "mean_delta": 38.000902606639755,
+          "baseline_mean": 1219.7096876894002,
+          "mean_delta_fraction": 0.031155694662578354
+        },
+        {
+          "seat": 7,
+          "mean_delta": 57.25175684998719,
+          "baseline_mean": 1218.2669320763828,
+          "mean_delta_fraction": 0.04699442736446008
+        },
+        {
+          "seat": 8,
+          "mean_delta": 47.324760112715275,
+          "baseline_mean": 1200.4174596597275,
+          "mean_delta_fraction": 0.039423585296843346
+        },
+        {
+          "seat": 9,
+          "mean_delta": 43.80992112607354,
+          "baseline_mean": 1210.116587526607,
+          "mean_delta_fraction": 0.03620305810006119
+        },
+        {
+          "seat": 10,
+          "mean_delta": 41.95720680659722,
+          "baseline_mean": 1210.575823073301,
+          "mean_delta_fraction": 0.034658883819503376
+        },
+        {
+          "seat": 11,
+          "mean_delta": 31.83916533924451,
+          "baseline_mean": 1240.0756483578534,
+          "mean_delta_fraction": 0.025675179882297436
+        },
+        {
+          "seat": 12,
+          "mean_delta": 35.911856356521845,
+          "baseline_mean": 1227.1859134267206,
+          "mean_delta_fraction": 0.029263582610921376
+        },
+        {
+          "seat": 13,
+          "mean_delta": 31.420838567107257,
+          "baseline_mean": 1224.5488481369412,
+          "mean_delta_fraction": 0.02565911406058786
+        },
+        {
+          "seat": 14,
+          "mean_delta": 24.609574898797195,
+          "baseline_mean": 1228.492456263804,
+          "mean_delta_fraction": 0.020032337010551887
+        }
+      ],
+      "c_only": {
+        "foundation": {
+          "histogram": {
+            "0": 3,
+            "1": 13,
+            "2": 127,
+            "3": 375,
+            "4": 499,
+            "5": 302,
+            "6": 81
+          },
+          "median": 4.0,
+          "mean": 3.8457142857142856
+        },
+        "policy": {
+          "histogram": {
+            "0": 7,
+            "1": 149,
+            "2": 886,
+            "3": 358
+          },
+          "median": 2.0,
+          "mean": 2.1392857142857142
+        }
+      },
+      "center_eligible_mean": {
+        "foundation": 4.408571428571428,
+        "policy": 2.96
+      },
+      "usable_starts": {
+        "foundation": 28.027142857142856,
+        "policy": 29.415714285714287
+      },
+      "games_benched": {
+        "foundation": 3.2064285714285714,
+        "policy": 1.3907142857142858
+      },
+      "busy_collisions": {
+        "foundation": 2.244285714285714,
+        "policy": 1.0907142857142857
+      },
+      "fallbacks": 0,
+      "gate_pass": true
+    },
+    {
+      "catalog": "real",
+      "scenario": "market_misspecified",
+      "variant": "marginal_no_imputation",
+      "baseline": "foundation",
+      "metric": "imputed_truth_points",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 49.27916040324498,
+      "paired_bootstrap_95_lower": 43.59174206755376,
+      "paired_bootstrap_95_upper": 55.1029947336366,
+      "baseline_mean": 1223.1310306238229,
+      "worst_seat": 13,
+      "worst_seat_mean_delta": 12.456785990191165,
+      "worst_seat_loss_fraction": 0.010172551310748628,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 94.56680386248621,
+          "baseline_mean": 1223.9246129546775,
+          "mean_delta_fraction": 0.07726521949272055
+        },
+        {
+          "seat": 2,
+          "mean_delta": 103.58253905092944,
+          "baseline_mean": 1215.1877984463308,
+          "mean_delta_fraction": 0.08523994331029666
+        },
+        {
+          "seat": 3,
+          "mean_delta": 59.52003223491127,
+          "baseline_mean": 1207.8248879825471,
+          "mean_delta_fraction": 0.049278693316486225
+        },
+        {
+          "seat": 4,
+          "mean_delta": 41.57438699674286,
+          "baseline_mean": 1244.84427462968,
+          "mean_delta_fraction": 0.033397259274948694
+        },
+        {
+          "seat": 5,
+          "mean_delta": 32.09524524568094,
+          "baseline_mean": 1252.6634985095482,
+          "mean_delta_fraction": 0.025621601718153923
+        },
+        {
+          "seat": 6,
+          "mean_delta": 47.87209427913135,
+          "baseline_mean": 1219.7096876894002,
+          "mean_delta_fraction": 0.03924876121121866
+        },
+        {
+          "seat": 7,
+          "mean_delta": 41.935579305351176,
+          "baseline_mean": 1218.2669320763828,
+          "mean_delta_fraction": 0.03442232420597451
+        },
+        {
+          "seat": 8,
+          "mean_delta": 53.367016278177736,
+          "baseline_mean": 1200.4174596597275,
+          "mean_delta_fraction": 0.04445704771180623
+        },
+        {
+          "seat": 9,
+          "mean_delta": 52.07484781376875,
+          "baseline_mean": 1210.116587526607,
+          "mean_delta_fraction": 0.04303291794405204
+        },
+        {
+          "seat": 10,
+          "mean_delta": 34.5285252728635,
+          "baseline_mean": 1210.575823073301,
+          "mean_delta_fraction": 0.02852239786617048
+        },
+        {
+          "seat": 11,
+          "mean_delta": 37.61190382503515,
+          "baseline_mean": 1240.0756483578534,
+          "mean_delta_fraction": 0.03033033014948886
+        },
+        {
+          "seat": 12,
+          "mean_delta": 41.9611743006136,
+          "baseline_mean": 1227.1859134267206,
+          "mean_delta_fraction": 0.034193005184881664
+        },
+        {
+          "seat": 13,
+          "mean_delta": 12.456785990191165,
+          "baseline_mean": 1224.5488481369412,
+          "mean_delta_fraction": 0.010172551310748628
+        },
+        {
+          "seat": 14,
+          "mean_delta": 36.761311189546504,
+          "baseline_mean": 1228.492456263804,
+          "mean_delta_fraction": 0.02992392098307884
+        }
+      ],
+      "c_only": {
+        "foundation": {
+          "histogram": {
+            "0": 3,
+            "1": 13,
+            "2": 127,
+            "3": 375,
+            "4": 499,
+            "5": 302,
+            "6": 81
+          },
+          "median": 4.0,
+          "mean": 3.8457142857142856
+        },
+        "policy": {
+          "histogram": {
+            "0": 9,
+            "1": 155,
+            "2": 918,
+            "3": 318
+          },
+          "median": 2.0,
+          "mean": 2.1035714285714286
+        }
+      },
+      "center_eligible_mean": {
+        "foundation": 4.408571428571428,
+        "policy": 2.927857142857143
+      },
+      "usable_starts": {
+        "foundation": 28.027142857142856,
+        "policy": 29.602857142857143
+      },
+      "games_benched": {
+        "foundation": 3.2064285714285714,
+        "policy": 1.3992857142857142
+      },
+      "busy_collisions": {
+        "foundation": 2.244285714285714,
+        "policy": 1.082857142857143
+      },
+      "fallbacks": 0,
+      "gate_pass": true
+    },
+    {
+      "catalog": "real",
+      "scenario": "custom_misspecified",
+      "variant": "marginal",
+      "baseline": "foundation",
+      "metric": "imputed_truth_points",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 1.1491706924077654,
+      "paired_bootstrap_95_lower": -3.433154404676875,
+      "paired_bootstrap_95_upper": 5.757832796513503,
+      "baseline_mean": 1261.1883073284985,
+      "worst_seat": 7,
+      "worst_seat_mean_delta": -23.466655281413367,
+      "worst_seat_loss_fraction": -0.018258839162708446,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 13.782117552613578,
+          "baseline_mean": 1305.1713365795767,
+          "mean_delta_fraction": 0.010559623220604858
+        },
+        {
+          "seat": 2,
+          "mean_delta": 6.071367021484096,
+          "baseline_mean": 1317.2080606650268,
+          "mean_delta_fraction": 0.004609269562485678
+        },
+        {
+          "seat": 3,
+          "mean_delta": 26.406046203373684,
+          "baseline_mean": 1261.0659560614633,
+          "mean_delta_fraction": 0.020939464804715317
+        },
+        {
+          "seat": 4,
+          "mean_delta": 11.383294925416088,
+          "baseline_mean": 1273.4582939094842,
+          "mean_delta_fraction": 0.008938883181222736
+        },
+        {
+          "seat": 5,
+          "mean_delta": -6.949236335179899,
+          "baseline_mean": 1271.056180296892,
+          "mean_delta_fraction": -0.0054672928253703965
+        },
+        {
+          "seat": 6,
+          "mean_delta": -9.840891438163357,
+          "baseline_mean": 1251.0792562706154,
+          "mean_delta_fraction": -0.007865921674297761
+        },
+        {
+          "seat": 7,
+          "mean_delta": -23.466655281413367,
+          "baseline_mean": 1285.2216437363268,
+          "mean_delta_fraction": -0.018258839162708446
+        },
+        {
+          "seat": 8,
+          "mean_delta": 11.61782518121252,
+          "baseline_mean": 1251.639601193559,
+          "mean_delta_fraction": 0.009282085010840026
+        },
+        {
+          "seat": 9,
+          "mean_delta": -9.376689805575143,
+          "baseline_mean": 1258.4823236089633,
+          "mean_delta_fraction": -0.007450791822554575
+        },
+        {
+          "seat": 10,
+          "mean_delta": -6.570536269082007,
+          "baseline_mean": 1244.4921442516356,
+          "mean_delta_fraction": -0.00527969284453229
+        },
+        {
+          "seat": 11,
+          "mean_delta": -12.94045387833231,
+          "baseline_mean": 1249.1611966145078,
+          "mean_delta_fraction": -0.010359314645222481
+        },
+        {
+          "seat": 12,
+          "mean_delta": -0.3624470741550249,
+          "baseline_mean": 1232.2018152704168,
+          "mean_delta_fraction": -0.00029414586933998547
+        },
+        {
+          "seat": 13,
+          "mean_delta": 7.946101237775838,
+          "baseline_mean": 1229.604864073337,
+          "mean_delta_fraction": 0.0064623209210905586
+        },
+        {
+          "seat": 14,
+          "mean_delta": 8.388547653734019,
+          "baseline_mean": 1226.7936300671724,
+          "mean_delta_fraction": 0.006837782205695597
+        }
+      ],
+      "c_only": {
+        "foundation": {
+          "histogram": {
+            "0": 146,
+            "1": 556,
+            "2": 510,
+            "3": 164,
+            "4": 22,
+            "5": 2
+          },
+          "median": 1.0,
+          "mean": 1.5471428571428572
+        },
+        "policy": {
+          "histogram": {
+            "0": 76,
+            "1": 507,
+            "2": 751,
+            "3": 66
+          },
+          "median": 2.0,
+          "mean": 1.5764285714285715
+        }
+      },
+      "center_eligible_mean": {
+        "foundation": 2.3864285714285716,
+        "policy": 2.8142857142857145
+      },
+      "usable_starts": {
+        "foundation": 30.048571428571428,
+        "policy": 30.259285714285713
+      },
+      "games_benched": {
+        "foundation": 2.0,
+        "policy": 1.2357142857142858
+      },
+      "busy_collisions": {
+        "foundation": 1.4321428571428572,
+        "policy": 0.9435714285714286
+      },
+      "fallbacks": 0,
+      "gate_pass": false
+    },
+    {
+      "catalog": "real",
+      "scenario": "custom_misspecified",
+      "variant": "marginal_no_imputation",
+      "baseline": "foundation",
+      "metric": "imputed_truth_points",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": -3.0779334290795566,
+      "paired_bootstrap_95_lower": -7.917906575707212,
+      "paired_bootstrap_95_upper": 1.8190188171806267,
+      "baseline_mean": 1261.1883073284985,
+      "worst_seat": 7,
+      "worst_seat_mean_delta": -29.39446636248863,
+      "worst_seat_loss_fraction": -0.02287112616391569,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 3.1731924335991177,
+          "baseline_mean": 1305.1713365795767,
+          "mean_delta_fraction": 0.00243124587911577
+        },
+        {
+          "seat": 2,
+          "mean_delta": 1.5342343434260273,
+          "baseline_mean": 1317.2080606650268,
+          "mean_delta_fraction": 0.0011647623403180734
+        },
+        {
+          "seat": 3,
+          "mean_delta": 25.44243638394242,
+          "baseline_mean": 1261.0659560614633,
+          "mean_delta_fraction": 0.02017534155263674
+        },
+        {
+          "seat": 4,
+          "mean_delta": 8.200121515734443,
+          "baseline_mean": 1273.4582939094842,
+          "mean_delta_fraction": 0.006439254080760102
+        },
+        {
+          "seat": 5,
+          "mean_delta": -7.4930511836436064,
+          "baseline_mean": 1271.056180296892,
+          "mean_delta_fraction": -0.0058951376813992495
+        },
+        {
+          "seat": 6,
+          "mean_delta": -6.517288784002556,
+          "baseline_mean": 1251.0792562706154,
+          "mean_delta_fraction": -0.005209333262730423
+        },
+        {
+          "seat": 7,
+          "mean_delta": -29.39446636248863,
+          "baseline_mean": 1285.2216437363268,
+          "mean_delta_fraction": -0.02287112616391569
+        },
+        {
+          "seat": 8,
+          "mean_delta": -4.551523991078844,
+          "baseline_mean": 1251.639601193559,
+          "mean_delta_fraction": -0.0036364493315316384
+        },
+        {
+          "seat": 9,
+          "mean_delta": -25.106090990825063,
+          "baseline_mean": 1258.4823236089633,
+          "mean_delta_fraction": -0.019949498312243318
+        },
+        {
+          "seat": 10,
+          "mean_delta": -3.9530890743488816,
+          "baseline_mean": 1244.4921442516356,
+          "mean_delta_fraction": -0.0031764676800961544
+        },
+        {
+          "seat": 11,
+          "mean_delta": -17.682401339721203,
+          "baseline_mean": 1249.1611966145078,
+          "mean_delta_fraction": -0.014155419963127469
+        },
+        {
+          "seat": 12,
+          "mean_delta": 3.144230658760156,
+          "baseline_mean": 1232.2018152704168,
+          "mean_delta_fraction": 0.0025517172753637997
+        },
+        {
+          "seat": 13,
+          "mean_delta": 3.6585075230292783,
+          "baseline_mean": 1229.604864073337,
+          "mean_delta_fraction": 0.002975352188271008
+        },
+        {
+          "seat": 14,
+          "mean_delta": 6.454120860503549,
+          "baseline_mean": 1226.7936300671724,
+          "mean_delta_fraction": 0.005260967046389177
+        }
+      ],
+      "c_only": {
+        "foundation": {
+          "histogram": {
+            "0": 146,
+            "1": 556,
+            "2": 510,
+            "3": 164,
+            "4": 22,
+            "5": 2
+          },
+          "median": 1.0,
+          "mean": 1.5471428571428572
+        },
+        "policy": {
+          "histogram": {
+            "0": 93,
+            "1": 494,
+            "2": 719,
+            "3": 94
+          },
+          "median": 2.0,
+          "mean": 1.5814285714285714
+        }
+      },
+      "center_eligible_mean": {
+        "foundation": 2.3864285714285716,
+        "policy": 2.7964285714285713
+      },
+      "usable_starts": {
+        "foundation": 30.048571428571428,
+        "policy": 30.360714285714284
+      },
+      "games_benched": {
+        "foundation": 2.0,
+        "policy": 1.3014285714285714
+      },
+      "busy_collisions": {
+        "foundation": 1.4321428571428572,
+        "policy": 1.0092857142857143
+      },
+      "fallbacks": 0,
+      "gate_pass": false
+    },
+    {
+      "catalog": "real",
+      "scenario": "nominal",
+      "variant": "marginal_pf_x0.75",
+      "baseline": "foundation",
+      "metric": "weekly_points",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 10.342522986477517,
+      "paired_bootstrap_95_lower": 4.899673172138016,
+      "paired_bootstrap_95_upper": 16.040872260106934,
+      "baseline_mean": 1294.810629872762,
+      "worst_seat": 6,
+      "worst_seat_mean_delta": -6.571044451584803,
+      "worst_seat_loss_fraction": -0.0049761056408756535,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 20.83276158865465,
+          "baseline_mean": 1331.9716302281172,
+          "mean_delta_fraction": 0.015640544525026237
+        },
+        {
+          "seat": 2,
+          "mean_delta": 16.93171946260413,
+          "baseline_mean": 1338.9430478241513,
+          "mean_delta_fraction": 0.01264558600167424
+        },
+        {
+          "seat": 3,
+          "mean_delta": 13.381503222646781,
+          "baseline_mean": 1295.8754386166102,
+          "mean_delta_fraction": 0.01032622644421132
+        },
+        {
+          "seat": 4,
+          "mean_delta": 22.80530396527747,
+          "baseline_mean": 1300.0366757140246,
+          "mean_delta_fraction": 0.01754204661399419
+        },
+        {
+          "seat": 5,
+          "mean_delta": 12.129062878753903,
+          "baseline_mean": 1305.4403480494636,
+          "mean_delta_fraction": 0.009291165924874821
+        },
+        {
+          "seat": 6,
+          "mean_delta": -6.571044451584803,
+          "baseline_mean": 1320.51948367167,
+          "mean_delta_fraction": -0.0049761056408756535
+        },
+        {
+          "seat": 7,
+          "mean_delta": 14.353503089255792,
+          "baseline_mean": 1294.8831576264317,
+          "mean_delta_fraction": 0.011084786302701079
+        },
+        {
+          "seat": 8,
+          "mean_delta": 6.448339431761582,
+          "baseline_mean": 1289.94627335281,
+          "mean_delta_fraction": 0.004998920935676762
+        },
+        {
+          "seat": 9,
+          "mean_delta": 16.57055147080117,
+          "baseline_mean": 1272.9226682518793,
+          "mean_delta_fraction": 0.013017720466521126
+        },
+        {
+          "seat": 10,
+          "mean_delta": 10.95352288063848,
+          "baseline_mean": 1266.3761524299814,
+          "mean_delta_fraction": 0.00864950185584303
+        },
+        {
+          "seat": 11,
+          "mean_delta": -3.1197619133595755,
+          "baseline_mean": 1290.565285174356,
+          "mean_delta_fraction": -0.0024173607869346137
+        },
+        {
+          "seat": 12,
+          "mean_delta": -5.191242615208723,
+          "baseline_mean": 1282.2790486751878,
+          "mean_delta_fraction": -0.0040484500004676505
+        },
+        {
+          "seat": 13,
+          "mean_delta": 5.303785811057314,
+          "baseline_mean": 1271.5106403371492,
+          "mean_delta_fraction": 0.004171247681931298
+        },
+        {
+          "seat": 14,
+          "mean_delta": 19.967316989387072,
+          "baseline_mean": 1266.078968266839,
+          "mean_delta_fraction": 0.015770988611177022
+        }
+      ],
+      "c_only": {
+        "foundation": {
+          "histogram": {
+            "0": 30,
+            "1": 252,
+            "2": 571,
+            "3": 400,
+            "4": 125,
+            "5": 22
+          },
+          "median": 2.0,
+          "mean": 2.2885714285714287
+        },
+        "policy": {
+          "histogram": {
+            "0": 34,
+            "1": 359,
+            "2": 889,
+            "3": 118
+          },
+          "median": 2.0,
+          "mean": 1.7792857142857144
+        }
+      },
+      "center_eligible_mean": {
+        "foundation": 3.0107142857142857,
+        "policy": 2.867857142857143
+      },
+      "usable_starts": {
+        "foundation": 29.428571428571427,
+        "policy": 29.985714285714284
+      },
+      "games_benched": {
+        "foundation": 2.2914285714285714,
+        "policy": 1.342142857142857
+      },
+      "busy_collisions": {
+        "foundation": 1.6614285714285715,
+        "policy": 1.0464285714285715
+      },
+      "fallbacks": 0,
+      "gate_pass": true
+    },
+    {
+      "catalog": "real",
+      "scenario": "nominal",
+      "variant": "marginal_pf_x0.75",
+      "baseline": "foundation",
+      "metric": "imputed_truth_points",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 12.753218795266507,
+      "paired_bootstrap_95_lower": 7.300081772519565,
+      "paired_bootstrap_95_upper": 18.236264703986297,
+      "baseline_mean": 1243.504632924173,
+      "worst_seat": 6,
+      "worst_seat_mean_delta": -4.960010007465904,
+      "worst_seat_loss_fraction": -0.003924472962308445,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 22.844012735215337,
+          "baseline_mean": 1285.368707253902,
+          "mean_delta_fraction": 0.01777234236861105
+        },
+        {
+          "seat": 2,
+          "mean_delta": 20.724711265495536,
+          "baseline_mean": 1289.9992266846523,
+          "mean_delta_fraction": 0.016065677278550655
+        },
+        {
+          "seat": 3,
+          "mean_delta": 15.865555873245432,
+          "baseline_mean": 1242.7763159075237,
+          "mean_delta_fraction": 0.012766220010927538
+        },
+        {
+          "seat": 4,
+          "mean_delta": 23.06963308920833,
+          "baseline_mean": 1246.6851967773464,
+          "mean_delta_fraction": 0.018504778230176166
+        },
+        {
+          "seat": 5,
+          "mean_delta": 19.314657332499646,
+          "baseline_mean": 1244.7801262619726,
+          "mean_delta_fraction": 0.015516521291596154
+        },
+        {
+          "seat": 6,
+          "mean_delta": -4.960010007465904,
+          "baseline_mean": 1263.8665255444487,
+          "mean_delta_fraction": -0.003924472962308445
+        },
+        {
+          "seat": 7,
+          "mean_delta": 15.158362924569888,
+          "baseline_mean": 1247.9371620801992,
+          "mean_delta_fraction": 0.012146735737320506
+        },
+        {
+          "seat": 8,
+          "mean_delta": 5.704285200506124,
+          "baseline_mean": 1240.3002933478565,
+          "mean_delta_fraction": 0.0045991162229825355
+        },
+        {
+          "seat": 9,
+          "mean_delta": 21.30608352532767,
+          "baseline_mean": 1222.7034340975795,
+          "mean_delta_fraction": 0.017425389453537193
+        },
+        {
+          "seat": 10,
+          "mean_delta": 16.429848693230436,
+          "baseline_mean": 1214.381130625519,
+          "mean_delta_fraction": 0.013529400514291207
+        },
+        {
+          "seat": 11,
+          "mean_delta": -3.5008915306195423,
+          "baseline_mean": 1241.900511337712,
+          "mean_delta_fraction": -0.0028189790556157838
+        },
+        {
+          "seat": 12,
+          "mean_delta": -1.941961830733012,
+          "baseline_mean": 1228.2910236255727,
+          "mean_delta_fraction": -0.0015810274547158067
+        },
+        {
+          "seat": 13,
+          "mean_delta": 11.224299971657564,
+          "baseline_mean": 1219.9503241991117,
+          "mean_delta_fraction": 0.009200620508073748
+        },
+        {
+          "seat": 14,
+          "mean_delta": 17.306475891593596,
+          "baseline_mean": 1220.1248831950256,
+          "mean_delta_fraction": 0.014184184037190328
+        }
+      ],
+      "c_only": {
+        "foundation": {
+          "histogram": {
+            "0": 30,
+            "1": 252,
+            "2": 571,
+            "3": 400,
+            "4": 125,
+            "5": 22
+          },
+          "median": 2.0,
+          "mean": 2.2885714285714287
+        },
+        "policy": {
+          "histogram": {
+            "0": 34,
+            "1": 359,
+            "2": 889,
+            "3": 118
+          },
+          "median": 2.0,
+          "mean": 1.7792857142857144
+        }
+      },
+      "center_eligible_mean": {
+        "foundation": 3.0107142857142857,
+        "policy": 2.867857142857143
+      },
+      "usable_starts": {
+        "foundation": 29.428571428571427,
+        "policy": 29.985714285714284
+      },
+      "games_benched": {
+        "foundation": 2.2914285714285714,
+        "policy": 1.342142857142857
+      },
+      "busy_collisions": {
+        "foundation": 1.6614285714285715,
+        "policy": 1.0464285714285715
+      },
+      "fallbacks": 0,
+      "gate_pass": true
+    },
+    {
+      "catalog": "real",
+      "scenario": "nominal",
+      "variant": "marginal_pf_x1.25",
+      "baseline": "foundation",
+      "metric": "weekly_points",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 13.245967075502367,
+      "paired_bootstrap_95_lower": 7.147219735955625,
+      "paired_bootstrap_95_upper": 19.615520186448634,
+      "baseline_mean": 1294.810629872762,
+      "worst_seat": 6,
+      "worst_seat_mean_delta": -7.281941173485539,
+      "worst_seat_loss_fraction": -0.005514451898307696,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 27.786853379013152,
+          "baseline_mean": 1331.9716302281172,
+          "mean_delta_fraction": 0.020861445355449725
+        },
+        {
+          "seat": 2,
+          "mean_delta": 19.12302521986595,
+          "baseline_mean": 1338.9430478241513,
+          "mean_delta_fraction": 0.014282179702073074
+        },
+        {
+          "seat": 3,
+          "mean_delta": 26.562004596237784,
+          "baseline_mean": 1295.8754386166102,
+          "mean_delta_fraction": 0.02049734396123257
+        },
+        {
+          "seat": 4,
+          "mean_delta": 22.30899539203383,
+          "baseline_mean": 1300.0366757140246,
+          "mean_delta_fraction": 0.017160281558811382
+        },
+        {
+          "seat": 5,
+          "mean_delta": 18.559521229746693,
+          "baseline_mean": 1305.4403480494636,
+          "mean_delta_fraction": 0.01421705806586841
+        },
+        {
+          "seat": 6,
+          "mean_delta": -7.281941173485539,
+          "baseline_mean": 1320.51948367167,
+          "mean_delta_fraction": -0.005514451898307696
+        },
+        {
+          "seat": 7,
+          "mean_delta": 16.3294037857645,
+          "baseline_mean": 1294.8831576264317,
+          "mean_delta_fraction": 0.012610716024522937
+        },
+        {
+          "seat": 8,
+          "mean_delta": 16.84912936394852,
+          "baseline_mean": 1289.94627335281,
+          "mean_delta_fraction": 0.013061884600941171
+        },
+        {
+          "seat": 9,
+          "mean_delta": 18.98909823509938,
+          "baseline_mean": 1272.9226682518793,
+          "mean_delta_fraction": 0.01491771551305418
+        },
+        {
+          "seat": 10,
+          "mean_delta": 15.607403152009825,
+          "baseline_mean": 1266.3761524299814,
+          "mean_delta_fraction": 0.01232446072366541
+        },
+        {
+          "seat": 11,
+          "mean_delta": 4.3293679377154515,
+          "baseline_mean": 1290.565285174356,
+          "mean_delta_fraction": 0.0033546291593691455
+        },
+        {
+          "seat": 12,
+          "mean_delta": -1.5618506962852836,
+          "baseline_mean": 1282.2790486751878,
+          "mean_delta_fraction": -0.0012180271508755764
+        },
+        {
+          "seat": 13,
+          "mean_delta": -3.9757524538805287,
+          "baseline_mean": 1271.5106403371492,
+          "mean_delta_fraction": -0.003126794481897794
+        },
+        {
+          "seat": 14,
+          "mean_delta": 11.818281089249401,
+          "baseline_mean": 1266.078968266839,
+          "mean_delta_fraction": 0.009334552887666782
+        }
+      ],
+      "c_only": {
+        "foundation": {
+          "histogram": {
+            "0": 30,
+            "1": 252,
+            "2": 571,
+            "3": 400,
+            "4": 125,
+            "5": 22
+          },
+          "median": 2.0,
+          "mean": 2.2885714285714287
+        },
+        "policy": {
+          "histogram": {
+            "0": 32,
+            "1": 362,
+            "2": 870,
+            "3": 135,
+            "4": 1
+          },
+          "median": 2.0,
+          "mean": 1.7935714285714286
+        }
+      },
+      "center_eligible_mean": {
+        "foundation": 3.0107142857142857,
+        "policy": 2.87
+      },
+      "usable_starts": {
+        "foundation": 29.428571428571427,
+        "policy": 30.025714285714287
+      },
+      "games_benched": {
+        "foundation": 2.2914285714285714,
+        "policy": 1.2557142857142858
+      },
+      "busy_collisions": {
+        "foundation": 1.6614285714285715,
+        "policy": 0.9785714285714285
+      },
+      "fallbacks": 0,
+      "gate_pass": true
+    },
+    {
+      "catalog": "real",
+      "scenario": "nominal",
+      "variant": "marginal_pf_x1.25",
+      "baseline": "foundation",
+      "metric": "imputed_truth_points",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 16.817518241881658,
+      "paired_bootstrap_95_lower": 10.724906507419188,
+      "paired_bootstrap_95_upper": 23.027065846456622,
+      "baseline_mean": 1243.504632924173,
+      "worst_seat": 6,
+      "worst_seat_mean_delta": -2.956999305834179,
+      "worst_seat_loss_fraction": -0.00233964524423207,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 27.12681064757882,
+          "baseline_mean": 1285.368707253902,
+          "mean_delta_fraction": 0.021104302986754135
+        },
+        {
+          "seat": 2,
+          "mean_delta": 22.235619214320604,
+          "baseline_mean": 1289.9992266846523,
+          "mean_delta_fraction": 0.017236924452634753
+        },
+        {
+          "seat": 3,
+          "mean_delta": 30.290774870960103,
+          "baseline_mean": 1242.7763159075237,
+          "mean_delta_fraction": 0.02437347291160807
+        },
+        {
+          "seat": 4,
+          "mean_delta": 27.409210924235918,
+          "baseline_mean": 1246.6851967773464,
+          "mean_delta_fraction": 0.021985671278593924
+        },
+        {
+          "seat": 5,
+          "mean_delta": 31.798477810891182,
+          "baseline_mean": 1244.7801262619726,
+          "mean_delta_fraction": 0.02554545749889244
+        },
+        {
+          "seat": 6,
+          "mean_delta": -2.956999305834179,
+          "baseline_mean": 1263.8665255444487,
+          "mean_delta_fraction": -0.00233964524423207
+        },
+        {
+          "seat": 7,
+          "mean_delta": 16.434124184097968,
+          "baseline_mean": 1247.9371620801992,
+          "mean_delta_fraction": 0.013169031809825872
+        },
+        {
+          "seat": 8,
+          "mean_delta": 14.82469346310524,
+          "baseline_mean": 1240.3002933478565,
+          "mean_delta_fraction": 0.01195250339181165
+        },
+        {
+          "seat": 9,
+          "mean_delta": 28.062462071183603,
+          "baseline_mean": 1222.7034340975795,
+          "mean_delta_fraction": 0.022951159936747213
+        },
+        {
+          "seat": 10,
+          "mean_delta": 21.830806288180185,
+          "baseline_mean": 1214.381130625519,
+          "mean_delta_fraction": 0.017976898469210644
+        },
+        {
+          "seat": 11,
+          "mean_delta": 6.081376992893281,
+          "baseline_mean": 1241.900511337712,
+          "mean_delta_fraction": 0.004896831056412668
+        },
+        {
+          "seat": 12,
+          "mean_delta": 3.273801636934893,
+          "baseline_mean": 1228.2910236255727,
+          "mean_delta_fraction": 0.0026653305885697537
+        },
+        {
+          "seat": 13,
+          "mean_delta": 0.8934144006357735,
+          "baseline_mean": 1219.9503241991117,
+          "mean_delta_fraction": 0.0007323367049574689
+        },
+        {
+          "seat": 14,
+          "mean_delta": 8.140682187159804,
+          "baseline_mean": 1220.1248831950256,
+          "mean_delta_fraction": 0.006672007348823646
+        }
+      ],
+      "c_only": {
+        "foundation": {
+          "histogram": {
+            "0": 30,
+            "1": 252,
+            "2": 571,
+            "3": 400,
+            "4": 125,
+            "5": 22
+          },
+          "median": 2.0,
+          "mean": 2.2885714285714287
+        },
+        "policy": {
+          "histogram": {
+            "0": 32,
+            "1": 362,
+            "2": 870,
+            "3": 135,
+            "4": 1
+          },
+          "median": 2.0,
+          "mean": 1.7935714285714286
+        }
+      },
+      "center_eligible_mean": {
+        "foundation": 3.0107142857142857,
+        "policy": 2.87
+      },
+      "usable_starts": {
+        "foundation": 29.428571428571427,
+        "policy": 30.025714285714287
+      },
+      "games_benched": {
+        "foundation": 2.2914285714285714,
+        "policy": 1.2557142857142858
+      },
+      "busy_collisions": {
+        "foundation": 1.6614285714285715,
+        "policy": 0.9785714285714285
+      },
+      "fallbacks": 0,
+      "gate_pass": true
+    },
+    {
+      "catalog": "real",
+      "scenario": "nominal",
+      "variant": "marginal",
+      "baseline": "marginal_no_imputation",
+      "metric": "weekly_points",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 4.264199282442879,
+      "paired_bootstrap_95_lower": -1.341800988139679,
+      "paired_bootstrap_95_upper": 9.636246799781238,
+      "baseline_mean": 1302.6210697462034,
+      "worst_seat": 5,
+      "worst_seat_mean_delta": -14.147261253806043,
+      "worst_seat_loss_fraction": -0.010708479130244168,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 4.586739165638482,
+          "baseline_mean": 1354.68299158695,
+          "mean_delta_fraction": 0.0033858394872628645
+        },
+        {
+          "seat": 2,
+          "mean_delta": 22.621035810361445,
+          "baseline_mean": 1331.509499860149,
+          "mean_delta_fraction": 0.01698901570941655
+        },
+        {
+          "seat": 3,
+          "mean_delta": -13.434479721402916,
+          "baseline_mean": 1332.9807707385958,
+          "mean_delta_fraction": -0.010078524774186323
+        },
+        {
+          "seat": 4,
+          "mean_delta": 6.005417607279397,
+          "baseline_mean": 1310.18749788903,
+          "mean_delta_fraction": 0.004583632202990264
+        },
+        {
+          "seat": 5,
+          "mean_delta": -14.147261253806043,
+          "baseline_mean": 1321.1270323018753,
+          "mean_delta_fraction": -0.010708479130244168
+        },
+        {
+          "seat": 6,
+          "mean_delta": 4.088778280768599,
+          "baseline_mean": 1313.9423734742327,
+          "mean_delta_fraction": 0.0031118398822600896
+        },
+        {
+          "seat": 7,
+          "mean_delta": -1.3287497149414356,
+          "baseline_mean": 1311.1597846926961,
+          "mean_delta_fraction": -0.0010134155504570041
+        },
+        {
+          "seat": 8,
+          "mean_delta": -4.719535440951727,
+          "baseline_mean": 1297.9789312943785,
+          "mean_delta_fraction": -0.003636064752025892
+        },
+        {
+          "seat": 9,
+          "mean_delta": 13.071629783504532,
+          "baseline_mean": 1283.9534204228905,
+          "mean_delta_fraction": 0.010180766354591884
+        },
+        {
+          "seat": 10,
+          "mean_delta": 7.682619612854058,
+          "baseline_mean": 1274.1440965930337,
+          "mean_delta_fraction": 0.006029631682473599
+        },
+        {
+          "seat": 11,
+          "mean_delta": 0.306609818846307,
+          "baseline_mean": 1281.1271002599058,
+          "mean_delta_fraction": 0.00023932818124298847
+        },
+        {
+          "seat": 12,
+          "mean_delta": 19.72297453785255,
+          "baseline_mean": 1275.5923228759,
+          "mean_delta_fraction": 0.01546181658837983
+        },
+        {
+          "seat": 13,
+          "mean_delta": 10.937902540379486,
+          "baseline_mean": 1268.9311971890525,
+          "mean_delta_fraction": 0.00861977589061505
+        },
+        {
+          "seat": 14,
+          "mean_delta": 4.305108927817571,
+          "baseline_mean": 1279.3779572681567,
+          "mean_delta_fraction": 0.0033650016426812826
+        }
+      ],
+      "c_only": {
+        "foundation": {
+          "histogram": {
+            "0": 65,
+            "1": 416,
+            "2": 787,
+            "3": 132
+          },
+          "median": 2.0,
+          "mean": 1.7042857142857142
+        },
+        "policy": {
+          "histogram": {
+            "0": 30,
+            "1": 387,
+            "2": 852,
+            "3": 129,
+            "4": 2
+          },
+          "median": 2.0,
+          "mean": 1.7757142857142858
+        }
+      },
+      "center_eligible_mean": {
+        "foundation": 2.782857142857143,
+        "policy": 2.8307142857142855
+      },
+      "usable_starts": {
+        "foundation": 30.055,
+        "policy": 29.970714285714287
+      },
+      "games_benched": {
+        "foundation": 1.3014285714285714,
+        "policy": 1.2814285714285714
+      },
+      "busy_collisions": {
+        "foundation": 0.9978571428571429,
+        "policy": 1.0
+      },
+      "fallbacks": 0,
+      "gate_pass": false
+    },
+    {
+      "catalog": "real",
+      "scenario": "nominal",
+      "variant": "marginal",
+      "baseline": "marginal_no_imputation",
+      "metric": "imputed_truth_points",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 6.454991157421822,
+      "paired_bootstrap_95_lower": 1.3688707782007603,
+      "paired_bootstrap_95_upper": 11.285457856203324,
+      "baseline_mean": 1251.1022142792885,
+      "worst_seat": 3,
+      "worst_seat_mean_delta": -10.985004527945064,
+      "worst_seat_loss_fraction": -0.008584701101918423,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 9.489355739118924,
+          "baseline_mean": 1303.076924486101,
+          "mean_delta_fraction": 0.007282268268898457
+        },
+        {
+          "seat": 2,
+          "mean_delta": 21.393210764962674,
+          "baseline_mean": 1287.8877988850975,
+          "mean_delta_fraction": 0.016611082722798067
+        },
+        {
+          "seat": 3,
+          "mean_delta": -10.985004527945064,
+          "baseline_mean": 1279.602445971036,
+          "mean_delta_fraction": -0.008584701101918423
+        },
+        {
+          "seat": 4,
+          "mean_delta": 5.452022027884544,
+          "baseline_mean": 1260.2339391725216,
+          "mean_delta_fraction": 0.004326198381440496
+        },
+        {
+          "seat": 5,
+          "mean_delta": -9.534738226564723,
+          "baseline_mean": 1263.3117353737077,
+          "mean_delta_fraction": -0.007547415225858087
+        },
+        {
+          "seat": 6,
+          "mean_delta": 1.9272120487672078,
+          "baseline_mean": 1264.9188814825088,
+          "mean_delta_fraction": 0.0015235854859787362
+        },
+        {
+          "seat": 7,
+          "mean_delta": 5.594195247266359,
+          "baseline_mean": 1258.5603117207402,
+          "mean_delta_fraction": 0.004444916302515383
+        },
+        {
+          "seat": 8,
+          "mean_delta": -4.384097833009917,
+          "baseline_mean": 1243.6124726566572,
+          "mean_delta_fraction": -0.0035252925886505647
+        },
+        {
+          "seat": 9,
+          "mean_delta": 11.164640599192863,
+          "baseline_mean": 1237.7801151297751,
+          "mean_delta_fraction": 0.00901989009414835
+        },
+        {
+          "seat": 10,
+          "mean_delta": 13.391447918815883,
+          "baseline_mean": 1220.0046888115858,
+          "mean_delta_fraction": 0.010976554468705015
+        },
+        {
+          "seat": 11,
+          "mean_delta": 7.618464439745088,
+          "baseline_mean": 1226.8879642408183,
+          "mean_delta_fraction": 0.006209584462310127
+        },
+        {
+          "seat": 12,
+          "mean_delta": 20.013197384819808,
+          "baseline_mean": 1224.3078795790407,
+          "mean_delta_fraction": 0.016346539721447385
+        },
+        {
+          "seat": 13,
+          "mean_delta": 16.322257187649,
+          "baseline_mean": 1213.755957702542,
+          "mean_delta_fraction": 0.013447725701420726
+        },
+        {
+          "seat": 14,
+          "mean_delta": 2.907713433202863,
+          "baseline_mean": 1231.489884697909,
+          "mean_delta_fraction": 0.002361134646198203
+        }
+      ],
+      "c_only": {
+        "foundation": {
+          "histogram": {
+            "0": 65,
+            "1": 416,
+            "2": 787,
+            "3": 132
+          },
+          "median": 2.0,
+          "mean": 1.7042857142857142
+        },
+        "policy": {
+          "histogram": {
+            "0": 30,
+            "1": 387,
+            "2": 852,
+            "3": 129,
+            "4": 2
+          },
+          "median": 2.0,
+          "mean": 1.7757142857142858
+        }
+      },
+      "center_eligible_mean": {
+        "foundation": 2.782857142857143,
+        "policy": 2.8307142857142855
+      },
+      "usable_starts": {
+        "foundation": 30.055,
+        "policy": 29.970714285714287
+      },
+      "games_benched": {
+        "foundation": 1.3014285714285714,
+        "policy": 1.2814285714285714
+      },
+      "busy_collisions": {
+        "foundation": 0.9978571428571429,
+        "policy": 1.0
+      },
+      "fallbacks": 0,
+      "gate_pass": true
+    }
+  ]
+}

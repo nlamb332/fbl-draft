@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "runner": "draft_assistant.validation_runner",
+    "heldout_seed_clusters": 100,
+    "teams": 14,
+    "opponents": 13,
+    "rounds": 10,
+    "picks_per_draft": 140,
+    "seats_per_seed": 14,
+    "scenarios": [
+      "nominal"
+    ],
+    "foundation": "custom FP \u00d7 availability with small coverage tie adjustment",
+    "policy": "bounded two-pick lookahead promoted for validation only",
+    "foundation_vs_lookahead": true,
+    "lookahead_enabled": true,
+    "algorithm_version": "draft-strategy-v2",
+    "config_fingerprint": "dc4c94b93b4219e4c317dd54660886f9b84c2f36437a5cc83c56dd8cab0fcd2d",
+    "lookahead_budget_seconds": 2.0,
+    "lookahead_max_candidates": 8,
+    "opponent_model": "rank-plus-opponent-needs-v1",
+    "realized_evaluation": "seeded \u00b110% stat noise after draft selection; no forecast leakage",
+    "elapsed_seconds": 1473.0530156000168
+  },
+  "summaries": [
+    {
+      "scenario": "nominal",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 2.6737532493489056,
+      "paired_bootstrap_95_lower": -3.093507131488563,
+      "min_seat_delta": -13.202266485796462,
+      "worst_seat_loss_fraction": -0.0113249397162914,
+      "gate_pass": false,
+      "by_seat": [
+        {
+          "seat": 1,
+          "mean_delta": 2.3831461027886927,
+          "mean_loss_fraction": 0.0020223148026874416
+        },
+        {
+          "seat": 2,
+          "mean_delta": 12.313746177975124,
+          "mean_loss_fraction": 0.010441978197797184
+        },
+        {
+          "seat": 3,
+          "mean_delta": -1.9541256617641738,
+          "mean_loss_fraction": -0.0016477520990436205
+        },
+        {
+          "seat": 4,
+          "mean_delta": 6.72441912715613,
+          "mean_loss_fraction": 0.00572498243181126
+        },
+        {
+          "seat": 5,
+          "mean_delta": 4.393908892558564,
+          "mean_loss_fraction": 0.0036946328237644844
+        },
+        {
+          "seat": 6,
+          "mean_delta": -8.04766883409743,
+          "mean_loss_fraction": -0.006863700525243515
+        },
+        {
+          "seat": 7,
+          "mean_delta": 15.63250478604923,
+          "mean_loss_fraction": 0.013411195480660415
+        },
+        {
+          "seat": 8,
+          "mean_delta": -13.202266485796462,
+          "mean_loss_fraction": -0.0113249397162914
+        },
+        {
+          "seat": 9,
+          "mean_delta": 2.4336649013423926,
+          "mean_loss_fraction": 0.002064006602043236
+        },
+        {
+          "seat": 10,
+          "mean_delta": -7.223415572734346,
+          "mean_loss_fraction": -0.006075271430782114
+        },
+        {
+          "seat": 11,
+          "mean_delta": 14.629417564489106,
+          "mean_loss_fraction": 0.012477754564329011
+        },
+        {
+          "seat": 12,
+          "mean_delta": 0.44018761884707713,
+          "mean_loss_fraction": 0.00037430685716746654
+        },
+        {
+          "seat": 13,
+          "mean_delta": 8.569263649932214,
+          "mean_loss_fraction": 0.007349983973796059
+        },
+        {
+          "seat": 14,
+          "mean_delta": 0.33976322413855653,
+          "mean_loss_fraction": 0.0002851428642525483
+        }
+      ]
+    }
+  ]
+}

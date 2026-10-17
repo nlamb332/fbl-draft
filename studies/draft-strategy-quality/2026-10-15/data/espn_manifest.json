@@ -1,0 +1,1392 @@
+{
+  "fingerprint": "8cffb7006a3d2c3f4588d9cb034e56590a0142bfc05c75408836a637c42523d9",
+  "rank_join": [
+    {
+      "player_id": "victor-wembanyama",
+      "name": "Victor Wembanyama",
+      "espn_id": "5104157",
+      "espn_draft_rank": 4,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "nikola-jokic",
+      "name": "Nikola Jokic",
+      "espn_id": "3112335",
+      "espn_draft_rank": 1,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "shai-gilgeous-alexander",
+      "name": "Shai Gilgeous-Alexander",
+      "espn_id": "4278073",
+      "espn_draft_rank": 2,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "luka-doncic",
+      "name": "Luka Doncic",
+      "espn_id": "3945274",
+      "espn_draft_rank": 3,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "anthony-edwards",
+      "name": "Anthony Edwards",
+      "espn_id": "4594268",
+      "espn_draft_rank": 8,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "giannis-antetokounmpo",
+      "name": "Giannis Antetokounmpo",
+      "espn_id": "3032977",
+      "espn_draft_rank": 5,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "donovan-mitchell",
+      "name": "Donovan Mitchell",
+      "espn_id": "3908809",
+      "espn_draft_rank": 10,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "cade-cunningham",
+      "name": "Cade Cunningham",
+      "espn_id": "4432166",
+      "espn_draft_rank": 7,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "karl-anthony-towns",
+      "name": "Karl-Anthony Towns",
+      "espn_id": "3136195",
+      "espn_draft_rank": 24,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "kevin-durant",
+      "name": "Kevin Durant",
+      "espn_id": "3202",
+      "espn_draft_rank": 23,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "tyrese-maxey",
+      "name": "Tyrese Maxey",
+      "espn_id": "4431678",
+      "espn_draft_rank": 13,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jalen-brunson",
+      "name": "Jalen Brunson",
+      "espn_id": "3934672",
+      "espn_draft_rank": 15,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jayson-tatum",
+      "name": "Jayson Tatum",
+      "espn_id": "4065648",
+      "espn_draft_rank": 9,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "cooper-flagg",
+      "name": "Cooper Flagg",
+      "espn_id": "5041939",
+      "espn_draft_rank": 11,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "devin-booker",
+      "name": "Devin Booker",
+      "espn_id": "3136193",
+      "espn_draft_rank": 20,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jaylen-brown",
+      "name": "Jaylen Brown",
+      "espn_id": "3917376",
+      "espn_draft_rank": 41,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "amen-thompson",
+      "name": "Amen Thompson",
+      "espn_id": "4684740",
+      "espn_draft_rank": 19,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "scottie-barnes",
+      "name": "Scottie Barnes",
+      "espn_id": "4433134",
+      "espn_draft_rank": 17,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "stephen-curry",
+      "name": "Stephen Curry",
+      "espn_id": "3975",
+      "espn_draft_rank": 37,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "lamelo-ball",
+      "name": "LaMelo Ball",
+      "espn_id": "4432816",
+      "espn_draft_rank": 14,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "james-harden",
+      "name": "James Harden",
+      "espn_id": "3992",
+      "espn_draft_rank": 25,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "lebron-james",
+      "name": "LeBron James",
+      "espn_id": "1966",
+      "espn_draft_rank": 42,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "bam-adebayo",
+      "name": "Bam Adebayo",
+      "espn_id": "4066261",
+      "espn_draft_rank": 32,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jalen-johnson",
+      "name": "Jalen Johnson",
+      "espn_id": "4701230",
+      "espn_draft_rank": 6,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "pascal-siakam",
+      "name": "Pascal Siakam",
+      "espn_id": "3149673",
+      "espn_draft_rank": 26,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jamal-murray",
+      "name": "Jamal Murray",
+      "espn_id": "3936299",
+      "espn_draft_rank": 28,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "evan-mobley",
+      "name": "Evan Mobley",
+      "espn_id": "4432158",
+      "espn_draft_rank": 35,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "anthony-davis",
+      "name": "Anthony Davis",
+      "espn_id": "6583",
+      "espn_draft_rank": 29,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "alperen-sengun",
+      "name": "Alperen Sengun",
+      "espn_id": "4871144",
+      "espn_draft_rank": 22,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "paolo-banchero",
+      "name": "Paolo Banchero",
+      "espn_id": "4432573",
+      "espn_draft_rank": 46,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jalen-williams",
+      "name": "Jalen Williams",
+      "espn_id": "4593803",
+      "espn_draft_rank": 34,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "domantas-sabonis",
+      "name": "Domantas Sabonis",
+      "espn_id": "3155942",
+      "espn_draft_rank": 12,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "trae-young",
+      "name": "Trae Young",
+      "espn_id": "4277905",
+      "espn_draft_rank": 16,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "kawhi-leonard",
+      "name": "Kawhi Leonard",
+      "espn_id": "6450",
+      "espn_draft_rank": 33,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "josh-giddey",
+      "name": "Josh Giddey",
+      "espn_id": "4871145",
+      "espn_draft_rank": 18,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "austin-reaves",
+      "name": "Austin Reaves",
+      "espn_id": "4066457",
+      "espn_draft_rank": 31,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "derrick-white",
+      "name": "Derrick White",
+      "espn_id": "3078576",
+      "espn_draft_rank": 36,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "tyrese-haliburton",
+      "name": "Tyrese Haliburton",
+      "espn_id": "4396993",
+      "espn_draft_rank": 21,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "de-aaron-fox",
+      "name": "De'Aaron Fox",
+      "espn_id": "4066259",
+      "espn_draft_rank": 43,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "desmond-bane",
+      "name": "Desmond Bane",
+      "espn_id": "4066320",
+      "espn_draft_rank": 39,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "deni-avdija",
+      "name": "Deni Avdija",
+      "espn_id": "4683021",
+      "espn_draft_rank": 30,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jalen-duren",
+      "name": "Jalen Duren",
+      "espn_id": "4433621",
+      "espn_draft_rank": 27,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "stephon-castle",
+      "name": "Stephon Castle",
+      "espn_id": "4845367",
+      "espn_draft_rank": 53,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "michael-porter-jr",
+      "name": "Michael Porter Jr.",
+      "espn_id": "4278104",
+      "espn_draft_rank": 48,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "joel-embiid",
+      "name": "Joel Embiid",
+      "espn_id": "3059318",
+      "espn_draft_rank": 72,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "chet-holmgren",
+      "name": "Chet Holmgren",
+      "espn_id": "4433255",
+      "espn_draft_rank": 71,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "kon-knueppel",
+      "name": "Kon Knueppel",
+      "espn_id": "5061575",
+      "espn_draft_rank": 40,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "mikal-bridges",
+      "name": "Mikal Bridges",
+      "espn_id": "3147657",
+      "espn_draft_rank": 45,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "zion-williamson",
+      "name": "Zion Williamson",
+      "espn_id": "4395628",
+      "espn_draft_rank": 57,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "dyson-daniels",
+      "name": "Dyson Daniels",
+      "espn_id": "4869342",
+      "espn_draft_rank": 49,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "darius-garland",
+      "name": "Darius Garland",
+      "espn_id": "4396907",
+      "espn_draft_rank": 38,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "ja-morant",
+      "name": "Ja Morant",
+      "espn_id": "4279888",
+      "espn_draft_rank": 74,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "franz-wagner",
+      "name": "Franz Wagner",
+      "espn_id": "4566434",
+      "espn_draft_rank": 58,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "lauri-markkanen",
+      "name": "Lauri Markkanen",
+      "espn_id": "4066336",
+      "espn_draft_rank": 51,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jarrett-allen",
+      "name": "Jarrett Allen",
+      "espn_id": "4066328",
+      "espn_draft_rank": 54,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "julius-randle",
+      "name": "Julius Randle",
+      "espn_id": "3064514",
+      "espn_draft_rank": 50,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "kyrie-irving",
+      "name": "Kyrie Irving",
+      "espn_id": "6442",
+      "espn_draft_rank": 55,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "damian-lillard",
+      "name": "Damian Lillard",
+      "espn_id": "6606",
+      "espn_draft_rank": 61,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "tyler-herro",
+      "name": "Tyler Herro",
+      "espn_id": "4395725",
+      "espn_draft_rank": 56,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "og-anunoby",
+      "name": "OG Anunoby",
+      "espn_id": "3934719",
+      "espn_draft_rank": 93,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "trey-murphy-iii",
+      "name": "Trey Murphy III",
+      "espn_id": "4397688",
+      "espn_draft_rank": 64,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "aj-dybantsa",
+      "name": "AJ Dybantsa",
+      "espn_id": "5142718",
+      "espn_draft_rank": 81,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "naz-reid",
+      "name": "Naz Reid",
+      "espn_id": "4396971",
+      "espn_draft_rank": 44,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "nickeil-alexander-walker",
+      "name": "Nickeil Alexander-Walker",
+      "espn_id": "4278039",
+      "espn_draft_rank": 47,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "ivica-zubac",
+      "name": "Ivica Zubac",
+      "espn_id": "4017837",
+      "espn_draft_rank": 73,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "dylan-harper",
+      "name": "Dylan Harper",
+      "espn_id": "5037871",
+      "espn_draft_rank": 85,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "josh-hart",
+      "name": "Josh Hart",
+      "espn_id": "3062679",
+      "espn_draft_rank": 94,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "rudy-gobert",
+      "name": "Rudy Gobert",
+      "espn_id": "3032976",
+      "espn_draft_rank": 70,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "brandon-miller",
+      "name": "Brandon Miller",
+      "espn_id": "4433287",
+      "espn_draft_rank": 60,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "demar-derozan",
+      "name": "DeMar DeRozan",
+      "espn_id": "3978",
+      "espn_draft_rank": 87,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "walker-kessler",
+      "name": "Walker Kessler",
+      "espn_id": "4433136",
+      "espn_draft_rank": 69,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jaren-jackson-jr",
+      "name": "Jaren Jackson Jr.",
+      "espn_id": "4277961",
+      "espn_draft_rank": 84,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "vj-edgecombe",
+      "name": "VJ Edgecombe",
+      "espn_id": "5124612",
+      "espn_draft_rank": 77,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "miles-bridges",
+      "name": "Miles Bridges",
+      "espn_id": "4066383",
+      "espn_draft_rank": 80,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "onyeka-okongwu",
+      "name": "Onyeka Okongwu",
+      "espn_id": "4431680",
+      "espn_draft_rank": 62,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "keyonte-george",
+      "name": "Keyonte George",
+      "espn_id": "4433627",
+      "espn_draft_rank": 63,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "brandon-ingram",
+      "name": "Brandon Ingram",
+      "espn_id": "3913176",
+      "espn_draft_rank": 110,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "norman-powell",
+      "name": "Norman Powell",
+      "espn_id": "2595516",
+      "espn_draft_rank": 65,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "coby-white",
+      "name": "Coby White",
+      "espn_id": "4395651",
+      "espn_draft_rank": 83,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "donovan-clingan",
+      "name": "Donovan Clingan",
+      "espn_id": "5105565",
+      "espn_draft_rank": 68,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "cameron-boozer",
+      "name": "Cameron Boozer",
+      "espn_id": "5041935",
+      "espn_draft_rank": 67,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "alex-sarr",
+      "name": "Alex Sarr",
+      "espn_id": "5160992",
+      "espn_draft_rank": 78,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jaden-mcdaniels",
+      "name": "Jaden McDaniels",
+      "espn_id": "4431671",
+      "espn_draft_rank": 96,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jalen-green",
+      "name": "Jalen Green",
+      "espn_id": "4437244",
+      "espn_draft_rank": 91,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "paul-george",
+      "name": "Paul George",
+      "espn_id": "4251",
+      "espn_draft_rank": 109,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "caleb-wilson",
+      "name": "Caleb Wilson",
+      "espn_id": "5095151",
+      "espn_draft_rank": 66,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "cj-mccollum",
+      "name": "CJ McCollum",
+      "espn_id": "2490149",
+      "espn_draft_rank": 82,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "payton-pritchard",
+      "name": "Payton Pritchard",
+      "espn_id": "4066354",
+      "espn_draft_rank": 90,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "ausar-thompson",
+      "name": "Ausar Thompson",
+      "espn_id": "4684742",
+      "espn_draft_rank": 103,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "dejounte-murray",
+      "name": "Dejounte Murray",
+      "espn_id": "3907497",
+      "espn_draft_rank": 52,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "nikola-vucevic",
+      "name": "Nikola Vucevic",
+      "espn_id": "6478",
+      "espn_draft_rank": 101,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "rj-barrett",
+      "name": "RJ Barrett",
+      "espn_id": "4395625",
+      "espn_draft_rank": 104,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "reed-sheppard",
+      "name": "Reed Sheppard",
+      "espn_id": "4711272",
+      "espn_draft_rank": 88,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "andrew-wiggins",
+      "name": "Andrew Wiggins",
+      "espn_id": "3059319",
+      "espn_draft_rank": 105,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "matas-buzelis",
+      "name": "Matas Buzelis",
+      "espn_id": "4711294",
+      "espn_draft_rank": 79,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "immanuel-quickley",
+      "name": "Immanuel Quickley",
+      "espn_id": "4395724",
+      "espn_draft_rank": 92,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "kevin-porter-jr",
+      "name": "Kevin Porter Jr.",
+      "espn_id": "4397140",
+      "espn_draft_rank": 100,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "kristaps-porzingis",
+      "name": "Kristaps Porzingis",
+      "espn_id": "3102531",
+      "espn_draft_rank": 99,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "darryn-peterson",
+      "name": "Darryn Peterson",
+      "espn_id": "5041955",
+      "espn_draft_rank": 108,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "john-collins",
+      "name": "John Collins",
+      "espn_id": "3908845",
+      "espn_draft_rank": 102,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "ryan-rollins",
+      "name": "Ryan Rollins",
+      "espn_id": "4591725",
+      "espn_draft_rank": 97,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "ty-jerome",
+      "name": "Ty Jerome",
+      "espn_id": "4065733",
+      "espn_draft_rank": 59,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "myles-turner",
+      "name": "Myles Turner",
+      "espn_id": "3133628",
+      "espn_draft_rank": 122,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "zach-lavine",
+      "name": "Zach LaVine",
+      "espn_id": "3064440",
+      "espn_draft_rank": 130,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "kel-el-ware",
+      "name": "Kel'el Ware",
+      "espn_id": "5105623",
+      "espn_draft_rank": 76,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "tobias-harris",
+      "name": "Tobias Harris",
+      "espn_id": "6440",
+      "espn_draft_rank": 106,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jakob-poeltl",
+      "name": "Jakob Poeltl",
+      "espn_id": "3134908",
+      "espn_draft_rank": 113,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "nic-claxton",
+      "name": "Nic Claxton",
+      "espn_id": "4278067",
+      "espn_draft_rank": 112,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "derik-queen",
+      "name": "Derik Queen",
+      "espn_id": "4869780",
+      "espn_draft_rank": 86,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "andrew-nembhard",
+      "name": "Andrew Nembhard",
+      "espn_id": "4395712",
+      "espn_draft_rank": 124,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "zach-edey",
+      "name": "Zach Edey",
+      "espn_id": "4600663",
+      "espn_draft_rank": 118,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "darius-acuff-jr",
+      "name": "Darius Acuff Jr.",
+      "espn_id": "5142620",
+      "espn_draft_rank": 95,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jabari-smith-jr",
+      "name": "Jabari Smith Jr.",
+      "espn_id": "4432639",
+      "espn_draft_rank": 121,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "brandin-podziemski",
+      "name": "Brandin Podziemski",
+      "espn_id": "4709138",
+      "espn_draft_rank": 75,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "keegan-murray",
+      "name": "Keegan Murray",
+      "espn_id": "4594327",
+      "espn_draft_rank": 116,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "fred-vanvleet",
+      "name": "Fred VanVleet",
+      "espn_id": "2991230",
+      "espn_draft_rank": 89,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jimmy-butler-iii",
+      "name": "Jimmy Butler III",
+      "espn_id": "6430",
+      "espn_draft_rank": 207,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "ayo-dosunmu",
+      "name": "Ayo Dosunmu",
+      "espn_id": "4397002",
+      "espn_draft_rank": 98,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "aaron-gordon",
+      "name": "Aaron Gordon",
+      "espn_id": "3064290",
+      "espn_draft_rank": 136,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jaime-jaquez-jr",
+      "name": "Jaime Jaquez Jr.",
+      "espn_id": "4432848",
+      "espn_draft_rank": 114,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "isaiah-hartenstein",
+      "name": "Isaiah Hartenstein",
+      "espn_id": "4222252",
+      "espn_draft_rank": 129,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "peyton-watson",
+      "name": "Peyton Watson",
+      "espn_id": "4576087",
+      "espn_draft_rank": 117,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jeremiah-fears",
+      "name": "Jeremiah Fears",
+      "espn_id": "5144091",
+      "espn_draft_rank": 111,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "devin-vassell",
+      "name": "Devin Vassell",
+      "espn_id": "4395630",
+      "espn_draft_rank": 141,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "egor-demin",
+      "name": "Egor Demin",
+      "espn_id": "5175643",
+      "espn_draft_rank": 107,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "yaxel-lendeborg",
+      "name": "Yaxel Lendeborg",
+      "espn_id": "5175737",
+      "espn_draft_rank": 173,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "cedric-coward",
+      "name": "Cedric Coward",
+      "espn_id": "4903027",
+      "espn_draft_rank": 120,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "draymond-green",
+      "name": "Draymond Green",
+      "espn_id": "6589",
+      "espn_draft_rank": 148,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "quentin-grimes",
+      "name": "Quentin Grimes",
+      "espn_id": "4397014",
+      "espn_draft_rank": 119,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "collin-gillespie",
+      "name": "Collin Gillespie",
+      "espn_id": "4278585",
+      "espn_draft_rank": 115,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "ace-bailey",
+      "name": "Ace Bailey",
+      "espn_id": "4873138",
+      "espn_draft_rank": 133,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jrue-holiday",
+      "name": "Jrue Holiday",
+      "espn_id": "3995",
+      "espn_draft_rank": 135,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "anfernee-simons",
+      "name": "Anfernee Simons",
+      "espn_id": "4351851",
+      "espn_draft_rank": 203,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jordan-poole",
+      "name": "Jordan Poole",
+      "espn_id": "4277956",
+      "espn_draft_rank": 216,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "daniel-gafford",
+      "name": "Daniel Gafford",
+      "espn_id": "4278049",
+      "espn_draft_rank": 126,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "dillon-brooks",
+      "name": "Dillon Brooks",
+      "espn_id": "3155526",
+      "espn_draft_rank": 140,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "collin-sexton",
+      "name": "Collin Sexton",
+      "espn_id": "4277811",
+      "espn_draft_rank": 123,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "christian-braun",
+      "name": "Christian Braun",
+      "espn_id": "4431767",
+      "espn_draft_rank": 208,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "kyshawn-george",
+      "name": "Kyshawn George",
+      "espn_id": "5174563",
+      "espn_draft_rank": 127,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "deandre-ayton",
+      "name": "Deandre Ayton",
+      "espn_id": "4278129",
+      "espn_draft_rank": 185,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "malik-monk",
+      "name": "Malik Monk",
+      "espn_id": "4066262",
+      "espn_draft_rank": 138,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jalen-suggs",
+      "name": "Jalen Suggs",
+      "espn_id": "4432165",
+      "espn_draft_rank": 151,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "shaedon-sharpe",
+      "name": "Shaedon Sharpe",
+      "espn_id": "4914336",
+      "espn_draft_rank": 323,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "toumani-camara",
+      "name": "Toumani Camara",
+      "espn_id": "4431736",
+      "espn_draft_rank": 152,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "bennedict-mathurin",
+      "name": "Bennedict Mathurin",
+      "espn_id": "4683634",
+      "espn_draft_rank": 165,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "t-j-mcconnell",
+      "name": "T.J. McConnell",
+      "espn_id": "2530530",
+      "espn_draft_rank": 163,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "neemias-queta",
+      "name": "Neemias Queta",
+      "espn_id": "4397424",
+      "espn_draft_rank": 128,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "mark-williams",
+      "name": "Mark Williams",
+      "espn_id": "4701232",
+      "espn_draft_rank": 314,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "julian-champagnie",
+      "name": "Julian Champagnie",
+      "espn_id": "4592479",
+      "espn_draft_rank": 134,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "anthony-black",
+      "name": "Anthony Black",
+      "espn_id": "4712849",
+      "espn_draft_rank": 131,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jonathan-kuminga",
+      "name": "Jonathan Kuminga",
+      "espn_id": "4433247",
+      "espn_draft_rank": 156,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "bobby-portis",
+      "name": "Bobby Portis",
+      "espn_id": "3064482",
+      "espn_draft_rank": 167,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "oso-ighodaro",
+      "name": "Oso Ighodaro",
+      "espn_id": "4601023",
+      "espn_draft_rank": 125,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "santi-aldama",
+      "name": "Santi Aldama",
+      "espn_id": "4593125",
+      "espn_draft_rank": 180,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "saddiq-bey",
+      "name": "Saddiq Bey",
+      "espn_id": "4397136",
+      "espn_draft_rank": 144,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "klay-thompson",
+      "name": "Klay Thompson",
+      "espn_id": "6475",
+      "espn_draft_rank": 234,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "mitchell-robinson",
+      "name": "Mitchell Robinson",
+      "espn_id": "4351852",
+      "espn_draft_rank": 142,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "cason-wallace",
+      "name": "Cason Wallace",
+      "espn_id": "4683692",
+      "espn_draft_rank": 146,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jared-mccain",
+      "name": "Jared McCain",
+      "espn_id": "4683778",
+      "espn_draft_rank": 223,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "rui-hachimura",
+      "name": "Rui Hachimura",
+      "espn_id": "4066648",
+      "espn_draft_rank": 166,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jerami-grant",
+      "name": "Jerami Grant",
+      "espn_id": "2991070",
+      "espn_draft_rank": 145,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "scoot-henderson",
+      "name": "Scoot Henderson",
+      "espn_id": "4683678",
+      "espn_draft_rank": 172,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "scotty-pippen-jr",
+      "name": "Scotty Pippen Jr.",
+      "espn_id": "4431785",
+      "espn_draft_rank": 132,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "tari-eason",
+      "name": "Tari Eason",
+      "espn_id": "4433192",
+      "espn_draft_rank": 205,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "davion-mitchell",
+      "name": "Davion Mitchell",
+      "espn_id": "4278053",
+      "espn_draft_rank": 150,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "p-j-washington",
+      "name": "P.J. Washington",
+      "espn_id": "4278078",
+      "espn_draft_rank": 160,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "day-ron-sharpe",
+      "name": "Day'Ron Sharpe",
+      "espn_id": "4432194",
+      "espn_draft_rank": 139,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "keaton-wagler",
+      "name": "Keaton Wagler",
+      "espn_id": "5254165",
+      "espn_draft_rank": 164,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "brook-lopez",
+      "name": "Brook Lopez",
+      "espn_id": "3448",
+      "espn_draft_rank": 137,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "collin-murray-boyles",
+      "name": "Collin Murray-Boyles",
+      "espn_id": "5093267",
+      "espn_draft_rank": 184,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jusuf-nurkic",
+      "name": "Jusuf Nurkic",
+      "espn_id": "3102530",
+      "espn_draft_rank": 155,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "keldon-johnson",
+      "name": "Keldon Johnson",
+      "espn_id": "4395723",
+      "espn_draft_rank": 143,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "cameron-johnson",
+      "name": "Cameron Johnson",
+      "espn_id": "3138196",
+      "espn_draft_rank": 154,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "kelly-oubre-jr",
+      "name": "Kelly Oubre Jr.",
+      "espn_id": "3133603",
+      "espn_draft_rank": 200,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "alex-caruso",
+      "name": "Alex Caruso",
+      "espn_id": "2991350",
+      "espn_draft_rank": 175,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "kyle-filipowski",
+      "name": "Kyle Filipowski",
+      "espn_id": "4684793",
+      "espn_draft_rank": 149,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "grayson-allen",
+      "name": "Grayson Allen",
+      "espn_id": "3135045",
+      "espn_draft_rank": 170,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "mikel-brown-jr",
+      "name": "Mikel Brown Jr.",
+      "espn_id": "5101761",
+      "espn_draft_rank": 162,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "moussa-diabate",
+      "name": "Moussa Diabate",
+      "espn_id": "4433249",
+      "espn_draft_rank": 168,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "ajay-mitchell",
+      "name": "Ajay Mitchell",
+      "espn_id": "4900671",
+      "espn_draft_rank": 226,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "jake-laravia",
+      "name": "Jake LaRavia",
+      "espn_id": "4592691",
+      "espn_draft_rank": 147,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "isaiah-collier",
+      "name": "Isaiah Collier",
+      "espn_id": "4683766",
+      "espn_draft_rank": 182,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "tre-jones",
+      "name": "Tre Jones",
+      "espn_id": "4395626",
+      "espn_draft_rank": 158,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "dereck-lively-ii",
+      "name": "Dereck Lively II",
+      "espn_id": "4683688",
+      "espn_draft_rank": 153,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "donte-divincenzo",
+      "name": "Donte DiVincenzo",
+      "espn_id": "3934673",
+      "espn_draft_rank": 348,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "bronny-james",
+      "name": "Bronny James",
+      "espn_id": "4683774",
+      "espn_draft_rank": 333,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "morez-johnson-jr",
+      "name": "Morez Johnson Jr.",
+      "espn_id": "4873153",
+      "espn_draft_rank": 174,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "tim-hardaway-jr",
+      "name": "Tim Hardaway Jr.",
+      "espn_id": "2528210",
+      "espn_draft_rank": 171,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "kyle-kuzma",
+      "name": "Kyle Kuzma",
+      "espn_id": "3134907",
+      "espn_draft_rank": 191,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "khaman-maluach",
+      "name": "Khaman Maluach",
+      "espn_id": "5203685",
+      "espn_draft_rank": 218,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "ben-simmons",
+      "name": "Ben Simmons",
+      "espn_id": "3907387",
+      "espn_draft_rank": 311,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "wendell-carter-jr",
+      "name": "Wendell Carter Jr.",
+      "espn_id": "4277847",
+      "espn_draft_rank": 176,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "dennis-schroder",
+      "name": "Dennis Schroder",
+      "espn_id": "3032979",
+      "espn_draft_rank": 178,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "precious-achiuwa",
+      "name": "Precious Achiuwa",
+      "espn_id": "4431679",
+      "espn_draft_rank": 161,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    },
+    {
+      "player_id": "obi-toppin",
+      "name": "Obi Toppin",
+      "espn_id": "4278355",
+      "espn_draft_rank": 231,
+      "source": "ESPN Players grid (Show Drafted) observed in paused room 723024336; 2027 Projected averages; captured 2026-10-13T23:20:47.612Z"
+    }
+  ],
+  "rank_source": ".worktrees\\integration\\runtime\\attended-captured-inputs.json",
+  "rank_source_sha256": "58f57e32733b51a600e7ab9c0e2feabe7d2949b430bfbba910ffc65a153de390",
+  "original_summary_sha256": "75df76a7bd0f51e12f644fdc5c8d44b0c885c171401f7afd3c54a6db851a49b5",
+  "policy": "lowest explicit ESPN RK; player-ID tie break; same legality constraints; no custom scoring in pick ranking",
+  "date_mismatch": "October 13 RK overlay on October 10 projections; not an exact reconstruction of either attended room",
+  "unchanged_outcome_and_draft_functions": true,
+  "repository_revision": "8c912d889dc74699e416c284f8822c905ff79508",
+  "source_sha256": {
+    "draft_assistant\\campaign.py": "3cfd24e18ee54eaa034ec71aa049e6f4a213aba68f466525472ad69654f978f0",
+    "draft_assistant\\campaign_counterfactual.py": "d4ea09e2fd5cf67e5fe08ec0eebe1de65983015593e5bf8e8599e59097462ff2",
+    "draft_assistant\\campaign_data.py": "2e57860f75f9bc0e1d993a0025c278d2126a4d70f21a64518fd4d308be739faf",
+    "draft_assistant\\campaign_engine.py": "39e707fd72681818dd4a2ab8f94ea59b5f84f7c1b11a5d708474bdb951255cee",
+    "draft_assistant\\campaign_espn.py": "7d3bbf3a8df4d78fde6430629872c2fe87a14b7efdecc3c6263122245cd8c1f9",
+    "draft_assistant\\campaign_history.py": "9b14cbfd067fe34165d3fd5a2f7b52475c08bb8a380e1b3d3bb2e7b33eb7b718",
+    "draft_assistant\\contracts.py": "d56997bbdd15c7754c56fca980ce0c42d30e4f12f55987f82cdcd72eb2946844",
+    "draft_assistant\\marginal_lineup.py": "ccb87ee6f20d08c64c7df18f26a0cab91eb47e5cb0a371e2ec4ce958ac75671e",
+    "draft_assistant\\validation\\marginal-lineup-v1\\frozen_params.json": "ab0a53ec9b1908566fcf9775f163b3fec74f8a0482598229ae21d19a2b5879fb",
+    "draft_assistant\\validation\\marginal-lineup-v1\\promotion_artifact.json": "ded6161ccab04bd201de2f421c2fe983405c781fb26cc4a7f072e1e6087cb6e6",
+    "draft_assistant\\validation_runner.py": "3da51d7c7e977ea6807f05192b8ffa550baeaee7b69edcc58feed57f5ed391e0",
+    "draft_assistant\\valuation.py": "54a3dd6009ec64acfa8ae6ada06376e35cddafabd63526d32153ab4285eea911",
+    "mock_draft\\fixture.py": "640c6dd01fac070ba8b8a854ce49fefd7e63838a46b061a1b1b1fab4f2a4bf37"
+  }
+}

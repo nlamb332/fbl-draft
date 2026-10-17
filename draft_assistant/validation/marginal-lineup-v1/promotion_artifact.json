@@ -1,0 +1,162 @@
+{
+  "policy": "marginal-lineup-v1",
+  "status": "promotable",
+  "algorithm_version": "marginal-lineup-v1",
+  "config_fingerprint": "5c5bb90554d98ddf5b76e0b76155ab2738551dc4e239ca163a5a3a3d0025d6bc",
+  "params": {
+    "weeks": 12,
+    "completion_days": 14,
+    "vor_weight": 0.5,
+    "depth_scale": 1.25,
+    "opponent_market_weight": 0.25,
+    "use_imputation": true,
+    "pf_scale": 1.0,
+    "util_share": 1.0,
+    "max_candidates": null
+  },
+  "metadata": {
+    "runner": "draft_assistant.validation_marginal",
+    "policy": "marginal-lineup-v1",
+    "foundation": "draft-strategy-v2",
+    "heldout_seed_range": [
+      20280000,
+      20280099
+    ],
+    "independent_seed_clusters": 100,
+    "dev_seed_range": [
+      20260000,
+      20260023
+    ],
+    "teams": 14,
+    "opponents": 13,
+    "rounds": 10,
+    "picks_per_draft": 140,
+    "seats_per_seed": 14,
+    "scenarios": [
+      "nominal",
+      "market_misspecified",
+      "custom_misspecified"
+    ],
+    "catalogs": {
+      "synthetic": "synthetic_fixture(195 players, per-seed)",
+      "real": "mock_draft/data/players_2026-27_espn_projection.csv with seeded synthetic schedule"
+    },
+    "foundation_vs_marginal_lineup": true,
+    "primary_metric": "validation_runner._weekly_points (exact DP lineup, +-10% realized-stat noise, synthetic week); known scoring components only on the real catalog",
+    "sensitivity_metric": "imputed_truth_points: same drafted rosters scored with PF/DD/TD imputed into the realized stats (real catalog only)",
+    "bootstrap": "4000 percentile resamples of per-seed cluster means",
+    "frozen_params": {
+      "weeks": 12,
+      "completion_days": 14,
+      "vor_weight": 0.5,
+      "depth_scale": 1.25,
+      "opponent_market_weight": 0.25,
+      "use_imputation": true,
+      "pf_scale": 1.0,
+      "util_share": 1.0,
+      "max_candidates": null
+    },
+    "max_marginal_pick_seconds_in_validation": 0.41646060001221485,
+    "foundation_fingerprint": "dc4c94b93b4219e4c317dd54660886f9b84c2f36437a5cc83c56dd8cab0fcd2d"
+  },
+  "summaries": [
+    {
+      "catalog": "synthetic",
+      "scenario": "nominal",
+      "variant": "marginal",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 32.08062054053233,
+      "paired_bootstrap_95_lower": 25.284007282519106,
+      "paired_bootstrap_95_upper": 39.62107362002907,
+      "worst_seat_loss_fraction": 0.005458066432127872,
+      "gate_pass": true
+    },
+    {
+      "catalog": "synthetic",
+      "scenario": "market_misspecified",
+      "variant": "marginal",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 23.30036993672997,
+      "paired_bootstrap_95_lower": 16.63445401470861,
+      "paired_bootstrap_95_upper": 30.05661892778528,
+      "worst_seat_loss_fraction": 0.009125086520888033,
+      "gate_pass": true
+    },
+    {
+      "catalog": "synthetic",
+      "scenario": "custom_misspecified",
+      "variant": "marginal",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 22.930593101214278,
+      "paired_bootstrap_95_lower": 17.7137921512266,
+      "paired_bootstrap_95_upper": 28.097104469406943,
+      "worst_seat_loss_fraction": 0.004158770720172632,
+      "gate_pass": true
+    },
+    {
+      "catalog": "real",
+      "scenario": "nominal",
+      "variant": "marginal",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 12.07463915588397,
+      "paired_bootstrap_95_lower": 6.2174560601612825,
+      "paired_bootstrap_95_upper": 18.12658292599435,
+      "worst_seat_loss_fraction": -0.007075639799477652,
+      "gate_pass": true
+    },
+    {
+      "catalog": "real",
+      "scenario": "market_misspecified",
+      "variant": "marginal",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": 48.533783355347616,
+      "paired_bootstrap_95_lower": 42.809281392212895,
+      "paired_bootstrap_95_upper": 54.3392562471971,
+      "worst_seat_loss_fraction": 0.023214909359552983,
+      "gate_pass": true
+    },
+    {
+      "catalog": "real",
+      "scenario": "custom_misspecified",
+      "variant": "marginal",
+      "independent_seed_clusters": 100,
+      "seat_rows": 1400,
+      "mean_delta": -1.5551228384281257,
+      "paired_bootstrap_95_lower": -6.566693127364783,
+      "paired_bootstrap_95_upper": 3.5709063673738677,
+      "worst_seat_loss_fraction": -0.017451641646038022,
+      "gate_pass": false
+    }
+  ],
+  "decision": {
+    "status": "promotable",
+    "rule": "promote only if the paired 95% bootstrap lower bound (by seed cluster) > 0 and no seat mean loss exceeds 5% on BOTH catalogs (nominal opponents), with at least 100 seed clusters and no budget fallback",
+    "per_catalog": {
+      "synthetic": {
+        "mean_delta": 32.08062054053233,
+        "paired_bootstrap_95_lower": 25.284007282519106,
+        "paired_bootstrap_95_upper": 39.62107362002907,
+        "worst_seat": 4,
+        "worst_seat_mean_delta": 6.555850496848845,
+        "worst_seat_loss_fraction": 0.005458066432127872,
+        "gate_pass": true,
+        "fallbacks": 0
+      },
+      "real": {
+        "mean_delta": 12.07463915588397,
+        "paired_bootstrap_95_lower": 6.2174560601612825,
+        "paired_bootstrap_95_upper": 18.12658292599435,
+        "worst_seat": 11,
+        "worst_seat_mean_delta": -9.1315750956039,
+        "worst_seat_loss_fraction": -0.007075639799477652,
+        "gate_pass": true,
+        "fallbacks": 0
+      }
+    }
+  }
+}

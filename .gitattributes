@@ -1,0 +1,21 @@
+# Keep research and development artifacts in Git, but out of downloadable ZIPs.
+/.gitattributes export-ignore
+/studies export-ignore
+/skills export-ignore
+/preliminary_strategy.md export-ignore
+/docs/* export-ignore
+/docs/DRAFT_ADVISOR_BOOKMARKLET.md -export-ignore
+/docs/DRAFT_RUNBOOK.md -export-ignore
+/docs/LOCALHOST_HANDOFF.md -export-ignore
+/docs/SOURCE_SNAPSHOT.md -export-ignore
+/docs/PUBLIC_RELEASE_PRIVACY.md -export-ignore
+/draft_assistant/test* export-ignore
+/draft_assistant/fixtures export-ignore
+/draft_assistant/validation/* export-ignore
+/draft_assistant/validation/marginal-lineup-v1 -export-ignore
+/draft_assistant/validation/marginal-lineup-v1/* export-ignore
+/draft_assistant/validation/marginal-lineup-v1/promotion_artifact.json -export-ignore
+/draft_assistant/validation/marginal-lineup-v1/frozen_params.json -export-ignore
+/mock_draft/test* export-ignore
+/mock_draft/results export-ignore
+/mock_draft/*.md export-ignore

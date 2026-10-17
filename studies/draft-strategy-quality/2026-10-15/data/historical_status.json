@@ -1,0 +1,69 @@
+{
+  "available": false,
+  "cache_dir": "runtime\\strategy-quality-data",
+  "calibration_rule": "development outcomes through 2021-22 only; absent cache remains an assumed-noise limitation",
+  "completed_at_epoch": 1792018523.285681,
+  "data_gap": "No normalized pre-season forecasts plus later outcomes were cached; no historical claim is made.",
+  "datasets_loaded": [],
+  "development_season": "2021-22",
+  "errors": [],
+  "network_fetch": "cached_bounded_attempt; no retry",
+  "official_access": "blocked",
+  "official_blockers": [
+    {
+      "error_type": "System.Threading.Tasks.TaskCanceledException",
+      "status": "error",
+      "url": "https://stats.nba.com/stats/leaguegamelog?Counter=0&DateFrom=&DateTo=&Direction=DESC&LeagueID=00&PlayerOrTeam=P&Season=2021-22&SeasonType=Regular%20Season&Sorter=DATE"
+    },
+    {
+      "error_type": "System.Threading.Tasks.TaskCanceledException",
+      "status": "error",
+      "url": "https://stats.nba.com/stats/playerindex?LeagueID=00&Season=2021-22&SeasonType=Regular%20Season&Historical=1"
+    },
+    {
+      "error_type": "System.Net.Http.HttpRequestException",
+      "status": "error",
+      "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json"
+    }
+  ],
+  "official_primary_sources": [
+    "https://www.nba.com/stats/players/boxscores",
+    "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json"
+  ],
+  "official_probe": [
+    {
+      "elapsed_seconds": 20.033643,
+      "error_type": "System.Threading.Tasks.TaskCanceledException",
+      "message": "The request was canceled due to the configured HttpClient.Timeout of 20 seconds elapsing.",
+      "name": "leaguegamelog_players_2021-22",
+      "status": "error",
+      "url": "https://stats.nba.com/stats/leaguegamelog?Counter=0&DateFrom=&DateTo=&Direction=DESC&LeagueID=00&PlayerOrTeam=P&Season=2021-22&SeasonType=Regular%20Season&Sorter=DATE"
+    },
+    {
+      "elapsed_seconds": 20.0056687,
+      "error_type": "System.Threading.Tasks.TaskCanceledException",
+      "message": "The request was canceled due to the configured HttpClient.Timeout of 20 seconds elapsing.",
+      "name": "playerindex_2021-22",
+      "status": "error",
+      "url": "https://stats.nba.com/stats/playerindex?LeagueID=00&Season=2021-22&SeasonType=Regular%20Season&Historical=1"
+    },
+    {
+      "elapsed_seconds": 0.0,
+      "error_type": "System.Net.Http.HttpRequestException",
+      "message": "No such host is known. (cdn.nba.com:443)",
+      "name": "scheduleLeagueV2_1",
+      "status": "error",
+      "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json"
+    }
+  ],
+  "source_policy": "official primary data preferred; no private APIs or credentials",
+  "started_at_epoch": 1792018523.2847884,
+  "status": "data_gap",
+  "target_datasets_loaded": [],
+  "target_seasons": [
+    "2022-23",
+    "2023-24",
+    "2024-25"
+  ],
+  "veteran_cohort_rule": "preseason-supported positions; no future GP or realized-season pool filtering"
+}

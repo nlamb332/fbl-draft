@@ -1,0 +1,31 @@
+{
+  "artifact_version": "canonical-visible-catalog-v1",
+  "captured_at": "2026-10-11T20:57:00.360Z",
+  "room_league_id": "1000000016",
+  "season_id": "2027",
+  "view": "Players / 2027 Projected / Averages",
+  "paused_before_capture": true,
+  "enabled_visible_button_count": 14,
+  "players": [
+    {"player_id": "4594268", "name": "Anthony Edwards", "rank": 8},
+    {"player_id": "4431678", "name": "Tyrese Maxey", "rank": 13},
+    {"player_id": "3934672", "name": "Jalen Brunson", "rank": 15},
+    {"player_id": "4277905", "name": "Trae Young", "rank": 16},
+    {"player_id": "4433134", "name": "Scottie Barnes", "rank": 17},
+    {"player_id": "4871145", "name": "Josh Giddey", "rank": 18},
+    {"player_id": "4684740", "name": "Amen Thompson", "rank": 19},
+    {"player_id": "3136193", "name": "Devin Booker", "rank": 20},
+    {"player_id": "4396993", "name": "Tyrese Haliburton", "rank": 21},
+    {"player_id": "4871144", "name": "Alperen Sengun", "rank": 22},
+    {"player_id": "3202", "name": "Kevin Durant", "rank": 23},
+    {"player_id": "3136195", "name": "Karl-Anthony Towns", "rank": 24},
+    {"player_id": "3992", "name": "James Harden", "rank": 25},
+    {"player_id": "3149673", "name": "Pascal Siakam", "rank": 26}
+  ],
+  "missing_bonus_or_foul_columns": ["TF", "DD", "TD", "QD"],
+  "health_and_availability": {
+    "inferred": false,
+    "policy": "Only fresh enabled visible buttons are eligible for a live click; no fake health or availability state is stored."
+  },
+  "source_provenance": "Directly visible enabled player buttons in the paused ESPN Players view; projected rows included FPTS, GP, MIN, FGM, FGA, FTM, FTA, 3PM, REB, AST, STL, BLK, TO, EJ, and PF where exposed."
+}

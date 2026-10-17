@@ -1,0 +1,98 @@
+{
+  "artifact_version": "canonical-postclick-dom-diagnostic-v1",
+  "captured_at": "2026-10-12T03:00:05.315Z",
+  "room": {
+    "league_id": "1000000012",
+    "season_id": "2027",
+    "team_id": "15",
+    "practice": true,
+    "heading": "ESPN Fantasy Basketball Draft - Practice Draft for Example League",
+    "source_league_id": "1000000000"
+  },
+  "session_id": "example-9b004bf44387175e",
+  "native_state": {
+    "paused": true,
+    "league_manager_selected": true,
+    "visible_control": "Resume",
+    "clock_text": "--:--",
+    "current_pick": 44,
+    "timer_seconds_configured": 90
+  },
+  "source_hashes_sha256": {
+    "draft_assistant/browser_observer.js": "55A2C9276FE4E31B1206096CC791E4670255BBC620B270BC5AABD9019B1D0A35",
+    "draft_assistant/operator_runtime.js": "0E8213A4DE0EE2EC294A44B4547E5FF2E764CE0985D6748F12C99453D84BAADF",
+    "draft_assistant/live_projection_inputs.js": "5BAB4523CFF4C7D788C8C3DC91C69C623C0E3A57F8220B984657B15CA9606DCA"
+  },
+  "raw_dom": {
+    "players_view": {
+      "feed_total": 31,
+      "feed_visible": 31,
+      "pick_info_total": 31,
+      "pick_info_visible": 31,
+      "player_name_total": 100,
+      "player_name_visible": 45,
+      "feed_first": "R1, P13 - Example Team",
+      "feed_last": "R4, P1 - Example Opponent 22",
+      "feed_tail": [
+        {"pick_info":"R3, P13 - Example Team", "player_name":"Jarrett Allen", "headshot_id":"4066328"},
+        {"pick_info":"R3, P14 - Example Opponent 22", "player_name":"Kon Knueppel", "headshot_id":"5061575"},
+        {"pick_info":"R4, P1 - Example Opponent 22", "player_name":"De'Aaron Fox", "headshot_id":"4066259"}
+      ],
+      "roster_visible_cells": 11,
+      "roster_cells": [
+        {"text":"Player", "title":null},
+        {"text":"K. Towns", "title":"Karl-Anthony Towns"},
+        {"text":"Empty", "title":null},
+        {"text":"Empty", "title":null},
+        {"text":"Empty", "title":null},
+        {"text":"Empty", "title":null},
+        {"text":"J. Duren", "title":"Jalen Duren"},
+        {"text":"J. Allen", "title":"Jarrett Allen"},
+        {"text":"Empty", "title":null},
+        {"text":"Empty", "title":null},
+        {"text":"Empty", "title":null}
+      ]
+    },
+    "pick_history_view": {
+      "grid_count": 6,
+      "history_grids": 4,
+      "history_grid_rows": [14, 14, 14, 1],
+      "expected_current_pick": 44,
+      "history_count": 43,
+      "first_pick": 1,
+      "last_pick": 43
+    }
+  },
+  "observer_comparison": {
+    "fast_players_view": {
+      "complete": false,
+      "history_complete": false,
+      "history_count": 31,
+      "roster_count": 3,
+      "warnings": ["retained_history_stale", "roster_full_title_missing", "retained_history_incomplete"]
+    },
+    "fresh_history_plus_players_frame": {
+      "complete": true,
+      "history_complete": true,
+      "history_count": 43,
+      "roster_count": 3,
+      "warnings": ["roster_full_title_missing"]
+    }
+  },
+  "postclick_failure_diagnosis": {
+    "observed_uncertain_event": "post-click history and roster capture failed with pick=29 and history=27",
+    "cause": "After a pick, the exclusive Pick History panel can be observed before all history grids hydrate. The fast Players view is intentionally virtualized to 31 recent feed rows. Reusing retained history on Players therefore produces a stale or incomplete frame.",
+    "proof": "A fresh captureHistory on the visible Pick History panel returned four complete history grids and 43 contiguous events; passing that snapshot to captureFrame on Players returned complete=true and history_complete=true with the three owned roster players.",
+    "safe_adapter_contract": "After every click, switch to Pick History, poll captureHistory until history_complete=true for the measured current pick within the observation-age budget, then switch to Players and call captureFrame with that exact historySnapshot. Do not rely on a Players fast frame for post-click confirmation."
+  },
+  "durable_readback": {
+    "confirmed_direct_actions": 3,
+    "confirmed_action_ids": ["8911535dc9174b0880b6524d6d0de524", "8b935c93698a474d977b77353ee709b2", "10499647ad0c463fb7d021e1a417b73f"],
+    "owned_players": ["Karl-Anthony Towns", "Jalen Duren", "Jarrett Allen"],
+    "unresolved_actions": 0,
+    "unresolved_queue_mutations": 0,
+    "coordinator_state": "paused",
+    "direct_gate_complete": false
+  },
+  "provenance": "Visible ESPN DOM and visible local control panel only; no ESPN HTTP/API, hidden page state, credentials, or runtime database included. The retained projection catalog remains the dated 230-player sanitized forecast transfer; current visible enabled rows are the only live availability source."
+}

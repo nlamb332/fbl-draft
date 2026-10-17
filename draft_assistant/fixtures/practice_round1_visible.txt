@@ -1,0 +1,30 @@
+# SYNTHETIC_UI_FIXTURE: hand-authored visible DOM/accessibility snapshot.
+# It is not an ESPN capture and is not source-verified data.
+ESPN Fantasy Basketball Draft - Practice Draft for Example League
+RND1of10
+Clock 00:30
+On the Clock: Pick13 ExampleTeam
+Roster combobox 14 teams
+Seat 13: Example Team
+Upcoming picks: 16, 41
+Autopick: Off
+Roster: C: Center Example; G: Guard Example; G: Backup Guard; F: Forward Example; F: Wing Example; UTIL: Flex Example; BE: Bench One
+Controls Players / Pick History / Board / Rules (nested duplicate tabs)
+Players
+Draft
+RK Player FPTS GP MIN FGM FGA FTM FTA 3PM REB AST STL BLK TO EJ PF
+1|Ada Lovelace|G|67.3|80|34.1|8.2|16.0|4.0|4.8|2.1|5.8|6.4|1.4|0.6|2.2|0|0
+2|Grace Hopper|C|65.8|78|32.5|7.6|13.1|3.8|5.0|1.0|11.2|3.0|1.1|1.7|2.0|0|0
+3|Katherine Johnson|F|61.2|82|33.0|7.0|14.5|4.4|5.2|1.8|7.1|4.2|1.2|0.7|2.4|0|0
+Pick History
+Pick Player Team 2026PTS PROJPTS RK
+1|Grace Hopper|Team Alpha|5100|65.8|2
+2|Katherine Johnson|Team Beta|4900|61.2|3
+Rules
+Teams: 14
+Rounds: 10
+Starting slots: C,G,G,F,F,UTIL
+Bench slots: 4
+IR slots: 3
+Scoring: PTS=1; FGM=2; FGA=-1; FTM=1; FTA=-1; 3PM=1; REB=2; AST=2; STL=4; BLK=4; TO=-2
+TPM is shown as 3PM in the players table. E is shown as EJ. PF, TF, EJ, DD, TD and QD are not modeled in this visible projection table.

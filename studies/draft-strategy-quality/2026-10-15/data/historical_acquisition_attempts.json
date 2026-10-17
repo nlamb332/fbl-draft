@@ -1,0 +1,26 @@
+[
+  {
+    "name": "leaguegamelog_players_2021-22",
+    "url": "https://stats.nba.com/stats/leaguegamelog?Counter=0&DateFrom=&DateTo=&Direction=DESC&LeagueID=00&PlayerOrTeam=P&Season=2021-22&SeasonType=Regular%20Season&Sorter=DATE",
+    "status": "error",
+    "error_type": "System.Threading.Tasks.TaskCanceledException",
+    "message": "The request was canceled due to the configured HttpClient.Timeout of 20 seconds elapsing.",
+    "elapsed_seconds": 20.033643
+  },
+  {
+    "name": "playerindex_2021-22",
+    "url": "https://stats.nba.com/stats/playerindex?LeagueID=00&Season=2021-22&SeasonType=Regular%20Season&Historical=1",
+    "status": "error",
+    "error_type": "System.Threading.Tasks.TaskCanceledException",
+    "message": "The request was canceled due to the configured HttpClient.Timeout of 20 seconds elapsing.",
+    "elapsed_seconds": 20.0056687
+  },
+  {
+    "name": "scheduleLeagueV2_1",
+    "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json",
+    "status": "error",
+    "error_type": "System.Net.Http.HttpRequestException",
+    "message": "No such host is known. (cdn.nba.com:443)",
+    "elapsed_seconds": 0.0
+  }
+]

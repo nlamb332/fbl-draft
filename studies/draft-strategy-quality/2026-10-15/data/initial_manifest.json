@@ -1,0 +1,25 @@
+{
+  "fingerprint": "bebc06e94c6e0554973ffdfc2f5f8f5b33d77a71760928a74ec3079a5365fdd6",
+  "production_policy_frozen": true,
+  "remaining_phase_budgets_seconds": {
+    "monte_carlo": 1200,
+    "counterfactual": 1140
+  },
+  "continuation_runner_sha256": "d22988f7f265c9f4106cf91e11516f2e3194ece821d0204d00c927efe718401d",
+  "original_run": "<workspace>\\runtime\\strategy-quality-2026-10-14-v3",
+  "repository_revision": "8c912d889dc74699e416c284f8822c905ff79508",
+  "source_sha256": {
+    "draft_assistant\\campaign.py": "3e02403a083f7ab996fd45f6807aff7d8d3734c2062c798bac0ae4d8122d4ecf",
+    "draft_assistant\\campaign_counterfactual.py": "d4ea09e2fd5cf67e5fe08ec0eebe1de65983015593e5bf8e8599e59097462ff2",
+    "draft_assistant\\campaign_data.py": "2e57860f75f9bc0e1d993a0025c278d2126a4d70f21a64518fd4d308be739faf",
+    "draft_assistant\\campaign_engine.py": "72a03e6dbaba500ab531f987b3504d3d77233e7f8c4005f53f3df60891a96f49",
+    "draft_assistant\\campaign_history.py": "9b14cbfd067fe34165d3fd5a2f7b52475c08bb8a380e1b3d3bb2e7b33eb7b718",
+    "draft_assistant\\contracts.py": "d56997bbdd15c7754c56fca980ce0c42d30e4f12f55987f82cdcd72eb2946844",
+    "draft_assistant\\marginal_lineup.py": "ccb87ee6f20d08c64c7df18f26a0cab91eb47e5cb0a371e2ec4ce958ac75671e",
+    "draft_assistant\\validation\\marginal-lineup-v1\\frozen_params.json": "ab0a53ec9b1908566fcf9775f163b3fec74f8a0482598229ae21d19a2b5879fb",
+    "draft_assistant\\validation\\marginal-lineup-v1\\promotion_artifact.json": "ded6161ccab04bd201de2f421c2fe983405c781fb26cc4a7f072e1e6087cb6e6",
+    "draft_assistant\\validation_runner.py": "3da51d7c7e977ea6807f05192b8ffa550baeaee7b69edcc58feed57f5ed391e0",
+    "draft_assistant\\valuation.py": "54a3dd6009ec64acfa8ae6ada06376e35cddafabd63526d32153ab4285eea911",
+    "mock_draft\\fixture.py": "640c6dd01fac070ba8b8a854ce49fefd7e63838a46b061a1b1b1fab4f2a4bf37"
+  }
+}

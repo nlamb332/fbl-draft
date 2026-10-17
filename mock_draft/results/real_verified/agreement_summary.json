@@ -1,0 +1,338 @@
+[
+  {
+    "split": "development",
+    "strategy": "baseline_market",
+    "agreement_bin": "aligned",
+    "observations": 0,
+    "paired_weekly_dp_delta_mean": 0.0,
+    "paired_usable_games_delta_mean": 0.0
+  },
+  {
+    "split": "development",
+    "strategy": "baseline_market",
+    "agreement_bin": "mixed",
+    "observations": 0,
+    "paired_weekly_dp_delta_mean": 0.0,
+    "paired_usable_games_delta_mean": 0.0
+  },
+  {
+    "split": "development",
+    "strategy": "baseline_market",
+    "agreement_bin": "mismatch",
+    "observations": 0,
+    "paired_weekly_dp_delta_mean": 0.0,
+    "paired_usable_games_delta_mean": 0.0
+  },
+  {
+    "split": "heldout",
+    "strategy": "baseline_market",
+    "agreement_bin": "aligned",
+    "observations": 0,
+    "paired_weekly_dp_delta_mean": 0.0,
+    "paired_usable_games_delta_mean": 0.0
+  },
+  {
+    "split": "heldout",
+    "strategy": "baseline_market",
+    "agreement_bin": "mixed",
+    "observations": 0,
+    "paired_weekly_dp_delta_mean": 0.0,
+    "paired_usable_games_delta_mean": 0.0
+  },
+  {
+    "split": "heldout",
+    "strategy": "baseline_market",
+    "agreement_bin": "mismatch",
+    "observations": 0,
+    "paired_weekly_dp_delta_mean": 0.0,
+    "paired_usable_games_delta_mean": 0.0
+  },
+  {
+    "split": "development",
+    "strategy": "custom_value",
+    "agreement_bin": "aligned",
+    "observations": 42,
+    "paired_weekly_dp_delta_mean": 40.60952380952385,
+    "paired_usable_games_delta_mean": 1.0714285714285714
+  },
+  {
+    "split": "development",
+    "strategy": "custom_value",
+    "agreement_bin": "mixed",
+    "observations": 0,
+    "paired_weekly_dp_delta_mean": 0.0,
+    "paired_usable_games_delta_mean": 0.0
+  },
+  {
+    "split": "development",
+    "strategy": "custom_value",
+    "agreement_bin": "mismatch",
+    "observations": 42,
+    "paired_weekly_dp_delta_mean": 691.35,
+    "paired_usable_games_delta_mean": 4.0476190476190474
+  },
+  {
+    "split": "heldout",
+    "strategy": "custom_value",
+    "agreement_bin": "aligned",
+    "observations": 119,
+    "paired_weekly_dp_delta_mean": 48.92381298683106,
+    "paired_usable_games_delta_mean": -0.8151260504201681
+  },
+  {
+    "split": "heldout",
+    "strategy": "custom_value",
+    "agreement_bin": "mixed",
+    "observations": 7,
+    "paired_weekly_dp_delta_mean": 91.96860079392071,
+    "paired_usable_games_delta_mean": 0.42857142857142855
+  },
+  {
+    "split": "heldout",
+    "strategy": "custom_value",
+    "agreement_bin": "mismatch",
+    "observations": 0,
+    "paired_weekly_dp_delta_mean": 0.0,
+    "paired_usable_games_delta_mean": 0.0
+  },
+  {
+    "split": "development",
+    "strategy": "flexibility_balanced",
+    "agreement_bin": "aligned",
+    "observations": 42,
+    "paired_weekly_dp_delta_mean": 19.095238095238138,
+    "paired_usable_games_delta_mean": 1.1428571428571428
+  },
+  {
+    "split": "development",
+    "strategy": "flexibility_balanced",
+    "agreement_bin": "mixed",
+    "observations": 0,
+    "paired_weekly_dp_delta_mean": 0.0,
+    "paired_usable_games_delta_mean": 0.0
+  },
+  {
+    "split": "development",
+    "strategy": "flexibility_balanced",
+    "agreement_bin": "mismatch",
+    "observations": 42,
+    "paired_weekly_dp_delta_mean": 650.6380952380953,
+    "paired_usable_games_delta_mean": 3.9761904761904763
+  },
+  {
+    "split": "heldout",
+    "strategy": "flexibility_balanced",
+    "agreement_bin": "aligned",
+    "observations": 126,
+    "paired_weekly_dp_delta_mean": 68.79236365233703,
+    "paired_usable_games_delta_mean": 0.36507936507936506
+  },
+  {
+    "split": "heldout",
+    "strategy": "flexibility_balanced",
+    "agreement_bin": "mixed",
+    "observations": 0,
+    "paired_weekly_dp_delta_mean": 0.0,
+    "paired_usable_games_delta_mean": 0.0
+  },
+  {
+    "split": "heldout",
+    "strategy": "flexibility_balanced",
+    "agreement_bin": "mismatch",
+    "observations": 0,
+    "paired_weekly_dp_delta_mean": 0.0,
+    "paired_usable_games_delta_mean": 0.0
+  },
+  {
+    "split": "development",
+    "strategy": "big_heavy",
+    "agreement_bin": "aligned",
+    "observations": 42,
+    "paired_weekly_dp_delta_mean": -42.98095238095236,
+    "paired_usable_games_delta_mean": 0.6190476190476191
+  },
+  {
+    "split": "development",
+    "strategy": "big_heavy",
+    "agreement_bin": "mixed",
+    "observations": 0,
+    "paired_weekly_dp_delta_mean": 0.0,
+    "paired_usable_games_delta_mean": 0.0
+  },
+  {
+    "split": "development",
+    "strategy": "big_heavy",
+    "agreement_bin": "mismatch",
+    "observations": 42,
+    "paired_weekly_dp_delta_mean": 564.4619047619047,
+    "paired_usable_games_delta_mean": 2.619047619047619
+  },
+  {
+    "split": "heldout",
+    "strategy": "big_heavy",
+    "agreement_bin": "aligned",
+    "observations": 126,
+    "paired_weekly_dp_delta_mean": -2.121477024194525,
+    "paired_usable_games_delta_mean": -0.5476190476190477
+  },
+  {
+    "split": "heldout",
+    "strategy": "big_heavy",
+    "agreement_bin": "mixed",
+    "observations": 0,
+    "paired_weekly_dp_delta_mean": 0.0,
+    "paired_usable_games_delta_mean": 0.0
+  },
+  {
+    "split": "heldout",
+    "strategy": "big_heavy",
+    "agreement_bin": "mismatch",
+    "observations": 0,
+    "paired_weekly_dp_delta_mean": 0.0,
+    "paired_usable_games_delta_mean": 0.0
+  },
+  {
+    "split": "development",
+    "strategy": "availability",
+    "agreement_bin": "aligned",
+    "observations": 42,
+    "paired_weekly_dp_delta_mean": 128.89047619047622,
+    "paired_usable_games_delta_mean": 3.8333333333333335
+  },
+  {
+    "split": "development",
+    "strategy": "availability",
+    "agreement_bin": "mixed",
+    "observations": 0,
+    "paired_weekly_dp_delta_mean": 0.0,
+    "paired_usable_games_delta_mean": 0.0
+  },
+  {
+    "split": "development",
+    "strategy": "availability",
+    "agreement_bin": "mismatch",
+    "observations": 42,
+    "paired_weekly_dp_delta_mean": 685.2857142857143,
+    "paired_usable_games_delta_mean": 4.714285714285714
+  },
+  {
+    "split": "heldout",
+    "strategy": "availability",
+    "agreement_bin": "aligned",
+    "observations": 124,
+    "paired_weekly_dp_delta_mean": 77.15334793904324,
+    "paired_usable_games_delta_mean": 0.7258064516129032
+  },
+  {
+    "split": "heldout",
+    "strategy": "availability",
+    "agreement_bin": "mixed",
+    "observations": 2,
+    "paired_weekly_dp_delta_mean": 308.8271065134495,
+    "paired_usable_games_delta_mean": 5.0
+  },
+  {
+    "split": "heldout",
+    "strategy": "availability",
+    "agreement_bin": "mismatch",
+    "observations": 0,
+    "paired_weekly_dp_delta_mean": 0.0,
+    "paired_usable_games_delta_mean": 0.0
+  },
+  {
+    "split": "development",
+    "strategy": "upside",
+    "agreement_bin": "aligned",
+    "observations": 42,
+    "paired_weekly_dp_delta_mean": 37.626190476190516,
+    "paired_usable_games_delta_mean": 1.0
+  },
+  {
+    "split": "development",
+    "strategy": "upside",
+    "agreement_bin": "mixed",
+    "observations": 0,
+    "paired_weekly_dp_delta_mean": 0.0,
+    "paired_usable_games_delta_mean": 0.0
+  },
+  {
+    "split": "development",
+    "strategy": "upside",
+    "agreement_bin": "mismatch",
+    "observations": 42,
+    "paired_weekly_dp_delta_mean": 694.5238095238095,
+    "paired_usable_games_delta_mean": 4.095238095238095
+  },
+  {
+    "split": "heldout",
+    "strategy": "upside",
+    "agreement_bin": "aligned",
+    "observations": 125,
+    "paired_weekly_dp_delta_mean": 61.49432101918597,
+    "paired_usable_games_delta_mean": -0.584
+  },
+  {
+    "split": "heldout",
+    "strategy": "upside",
+    "agreement_bin": "mixed",
+    "observations": 1,
+    "paired_weekly_dp_delta_mean": -28.62678163901728,
+    "paired_usable_games_delta_mean": -3.0
+  },
+  {
+    "split": "heldout",
+    "strategy": "upside",
+    "agreement_bin": "mismatch",
+    "observations": 0,
+    "paired_weekly_dp_delta_mean": 0.0,
+    "paired_usable_games_delta_mean": 0.0
+  },
+  {
+    "split": "development",
+    "strategy": "marginal_usable_lineup",
+    "agreement_bin": "aligned",
+    "observations": 42,
+    "paired_weekly_dp_delta_mean": 118.0714285714286,
+    "paired_usable_games_delta_mean": 3.7142857142857144
+  },
+  {
+    "split": "development",
+    "strategy": "marginal_usable_lineup",
+    "agreement_bin": "mixed",
+    "observations": 0,
+    "paired_weekly_dp_delta_mean": 0.0,
+    "paired_usable_games_delta_mean": 0.0
+  },
+  {
+    "split": "development",
+    "strategy": "marginal_usable_lineup",
+    "agreement_bin": "mismatch",
+    "observations": 42,
+    "paired_weekly_dp_delta_mean": 690.8071428571429,
+    "paired_usable_games_delta_mean": 4.928571428571429
+  },
+  {
+    "split": "heldout",
+    "strategy": "marginal_usable_lineup",
+    "agreement_bin": "aligned",
+    "observations": 124,
+    "paired_weekly_dp_delta_mean": 88.521722349956,
+    "paired_usable_games_delta_mean": 1.1370967741935485
+  },
+  {
+    "split": "heldout",
+    "strategy": "marginal_usable_lineup",
+    "agreement_bin": "mixed",
+    "observations": 2,
+    "paired_weekly_dp_delta_mean": 354.7061603505505,
+    "paired_usable_games_delta_mean": 7.0
+  },
+  {
+    "split": "heldout",
+    "strategy": "marginal_usable_lineup",
+    "agreement_bin": "mismatch",
+    "observations": 0,
+    "paired_weekly_dp_delta_mean": 0.0,
+    "paired_usable_games_delta_mean": 0.0
+  }
+]

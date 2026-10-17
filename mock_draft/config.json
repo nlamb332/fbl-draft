@@ -1,0 +1,47 @@
+{
+  "total_teams": 14,
+  "rounds": 10,
+  "starting_slots": ["C", "G", "G", "F", "F", "UTIL"],
+  "bench_slots": 4,
+  "ir_slots": 3,
+  "double_double_includes_triple_double": true,
+  "scoring_weights": {
+    "PTS": 1,
+    "FGM": 2,
+    "FGA": -1,
+    "FTM": 1,
+    "FTA": -1,
+    "3PM": 1,
+    "REB": 2,
+    "AST": 2,
+    "STL": 4,
+    "BLK": 4,
+    "TO": -2,
+    "PF": -1,
+    "TF": -2,
+    "EJ": -5,
+    "DD": 3,
+    "TD": 5,
+    "QD": 100
+  },
+  "strategies": [
+    "baseline_market",
+    "custom_value",
+    "flexibility_balanced",
+    "big_heavy",
+    "availability",
+    "upside",
+    "marginal_usable_lineup"
+  ],
+  "synthetic_fixture": {
+    "label": "synthetic_fixture",
+    "default_player_count": 210,
+    "default_seed": 20261010,
+    "no_real_player_projections": true
+  },
+  "synthetic_schedule": {
+    "label": "synthetic_schedule",
+    "default_days": 7,
+    "paired_strategy_seed_rule": "reuse one schedule seed and matrix for every paired strategy"
+  }
+}

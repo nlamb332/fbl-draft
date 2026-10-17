@@ -1,0 +1,67 @@
+{
+  "artifact": "canonical-browser-recovery",
+  "captured_at": "2026-10-12T02:19:30.261Z",
+  "session_id": "example-9b004bf44387175e",
+  "room": {
+    "league_id": "1000000012",
+    "season_id": "2027",
+    "team_id": "15",
+    "practice": true,
+    "source_league_id": "1000000000",
+    "heading": "ESPN Fantasy Basketball Draft - Practice Draft for Example League"
+  },
+  "native_state": {
+    "paused": true,
+    "visible_control": "RESUME",
+    "visible_clock_pick": 16,
+    "visible_roster": [{"slot": "C", "short_name": "K. Towns", "full_title": "Karl-Anthony Towns"}]
+  },
+  "uncertain_action_recovery": {
+    "action_id": "8911535dc9174b0880b6524d6d0de524",
+    "action_type": "draft",
+    "expected_pick": 13,
+    "expected_team": "Example Team",
+    "player_id": "3136195",
+    "player_name": "Karl-Anthony Towns",
+    "journal": {
+      "claimed_at": "2026-10-12T02:16:42.153672+00:00",
+      "submitted_at": "2026-10-12T02:16:50.093885+00:00",
+      "uncertain_at": "2026-10-12T02:16:56.086773+00:00",
+      "confirmed_at": "2026-10-12T02:19:29.791649+00:00"
+    },
+    "final_status": "confirmed",
+    "confirmation_reason": "confirmed by authoritative board history and roster",
+    "direct_count_after_recovery": 1
+  },
+  "fresh_readback": {
+    "revision": 15,
+    "observed_at": "2026-10-12T02:19:26.620Z",
+    "current_pick": 16,
+    "history_count": 15,
+    "history_complete": true,
+    "roster_player_ids": ["3136195"],
+    "history_match": {
+      "pick_number": 13,
+      "team": "Example Team",
+      "player_id": "3136195",
+      "player_name": "Karl-Anthony Towns"
+    },
+    "available_player_count_after_live_filter": 14,
+    "autopick": false
+  },
+  "stop_reason": "post-click fast observation raced DOM hydration; the runtime marked the click uncertain and stopped without retrying",
+  "parser_evidence": {
+    "history_view": "Pick History DOM rendered picks 1-15, including pick 13 Towns and picks 14-15",
+    "roster_view": "Players DOM rendered .roster-module row title=Karl-Anthony Towns and short text K. Towns",
+    "pre_patch_warning": "roster_full_title_missing came only from unused rows whose player cell was Empty or -",
+    "source_fix": "empty ESPN roster slots are ignored as structural placeholders; hydrated titled rows remain identity checked",
+    "source_test": "test_browser_observer.test.js: empty ESPN roster slots do not mask a hydrated player title"
+  },
+  "scope": {
+    "canonical_10_pick_run_complete": false,
+    "queue_pilot_run": false,
+    "live_90_second_wait_evidence": false,
+    "simulated_90_minute_endurance": false,
+    "status_envelope_provenance_flags": "not present in the running server response at capture; root must restart the current integration server before checkpoint continuation"
+  }
+}

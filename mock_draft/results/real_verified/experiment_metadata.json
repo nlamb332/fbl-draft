@@ -1,0 +1,206 @@
+{
+  "player_source": "ESPN rendered projections UI snapshot 2026-10-10",
+  "schedule_source": "synthetic_schedule",
+  "scenario_count": 15,
+  "strategy_count": 7,
+  "seats_per_scenario": 14,
+  "simulation_runs": 1470,
+  "draft_picks_per_run": 140,
+  "total_draft_picks": 205800,
+  "lineup_runs_per_draft": 7,
+  "total_lineup_simulation_runs": 10290,
+  "rounds": 10,
+  "teams": 14,
+  "roster_size": 10,
+  "strategies": [
+    "baseline_market",
+    "custom_value",
+    "flexibility_balanced",
+    "big_heavy",
+    "availability",
+    "upside",
+    "marginal_usable_lineup"
+  ],
+  "scenarios": [
+    {
+      "name": "development_market_agree_1",
+      "split": "development",
+      "draft_seed": 7101,
+      "schedule_seed": 8101,
+      "availability_mode": "base",
+      "overlap": true,
+      "market_mode": "agree",
+      "forecast_mode": "none"
+    },
+    {
+      "name": "development_market_agree_2",
+      "split": "development",
+      "draft_seed": 7102,
+      "schedule_seed": 8102,
+      "availability_mode": "base",
+      "overlap": true,
+      "market_mode": "agree",
+      "forecast_mode": "none"
+    },
+    {
+      "name": "development_market_agree_3",
+      "split": "development",
+      "draft_seed": 7103,
+      "schedule_seed": 8103,
+      "availability_mode": "base",
+      "overlap": true,
+      "market_mode": "agree",
+      "forecast_mode": "none"
+    },
+    {
+      "name": "development_market_mismatch_1",
+      "split": "development",
+      "draft_seed": 7201,
+      "schedule_seed": 8201,
+      "availability_mode": "base",
+      "overlap": true,
+      "market_mode": "mismatch",
+      "forecast_mode": "none"
+    },
+    {
+      "name": "development_market_mismatch_2",
+      "split": "development",
+      "draft_seed": 7202,
+      "schedule_seed": 8202,
+      "availability_mode": "base",
+      "overlap": true,
+      "market_mode": "mismatch",
+      "forecast_mode": "none"
+    },
+    {
+      "name": "development_market_mismatch_3",
+      "split": "development",
+      "draft_seed": 7203,
+      "schedule_seed": 8203,
+      "availability_mode": "base",
+      "overlap": true,
+      "market_mode": "mismatch",
+      "forecast_mode": "none"
+    },
+    {
+      "name": "heldout_standard_1",
+      "split": "heldout",
+      "draft_seed": 9101,
+      "schedule_seed": 10101,
+      "availability_mode": "base",
+      "overlap": true,
+      "market_mode": "fixture",
+      "forecast_mode": "noise"
+    },
+    {
+      "name": "heldout_standard_2",
+      "split": "heldout",
+      "draft_seed": 9102,
+      "schedule_seed": 10102,
+      "availability_mode": "base",
+      "overlap": true,
+      "market_mode": "fixture",
+      "forecast_mode": "noise"
+    },
+    {
+      "name": "heldout_standard_3",
+      "split": "heldout",
+      "draft_seed": 9103,
+      "schedule_seed": 10103,
+      "availability_mode": "base",
+      "overlap": true,
+      "market_mode": "fixture",
+      "forecast_mode": "noise"
+    },
+    {
+      "name": "heldout_standard_overlap_off_1",
+      "split": "heldout",
+      "draft_seed": 9101,
+      "schedule_seed": 10101,
+      "availability_mode": "base",
+      "overlap": false,
+      "market_mode": "fixture",
+      "forecast_mode": "noise"
+    },
+    {
+      "name": "heldout_standard_overlap_off_2",
+      "split": "heldout",
+      "draft_seed": 9102,
+      "schedule_seed": 10102,
+      "availability_mode": "base",
+      "overlap": false,
+      "market_mode": "fixture",
+      "forecast_mode": "noise"
+    },
+    {
+      "name": "heldout_standard_overlap_off_3",
+      "split": "heldout",
+      "draft_seed": 9103,
+      "schedule_seed": 10103,
+      "availability_mode": "base",
+      "overlap": false,
+      "market_mode": "fixture",
+      "forecast_mode": "noise"
+    },
+    {
+      "name": "heldout_availability_stress_1",
+      "split": "heldout",
+      "draft_seed": 9201,
+      "schedule_seed": 10201,
+      "availability_mode": "stress",
+      "overlap": true,
+      "market_mode": "fixture",
+      "forecast_mode": "noise"
+    },
+    {
+      "name": "heldout_availability_stress_2",
+      "split": "heldout",
+      "draft_seed": 9202,
+      "schedule_seed": 10202,
+      "availability_mode": "stress",
+      "overlap": true,
+      "market_mode": "fixture",
+      "forecast_mode": "noise"
+    },
+    {
+      "name": "heldout_availability_stress_3",
+      "split": "heldout",
+      "draft_seed": 9203,
+      "schedule_seed": 10203,
+      "availability_mode": "stress",
+      "overlap": true,
+      "market_mode": "fixture",
+      "forecast_mode": "noise"
+    }
+  ],
+  "player_count": 195,
+  "market_modes": [
+    "agree",
+    "fixture",
+    "mismatch"
+  ],
+  "forecast_modes": [
+    "noise",
+    "none"
+  ],
+  "reproducibility": {
+    "player_seed": 20261010,
+    "draft_and_schedule_seeds_in_scenarios": true
+  },
+  "representative_draft": {
+    "strategy": "custom_value",
+    "our_seat": 7,
+    "complete_picks": 140
+  },
+  "synthetic_input": false,
+  "policy_selection": {
+    "development_selected_strategy": "availability",
+    "development_paired_delta_mean": 407.08809523809526,
+    "development_seat_spread": 151.91666666666652,
+    "selected_strategy_holdout_paired_delta_mean": 80.83070918625604,
+    "heldout_best_strategy_in_tested_set": "marginal_usable_lineup",
+    "heldout_best_paired_delta_mean": 92.74687215948924,
+    "selection_basis": "highest mean paired weekly DP delta versus baseline across development scenarios; tie-break lower seat spread",
+    "interpretation": "best within tested synthetic/source-input conditions, not globally optimal and not a calibrated win probability"
+  }
+}

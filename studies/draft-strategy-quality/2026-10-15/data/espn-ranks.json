@@ -1,0 +1,1174 @@
+{
+  "catalog": [
+    {
+      "name": "Victor Wembanyama",
+      "player_id": "5104157",
+      "draft_rank": 4,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Nikola Jokic",
+      "player_id": "3112335",
+      "draft_rank": 1,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Shai Gilgeous-Alexander",
+      "player_id": "4278073",
+      "draft_rank": 2,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Luka Doncic",
+      "player_id": "3945274",
+      "draft_rank": 3,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Anthony Edwards",
+      "player_id": "4594268",
+      "draft_rank": 8,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Giannis Antetokounmpo",
+      "player_id": "3032977",
+      "draft_rank": 5,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Donovan Mitchell",
+      "player_id": "3908809",
+      "draft_rank": 10,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Cade Cunningham",
+      "player_id": "4432166",
+      "draft_rank": 7,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Karl-Anthony Towns",
+      "player_id": "3136195",
+      "draft_rank": 24,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Kevin Durant",
+      "player_id": "3202",
+      "draft_rank": 23,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Tyrese Maxey",
+      "player_id": "4431678",
+      "draft_rank": 13,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jalen Brunson",
+      "player_id": "3934672",
+      "draft_rank": 15,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jayson Tatum",
+      "player_id": "4065648",
+      "draft_rank": 9,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Cooper Flagg",
+      "player_id": "5041939",
+      "draft_rank": 11,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Devin Booker",
+      "player_id": "3136193",
+      "draft_rank": 20,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jaylen Brown",
+      "player_id": "3917376",
+      "draft_rank": 41,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Amen Thompson",
+      "player_id": "4684740",
+      "draft_rank": 19,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Scottie Barnes",
+      "player_id": "4433134",
+      "draft_rank": 17,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Stephen Curry",
+      "player_id": "3975",
+      "draft_rank": 37,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "LaMelo Ball",
+      "player_id": "4432816",
+      "draft_rank": 14,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "James Harden",
+      "player_id": "3992",
+      "draft_rank": 25,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "LeBron James",
+      "player_id": "1966",
+      "draft_rank": 42,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Bam Adebayo",
+      "player_id": "4066261",
+      "draft_rank": 32,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jalen Johnson",
+      "player_id": "4701230",
+      "draft_rank": 6,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Pascal Siakam",
+      "player_id": "3149673",
+      "draft_rank": 26,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jamal Murray",
+      "player_id": "3936299",
+      "draft_rank": 28,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Evan Mobley",
+      "player_id": "4432158",
+      "draft_rank": 35,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Anthony Davis",
+      "player_id": "6583",
+      "draft_rank": 29,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Alperen Sengun",
+      "player_id": "4871144",
+      "draft_rank": 22,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Paolo Banchero",
+      "player_id": "4432573",
+      "draft_rank": 46,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jalen Williams",
+      "player_id": "4593803",
+      "draft_rank": 34,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Domantas Sabonis",
+      "player_id": "3155942",
+      "draft_rank": 12,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Trae Young",
+      "player_id": "4277905",
+      "draft_rank": 16,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Kawhi Leonard",
+      "player_id": "6450",
+      "draft_rank": 33,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Josh Giddey",
+      "player_id": "4871145",
+      "draft_rank": 18,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Austin Reaves",
+      "player_id": "4066457",
+      "draft_rank": 31,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Derrick White",
+      "player_id": "3078576",
+      "draft_rank": 36,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Tyrese Haliburton",
+      "player_id": "4396993",
+      "draft_rank": 21,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "De'Aaron Fox",
+      "player_id": "4066259",
+      "draft_rank": 43,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Desmond Bane",
+      "player_id": "4066320",
+      "draft_rank": 39,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Deni Avdija",
+      "player_id": "4683021",
+      "draft_rank": 30,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jalen Duren",
+      "player_id": "4433621",
+      "draft_rank": 27,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Stephon Castle",
+      "player_id": "4845367",
+      "draft_rank": 53,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Michael Porter Jr.",
+      "player_id": "4278104",
+      "draft_rank": 48,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Joel Embiid",
+      "player_id": "3059318",
+      "draft_rank": 72,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Chet Holmgren",
+      "player_id": "4433255",
+      "draft_rank": 71,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Kon Knueppel",
+      "player_id": "5061575",
+      "draft_rank": 40,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Mikal Bridges",
+      "player_id": "3147657",
+      "draft_rank": 45,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Zion Williamson",
+      "player_id": "4395628",
+      "draft_rank": 57,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Dyson Daniels",
+      "player_id": "4869342",
+      "draft_rank": 49,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Darius Garland",
+      "player_id": "4396907",
+      "draft_rank": 38,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Ja Morant",
+      "player_id": "4279888",
+      "draft_rank": 74,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Franz Wagner",
+      "player_id": "4566434",
+      "draft_rank": 58,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Lauri Markkanen",
+      "player_id": "4066336",
+      "draft_rank": 51,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jarrett Allen",
+      "player_id": "4066328",
+      "draft_rank": 54,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Julius Randle",
+      "player_id": "3064514",
+      "draft_rank": 50,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Kyrie Irving",
+      "player_id": "6442",
+      "draft_rank": 55,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Damian Lillard",
+      "player_id": "6606",
+      "draft_rank": 61,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Tyler Herro",
+      "player_id": "4395725",
+      "draft_rank": 56,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "OG Anunoby",
+      "player_id": "3934719",
+      "draft_rank": 93,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Trey Murphy III",
+      "player_id": "4397688",
+      "draft_rank": 64,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "AJ Dybantsa",
+      "player_id": "5142718",
+      "draft_rank": 81,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Naz Reid",
+      "player_id": "4396971",
+      "draft_rank": 44,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Nickeil Alexander-Walker",
+      "player_id": "4278039",
+      "draft_rank": 47,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Ivica Zubac",
+      "player_id": "4017837",
+      "draft_rank": 73,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Dylan Harper",
+      "player_id": "5037871",
+      "draft_rank": 85,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Josh Hart",
+      "player_id": "3062679",
+      "draft_rank": 94,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Rudy Gobert",
+      "player_id": "3032976",
+      "draft_rank": 70,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Brandon Miller",
+      "player_id": "4433287",
+      "draft_rank": 60,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "DeMar DeRozan",
+      "player_id": "3978",
+      "draft_rank": 87,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Walker Kessler",
+      "player_id": "4433136",
+      "draft_rank": 69,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jaren Jackson Jr.",
+      "player_id": "4277961",
+      "draft_rank": 84,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "VJ Edgecombe",
+      "player_id": "5124612",
+      "draft_rank": 77,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Miles Bridges",
+      "player_id": "4066383",
+      "draft_rank": 80,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Onyeka Okongwu",
+      "player_id": "4431680",
+      "draft_rank": 62,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Keyonte George",
+      "player_id": "4433627",
+      "draft_rank": 63,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Brandon Ingram",
+      "player_id": "3913176",
+      "draft_rank": 110,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Norman Powell",
+      "player_id": "2595516",
+      "draft_rank": 65,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Coby White",
+      "player_id": "4395651",
+      "draft_rank": 83,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Donovan Clingan",
+      "player_id": "5105565",
+      "draft_rank": 68,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Cameron Boozer",
+      "player_id": "5041935",
+      "draft_rank": 67,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Alex Sarr",
+      "player_id": "5160992",
+      "draft_rank": 78,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jaden McDaniels",
+      "player_id": "4431671",
+      "draft_rank": 96,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jalen Green",
+      "player_id": "4437244",
+      "draft_rank": 91,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Paul George",
+      "player_id": "4251",
+      "draft_rank": 109,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Caleb Wilson",
+      "player_id": "5095151",
+      "draft_rank": 66,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "CJ McCollum",
+      "player_id": "2490149",
+      "draft_rank": 82,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Payton Pritchard",
+      "player_id": "4066354",
+      "draft_rank": 90,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Ausar Thompson",
+      "player_id": "4684742",
+      "draft_rank": 103,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Dejounte Murray",
+      "player_id": "3907497",
+      "draft_rank": 52,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Nikola Vucevic",
+      "player_id": "6478",
+      "draft_rank": 101,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "RJ Barrett",
+      "player_id": "4395625",
+      "draft_rank": 104,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Reed Sheppard",
+      "player_id": "4711272",
+      "draft_rank": 88,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Andrew Wiggins",
+      "player_id": "3059319",
+      "draft_rank": 105,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Matas Buzelis",
+      "player_id": "4711294",
+      "draft_rank": 79,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Immanuel Quickley",
+      "player_id": "4395724",
+      "draft_rank": 92,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Kevin Porter Jr.",
+      "player_id": "4397140",
+      "draft_rank": 100,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Kristaps Porzingis",
+      "player_id": "3102531",
+      "draft_rank": 99,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Darryn Peterson",
+      "player_id": "5041955",
+      "draft_rank": 108,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "John Collins",
+      "player_id": "3908845",
+      "draft_rank": 102,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Ryan Rollins",
+      "player_id": "4591725",
+      "draft_rank": 97,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Ty Jerome",
+      "player_id": "4065733",
+      "draft_rank": 59,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Myles Turner",
+      "player_id": "3133628",
+      "draft_rank": 122,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Zach LaVine",
+      "player_id": "3064440",
+      "draft_rank": 130,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Kel'el Ware",
+      "player_id": "5105623",
+      "draft_rank": 76,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Tobias Harris",
+      "player_id": "6440",
+      "draft_rank": 106,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jakob Poeltl",
+      "player_id": "3134908",
+      "draft_rank": 113,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Nic Claxton",
+      "player_id": "4278067",
+      "draft_rank": 112,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Derik Queen",
+      "player_id": "4869780",
+      "draft_rank": 86,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Andrew Nembhard",
+      "player_id": "4395712",
+      "draft_rank": 124,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Zach Edey",
+      "player_id": "4600663",
+      "draft_rank": 118,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Darius Acuff Jr.",
+      "player_id": "5142620",
+      "draft_rank": 95,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jabari Smith Jr.",
+      "player_id": "4432639",
+      "draft_rank": 121,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Brandin Podziemski",
+      "player_id": "4709138",
+      "draft_rank": 75,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Keegan Murray",
+      "player_id": "4594327",
+      "draft_rank": 116,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Fred VanVleet",
+      "player_id": "2991230",
+      "draft_rank": 89,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jimmy Butler III",
+      "player_id": "6430",
+      "draft_rank": 207,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Ayo Dosunmu",
+      "player_id": "4397002",
+      "draft_rank": 98,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Aaron Gordon",
+      "player_id": "3064290",
+      "draft_rank": 136,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jaime Jaquez Jr.",
+      "player_id": "4432848",
+      "draft_rank": 114,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Isaiah Hartenstein",
+      "player_id": "4222252",
+      "draft_rank": 129,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Peyton Watson",
+      "player_id": "4576087",
+      "draft_rank": 117,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jeremiah Fears",
+      "player_id": "5144091",
+      "draft_rank": 111,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Devin Vassell",
+      "player_id": "4395630",
+      "draft_rank": 141,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Egor Demin",
+      "player_id": "5175643",
+      "draft_rank": 107,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Yaxel Lendeborg",
+      "player_id": "5175737",
+      "draft_rank": 173,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Cedric Coward",
+      "player_id": "4903027",
+      "draft_rank": 120,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Draymond Green",
+      "player_id": "6589",
+      "draft_rank": 148,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Quentin Grimes",
+      "player_id": "4397014",
+      "draft_rank": 119,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Collin Gillespie",
+      "player_id": "4278585",
+      "draft_rank": 115,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Ace Bailey",
+      "player_id": "4873138",
+      "draft_rank": 133,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jrue Holiday",
+      "player_id": "3995",
+      "draft_rank": 135,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Anfernee Simons",
+      "player_id": "4351851",
+      "draft_rank": 203,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jordan Poole",
+      "player_id": "4277956",
+      "draft_rank": 216,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Daniel Gafford",
+      "player_id": "4278049",
+      "draft_rank": 126,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Dillon Brooks",
+      "player_id": "3155526",
+      "draft_rank": 140,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Collin Sexton",
+      "player_id": "4277811",
+      "draft_rank": 123,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Christian Braun",
+      "player_id": "4431767",
+      "draft_rank": 208,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Kyshawn George",
+      "player_id": "5174563",
+      "draft_rank": 127,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Deandre Ayton",
+      "player_id": "4278129",
+      "draft_rank": 185,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Malik Monk",
+      "player_id": "4066262",
+      "draft_rank": 138,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jalen Suggs",
+      "player_id": "4432165",
+      "draft_rank": 151,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Shaedon Sharpe",
+      "player_id": "4914336",
+      "draft_rank": 323,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Toumani Camara",
+      "player_id": "4431736",
+      "draft_rank": 152,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Bennedict Mathurin",
+      "player_id": "4683634",
+      "draft_rank": 165,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "T.J. McConnell",
+      "player_id": "2530530",
+      "draft_rank": 163,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Neemias Queta",
+      "player_id": "4397424",
+      "draft_rank": 128,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Mark Williams",
+      "player_id": "4701232",
+      "draft_rank": 314,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Julian Champagnie",
+      "player_id": "4592479",
+      "draft_rank": 134,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Anthony Black",
+      "player_id": "4712849",
+      "draft_rank": 131,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jonathan Kuminga",
+      "player_id": "4433247",
+      "draft_rank": 156,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Bobby Portis",
+      "player_id": "3064482",
+      "draft_rank": 167,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Oso Ighodaro",
+      "player_id": "4601023",
+      "draft_rank": 125,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Santi Aldama",
+      "player_id": "4593125",
+      "draft_rank": 180,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Saddiq Bey",
+      "player_id": "4397136",
+      "draft_rank": 144,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Klay Thompson",
+      "player_id": "6475",
+      "draft_rank": 234,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Mitchell Robinson",
+      "player_id": "4351852",
+      "draft_rank": 142,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Cason Wallace",
+      "player_id": "4683692",
+      "draft_rank": 146,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jared McCain",
+      "player_id": "4683778",
+      "draft_rank": 223,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Rui Hachimura",
+      "player_id": "4066648",
+      "draft_rank": 166,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jerami Grant",
+      "player_id": "2991070",
+      "draft_rank": 145,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Scoot Henderson",
+      "player_id": "4683678",
+      "draft_rank": 172,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Scotty Pippen Jr.",
+      "player_id": "4431785",
+      "draft_rank": 132,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Tari Eason",
+      "player_id": "4433192",
+      "draft_rank": 205,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Davion Mitchell",
+      "player_id": "4278053",
+      "draft_rank": 150,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "P.J. Washington",
+      "player_id": "4278078",
+      "draft_rank": 160,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Day'Ron Sharpe",
+      "player_id": "4432194",
+      "draft_rank": 139,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Keaton Wagler",
+      "player_id": "5254165",
+      "draft_rank": 164,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Brook Lopez",
+      "player_id": "3448",
+      "draft_rank": 137,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Collin Murray-Boyles",
+      "player_id": "5093267",
+      "draft_rank": 184,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jusuf Nurkic",
+      "player_id": "3102530",
+      "draft_rank": 155,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Keldon Johnson",
+      "player_id": "4395723",
+      "draft_rank": 143,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Cameron Johnson",
+      "player_id": "3138196",
+      "draft_rank": 154,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Kelly Oubre Jr.",
+      "player_id": "3133603",
+      "draft_rank": 200,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Alex Caruso",
+      "player_id": "2991350",
+      "draft_rank": 175,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Kyle Filipowski",
+      "player_id": "4684793",
+      "draft_rank": 149,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Grayson Allen",
+      "player_id": "3135045",
+      "draft_rank": 170,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Mikel Brown Jr.",
+      "player_id": "5101761",
+      "draft_rank": 162,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Moussa Diabate",
+      "player_id": "4433249",
+      "draft_rank": 168,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Ajay Mitchell",
+      "player_id": "4900671",
+      "draft_rank": 226,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Jake LaRavia",
+      "player_id": "4592691",
+      "draft_rank": 147,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Isaiah Collier",
+      "player_id": "4683766",
+      "draft_rank": 182,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Tre Jones",
+      "player_id": "4395626",
+      "draft_rank": 158,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Dereck Lively II",
+      "player_id": "4683688",
+      "draft_rank": 153,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Donte DiVincenzo",
+      "player_id": "3934673",
+      "draft_rank": 348,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Bronny James",
+      "player_id": "4683774",
+      "draft_rank": 333,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Morez Johnson Jr.",
+      "player_id": "4873153",
+      "draft_rank": 174,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Tim Hardaway Jr.",
+      "player_id": "2528210",
+      "draft_rank": 171,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Kyle Kuzma",
+      "player_id": "3134907",
+      "draft_rank": 191,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Khaman Maluach",
+      "player_id": "5203685",
+      "draft_rank": 218,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Ben Simmons",
+      "player_id": "3907387",
+      "draft_rank": 311,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Wendell Carter Jr.",
+      "player_id": "4277847",
+      "draft_rank": 176,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Dennis Schroder",
+      "player_id": "3032979",
+      "draft_rank": 178,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Precious Achiuwa",
+      "player_id": "4431679",
+      "draft_rank": 161,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    },
+    {
+      "name": "Obi Toppin",
+      "player_id": "4278355",
+      "draft_rank": 231,
+      "source": "Explicit ESPN RK captured October 13, 2026; audited join in espn_manifest.json"
+    }
+  ]
+}

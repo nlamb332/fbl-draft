@@ -1,0 +1,15 @@
+{
+  "frozen_before_heldout": true,
+  "source": "tuning_dev.json (development seeds 20260000-20260023 only)",
+  "params": {
+    "weeks": 12,
+    "completion_days": 14,
+    "vor_weight": 0.5,
+    "depth_scale": 1.25,
+    "opponent_market_weight": 0.25,
+    "use_imputation": true,
+    "pf_scale": 1.0,
+    "util_share": 1.0,
+    "max_candidates": null
+  }
+}

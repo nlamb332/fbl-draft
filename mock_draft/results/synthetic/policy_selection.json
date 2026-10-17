@@ -1,0 +1,10 @@
+{
+  "development_selected_strategy": "marginal_usable_lineup",
+  "development_paired_delta_mean": 325.9213095238095,
+  "development_seat_spread": 98.7066666666667,
+  "selected_strategy_holdout_paired_delta_mean": 244.14231500979145,
+  "heldout_best_strategy_in_tested_set": "marginal_usable_lineup",
+  "heldout_best_paired_delta_mean": 244.14231500979145,
+  "selection_basis": "highest mean paired weekly DP delta versus baseline across development scenarios; tie-break lower seat spread",
+  "interpretation": "best within tested synthetic/source-input conditions, not globally optimal and not a calibrated win probability"
+}

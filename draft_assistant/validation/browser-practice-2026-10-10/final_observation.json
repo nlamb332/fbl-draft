@@ -1,0 +1,6139 @@
+{
+  "autopick": false,
+  "available_players": [],
+  "available_pool_complete": false,
+  "complete": true,
+  "current_pick": null,
+  "history": [
+    {
+      "pick_number": 1,
+      "player_id": "3112335",
+      "player_name": "Nikola Jokic",
+      "team": "Example Opponent 24"
+    },
+    {
+      "pick_number": 2,
+      "player_id": "4278073",
+      "player_name": "Shai Gilgeous-Alexander",
+      "team": "Example Opponent 23"
+    },
+    {
+      "pick_number": 3,
+      "player_id": "5104157",
+      "player_name": "Victor Wembanyama",
+      "team": "Example Opponent 26"
+    },
+    {
+      "pick_number": 4,
+      "player_id": "3945274",
+      "player_name": "Luka Doncic",
+      "team": "KAT\u2019s fruit basket"
+    },
+    {
+      "pick_number": 5,
+      "player_id": "4701230",
+      "player_name": "Jalen Johnson",
+      "team": "Example Opponent 27"
+    },
+    {
+      "pick_number": 6,
+      "player_id": "3032977",
+      "player_name": "Giannis Antetokounmpo",
+      "team": "Example Opponent 04"
+    },
+    {
+      "pick_number": 7,
+      "player_id": "4594268",
+      "player_name": "Anthony Edwards",
+      "team": "Team 16"
+    },
+    {
+      "pick_number": 8,
+      "player_id": "4432166",
+      "player_name": "Cade Cunningham",
+      "team": "Example Opponent 21"
+    },
+    {
+      "pick_number": 9,
+      "player_id": "4065648",
+      "player_name": "Jayson Tatum",
+      "team": "Example Opponent 01"
+    },
+    {
+      "pick_number": 10,
+      "player_id": "5041939",
+      "player_name": "Cooper Flagg",
+      "team": "Example Opponent 03"
+    },
+    {
+      "pick_number": 11,
+      "player_id": "4431678",
+      "player_name": "Tyrese Maxey",
+      "team": "Example Opponent 22"
+    },
+    {
+      "pick_number": 12,
+      "player_id": "3908809",
+      "player_name": "Donovan Mitchell",
+      "team": "Example Opponent 07"
+    },
+    {
+      "pick_number": 13,
+      "player_id": "3155942",
+      "player_name": "Domantas Sabonis",
+      "team": "Example Team"
+    },
+    {
+      "pick_number": 14,
+      "player_id": "3934672",
+      "player_name": "Jalen Brunson",
+      "team": "Example Opponent 06"
+    },
+    {
+      "pick_number": 15,
+      "player_id": "4432816",
+      "player_name": "LaMelo Ball",
+      "team": "Example Opponent 06"
+    },
+    {
+      "pick_number": 16,
+      "player_id": "4433621",
+      "player_name": "Jalen Duren",
+      "team": "Example Team"
+    },
+    {
+      "pick_number": 17,
+      "player_id": "4684740",
+      "player_name": "Amen Thompson",
+      "team": "Example Opponent 07"
+    },
+    {
+      "pick_number": 18,
+      "player_id": "4433134",
+      "player_name": "Scottie Barnes",
+      "team": "Example Opponent 22"
+    },
+    {
+      "pick_number": 19,
+      "player_id": "4277905",
+      "player_name": "Trae Young",
+      "team": "Example Opponent 03"
+    },
+    {
+      "pick_number": 20,
+      "player_id": "4396993",
+      "player_name": "Tyrese Haliburton",
+      "team": "Example Opponent 01"
+    },
+    {
+      "pick_number": 21,
+      "player_id": "3136193",
+      "player_name": "Devin Booker",
+      "team": "Example Opponent 21"
+    },
+    {
+      "pick_number": 22,
+      "player_id": "4871144",
+      "player_name": "Alperen Sengun",
+      "team": "Team 16"
+    },
+    {
+      "pick_number": 23,
+      "player_id": "4871145",
+      "player_name": "Josh Giddey",
+      "team": "Example Opponent 04"
+    },
+    {
+      "pick_number": 24,
+      "player_id": "3202",
+      "player_name": "Kevin Durant",
+      "team": "Example Opponent 27"
+    },
+    {
+      "pick_number": 25,
+      "player_id": "3136195",
+      "player_name": "Karl-Anthony Towns",
+      "team": "KAT\u2019s fruit basket"
+    },
+    {
+      "pick_number": 26,
+      "player_id": "3149673",
+      "player_name": "Pascal Siakam",
+      "team": "Example Opponent 26"
+    },
+    {
+      "pick_number": 27,
+      "player_id": "3936299",
+      "player_name": "Jamal Murray",
+      "team": "Example Opponent 23"
+    },
+    {
+      "pick_number": 28,
+      "player_id": "4066261",
+      "player_name": "Bam Adebayo",
+      "team": "Example Opponent 24"
+    },
+    {
+      "pick_number": 29,
+      "player_id": "3992",
+      "player_name": "James Harden",
+      "team": "Example Opponent 24"
+    },
+    {
+      "pick_number": 30,
+      "player_id": "4683021",
+      "player_name": "Deni Avdija",
+      "team": "Example Opponent 23"
+    },
+    {
+      "pick_number": 31,
+      "player_id": "6583",
+      "player_name": "Anthony Davis",
+      "team": "Example Opponent 26"
+    },
+    {
+      "pick_number": 32,
+      "player_id": "4066457",
+      "player_name": "Austin Reaves",
+      "team": "KAT\u2019s fruit basket"
+    },
+    {
+      "pick_number": 33,
+      "player_id": "6450",
+      "player_name": "Kawhi Leonard",
+      "team": "Example Opponent 27"
+    },
+    {
+      "pick_number": 34,
+      "player_id": "4593803",
+      "player_name": "Jalen Williams",
+      "team": "Example Opponent 04"
+    },
+    {
+      "pick_number": 35,
+      "player_id": "4432158",
+      "player_name": "Evan Mobley",
+      "team": "Team 16"
+    },
+    {
+      "pick_number": 36,
+      "player_id": "3078576",
+      "player_name": "Derrick White",
+      "team": "Example Opponent 21"
+    },
+    {
+      "pick_number": 37,
+      "player_id": "3975",
+      "player_name": "Stephen Curry",
+      "team": "Example Opponent 01"
+    },
+    {
+      "pick_number": 38,
+      "player_id": "5061575",
+      "player_name": "Kon Knueppel",
+      "team": "Example Opponent 03"
+    },
+    {
+      "pick_number": 39,
+      "player_id": "4066259",
+      "player_name": "De'Aaron Fox",
+      "team": "Example Opponent 22"
+    },
+    {
+      "pick_number": 40,
+      "player_id": "4396907",
+      "player_name": "Darius Garland",
+      "team": "Example Opponent 07"
+    },
+    {
+      "pick_number": 41,
+      "player_id": "4066328",
+      "player_name": "Jarrett Allen",
+      "team": "Example Team"
+    },
+    {
+      "pick_number": 42,
+      "player_id": "1966",
+      "player_name": "LeBron James",
+      "team": "Example Opponent 06"
+    },
+    {
+      "pick_number": 43,
+      "player_id": "4396971",
+      "player_name": "Naz Reid",
+      "team": "Example Opponent 06"
+    },
+    {
+      "pick_number": 44,
+      "player_id": "5105565",
+      "player_name": "Donovan Clingan",
+      "team": "Example Team"
+    },
+    {
+      "pick_number": 45,
+      "player_id": "4066320",
+      "player_name": "Desmond Bane",
+      "team": "Example Opponent 07"
+    },
+    {
+      "pick_number": 46,
+      "player_id": "3917376",
+      "player_name": "Jaylen Brown",
+      "team": "Example Opponent 22"
+    },
+    {
+      "pick_number": 47,
+      "player_id": "4278039",
+      "player_name": "Nickeil Alexander-Walker",
+      "team": "Example Opponent 03"
+    },
+    {
+      "pick_number": 48,
+      "player_id": "3147657",
+      "player_name": "Mikal Bridges",
+      "team": "Example Opponent 01"
+    },
+    {
+      "pick_number": 49,
+      "player_id": "4432573",
+      "player_name": "Paolo Banchero",
+      "team": "Example Opponent 21"
+    },
+    {
+      "pick_number": 50,
+      "player_id": "3907497",
+      "player_name": "Dejounte Murray",
+      "team": "Team 16"
+    },
+    {
+      "pick_number": 51,
+      "player_id": "4278104",
+      "player_name": "Michael Porter Jr.",
+      "team": "Example Opponent 04"
+    },
+    {
+      "pick_number": 52,
+      "player_id": "4869342",
+      "player_name": "Dyson Daniels",
+      "team": "Example Opponent 27"
+    },
+    {
+      "pick_number": 53,
+      "player_id": "6442",
+      "player_name": "Kyrie Irving",
+      "team": "KAT\u2019s fruit basket"
+    },
+    {
+      "pick_number": 54,
+      "player_id": "4845367",
+      "player_name": "Stephon Castle",
+      "team": "Example Opponent 26"
+    },
+    {
+      "pick_number": 55,
+      "player_id": "4066336",
+      "player_name": "Lauri Markkanen",
+      "team": "Example Opponent 23"
+    },
+    {
+      "pick_number": 56,
+      "player_id": "4395628",
+      "player_name": "Zion Williamson",
+      "team": "Example Opponent 24"
+    },
+    {
+      "pick_number": 57,
+      "player_id": "4395725",
+      "player_name": "Tyler Herro",
+      "team": "Example Opponent 24"
+    },
+    {
+      "pick_number": 58,
+      "player_id": "4566434",
+      "player_name": "Franz Wagner",
+      "team": "Example Opponent 23"
+    },
+    {
+      "pick_number": 59,
+      "player_id": "3064514",
+      "player_name": "Julius Randle",
+      "team": "Example Opponent 26"
+    },
+    {
+      "pick_number": 60,
+      "player_id": "4433287",
+      "player_name": "Brandon Miller",
+      "team": "KAT\u2019s fruit basket"
+    },
+    {
+      "pick_number": 61,
+      "player_id": "4431680",
+      "player_name": "Onyeka Okongwu",
+      "team": "Example Opponent 27"
+    },
+    {
+      "pick_number": 62,
+      "player_id": "6606",
+      "player_name": "Damian Lillard",
+      "team": "Example Opponent 04"
+    },
+    {
+      "pick_number": 63,
+      "player_id": "4065733",
+      "player_name": "Ty Jerome",
+      "team": "Team 16"
+    },
+    {
+      "pick_number": 64,
+      "player_id": "5095151",
+      "player_name": "Caleb Wilson",
+      "team": "Example Opponent 21"
+    },
+    {
+      "pick_number": 65,
+      "player_id": "4433627",
+      "player_name": "Keyonte George",
+      "team": "Example Opponent 01"
+    },
+    {
+      "pick_number": 66,
+      "player_id": "4397688",
+      "player_name": "Trey Murphy III",
+      "team": "Example Opponent 03"
+    },
+    {
+      "pick_number": 67,
+      "player_id": "2595516",
+      "player_name": "Norman Powell",
+      "team": "Example Opponent 22"
+    },
+    {
+      "pick_number": 68,
+      "player_id": "3032976",
+      "player_name": "Rudy Gobert",
+      "team": "Example Opponent 07"
+    },
+    {
+      "pick_number": 69,
+      "player_id": "4277961",
+      "player_name": "Jaren Jackson Jr.",
+      "team": "Example Team"
+    },
+    {
+      "pick_number": 70,
+      "player_id": "5041935",
+      "player_name": "Cameron Boozer",
+      "team": "Example Opponent 06"
+    },
+    {
+      "pick_number": 71,
+      "player_id": "4433136",
+      "player_name": "Walker Kessler",
+      "team": "Example Opponent 06"
+    },
+    {
+      "pick_number": 72,
+      "player_id": "4017837",
+      "player_name": "Ivica Zubac",
+      "team": "Example Team"
+    },
+    {
+      "pick_number": 73,
+      "player_id": "4279888",
+      "player_name": "Ja Morant",
+      "team": "Example Opponent 07"
+    },
+    {
+      "pick_number": 74,
+      "player_id": "4433255",
+      "player_name": "Chet Holmgren",
+      "team": "Example Opponent 22"
+    },
+    {
+      "pick_number": 75,
+      "player_id": "5105623",
+      "player_name": "Kel'el Ware",
+      "team": "Example Opponent 03"
+    },
+    {
+      "pick_number": 76,
+      "player_id": "5160992",
+      "player_name": "Alex Sarr",
+      "team": "Example Opponent 01"
+    },
+    {
+      "pick_number": 77,
+      "player_id": "3059318",
+      "player_name": "Joel Embiid",
+      "team": "Example Opponent 21"
+    },
+    {
+      "pick_number": 78,
+      "player_id": "4711294",
+      "player_name": "Matas Buzelis",
+      "team": "Team 16"
+    },
+    {
+      "pick_number": 79,
+      "player_id": "5124612",
+      "player_name": "VJ Edgecombe",
+      "team": "Example Opponent 04"
+    },
+    {
+      "pick_number": 80,
+      "player_id": "4709138",
+      "player_name": "Brandin Podziemski",
+      "team": "Example Opponent 27"
+    },
+    {
+      "pick_number": 81,
+      "player_id": "4066383",
+      "player_name": "Miles Bridges",
+      "team": "KAT\u2019s fruit basket"
+    },
+    {
+      "pick_number": 82,
+      "player_id": "2490149",
+      "player_name": "CJ McCollum",
+      "team": "Example Opponent 26"
+    },
+    {
+      "pick_number": 83,
+      "player_id": "4869780",
+      "player_name": "Derik Queen",
+      "team": "Example Opponent 23"
+    },
+    {
+      "pick_number": 84,
+      "player_id": "4711272",
+      "player_name": "Reed Sheppard",
+      "team": "Example Opponent 24"
+    },
+    {
+      "pick_number": 85,
+      "player_id": "4395651",
+      "player_name": "Coby White",
+      "team": "Example Opponent 24"
+    },
+    {
+      "pick_number": 86,
+      "player_id": "5142718",
+      "player_name": "AJ Dybantsa",
+      "team": "Example Opponent 23"
+    },
+    {
+      "pick_number": 87,
+      "player_id": "5037871",
+      "player_name": "Dylan Harper",
+      "team": "Example Opponent 26"
+    },
+    {
+      "pick_number": 88,
+      "player_id": "3978",
+      "player_name": "DeMar DeRozan",
+      "team": "KAT\u2019s fruit basket"
+    },
+    {
+      "pick_number": 89,
+      "player_id": "2991230",
+      "player_name": "Fred VanVleet",
+      "team": "Example Opponent 27"
+    },
+    {
+      "pick_number": 90,
+      "player_id": "4066354",
+      "player_name": "Payton Pritchard",
+      "team": "Example Opponent 04"
+    },
+    {
+      "pick_number": 91,
+      "player_id": "4437244",
+      "player_name": "Jalen Green",
+      "team": "Team 16"
+    },
+    {
+      "pick_number": 92,
+      "player_id": "4395724",
+      "player_name": "Immanuel Quickley",
+      "team": "Example Opponent 21"
+    },
+    {
+      "pick_number": 93,
+      "player_id": "3934719",
+      "player_name": "OG Anunoby",
+      "team": "Example Opponent 01"
+    },
+    {
+      "pick_number": 94,
+      "player_id": "5142620",
+      "player_name": "Darius Acuff Jr.",
+      "team": "Example Opponent 03"
+    },
+    {
+      "pick_number": 95,
+      "player_id": "4591725",
+      "player_name": "Ryan Rollins",
+      "team": "Example Opponent 22"
+    },
+    {
+      "pick_number": 96,
+      "player_id": "3102531",
+      "player_name": "Kristaps Porzingis",
+      "team": "Example Opponent 07"
+    },
+    {
+      "pick_number": 97,
+      "player_id": "3062679",
+      "player_name": "Josh Hart",
+      "team": "Example Team"
+    },
+    {
+      "pick_number": 98,
+      "player_id": "4397002",
+      "player_name": "Ayo Dosunmu",
+      "team": "Example Opponent 06"
+    },
+    {
+      "pick_number": 99,
+      "player_id": "4397140",
+      "player_name": "Kevin Porter Jr.",
+      "team": "Example Opponent 06"
+    },
+    {
+      "pick_number": 100,
+      "player_id": "4432639",
+      "player_name": "Jabari Smith Jr.",
+      "team": "Example Team"
+    },
+    {
+      "pick_number": 101,
+      "player_id": "3908845",
+      "player_name": "John Collins",
+      "team": "Example Opponent 07"
+    },
+    {
+      "pick_number": 102,
+      "player_id": "6478",
+      "player_name": "Nikola Vucevic",
+      "team": "Example Opponent 22"
+    },
+    {
+      "pick_number": 103,
+      "player_id": "4431671",
+      "player_name": "Jaden McDaniels",
+      "team": "Example Opponent 03"
+    },
+    {
+      "pick_number": 104,
+      "player_id": "3059319",
+      "player_name": "Andrew Wiggins",
+      "team": "Example Opponent 01"
+    },
+    {
+      "pick_number": 105,
+      "player_id": "4684742",
+      "player_name": "Ausar Thompson",
+      "team": "Example Opponent 21"
+    },
+    {
+      "pick_number": 106,
+      "player_id": "4395625",
+      "player_name": "RJ Barrett",
+      "team": "Team 16"
+    },
+    {
+      "pick_number": 107,
+      "player_id": "6440",
+      "player_name": "Tobias Harris",
+      "team": "Example Opponent 04"
+    },
+    {
+      "pick_number": 108,
+      "player_id": "5175643",
+      "player_name": "Egor Demin",
+      "team": "Example Opponent 27"
+    },
+    {
+      "pick_number": 109,
+      "player_id": "5041955",
+      "player_name": "Darryn Peterson",
+      "team": "KAT\u2019s fruit basket"
+    },
+    {
+      "pick_number": 110,
+      "player_id": "4251",
+      "player_name": "Paul George",
+      "team": "Example Opponent 26"
+    },
+    {
+      "pick_number": 111,
+      "player_id": "3913176",
+      "player_name": "Brandon Ingram",
+      "team": "Example Opponent 23"
+    },
+    {
+      "pick_number": 112,
+      "player_id": "5144091",
+      "player_name": "Jeremiah Fears",
+      "team": "Example Opponent 24"
+    },
+    {
+      "pick_number": 113,
+      "player_id": "4278067",
+      "player_name": "Nic Claxton",
+      "team": "Example Opponent 24"
+    },
+    {
+      "pick_number": 114,
+      "player_id": "4432848",
+      "player_name": "Jaime Jaquez Jr.",
+      "team": "Example Opponent 23"
+    },
+    {
+      "pick_number": 115,
+      "player_id": "3134908",
+      "player_name": "Jakob Poeltl",
+      "team": "Example Opponent 26"
+    },
+    {
+      "pick_number": 116,
+      "player_id": "4278585",
+      "player_name": "Collin Gillespie",
+      "team": "KAT\u2019s fruit basket"
+    },
+    {
+      "pick_number": 117,
+      "player_id": "4576087",
+      "player_name": "Peyton Watson",
+      "team": "Example Opponent 27"
+    },
+    {
+      "pick_number": 118,
+      "player_id": "4600663",
+      "player_name": "Zach Edey",
+      "team": "Example Opponent 04"
+    },
+    {
+      "pick_number": 119,
+      "player_id": "4594327",
+      "player_name": "Keegan Murray",
+      "team": "Team 16"
+    },
+    {
+      "pick_number": 120,
+      "player_id": "4397014",
+      "player_name": "Quentin Grimes",
+      "team": "Example Opponent 21"
+    },
+    {
+      "pick_number": 121,
+      "player_id": "4903027",
+      "player_name": "Cedric Coward",
+      "team": "Example Opponent 01"
+    },
+    {
+      "pick_number": 122,
+      "player_id": "3133628",
+      "player_name": "Myles Turner",
+      "team": "Example Opponent 03"
+    },
+    {
+      "pick_number": 123,
+      "player_id": "4601023",
+      "player_name": "Oso Ighodaro",
+      "team": "Example Opponent 22"
+    },
+    {
+      "pick_number": 124,
+      "player_id": "4277811",
+      "player_name": "Collin Sexton",
+      "team": "Example Opponent 07"
+    },
+    {
+      "pick_number": 125,
+      "player_id": "3135045",
+      "player_name": "Grayson Allen",
+      "team": "Example Team"
+    },
+    {
+      "pick_number": 126,
+      "player_id": "4278049",
+      "player_name": "Daniel Gafford",
+      "team": "Example Opponent 06"
+    },
+    {
+      "pick_number": 127,
+      "player_id": "4395712",
+      "player_name": "Andrew Nembhard",
+      "team": "Example Opponent 06"
+    },
+    {
+      "pick_number": 128,
+      "player_id": "5174563",
+      "player_name": "Kyshawn George",
+      "team": "Example Team"
+    },
+    {
+      "pick_number": 129,
+      "player_id": "4397424",
+      "player_name": "Neemias Queta",
+      "team": "Example Opponent 07"
+    },
+    {
+      "pick_number": 130,
+      "player_id": "4222252",
+      "player_name": "Isaiah Hartenstein",
+      "team": "Example Opponent 22"
+    },
+    {
+      "pick_number": 131,
+      "player_id": "3064440",
+      "player_name": "Zach LaVine",
+      "team": "Example Opponent 03"
+    },
+    {
+      "pick_number": 132,
+      "player_id": "4873138",
+      "player_name": "Ace Bailey",
+      "team": "Example Opponent 01"
+    },
+    {
+      "pick_number": 133,
+      "player_id": "4712849",
+      "player_name": "Anthony Black",
+      "team": "Example Opponent 21"
+    },
+    {
+      "pick_number": 134,
+      "player_id": "4592479",
+      "player_name": "Julian Champagnie",
+      "team": "Team 16"
+    },
+    {
+      "pick_number": 135,
+      "player_id": "3064290",
+      "player_name": "Aaron Gordon",
+      "team": "Example Opponent 04"
+    },
+    {
+      "pick_number": 136,
+      "player_id": "4066262",
+      "player_name": "Malik Monk",
+      "team": "Example Opponent 27"
+    },
+    {
+      "pick_number": 137,
+      "player_id": "4432194",
+      "player_name": "Day'Ron Sharpe",
+      "team": "KAT\u2019s fruit basket"
+    },
+    {
+      "pick_number": 138,
+      "player_id": "3155526",
+      "player_name": "Dillon Brooks",
+      "team": "Example Opponent 26"
+    },
+    {
+      "pick_number": 139,
+      "player_id": "3995",
+      "player_name": "Jrue Holiday",
+      "team": "Example Opponent 23"
+    },
+    {
+      "pick_number": 140,
+      "player_id": "3448",
+      "player_name": "Brook Lopez",
+      "team": "Example Opponent 24"
+    }
+  ],
+  "history_complete": true,
+  "known_players": [
+    {
+      "adp": 5.7,
+      "availability": null,
+      "draft_rank": 5,
+      "eligibility": [
+        "F",
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Giannis Antetokounmpo",
+      "nba_team": "MIA",
+      "player_id": "3032977",
+      "projected_gp": 67,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.5,
+        "AST": 6.3,
+        "BLK": 0.8,
+        "FGA": 19.3,
+        "FGM": 12,
+        "FTA": 11.5,
+        "FTM": 7.5,
+        "PTS": 32.1,
+        "REB": 11.4,
+        "STL": 1.1,
+        "TO": 3.7
+      }
+    },
+    {
+      "adp": 8,
+      "availability": null,
+      "draft_rank": 7,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Cade Cunningham",
+      "nba_team": "DET",
+      "player_id": "4432166",
+      "projected_gp": 69,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2,
+        "AST": 9.8,
+        "BLK": 0.8,
+        "FGA": 19.3,
+        "FGM": 8.9,
+        "FTA": 5.9,
+        "FTM": 4.8,
+        "PTS": 24.6,
+        "REB": 5.6,
+        "STL": 1.4,
+        "TO": 3.8
+      }
+    },
+    {
+      "adp": 7.2,
+      "availability": null,
+      "draft_rank": 8,
+      "eligibility": [
+        "G",
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Anthony Edwards",
+      "nba_team": "MIN",
+      "player_id": "4594268",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 3.6,
+        "AST": 4,
+        "BLK": 0.8,
+        "FGA": 21.4,
+        "FGM": 10.3,
+        "FTA": 7.6,
+        "FTM": 6.1,
+        "PTS": 30.3,
+        "REB": 5.2,
+        "STL": 1.3,
+        "TO": 3
+      }
+    },
+    {
+      "adp": 9.3,
+      "availability": null,
+      "draft_rank": 9,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Jayson Tatum",
+      "nba_team": "BOS",
+      "player_id": "4065648",
+      "projected_gp": 70,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 3.4,
+        "AST": 5.8,
+        "BLK": 0.5,
+        "FGA": 20.1,
+        "FGM": 9.1,
+        "FTA": 6.2,
+        "FTM": 5.1,
+        "PTS": 26.7,
+        "REB": 8.6,
+        "STL": 1.1,
+        "TO": 2.8
+      }
+    },
+    {
+      "adp": 11.3,
+      "availability": null,
+      "draft_rank": 10,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Donovan Mitchell",
+      "nba_team": "CLE",
+      "player_id": "3908809",
+      "projected_gp": 71,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 3.3,
+        "AST": 5.7,
+        "BLK": 0.3,
+        "FGA": 19.9,
+        "FGM": 9.3,
+        "FTA": 5.8,
+        "FTM": 5,
+        "PTS": 26.8,
+        "REB": 4.8,
+        "STL": 1.6,
+        "TO": 2.6
+      }
+    },
+    {
+      "adp": 15.2,
+      "availability": null,
+      "draft_rank": 11,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Cooper Flagg",
+      "nba_team": "DAL",
+      "player_id": "5041939",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.2,
+        "AST": 4.8,
+        "BLK": 1,
+        "FGA": 20.1,
+        "FGM": 9.5,
+        "FTA": 6.1,
+        "FTM": 5.1,
+        "PTS": 25.3,
+        "REB": 7,
+        "STL": 1.3,
+        "TO": 2.4
+      }
+    },
+    {
+      "adp": 17.6,
+      "availability": null,
+      "draft_rank": 12,
+      "eligibility": [
+        "C",
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Domantas Sabonis",
+      "nba_team": "SAC",
+      "player_id": "3155942",
+      "projected_gp": 69,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.6,
+        "AST": 6.8,
+        "BLK": 0.5,
+        "FGA": 12.8,
+        "FGM": 7.5,
+        "FTA": 4.6,
+        "FTM": 3.3,
+        "PTS": 18.9,
+        "REB": 13.6,
+        "STL": 0.8,
+        "TO": 3.1
+      }
+    },
+    {
+      "adp": 13.2,
+      "availability": null,
+      "draft_rank": 13,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Tyrese Maxey",
+      "nba_team": "PHI",
+      "player_id": "4431678",
+      "projected_gp": 71,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.8,
+        "AST": 5.8,
+        "BLK": 0.6,
+        "FGA": 19.1,
+        "FGM": 8.7,
+        "FTA": 5.2,
+        "FTM": 4.6,
+        "PTS": 24.8,
+        "REB": 3.5,
+        "STL": 1.6,
+        "TO": 2.1
+      }
+    },
+    {
+      "adp": 22,
+      "availability": null,
+      "draft_rank": 14,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "LaMelo Ball",
+      "nba_team": "MIN",
+      "player_id": "4432816",
+      "projected_gp": 68,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 4.4,
+        "AST": 8.3,
+        "BLK": 0.3,
+        "FGA": 20.5,
+        "FGM": 8.3,
+        "FTA": 3.2,
+        "FTM": 2.8,
+        "PTS": 23.9,
+        "REB": 5.6,
+        "STL": 1.4,
+        "TO": 3.3
+      }
+    },
+    {
+      "adp": 13.6,
+      "availability": null,
+      "draft_rank": 15,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Jalen Brunson",
+      "nba_team": "NY",
+      "player_id": "3934672",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.6,
+        "AST": 6.9,
+        "BLK": 0.1,
+        "FGA": 20,
+        "FGM": 9.5,
+        "FTA": 6.3,
+        "FTM": 5.3,
+        "PTS": 26.9,
+        "REB": 3.3,
+        "STL": 0.9,
+        "TO": 2.4
+      }
+    },
+    {
+      "adp": 22.7,
+      "availability": null,
+      "draft_rank": 16,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Trae Young",
+      "nba_team": "WSH",
+      "player_id": "4277905",
+      "projected_gp": 71,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.9,
+        "AST": 10.8,
+        "BLK": 0.2,
+        "FGA": 17.5,
+        "FGM": 7.4,
+        "FTA": 7.2,
+        "FTM": 6.2,
+        "PTS": 23.8,
+        "REB": 2.8,
+        "STL": 1.2,
+        "TO": 4.3
+      }
+    },
+    {
+      "adp": 16.4,
+      "availability": null,
+      "draft_rank": 17,
+      "eligibility": [
+        "F",
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Scottie Barnes",
+      "nba_team": "TOR",
+      "player_id": "4433134",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1,
+        "AST": 6,
+        "BLK": 1.3,
+        "FGA": 15,
+        "FGM": 7.3,
+        "FTA": 4.1,
+        "FTM": 3.3,
+        "PTS": 18.8,
+        "REB": 7.7,
+        "STL": 1.4,
+        "TO": 2.7
+      }
+    },
+    {
+      "adp": 23.4,
+      "availability": null,
+      "draft_rank": 18,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Josh Giddey",
+      "nba_team": "CHI",
+      "player_id": "4871145",
+      "projected_gp": 68,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2,
+        "AST": 9.6,
+        "BLK": 0.6,
+        "FGA": 14.5,
+        "FGM": 6.6,
+        "FTA": 4.4,
+        "FTM": 3.4,
+        "PTS": 18.5,
+        "REB": 9.2,
+        "STL": 1.2,
+        "TO": 3.8
+      }
+    },
+    {
+      "adp": 20.6,
+      "availability": null,
+      "draft_rank": 19,
+      "eligibility": [
+        "F",
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Amen Thompson",
+      "nba_team": "HOU",
+      "player_id": "4684740",
+      "projected_gp": 78,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.3,
+        "AST": 5.1,
+        "BLK": 0.7,
+        "FGA": 12.8,
+        "FGM": 6.8,
+        "FTA": 4.8,
+        "FTM": 3.7,
+        "PTS": 17.7,
+        "REB": 7.7,
+        "STL": 1.5,
+        "TO": 2.3
+      }
+    },
+    {
+      "adp": 21.6,
+      "availability": null,
+      "draft_rank": 20,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Devin Booker",
+      "nba_team": "PHX",
+      "player_id": "3136193",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.2,
+        "AST": 6.7,
+        "BLK": 0.3,
+        "FGA": 19.1,
+        "FGM": 8.9,
+        "FTA": 7.2,
+        "FTM": 6.4,
+        "PTS": 26.5,
+        "REB": 4.2,
+        "STL": 0.9,
+        "TO": 2.9
+      }
+    },
+    {
+      "adp": 19.2,
+      "availability": null,
+      "draft_rank": 21,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Tyrese Haliburton",
+      "nba_team": "IND",
+      "player_id": "4396993",
+      "projected_gp": 64,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.9,
+        "AST": 9.9,
+        "BLK": 0.7,
+        "FGA": 14.3,
+        "FGM": 6.8,
+        "FTA": 3.1,
+        "FTM": 2.6,
+        "PTS": 19.2,
+        "REB": 3.7,
+        "STL": 1.3,
+        "TO": 1.9
+      }
+    },
+    {
+      "adp": 24.1,
+      "availability": null,
+      "draft_rank": 22,
+      "eligibility": [
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Alperen Sengun",
+      "nba_team": "HOU",
+      "player_id": "4871144",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.5,
+        "AST": 5.7,
+        "BLK": 1,
+        "FGA": 15.4,
+        "FGM": 7.9,
+        "FTA": 5.4,
+        "FTM": 3.7,
+        "PTS": 20,
+        "REB": 9.4,
+        "STL": 1.2,
+        "TO": 2.9
+      }
+    },
+    {
+      "adp": 20.3,
+      "availability": null,
+      "draft_rank": 23,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Kevin Durant",
+      "nba_team": "HOU",
+      "player_id": "3202",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.3,
+        "AST": 4.4,
+        "BLK": 1,
+        "FGA": 17.2,
+        "FGM": 9,
+        "FTA": 5.5,
+        "FTM": 4.7,
+        "PTS": 25,
+        "REB": 5.6,
+        "STL": 0.8,
+        "TO": 3
+      }
+    },
+    {
+      "adp": 21.3,
+      "availability": null,
+      "draft_rank": 24,
+      "eligibility": [
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Karl-Anthony Towns",
+      "nba_team": "NY",
+      "player_id": "3136195",
+      "projected_gp": 70,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.8,
+        "AST": 4.4,
+        "BLK": 0.6,
+        "FGA": 15.2,
+        "FGM": 7.8,
+        "FTA": 5.4,
+        "FTM": 4.6,
+        "PTS": 21.9,
+        "REB": 11.2,
+        "STL": 0.9,
+        "TO": 2.6
+      }
+    },
+    {
+      "adp": 29.3,
+      "availability": null,
+      "draft_rank": 25,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "James Harden",
+      "nba_team": "CLE",
+      "player_id": "3992",
+      "projected_gp": 73,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.8,
+        "AST": 8.1,
+        "BLK": 0.6,
+        "FGA": 14.3,
+        "FGM": 6.1,
+        "FTA": 6.4,
+        "FTM": 5.6,
+        "PTS": 20.6,
+        "REB": 5,
+        "STL": 1.2,
+        "TO": 3.4
+      }
+    },
+    {
+      "adp": 30.5,
+      "availability": null,
+      "draft_rank": 26,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Pascal Siakam",
+      "nba_team": "IND",
+      "player_id": "3149673",
+      "projected_gp": 74,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.6,
+        "AST": 4,
+        "BLK": 0.5,
+        "FGA": 17.1,
+        "FGM": 8.8,
+        "FTA": 5.1,
+        "FTM": 3.7,
+        "PTS": 22.8,
+        "REB": 7.3,
+        "STL": 1,
+        "TO": 1.8
+      }
+    },
+    {
+      "adp": 33.3,
+      "availability": null,
+      "draft_rank": 27,
+      "eligibility": [
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Jalen Duren",
+      "nba_team": "DET",
+      "player_id": "4433621",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0,
+        "AST": 2.3,
+        "BLK": 1,
+        "FGA": 11.9,
+        "FGM": 7.8,
+        "FTA": 6.3,
+        "FTM": 4.7,
+        "PTS": 20.3,
+        "REB": 11.7,
+        "STL": 0.9,
+        "TO": 2
+      }
+    },
+    {
+      "adp": 32.3,
+      "availability": null,
+      "draft_rank": 28,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Jamal Murray",
+      "nba_team": "DEN",
+      "player_id": "3936299",
+      "projected_gp": 69,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.8,
+        "AST": 6.6,
+        "BLK": 0.5,
+        "FGA": 17.3,
+        "FGM": 8.3,
+        "FTA": 4.2,
+        "FTM": 3.7,
+        "PTS": 23.1,
+        "REB": 4.1,
+        "STL": 1.1,
+        "TO": 2.2
+      }
+    },
+    {
+      "adp": 31.1,
+      "availability": null,
+      "draft_rank": 29,
+      "eligibility": [
+        "C",
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Anthony Davis",
+      "nba_team": "WSH",
+      "player_id": "6583",
+      "projected_gp": 61,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.4,
+        "AST": 3.2,
+        "BLK": 2.1,
+        "FGA": 16,
+        "FGM": 8.6,
+        "FTA": 6.2,
+        "FTM": 4.9,
+        "PTS": 22.6,
+        "REB": 11.4,
+        "STL": 1.1,
+        "TO": 2
+      }
+    },
+    {
+      "adp": 34.4,
+      "availability": null,
+      "draft_rank": 30,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Deni Avdija",
+      "nba_team": "POR",
+      "player_id": "4683021",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.9,
+        "AST": 6.3,
+        "BLK": 0.6,
+        "FGA": 15.5,
+        "FGM": 7.2,
+        "FTA": 8.4,
+        "FTM": 6.7,
+        "PTS": 23,
+        "REB": 7.2,
+        "STL": 0.8,
+        "TO": 3.6
+      }
+    },
+    {
+      "adp": 37.7,
+      "availability": null,
+      "draft_rank": 31,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Austin Reaves",
+      "nba_team": "LAL",
+      "player_id": "4066457",
+      "projected_gp": 67,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.7,
+        "AST": 5.9,
+        "BLK": 0.4,
+        "FGA": 16.7,
+        "FGM": 8.1,
+        "FTA": 7.4,
+        "FTM": 6.4,
+        "PTS": 25.4,
+        "REB": 4.9,
+        "STL": 1.1,
+        "TO": 3
+      }
+    },
+    {
+      "adp": 31.5,
+      "availability": null,
+      "draft_rank": 33,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "FGM",
+        "FGA",
+        "FTM",
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Kawhi Leonard",
+      "nba_team": "TOR",
+      "player_id": "6450",
+      "projected_gp": null,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.3,
+        "AST": 3.5,
+        "BLK": 0.6,
+        "FTA": 5,
+        "PTS": 25.1,
+        "REB": 6.2,
+        "STL": 1.7,
+        "TO": 1.9
+      }
+    },
+    {
+      "adp": 37.7,
+      "availability": null,
+      "draft_rank": 34,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "FGM",
+        "FGA",
+        "FTM",
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Jalen Williams",
+      "nba_team": "OKC",
+      "player_id": "4593803",
+      "projected_gp": null,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.5,
+        "AST": 5.3,
+        "BLK": 0.6,
+        "FTA": 4,
+        "PTS": 20.6,
+        "REB": 4.9,
+        "STL": 1.4,
+        "TO": 2
+      }
+    },
+    {
+      "adp": 36.4,
+      "availability": null,
+      "draft_rank": 35,
+      "eligibility": [
+        "F",
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "FGM",
+        "FGA",
+        "FTM",
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Evan Mobley",
+      "nba_team": "CLE",
+      "player_id": "4432158",
+      "projected_gp": null,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1,
+        "AST": 3.6,
+        "BLK": 1.7,
+        "FTA": 4.5,
+        "PTS": 18.9,
+        "REB": 9.8,
+        "STL": 0.9,
+        "TO": 2
+      }
+    },
+    {
+      "adp": 41.1,
+      "availability": null,
+      "draft_rank": 36,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "FGM",
+        "FGA",
+        "FTM",
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Derrick White",
+      "nba_team": "BOS",
+      "player_id": "3078576",
+      "projected_gp": null,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.9,
+        "AST": 5.3,
+        "BLK": 1.2,
+        "FTA": 2.6,
+        "PTS": 16.6,
+        "REB": 4.5,
+        "STL": 1.1,
+        "TO": 1.8
+      }
+    },
+    {
+      "adp": 29.8,
+      "availability": null,
+      "draft_rank": 37,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "FGM",
+        "FGA",
+        "FTM",
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Stephen Curry",
+      "nba_team": "GS",
+      "player_id": "3975",
+      "projected_gp": null,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 4.6,
+        "AST": 5.3,
+        "BLK": 0.4,
+        "FTA": 4.6,
+        "PTS": 25.8,
+        "REB": 4.2,
+        "STL": 1,
+        "TO": 2.8
+      }
+    },
+    {
+      "adp": 49.6,
+      "availability": null,
+      "draft_rank": 38,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "FGM",
+        "FGA",
+        "FTM",
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Darius Garland",
+      "nba_team": "LAC",
+      "player_id": "4396907",
+      "projected_gp": null,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.9,
+        "AST": 7.4,
+        "BLK": 0.2,
+        "FTA": 3.5,
+        "PTS": 21.6,
+        "REB": 3,
+        "STL": 1.3,
+        "TO": 3.1
+      }
+    },
+    {
+      "adp": 49.1,
+      "availability": null,
+      "draft_rank": 39,
+      "eligibility": [
+        "G",
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Desmond Bane",
+      "nba_team": "ORL",
+      "player_id": "4066320",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.4,
+        "AST": 4.8,
+        "BLK": 0.5,
+        "FGA": 15.5,
+        "FGM": 7.4,
+        "FTA": 3.8,
+        "FTM": 3.4,
+        "PTS": 20.7,
+        "REB": 4.8,
+        "STL": 1.1,
+        "TO": 2.3
+      }
+    },
+    {
+      "adp": 42.9,
+      "availability": null,
+      "draft_rank": 40,
+      "eligibility": [
+        "F",
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "FGM",
+        "FGA",
+        "FTM",
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Kon Knueppel",
+      "nba_team": "CHA",
+      "player_id": "5061575",
+      "projected_gp": null,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 3.6,
+        "AST": 3.7,
+        "BLK": 0.3,
+        "FTA": 3,
+        "PTS": 19.8,
+        "REB": 5.8,
+        "STL": 0.8,
+        "TO": 2.2
+      }
+    },
+    {
+      "adp": 32.4,
+      "availability": null,
+      "draft_rank": 41,
+      "eligibility": [
+        "F",
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Jaylen Brown",
+      "nba_team": "PHI",
+      "player_id": "3917376",
+      "projected_gp": 71,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.9,
+        "AST": 4.3,
+        "BLK": 0.4,
+        "FGA": 18.5,
+        "FGM": 8.9,
+        "FTA": 5.6,
+        "FTM": 4.3,
+        "PTS": 23.9,
+        "REB": 5.9,
+        "STL": 1.1,
+        "TO": 2.8
+      }
+    },
+    {
+      "adp": 37.6,
+      "availability": null,
+      "draft_rank": 42,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "LeBron James",
+      "nba_team": "PHI",
+      "player_id": "1966",
+      "projected_gp": 64,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.6,
+        "AST": 7,
+        "BLK": 0.5,
+        "FGA": 15.2,
+        "FGM": 7.9,
+        "FTA": 4.7,
+        "FTM": 3.5,
+        "PTS": 21,
+        "REB": 6.3,
+        "STL": 1,
+        "TO": 3
+      }
+    },
+    {
+      "adp": 60.7,
+      "availability": null,
+      "draft_rank": 44,
+      "eligibility": [
+        "C",
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Naz Reid",
+      "nba_team": "CHA",
+      "player_id": "4396971",
+      "projected_gp": 76,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.6,
+        "AST": 2.6,
+        "BLK": 1.2,
+        "FGA": 13.7,
+        "FGM": 6.3,
+        "FTA": 2,
+        "FTM": 1.5,
+        "PTS": 16.6,
+        "REB": 7.4,
+        "STL": 1.1,
+        "TO": 1.9
+      }
+    },
+    {
+      "adp": 52,
+      "availability": null,
+      "draft_rank": 45,
+      "eligibility": [
+        "F",
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Mikal Bridges",
+      "nba_team": "NY",
+      "player_id": "3147657",
+      "projected_gp": 82,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2,
+        "AST": 3.7,
+        "BLK": 0.7,
+        "FGA": 12.4,
+        "FGM": 6,
+        "FTA": 1.4,
+        "FTM": 1.1,
+        "PTS": 15.2,
+        "REB": 3.7,
+        "STL": 1.2,
+        "TO": 1.2
+      }
+    },
+    {
+      "adp": 42.1,
+      "availability": null,
+      "draft_rank": 46,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Paolo Banchero",
+      "nba_team": "ORL",
+      "player_id": "4432573",
+      "projected_gp": 69,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.4,
+        "AST": 5.2,
+        "BLK": 0.6,
+        "FGA": 17.5,
+        "FGM": 8,
+        "FTA": 8,
+        "FTM": 6,
+        "PTS": 23.4,
+        "REB": 7.9,
+        "STL": 0.8,
+        "TO": 3.1
+      }
+    },
+    {
+      "adp": 55.8,
+      "availability": null,
+      "draft_rank": 47,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Nickeil Alexander-Walker",
+      "nba_team": "ATL",
+      "player_id": "4278039",
+      "projected_gp": 79,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 3,
+        "AST": 3.5,
+        "BLK": 0.5,
+        "FGA": 14.2,
+        "FGM": 6.5,
+        "FTA": 3.5,
+        "FTM": 3.1,
+        "PTS": 19.2,
+        "REB": 3.4,
+        "STL": 1.2,
+        "TO": 1.9
+      }
+    },
+    {
+      "adp": 53.9,
+      "availability": null,
+      "draft_rank": 48,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Michael Porter Jr.",
+      "nba_team": "BKN",
+      "player_id": "4278104",
+      "projected_gp": 69,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 3.3,
+        "AST": 2.9,
+        "BLK": 0.3,
+        "FGA": 17.9,
+        "FGM": 8.4,
+        "FTA": 4,
+        "FTM": 3.4,
+        "PTS": 23.5,
+        "REB": 7.2,
+        "STL": 1,
+        "TO": 2.2
+      }
+    },
+    {
+      "adp": 60,
+      "availability": null,
+      "draft_rank": 49,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Dyson Daniels",
+      "nba_team": "ATL",
+      "player_id": "4869342",
+      "projected_gp": 75,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.4,
+        "AST": 5.6,
+        "BLK": 0.4,
+        "FGA": 10.1,
+        "FGM": 5.2,
+        "FTA": 1.6,
+        "FTM": 1,
+        "PTS": 11.7,
+        "REB": 6.5,
+        "STL": 2,
+        "TO": 1.7
+      }
+    },
+    {
+      "adp": 60,
+      "availability": null,
+      "draft_rank": 50,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Julius Randle",
+      "nba_team": "BKN",
+      "player_id": "3064514",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.6,
+        "AST": 5,
+        "BLK": 0.2,
+        "FGA": 16.4,
+        "FGM": 7.8,
+        "FTA": 6.1,
+        "FTM": 4.8,
+        "PTS": 22,
+        "REB": 8.1,
+        "STL": 0.7,
+        "TO": 3.1
+      }
+    },
+    {
+      "adp": 56.6,
+      "availability": null,
+      "draft_rank": 51,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Lauri Markkanen",
+      "nba_team": "UTAH",
+      "player_id": "4066336",
+      "projected_gp": 69,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 3,
+        "AST": 1.9,
+        "BLK": 0.5,
+        "FGA": 17.3,
+        "FGM": 8,
+        "FTA": 5.3,
+        "FTM": 4.7,
+        "PTS": 23.8,
+        "REB": 7.2,
+        "STL": 0.9,
+        "TO": 1.5
+      }
+    },
+    {
+      "adp": 69.2,
+      "availability": null,
+      "draft_rank": 52,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Dejounte Murray",
+      "nba_team": "NO",
+      "player_id": "3907497",
+      "projected_gp": 68,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.1,
+        "AST": 6.4,
+        "BLK": 0.3,
+        "FGA": 16.5,
+        "FGM": 7.4,
+        "FTA": 3.3,
+        "FTM": 2.7,
+        "PTS": 19.5,
+        "REB": 5.4,
+        "STL": 1.5,
+        "TO": 2.8
+      }
+    },
+    {
+      "adp": 50.4,
+      "availability": null,
+      "draft_rank": 53,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Stephon Castle",
+      "nba_team": "SA",
+      "player_id": "4845367",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.3,
+        "AST": 7.6,
+        "BLK": 0.3,
+        "FGA": 13.4,
+        "FGM": 6.2,
+        "FTA": 6,
+        "FTM": 4.4,
+        "PTS": 18.1,
+        "REB": 5.6,
+        "STL": 1.2,
+        "TO": 3.4
+      }
+    },
+    {
+      "adp": 66.4,
+      "availability": null,
+      "draft_rank": 54,
+      "eligibility": [
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Jarrett Allen",
+      "nba_team": "CLE",
+      "player_id": "4066328",
+      "projected_gp": 71,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0,
+        "AST": 2.2,
+        "BLK": 1,
+        "FGA": 9.7,
+        "FGM": 6.4,
+        "FTA": 4.2,
+        "FTM": 3,
+        "PTS": 15.8,
+        "REB": 10,
+        "STL": 0.9,
+        "TO": 1.4
+      }
+    },
+    {
+      "adp": 58,
+      "availability": null,
+      "draft_rank": 55,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Kyrie Irving",
+      "nba_team": "DAL",
+      "player_id": "6442",
+      "projected_gp": 59,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.8,
+        "AST": 4.8,
+        "BLK": 0.5,
+        "FGA": 18.8,
+        "FGM": 9.1,
+        "FTA": 3.8,
+        "FTM": 3.5,
+        "PTS": 24.6,
+        "REB": 4.8,
+        "STL": 1.3,
+        "TO": 2
+      }
+    },
+    {
+      "adp": 66.1,
+      "availability": null,
+      "draft_rank": 56,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Tyler Herro",
+      "nba_team": "MIL",
+      "player_id": "4395725",
+      "projected_gp": 67,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.9,
+        "AST": 4.7,
+        "BLK": 0.3,
+        "FGA": 17.1,
+        "FGM": 8.1,
+        "FTA": 3.7,
+        "FTM": 3.3,
+        "PTS": 22.5,
+        "REB": 5.1,
+        "STL": 0.8,
+        "TO": 2.2
+      }
+    },
+    {
+      "adp": 66.2,
+      "availability": null,
+      "draft_rank": 57,
+      "eligibility": [
+        "F",
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Zion Williamson",
+      "nba_team": "NO",
+      "player_id": "4395628",
+      "projected_gp": 64,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.1,
+        "AST": 4.3,
+        "BLK": 0.7,
+        "FGA": 15,
+        "FGM": 8.7,
+        "FTA": 7.6,
+        "FTM": 5.3,
+        "PTS": 22.8,
+        "REB": 6.1,
+        "STL": 1.1,
+        "TO": 2.5
+      }
+    },
+    {
+      "adp": 69.8,
+      "availability": null,
+      "draft_rank": 58,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Franz Wagner",
+      "nba_team": "ORL",
+      "player_id": "4566434",
+      "projected_gp": 66,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.6,
+        "AST": 4.2,
+        "BLK": 0.4,
+        "FGA": 17.4,
+        "FGM": 8.2,
+        "FTA": 5.3,
+        "FTM": 4.5,
+        "PTS": 22.5,
+        "REB": 5.7,
+        "STL": 1.2,
+        "TO": 2.1
+      }
+    },
+    {
+      "adp": 88.8,
+      "availability": null,
+      "draft_rank": 59,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Ty Jerome",
+      "nba_team": "MEM",
+      "player_id": "4065733",
+      "projected_gp": 64,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.8,
+        "AST": 5.8,
+        "BLK": 0.2,
+        "FGA": 14.8,
+        "FGM": 7.2,
+        "FTA": 3.7,
+        "FTM": 3.2,
+        "PTS": 20.5,
+        "REB": 3.3,
+        "STL": 1.4,
+        "TO": 2
+      }
+    },
+    {
+      "adp": 70.5,
+      "availability": null,
+      "draft_rank": 60,
+      "eligibility": [
+        "F",
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Brandon Miller",
+      "nba_team": "CHA",
+      "player_id": "4433287",
+      "projected_gp": 68,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 3.5,
+        "AST": 3.7,
+        "BLK": 0.7,
+        "FGA": 17.9,
+        "FGM": 7.8,
+        "FTA": 3.7,
+        "FTM": 3.3,
+        "PTS": 22.3,
+        "REB": 5.4,
+        "STL": 1.1,
+        "TO": 2.8
+      }
+    },
+    {
+      "adp": 70,
+      "availability": null,
+      "draft_rank": 61,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Damian Lillard",
+      "nba_team": "POR",
+      "player_id": "6606",
+      "projected_gp": 65,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.9,
+        "AST": 6.2,
+        "BLK": 0.2,
+        "FGA": 15.1,
+        "FGM": 6.6,
+        "FTA": 6,
+        "FTM": 5.5,
+        "PTS": 21.7,
+        "REB": 4,
+        "STL": 1,
+        "TO": 2.4
+      }
+    },
+    {
+      "adp": 78.8,
+      "availability": null,
+      "draft_rank": 62,
+      "eligibility": [
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Onyeka Okongwu",
+      "nba_team": "ATL",
+      "player_id": "4431680",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.8,
+        "AST": 3,
+        "BLK": 1,
+        "FGA": 11.3,
+        "FGM": 5.5,
+        "FTA": 2.8,
+        "FTM": 2.1,
+        "PTS": 15,
+        "REB": 7.8,
+        "STL": 1.1,
+        "TO": 1.6
+      }
+    },
+    {
+      "adp": 75.2,
+      "availability": null,
+      "draft_rank": 63,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Keyonte George",
+      "nba_team": "UTAH",
+      "player_id": "4433627",
+      "projected_gp": 68,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.5,
+        "AST": 6.1,
+        "BLK": 0.2,
+        "FGA": 15.9,
+        "FGM": 7,
+        "FTA": 6.4,
+        "FTM": 5.6,
+        "PTS": 22.3,
+        "REB": 3.7,
+        "STL": 1,
+        "TO": 3.1
+      }
+    },
+    {
+      "adp": 73.9,
+      "availability": null,
+      "draft_rank": 64,
+      "eligibility": [
+        "F",
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Trey Murphy III",
+      "nba_team": "NO",
+      "player_id": "4397688",
+      "projected_gp": 68,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 3,
+        "AST": 3.4,
+        "BLK": 0.4,
+        "FGA": 14.5,
+        "FGM": 6.8,
+        "FTA": 3.4,
+        "FTM": 3,
+        "PTS": 19.5,
+        "REB": 5.2,
+        "STL": 1.3,
+        "TO": 1.6
+      }
+    },
+    {
+      "adp": 82.3,
+      "availability": null,
+      "draft_rank": 65,
+      "eligibility": [
+        "G",
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Norman Powell",
+      "nba_team": "CHI",
+      "player_id": "2595516",
+      "projected_gp": 69,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 3.1,
+        "AST": 2.6,
+        "BLK": 0.3,
+        "FGA": 17.1,
+        "FGM": 8.1,
+        "FTA": 5.8,
+        "FTM": 4.8,
+        "PTS": 24,
+        "REB": 3.8,
+        "STL": 1.2,
+        "TO": 2.1
+      }
+    },
+    {
+      "adp": 75.9,
+      "availability": null,
+      "draft_rank": 66,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Caleb Wilson",
+      "nba_team": "CHI",
+      "player_id": "5095151",
+      "projected_gp": 71,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.7,
+        "AST": 1.9,
+        "BLK": 1.4,
+        "FGA": 13.7,
+        "FGM": 6.7,
+        "FTA": 4.9,
+        "FTM": 3.8,
+        "PTS": 17.9,
+        "REB": 8.1,
+        "STL": 1.1,
+        "TO": 2.1
+      }
+    },
+    {
+      "adp": 76.3,
+      "availability": null,
+      "draft_rank": 67,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Cameron Boozer",
+      "nba_team": "MEM",
+      "player_id": "5041935",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.3,
+        "AST": 3.1,
+        "BLK": 0.8,
+        "FGA": 14.6,
+        "FGM": 7.2,
+        "FTA": 4.8,
+        "FTM": 3.8,
+        "PTS": 18.5,
+        "REB": 7.9,
+        "STL": 1.1,
+        "TO": 2.5
+      }
+    },
+    {
+      "adp": 81,
+      "availability": null,
+      "draft_rank": 68,
+      "eligibility": [
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Donovan Clingan",
+      "nba_team": "POR",
+      "player_id": "5105565",
+      "projected_gp": 73,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1,
+        "AST": 2,
+        "BLK": 1.7,
+        "FGA": 8.4,
+        "FGM": 4.4,
+        "FTA": 2.5,
+        "FTM": 1.7,
+        "PTS": 11.4,
+        "REB": 11.1,
+        "STL": 0.6,
+        "TO": 1.2
+      }
+    },
+    {
+      "adp": 79.9,
+      "availability": null,
+      "draft_rank": 69,
+      "eligibility": [
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Walker Kessler",
+      "nba_team": "LAL",
+      "player_id": "4433136",
+      "projected_gp": 64,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.1,
+        "AST": 1.7,
+        "BLK": 2.6,
+        "FGA": 7.5,
+        "FGM": 5,
+        "FTA": 2.7,
+        "FTM": 1.4,
+        "PTS": 11.5,
+        "REB": 12.4,
+        "STL": 0.7,
+        "TO": 1.6
+      }
+    },
+    {
+      "adp": 79.5,
+      "availability": null,
+      "draft_rank": 70,
+      "eligibility": [
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Rudy Gobert",
+      "nba_team": "MIN",
+      "player_id": "3032976",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0,
+        "AST": 1.6,
+        "BLK": 1.7,
+        "FGA": 7,
+        "FGM": 4.7,
+        "FTA": 4.2,
+        "FTM": 2.5,
+        "PTS": 11.9,
+        "REB": 11.7,
+        "STL": 0.7,
+        "TO": 1.4
+      }
+    },
+    {
+      "adp": 66.2,
+      "availability": null,
+      "draft_rank": 71,
+      "eligibility": [
+        "C",
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Chet Holmgren",
+      "nba_team": "OKC",
+      "player_id": "4433255",
+      "projected_gp": 65,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.4,
+        "AST": 2,
+        "BLK": 2.1,
+        "FGA": 11.3,
+        "FGM": 6.1,
+        "FTA": 3.8,
+        "FTM": 3,
+        "PTS": 16.5,
+        "REB": 8.4,
+        "STL": 0.6,
+        "TO": 1.6
+      }
+    },
+    {
+      "adp": 66.8,
+      "availability": null,
+      "draft_rank": 72,
+      "eligibility": [
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Joel Embiid",
+      "nba_team": "PHI",
+      "player_id": "3059318",
+      "projected_gp": 54,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.4,
+        "AST": 4.2,
+        "BLK": 1.2,
+        "FGA": 18.5,
+        "FGM": 9.1,
+        "FTA": 9.2,
+        "FTM": 7.9,
+        "PTS": 27.4,
+        "REB": 8.2,
+        "STL": 0.7,
+        "TO": 3
+      }
+    },
+    {
+      "adp": 92.7,
+      "availability": null,
+      "draft_rank": 73,
+      "eligibility": [
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Ivica Zubac",
+      "nba_team": "IND",
+      "player_id": "4017837",
+      "projected_gp": 69,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0,
+        "AST": 2.2,
+        "BLK": 1.1,
+        "FGA": 10.3,
+        "FGM": 6.4,
+        "FTA": 2.9,
+        "FTM": 2,
+        "PTS": 14.9,
+        "REB": 11.3,
+        "STL": 0.5,
+        "TO": 1.6
+      }
+    },
+    {
+      "adp": 82.7,
+      "availability": null,
+      "draft_rank": 74,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Ja Morant",
+      "nba_team": "POR",
+      "player_id": "4279888",
+      "projected_gp": 65,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.5,
+        "AST": 7.4,
+        "BLK": 0.3,
+        "FGA": 16.9,
+        "FGM": 7.5,
+        "FTA": 6.1,
+        "FTM": 5.2,
+        "PTS": 21.6,
+        "REB": 3.9,
+        "STL": 1.1,
+        "TO": 3.5
+      }
+    },
+    {
+      "adp": 95.1,
+      "availability": null,
+      "draft_rank": 75,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Brandin Podziemski",
+      "nba_team": "GS",
+      "player_id": "4709138",
+      "projected_gp": 79,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2,
+        "AST": 4,
+        "BLK": 0.2,
+        "FGA": 11.4,
+        "FGM": 5.2,
+        "FTA": 2.9,
+        "FTM": 2.3,
+        "PTS": 14.7,
+        "REB": 5.6,
+        "STL": 1.2,
+        "TO": 1.7
+      }
+    },
+    {
+      "adp": 102.6,
+      "availability": null,
+      "draft_rank": 76,
+      "eligibility": [
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Kel'el Ware",
+      "nba_team": "MIL",
+      "player_id": "5105623",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.3,
+        "AST": 0.9,
+        "BLK": 1.3,
+        "FGA": 9.9,
+        "FGM": 5.3,
+        "FTA": 1.5,
+        "FTM": 1.1,
+        "PTS": 13,
+        "REB": 10.6,
+        "STL": 0.9,
+        "TO": 1
+      }
+    },
+    {
+      "adp": 82.5,
+      "availability": null,
+      "draft_rank": 77,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "VJ Edgecombe",
+      "nba_team": "PHI",
+      "player_id": "5124612",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2,
+        "AST": 4,
+        "BLK": 0.5,
+        "FGA": 13.1,
+        "FGM": 5.9,
+        "FTA": 2.3,
+        "FTM": 1.9,
+        "PTS": 15.7,
+        "REB": 5.4,
+        "STL": 1.4,
+        "TO": 1.7
+      }
+    },
+    {
+      "adp": 92.1,
+      "availability": null,
+      "draft_rank": 78,
+      "eligibility": [
+        "C",
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Alex Sarr",
+      "nba_team": "WSH",
+      "player_id": "5160992",
+      "projected_gp": 66,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.2,
+        "AST": 2.8,
+        "BLK": 2,
+        "FGA": 14.1,
+        "FGM": 6.6,
+        "FTA": 3.1,
+        "FTM": 2.1,
+        "PTS": 16.5,
+        "REB": 7.6,
+        "STL": 0.8,
+        "TO": 1.8
+      }
+    },
+    {
+      "adp": 90.8,
+      "availability": null,
+      "draft_rank": 79,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Matas Buzelis",
+      "nba_team": "CHI",
+      "player_id": "4711294",
+      "projected_gp": 74,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.3,
+        "AST": 2.1,
+        "BLK": 1.6,
+        "FGA": 12.9,
+        "FGM": 6,
+        "FTA": 3.1,
+        "FTM": 2.4,
+        "PTS": 16.7,
+        "REB": 6,
+        "STL": 0.7,
+        "TO": 2.1
+      }
+    },
+    {
+      "adp": 94.5,
+      "availability": null,
+      "draft_rank": 80,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Miles Bridges",
+      "nba_team": "PHX",
+      "player_id": "4066383",
+      "projected_gp": 71,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.1,
+        "AST": 3.4,
+        "BLK": 0.5,
+        "FGA": 15.7,
+        "FGM": 7.1,
+        "FTA": 3.4,
+        "FTM": 2.8,
+        "PTS": 19.1,
+        "REB": 6.7,
+        "STL": 0.7,
+        "TO": 1.8
+      }
+    },
+    {
+      "adp": 76.2,
+      "availability": null,
+      "draft_rank": 81,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "AJ Dybantsa",
+      "nba_team": "WSH",
+      "player_id": "5142718",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.7,
+        "AST": 2.8,
+        "BLK": 0.8,
+        "FGA": 15.3,
+        "FGM": 7.3,
+        "FTA": 5.9,
+        "FTM": 4.8,
+        "PTS": 20.1,
+        "REB": 4.9,
+        "STL": 1,
+        "TO": 1.9
+      }
+    },
+    {
+      "adp": 98.7,
+      "availability": null,
+      "draft_rank": 82,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "CJ McCollum",
+      "nba_team": "ATL",
+      "player_id": "2490149",
+      "projected_gp": 73,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.6,
+        "AST": 3.9,
+        "BLK": 0.5,
+        "FGA": 15.5,
+        "FGM": 7,
+        "FTA": 3.1,
+        "FTM": 2.4,
+        "PTS": 19.1,
+        "REB": 3.4,
+        "STL": 0.8,
+        "TO": 1.8
+      }
+    },
+    {
+      "adp": 100.7,
+      "availability": null,
+      "draft_rank": 83,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Coby White",
+      "nba_team": "CHA",
+      "player_id": "4395651",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.8,
+        "AST": 4.8,
+        "BLK": 0.2,
+        "FGA": 15.1,
+        "FGM": 6.8,
+        "FTA": 4.3,
+        "FTM": 3.7,
+        "PTS": 20,
+        "REB": 4.1,
+        "STL": 0.7,
+        "TO": 2.5
+      }
+    },
+    {
+      "adp": 87.2,
+      "availability": null,
+      "draft_rank": 84,
+      "eligibility": [
+        "C",
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "FGM",
+        "FGA",
+        "FTM",
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Jaren Jackson Jr.",
+      "nba_team": "UTAH",
+      "player_id": "4277961",
+      "projected_gp": null,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.9,
+        "AST": 2.1,
+        "BLK": 1.6,
+        "FTA": 5.4,
+        "PTS": 21.9,
+        "REB": 5.7,
+        "STL": 1.2,
+        "TO": 2.3
+      }
+    },
+    {
+      "adp": 80.2,
+      "availability": null,
+      "draft_rank": 85,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Dylan Harper",
+      "nba_team": "SA",
+      "player_id": "5037871",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.2,
+        "AST": 5,
+        "BLK": 0.5,
+        "FGA": 12.3,
+        "FGM": 6.1,
+        "FTA": 2.2,
+        "FTM": 1.7,
+        "PTS": 15.1,
+        "REB": 4.4,
+        "STL": 1,
+        "TO": 1.9
+      }
+    },
+    {
+      "adp": 102.7,
+      "availability": null,
+      "draft_rank": 86,
+      "eligibility": [
+        "C",
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Derik Queen",
+      "nba_team": "NO",
+      "player_id": "4869780",
+      "projected_gp": 76,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.4,
+        "AST": 3.9,
+        "BLK": 1,
+        "FGA": 9.7,
+        "FGM": 4.7,
+        "FTA": 3.6,
+        "FTM": 2.9,
+        "PTS": 12.6,
+        "REB": 7.4,
+        "STL": 1.1,
+        "TO": 2.5
+      }
+    },
+    {
+      "adp": 98.4,
+      "availability": null,
+      "draft_rank": 87,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "DeMar DeRozan",
+      "nba_team": "DEN",
+      "player_id": "3978",
+      "projected_gp": 77,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.7,
+        "AST": 3.8,
+        "BLK": 0.3,
+        "FGA": 12.9,
+        "FGM": 6.2,
+        "FTA": 5.1,
+        "FTM": 4.4,
+        "PTS": 17.6,
+        "REB": 3,
+        "STL": 0.8,
+        "TO": 1.2
+      }
+    },
+    {
+      "adp": 105.6,
+      "availability": null,
+      "draft_rank": 88,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Reed Sheppard",
+      "nba_team": "HOU",
+      "player_id": "4711272",
+      "projected_gp": 76,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.8,
+        "AST": 3.4,
+        "BLK": 0.7,
+        "FGA": 11.6,
+        "FGM": 4.9,
+        "FTA": 1,
+        "FTM": 0.8,
+        "PTS": 13.5,
+        "REB": 3,
+        "STL": 1.5,
+        "TO": 1.5
+      }
+    },
+    {
+      "adp": 107.5,
+      "availability": null,
+      "draft_rank": 89,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Fred VanVleet",
+      "nba_team": "HOU",
+      "player_id": "2991230",
+      "projected_gp": 68,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.5,
+        "AST": 6,
+        "BLK": 0.5,
+        "FGA": 11.9,
+        "FGM": 4.7,
+        "FTA": 2.4,
+        "FTM": 2,
+        "PTS": 14,
+        "REB": 3.4,
+        "STL": 1.3,
+        "TO": 1.4
+      }
+    },
+    {
+      "adp": 101.4,
+      "availability": null,
+      "draft_rank": 90,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Payton Pritchard",
+      "nba_team": "BOS",
+      "player_id": "4066354",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.6,
+        "AST": 4.8,
+        "BLK": 0.1,
+        "FGA": 12.9,
+        "FGM": 6,
+        "FTA": 1.6,
+        "FTM": 1.4,
+        "PTS": 16,
+        "REB": 3.8,
+        "STL": 0.7,
+        "TO": 1.3
+      }
+    },
+    {
+      "adp": 109.8,
+      "availability": null,
+      "draft_rank": 91,
+      "eligibility": [
+        "G",
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Jalen Green",
+      "nba_team": "PHX",
+      "player_id": "4437244",
+      "projected_gp": 70,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.8,
+        "AST": 3.5,
+        "BLK": 0.3,
+        "FGA": 18.7,
+        "FGM": 7.9,
+        "FTA": 3.7,
+        "FTM": 2.9,
+        "PTS": 21.4,
+        "REB": 4.6,
+        "STL": 1.1,
+        "TO": 2.6
+      }
+    },
+    {
+      "adp": 107.5,
+      "availability": null,
+      "draft_rank": 92,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Immanuel Quickley",
+      "nba_team": "TOR",
+      "player_id": "4395724",
+      "projected_gp": 65,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.6,
+        "AST": 5.8,
+        "BLK": 0.1,
+        "FGA": 13.3,
+        "FGM": 5.8,
+        "FTA": 3.3,
+        "FTM": 2.8,
+        "PTS": 17,
+        "REB": 4,
+        "STL": 1.1,
+        "TO": 1.5
+      }
+    },
+    {
+      "adp": 85.5,
+      "availability": null,
+      "draft_rank": 93,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "OG Anunoby",
+      "nba_team": "NY",
+      "player_id": "3934719",
+      "projected_gp": 68,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.3,
+        "AST": 2.2,
+        "BLK": 0.7,
+        "FGA": 12.3,
+        "FGM": 5.9,
+        "FTA": 3.3,
+        "FTM": 2.7,
+        "PTS": 16.9,
+        "REB": 5.2,
+        "STL": 1.5,
+        "TO": 1.8
+      }
+    },
+    {
+      "adp": 99.8,
+      "availability": null,
+      "draft_rank": 94,
+      "eligibility": [
+        "F",
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Josh Hart",
+      "nba_team": "NY",
+      "player_id": "3062679",
+      "projected_gp": 68,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.4,
+        "AST": 5,
+        "BLK": 0.3,
+        "FGA": 9.1,
+        "FGM": 4.6,
+        "FTA": 2,
+        "FTM": 1.5,
+        "PTS": 12.2,
+        "REB": 7.7,
+        "STL": 1.2,
+        "TO": 2
+      }
+    },
+    {
+      "adp": 107,
+      "availability": null,
+      "draft_rank": 95,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Darius Acuff Jr.",
+      "nba_team": "SAC",
+      "player_id": "5142620",
+      "projected_gp": 73,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.9,
+        "AST": 5.9,
+        "BLK": 0.3,
+        "FGA": 13.6,
+        "FGM": 6,
+        "FTA": 4.7,
+        "FTM": 4,
+        "PTS": 16.9,
+        "REB": 3.3,
+        "STL": 1.1,
+        "TO": 2.9
+      }
+    },
+    {
+      "adp": 99.4,
+      "availability": null,
+      "draft_rank": 96,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Jaden McDaniels",
+      "nba_team": "MIN",
+      "player_id": "4431671",
+      "projected_gp": 74,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.4,
+        "AST": 2.5,
+        "BLK": 1,
+        "FGA": 10.8,
+        "FGM": 5.5,
+        "FTA": 2.2,
+        "FTM": 1.8,
+        "PTS": 14.2,
+        "REB": 4.4,
+        "STL": 1.1,
+        "TO": 1.7
+      }
+    },
+    {
+      "adp": 109.8,
+      "availability": null,
+      "draft_rank": 97,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Ryan Rollins",
+      "nba_team": "MIL",
+      "player_id": "4591725",
+      "projected_gp": 69,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.1,
+        "AST": 4.8,
+        "BLK": 0.4,
+        "FGA": 12,
+        "FGM": 5.7,
+        "FTA": 1.8,
+        "FTM": 1.4,
+        "PTS": 14.9,
+        "REB": 4,
+        "STL": 1.3,
+        "TO": 2.3
+      }
+    },
+    {
+      "adp": 115.5,
+      "availability": null,
+      "draft_rank": 98,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Ayo Dosunmu",
+      "nba_team": "MIN",
+      "player_id": "4397002",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.8,
+        "AST": 3.9,
+        "BLK": 0.3,
+        "FGA": 11.3,
+        "FGM": 5.8,
+        "FTA": 2.1,
+        "FTM": 1.8,
+        "PTS": 15.3,
+        "REB": 3.6,
+        "STL": 0.9,
+        "TO": 1.5
+      }
+    },
+    {
+      "adp": 113.8,
+      "availability": null,
+      "draft_rank": 99,
+      "eligibility": [
+        "C",
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Kristaps Porzingis",
+      "nba_team": "GS",
+      "player_id": "3102531",
+      "projected_gp": 59,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2,
+        "AST": 2.2,
+        "BLK": 1.6,
+        "FGA": 13,
+        "FGM": 6.3,
+        "FTA": 5,
+        "FTM": 4.2,
+        "PTS": 18.8,
+        "REB": 6.5,
+        "STL": 0.7,
+        "TO": 1.4
+      }
+    },
+    {
+      "adp": 115.2,
+      "availability": null,
+      "draft_rank": 100,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Kevin Porter Jr.",
+      "nba_team": "MIL",
+      "player_id": "4397140",
+      "projected_gp": 66,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1,
+        "AST": 5.7,
+        "BLK": 0.4,
+        "FGA": 11.1,
+        "FGM": 5.1,
+        "FTA": 3.3,
+        "FTM": 2.8,
+        "PTS": 14.1,
+        "REB": 4.3,
+        "STL": 1.7,
+        "TO": 2.4
+      }
+    },
+    {
+      "adp": 117.5,
+      "availability": null,
+      "draft_rank": 101,
+      "eligibility": [
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Nikola Vucevic",
+      "nba_team": "ORL",
+      "player_id": "6478",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.2,
+        "AST": 2.7,
+        "BLK": 0.6,
+        "FGA": 11.4,
+        "FGM": 5.7,
+        "FTA": 1.4,
+        "FTM": 1.1,
+        "PTS": 13.8,
+        "REB": 7.7,
+        "STL": 0.6,
+        "TO": 1.2
+      }
+    },
+    {
+      "adp": 115.6,
+      "availability": null,
+      "draft_rank": 102,
+      "eligibility": [
+        "F",
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "John Collins",
+      "nba_team": "DET",
+      "player_id": "3908845",
+      "projected_gp": 68,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.4,
+        "AST": 1.3,
+        "BLK": 0.9,
+        "FGA": 11.7,
+        "FGM": 6.3,
+        "FTA": 2.9,
+        "FTM": 2.3,
+        "PTS": 16.4,
+        "REB": 7.7,
+        "STL": 0.8,
+        "TO": 1.7
+      }
+    },
+    {
+      "adp": 103.4,
+      "availability": null,
+      "draft_rank": 103,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Ausar Thompson",
+      "nba_team": "DET",
+      "player_id": "4684742",
+      "projected_gp": 70,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.1,
+        "AST": 3.1,
+        "BLK": 1,
+        "FGA": 8.3,
+        "FGM": 4.4,
+        "FTA": 2.7,
+        "FTM": 1.6,
+        "PTS": 10.4,
+        "REB": 6,
+        "STL": 2,
+        "TO": 1.6
+      }
+    },
+    {
+      "adp": 113,
+      "availability": null,
+      "draft_rank": 104,
+      "eligibility": [
+        "F",
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "RJ Barrett",
+      "nba_team": "TOR",
+      "player_id": "4395625",
+      "projected_gp": 66,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.7,
+        "AST": 3.9,
+        "BLK": 0.3,
+        "FGA": 15.1,
+        "FGM": 7.3,
+        "FTA": 5,
+        "FTM": 3.4,
+        "PTS": 19.7,
+        "REB": 5.6,
+        "STL": 0.7,
+        "TO": 2.1
+      }
+    },
+    {
+      "adp": 116.3,
+      "availability": null,
+      "draft_rank": 105,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Andrew Wiggins",
+      "nba_team": "MIA",
+      "player_id": "3059319",
+      "projected_gp": 67,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2,
+        "AST": 2.7,
+        "BLK": 1,
+        "FGA": 12.3,
+        "FGM": 5.8,
+        "FTA": 2.6,
+        "FTM": 2,
+        "PTS": 15.7,
+        "REB": 4.8,
+        "STL": 1.1,
+        "TO": 1.5
+      }
+    },
+    {
+      "adp": 122.6,
+      "availability": null,
+      "draft_rank": 106,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Tobias Harris",
+      "nba_team": "SA",
+      "player_id": "6440",
+      "projected_gp": 71,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.3,
+        "AST": 2.6,
+        "BLK": 0.6,
+        "FGA": 11.5,
+        "FGM": 5.5,
+        "FTA": 2.6,
+        "FTM": 2.3,
+        "PTS": 14.5,
+        "REB": 5.7,
+        "STL": 1,
+        "TO": 1.1
+      }
+    },
+    {
+      "adp": 130.9,
+      "availability": null,
+      "draft_rank": 107,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Egor Demin",
+      "nba_team": "BKN",
+      "player_id": "5175643",
+      "projected_gp": 71,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 3.1,
+        "AST": 4.3,
+        "BLK": 0.4,
+        "FGA": 11.1,
+        "FGM": 4.9,
+        "FTA": 1.6,
+        "FTM": 1.3,
+        "PTS": 14.3,
+        "REB": 4.1,
+        "STL": 1,
+        "TO": 2.1
+      }
+    },
+    {
+      "adp": 108.8,
+      "availability": null,
+      "draft_rank": 108,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Darryn Peterson",
+      "nba_team": "UTAH",
+      "player_id": "5041955",
+      "projected_gp": 73,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.9,
+        "AST": 2.8,
+        "BLK": 0.3,
+        "FGA": 15.6,
+        "FGM": 7,
+        "FTA": 5.4,
+        "FTM": 4.4,
+        "PTS": 19.4,
+        "REB": 3.8,
+        "STL": 1.3,
+        "TO": 2.3
+      }
+    },
+    {
+      "adp": 106.5,
+      "availability": null,
+      "draft_rank": 109,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Paul George",
+      "nba_team": "BOS",
+      "player_id": "4251",
+      "projected_gp": 55,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.9,
+        "AST": 3.8,
+        "BLK": 0.5,
+        "FGA": 15.5,
+        "FGM": 7,
+        "FTA": 3.3,
+        "FTM": 2.9,
+        "PTS": 19.8,
+        "REB": 5.4,
+        "STL": 1.7,
+        "TO": 2.1
+      }
+    },
+    {
+      "adp": 91.4,
+      "availability": null,
+      "draft_rank": 110,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Brandon Ingram",
+      "nba_team": "LAC",
+      "player_id": "3913176",
+      "projected_gp": 55,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.7,
+        "AST": 4.8,
+        "BLK": 0.7,
+        "FGA": 17.6,
+        "FGM": 8.5,
+        "FTA": 4.8,
+        "FTM": 3.9,
+        "PTS": 22.6,
+        "REB": 5.7,
+        "STL": 0.8,
+        "TO": 2.8
+      }
+    },
+    {
+      "adp": 127,
+      "availability": null,
+      "draft_rank": 111,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Jeremiah Fears",
+      "nba_team": "NO",
+      "player_id": "5144091",
+      "projected_gp": 77,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.4,
+        "AST": 3.5,
+        "BLK": 0.4,
+        "FGA": 12.6,
+        "FGM": 5.6,
+        "FTA": 3.1,
+        "FTM": 2.5,
+        "PTS": 15.1,
+        "REB": 3.8,
+        "STL": 1.2,
+        "TO": 2.2
+      }
+    },
+    {
+      "adp": 125.6,
+      "availability": null,
+      "draft_rank": 112,
+      "eligibility": [
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Nic Claxton",
+      "nba_team": "CHI",
+      "player_id": "4278067",
+      "projected_gp": 69,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.1,
+        "AST": 3.4,
+        "BLK": 1.2,
+        "FGA": 8.4,
+        "FGM": 4.8,
+        "FTA": 3.1,
+        "FTM": 1.9,
+        "PTS": 11.6,
+        "REB": 7.1,
+        "STL": 0.7,
+        "TO": 1.4
+      }
+    },
+    {
+      "adp": 127.8,
+      "availability": null,
+      "draft_rank": 113,
+      "eligibility": [
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Jakob Poeltl",
+      "nba_team": "TOR",
+      "player_id": "3134908",
+      "projected_gp": 66,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0,
+        "AST": 2.4,
+        "BLK": 1.1,
+        "FGA": 8.1,
+        "FGM": 5.3,
+        "FTA": 2.3,
+        "FTM": 1.4,
+        "PTS": 12,
+        "REB": 8.4,
+        "STL": 0.9,
+        "TO": 1.6
+      }
+    },
+    {
+      "adp": 123.8,
+      "availability": null,
+      "draft_rank": 114,
+      "eligibility": [
+        "F",
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Jaime Jaquez Jr.",
+      "nba_team": "MIL",
+      "player_id": "4432848",
+      "projected_gp": 74,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.8,
+        "AST": 4.3,
+        "BLK": 0.3,
+        "FGA": 11.4,
+        "FGM": 5.7,
+        "FTA": 2.8,
+        "FTM": 2.1,
+        "PTS": 14.4,
+        "REB": 4.9,
+        "STL": 0.7,
+        "TO": 1.9
+      }
+    },
+    {
+      "adp": 128.4,
+      "availability": null,
+      "draft_rank": 115,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Collin Gillespie",
+      "nba_team": "PHX",
+      "player_id": "4278585",
+      "projected_gp": 73,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.7,
+        "AST": 4.4,
+        "BLK": 0.2,
+        "FGA": 9.9,
+        "FGM": 4.2,
+        "FTA": 1,
+        "FTM": 0.9,
+        "PTS": 11.9,
+        "REB": 3.9,
+        "STL": 1.2,
+        "TO": 1.4
+      }
+    },
+    {
+      "adp": 125.6,
+      "availability": null,
+      "draft_rank": 116,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Keegan Murray",
+      "nba_team": "SAC",
+      "player_id": "4594327",
+      "projected_gp": 71,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2,
+        "AST": 1.6,
+        "BLK": 1,
+        "FGA": 12,
+        "FGM": 5.3,
+        "FTA": 1.4,
+        "FTM": 1.1,
+        "PTS": 13.8,
+        "REB": 6,
+        "STL": 0.9,
+        "TO": 0.9
+      }
+    },
+    {
+      "adp": 126.1,
+      "availability": null,
+      "draft_rank": 117,
+      "eligibility": [
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Peyton Watson",
+      "nba_team": "CLE",
+      "player_id": "4576087",
+      "projected_gp": 71,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.4,
+        "AST": 2.1,
+        "BLK": 1.3,
+        "FGA": 10.6,
+        "FGM": 5.2,
+        "FTA": 3.4,
+        "FTM": 2.5,
+        "PTS": 14.2,
+        "REB": 5,
+        "STL": 0.9,
+        "TO": 1.6
+      }
+    },
+    {
+      "adp": 122.7,
+      "availability": null,
+      "draft_rank": 118,
+      "eligibility": [
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Zach Edey",
+      "nba_team": "MEM",
+      "player_id": "4600663",
+      "projected_gp": 62,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.2,
+        "AST": 1.2,
+        "BLK": 1.8,
+        "FGA": 8.6,
+        "FGM": 5.2,
+        "FTA": 2.7,
+        "FTM": 2,
+        "PTS": 12.7,
+        "REB": 10.8,
+        "STL": 0.7,
+        "TO": 2.1
+      }
+    },
+    {
+      "adp": 129.5,
+      "availability": null,
+      "draft_rank": 119,
+      "eligibility": [
+        "G",
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Quentin Grimes",
+      "nba_team": "LAL",
+      "player_id": "4397014",
+      "projected_gp": 73,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.1,
+        "AST": 3.4,
+        "BLK": 0.4,
+        "FGA": 11.3,
+        "FGM": 5.1,
+        "FTA": 3.2,
+        "FTM": 2.6,
+        "PTS": 14.9,
+        "REB": 4.2,
+        "STL": 1,
+        "TO": 1.9
+      }
+    },
+    {
+      "adp": 128.2,
+      "availability": null,
+      "draft_rank": 120,
+      "eligibility": [
+        "F",
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Cedric Coward",
+      "nba_team": "MEM",
+      "player_id": "4903027",
+      "projected_gp": 69,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.7,
+        "AST": 3,
+        "BLK": 0.5,
+        "FGA": 11.5,
+        "FGM": 5.5,
+        "FTA": 3,
+        "FTM": 2.6,
+        "PTS": 15.4,
+        "REB": 6.5,
+        "STL": 0.7,
+        "TO": 1.9
+      }
+    },
+    {
+      "adp": 122.3,
+      "availability": null,
+      "draft_rank": 121,
+      "eligibility": [
+        "F",
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "FGM",
+        "FGA",
+        "FTM",
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Jabari Smith Jr.",
+      "nba_team": "HOU",
+      "player_id": "4432639",
+      "projected_gp": null,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2,
+        "AST": 1.6,
+        "BLK": 0.8,
+        "FTA": 2.5,
+        "PTS": 14.1,
+        "REB": 6.8,
+        "STL": 0.6,
+        "TO": 1.2
+      }
+    },
+    {
+      "adp": 127.5,
+      "availability": null,
+      "draft_rank": 122,
+      "eligibility": [
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "FGM",
+        "FGA",
+        "FTM",
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Myles Turner",
+      "nba_team": "MIL",
+      "player_id": "3133628",
+      "projected_gp": null,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.1,
+        "AST": 1.5,
+        "BLK": 1.7,
+        "FTA": 2.6,
+        "PTS": 12.4,
+        "REB": 5.5,
+        "STL": 0.7,
+        "TO": 1.3
+      }
+    },
+    {
+      "adp": 133.3,
+      "availability": null,
+      "draft_rank": 123,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Collin Sexton",
+      "nba_team": "LAL",
+      "player_id": "4277811",
+      "projected_gp": 70,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.7,
+        "AST": 4.1,
+        "BLK": 0.2,
+        "FGA": 12.5,
+        "FGM": 6.1,
+        "FTA": 4.1,
+        "FTM": 3.5,
+        "PTS": 17.3,
+        "REB": 2.5,
+        "STL": 0.9,
+        "TO": 2.2
+      }
+    },
+    {
+      "adp": 130.8,
+      "availability": null,
+      "draft_rank": 124,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Andrew Nembhard",
+      "nba_team": "IND",
+      "player_id": "4395712",
+      "projected_gp": 71,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.2,
+        "AST": 5.9,
+        "BLK": 0.1,
+        "FGA": 10.2,
+        "FGM": 4.7,
+        "FTA": 2.4,
+        "FTM": 1.9,
+        "PTS": 12.6,
+        "REB": 3,
+        "STL": 1.1,
+        "TO": 2
+      }
+    },
+    {
+      "adp": 134.6,
+      "availability": null,
+      "draft_rank": 127,
+      "eligibility": [
+        "G",
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Kyshawn George",
+      "nba_team": "WSH",
+      "player_id": "5174563",
+      "projected_gp": 66,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.1,
+        "AST": 4.2,
+        "BLK": 0.9,
+        "FGA": 11.6,
+        "FGM": 5,
+        "FTA": 2.5,
+        "FTM": 2,
+        "PTS": 14,
+        "REB": 5.1,
+        "STL": 1,
+        "TO": 2.4
+      }
+    },
+    {
+      "adp": 125.6,
+      "availability": null,
+      "draft_rank": 130,
+      "eligibility": [
+        "G",
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Zach LaVine",
+      "nba_team": "SAC",
+      "player_id": "3064440",
+      "projected_gp": 61,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.8,
+        "AST": 3.4,
+        "BLK": 0.2,
+        "FGA": 14.9,
+        "FGM": 7.3,
+        "FTA": 3.7,
+        "FTM": 3.1,
+        "PTS": 20.5,
+        "REB": 3.8,
+        "STL": 0.7,
+        "TO": 2.3
+      }
+    },
+    {
+      "adp": 137.2,
+      "availability": null,
+      "draft_rank": 131,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Anthony Black",
+      "nba_team": "ORL",
+      "player_id": "4712849",
+      "projected_gp": 69,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.4,
+        "AST": 3.5,
+        "BLK": 0.7,
+        "FGA": 11.2,
+        "FGM": 5,
+        "FTA": 3.4,
+        "FTM": 2.5,
+        "PTS": 13.8,
+        "REB": 3.7,
+        "STL": 1.4,
+        "TO": 2
+      }
+    },
+    {
+      "adp": 138.5,
+      "availability": null,
+      "draft_rank": 132,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Scotty Pippen Jr.",
+      "nba_team": "MEM",
+      "player_id": "4431785",
+      "projected_gp": 63,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.3,
+        "AST": 5.3,
+        "BLK": 0.5,
+        "FGA": 9.9,
+        "FGM": 4.6,
+        "FTA": 2.6,
+        "FTM": 1.9,
+        "PTS": 12.4,
+        "REB": 3.4,
+        "STL": 1.8,
+        "TO": 2.5
+      }
+    },
+    {
+      "adp": 133,
+      "availability": null,
+      "draft_rank": 135,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Jrue Holiday",
+      "nba_team": "POR",
+      "player_id": "3995",
+      "projected_gp": 68,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.9,
+        "AST": 4.5,
+        "BLK": 0.4,
+        "FGA": 10,
+        "FGM": 4.6,
+        "FTA": 1.3,
+        "FTM": 1.1,
+        "PTS": 12.2,
+        "REB": 4.4,
+        "STL": 0.9,
+        "TO": 1.8
+      }
+    },
+    {
+      "adp": 139.9,
+      "availability": null,
+      "draft_rank": 138,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Malik Monk",
+      "nba_team": "SAC",
+      "player_id": "4066262",
+      "projected_gp": 68,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.1,
+        "AST": 4.5,
+        "BLK": 0.5,
+        "FGA": 12.2,
+        "FGM": 5.4,
+        "FTA": 2.4,
+        "FTM": 2.1,
+        "PTS": 14.9,
+        "REB": 2.8,
+        "STL": 0.7,
+        "TO": 2
+      }
+    },
+    {
+      "adp": 132.2,
+      "availability": null,
+      "draft_rank": 140,
+      "eligibility": [
+        "F",
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Dillon Brooks",
+      "nba_team": "PHX",
+      "player_id": "3155526",
+      "projected_gp": 69,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.3,
+        "AST": 1.7,
+        "BLK": 0.2,
+        "FGA": 15.8,
+        "FGM": 6.9,
+        "FTA": 3.1,
+        "FTM": 2.6,
+        "PTS": 18.6,
+        "REB": 3.6,
+        "STL": 1,
+        "TO": 1.6
+      }
+    },
+    {
+      "adp": 134.9,
+      "availability": null,
+      "draft_rank": 141,
+      "eligibility": [
+        "G",
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Devin Vassell",
+      "nba_team": "SA",
+      "player_id": "4395630",
+      "projected_gp": 69,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.1,
+        "AST": 2.7,
+        "BLK": 0.4,
+        "FGA": 11.7,
+        "FGM": 5.3,
+        "FTA": 2,
+        "FTM": 1.6,
+        "PTS": 14.3,
+        "REB": 3.5,
+        "STL": 0.9,
+        "TO": 1.1
+      }
+    },
+    {
+      "adp": 137.5,
+      "availability": null,
+      "draft_rank": 146,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Cason Wallace",
+      "nba_team": "OKC",
+      "player_id": "4683692",
+      "projected_gp": 76,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.3,
+        "AST": 2.5,
+        "BLK": 0.4,
+        "FGA": 7.4,
+        "FGM": 3.3,
+        "FTA": 0.8,
+        "FTM": 0.6,
+        "PTS": 8.4,
+        "REB": 3.1,
+        "STL": 1.9,
+        "TO": 0.9
+      }
+    },
+    {
+      "adp": 139,
+      "availability": null,
+      "draft_rank": 150,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Davion Mitchell",
+      "nba_team": "MIA",
+      "player_id": "4278053",
+      "projected_gp": 71,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.2,
+        "AST": 6,
+        "BLK": 0.2,
+        "FGA": 7.3,
+        "FGM": 3.5,
+        "FTA": 0.9,
+        "FTM": 0.6,
+        "PTS": 8.9,
+        "REB": 2.5,
+        "STL": 0.9,
+        "TO": 1.5
+      }
+    },
+    {
+      "adp": 137.3,
+      "availability": null,
+      "draft_rank": 151,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Jalen Suggs",
+      "nba_team": "ORL",
+      "player_id": "4432165",
+      "projected_gp": 62,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2,
+        "AST": 4,
+        "BLK": 0.7,
+        "FGA": 10.7,
+        "FGM": 4.7,
+        "FTA": 2.2,
+        "FTM": 1.8,
+        "PTS": 13.2,
+        "REB": 3.4,
+        "STL": 1.5,
+        "TO": 2.3
+      }
+    },
+    {
+      "adp": 140.8,
+      "availability": null,
+      "draft_rank": 158,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Tre Jones",
+      "nba_team": "CHI",
+      "player_id": "4395626",
+      "projected_gp": 68,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.5,
+        "AST": 4.5,
+        "BLK": 0.1,
+        "FGA": 7.6,
+        "FGM": 4.2,
+        "FTA": 2.7,
+        "FTM": 2.3,
+        "PTS": 11.1,
+        "REB": 2.6,
+        "STL": 1,
+        "TO": 1.1
+      }
+    },
+    {
+      "adp": 140.5,
+      "availability": null,
+      "draft_rank": 162,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Mikel Brown Jr.",
+      "nba_team": "BKN",
+      "player_id": "5101761",
+      "projected_gp": 71,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.7,
+        "AST": 3.4,
+        "BLK": 0.2,
+        "FGA": 13.5,
+        "FGM": 5.7,
+        "FTA": 4.8,
+        "FTM": 3.8,
+        "PTS": 15.9,
+        "REB": 2.5,
+        "STL": 1.3,
+        "TO": 2.4
+      }
+    },
+    {
+      "adp": 140.7,
+      "availability": null,
+      "draft_rank": 163,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "T.J. McConnell",
+      "nba_team": "IND",
+      "player_id": "2530530",
+      "projected_gp": 70,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.2,
+        "AST": 4.9,
+        "BLK": 0.2,
+        "FGA": 8,
+        "FGM": 4.3,
+        "FTA": 0.8,
+        "FTM": 0.6,
+        "PTS": 9.4,
+        "REB": 2.5,
+        "STL": 1,
+        "TO": 1.4
+      }
+    },
+    {
+      "adp": 140.1,
+      "availability": null,
+      "draft_rank": 164,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "FGM",
+        "FGA",
+        "FTM",
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Keaton Wagler",
+      "nba_team": "LAC",
+      "player_id": "5254165",
+      "projected_gp": null,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.6,
+        "AST": 4.3,
+        "BLK": 0.2,
+        "FTA": 3.1,
+        "PTS": 13.3,
+        "REB": 3.1,
+        "STL": 1,
+        "TO": 2.3
+      }
+    },
+    {
+      "adp": 140,
+      "availability": null,
+      "draft_rank": 165,
+      "eligibility": [
+        "F",
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "FGM",
+        "FGA",
+        "FTM",
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Bennedict Mathurin",
+      "nba_team": "NO",
+      "player_id": "4683634",
+      "projected_gp": null,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.4,
+        "AST": 2.1,
+        "BLK": 0.3,
+        "FTA": 5.2,
+        "PTS": 16.5,
+        "REB": 5.1,
+        "STL": 0.7,
+        "TO": 2
+      }
+    },
+    {
+      "adp": 140.9,
+      "availability": null,
+      "draft_rank": 169,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "FGM",
+        "FGA",
+        "FTM",
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Jamal Shead",
+      "nba_team": "TOR",
+      "player_id": "4432241",
+      "projected_gp": null,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.1,
+        "AST": 5.5,
+        "BLK": 0.2,
+        "FTA": 1.4,
+        "PTS": 7.1,
+        "REB": 1.8,
+        "STL": 1,
+        "TO": 1.5
+      }
+    },
+    {
+      "adp": 140.7,
+      "availability": null,
+      "draft_rank": 170,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "FGM",
+        "FGA",
+        "FTM",
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Grayson Allen",
+      "nba_team": "CHA",
+      "player_id": "3135045",
+      "projected_gp": null,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.7,
+        "AST": 3.2,
+        "BLK": 0.3,
+        "FTA": 2.7,
+        "PTS": 14,
+        "REB": 2.9,
+        "STL": 1.1,
+        "TO": 1.4
+      }
+    },
+    {
+      "adp": 140.3,
+      "availability": null,
+      "draft_rank": 171,
+      "eligibility": [
+        "G",
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "FGM",
+        "FGA",
+        "FTM",
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Tim Hardaway Jr.",
+      "nba_team": "MIA",
+      "player_id": "2528210",
+      "projected_gp": null,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.7,
+        "AST": 1.4,
+        "BLK": 0.1,
+        "FTA": 2.4,
+        "PTS": 13.3,
+        "REB": 2.6,
+        "STL": 0.5,
+        "TO": 0.6
+      }
+    },
+    {
+      "adp": 140.4,
+      "availability": null,
+      "draft_rank": 172,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "FGM",
+        "FGA",
+        "FTM",
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Scoot Henderson",
+      "nba_team": "POR",
+      "player_id": "4683678",
+      "projected_gp": null,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.8,
+        "AST": 4.5,
+        "BLK": 0.3,
+        "FTA": 3.4,
+        "PTS": 14.4,
+        "REB": 2.9,
+        "STL": 1,
+        "TO": 2.7
+      }
+    },
+    {
+      "adp": 138.9,
+      "availability": null,
+      "draft_rank": 175,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "FGM",
+        "FGA",
+        "FTM",
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Alex Caruso",
+      "nba_team": "OKC",
+      "player_id": "2991350",
+      "projected_gp": null,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.3,
+        "AST": 2.7,
+        "BLK": 0.5,
+        "FTA": 1.2,
+        "PTS": 8.4,
+        "REB": 3.6,
+        "STL": 1.7,
+        "TO": 1.1
+      }
+    }
+  ],
+  "observed_at": "2026-10-11T03:06:29.091Z",
+  "on_clock_team": null,
+  "phase": "complete",
+  "pick_order": [
+    "Example Opponent 24",
+    "Example Opponent 23",
+    "Example Opponent 26",
+    "KAT\u2019s fruit basket",
+    "Example Opponent 27",
+    "Example Opponent 04",
+    "Team 16",
+    "Example Opponent 21",
+    "Example Opponent 01",
+    "Example Opponent 03",
+    "Example Opponent 22",
+    "Example Opponent 07",
+    "Example Team",
+    "Example Opponent 06"
+  ],
+  "revision": 147,
+  "room": {
+    "league_id": "1000000005",
+    "practice": true,
+    "season_id": "2027",
+    "team_id": "15"
+  },
+  "roster": [
+    {
+      "adp": 17.6,
+      "availability": null,
+      "draft_rank": 12,
+      "eligibility": [
+        "C",
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Domantas Sabonis",
+      "nba_team": "SAC",
+      "player_id": "3155942",
+      "projected_gp": 69,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0.6,
+        "AST": 6.8,
+        "BLK": 0.5,
+        "FGA": 12.8,
+        "FGM": 7.5,
+        "FTA": 4.6,
+        "FTM": 3.3,
+        "PTS": 18.9,
+        "REB": 13.6,
+        "STL": 0.8,
+        "TO": 3.1
+      }
+    },
+    {
+      "adp": 140.7,
+      "availability": null,
+      "draft_rank": 170,
+      "eligibility": [
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "FGM",
+        "FGA",
+        "FTM",
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Grayson Allen",
+      "nba_team": "CHA",
+      "player_id": "3135045",
+      "projected_gp": null,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.7,
+        "AST": 3.2,
+        "BLK": 0.3,
+        "FTA": 2.7,
+        "PTS": 14,
+        "REB": 2.9,
+        "STL": 1.1,
+        "TO": 1.4
+      }
+    },
+    {
+      "adp": 134.6,
+      "availability": null,
+      "draft_rank": 127,
+      "eligibility": [
+        "G",
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Kyshawn George",
+      "nba_team": "WSH",
+      "player_id": "5174563",
+      "projected_gp": 66,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2.1,
+        "AST": 4.2,
+        "BLK": 0.9,
+        "FGA": 11.6,
+        "FGM": 5,
+        "FTA": 2.5,
+        "FTM": 2,
+        "PTS": 14,
+        "REB": 5.1,
+        "STL": 1,
+        "TO": 2.4
+      }
+    },
+    {
+      "adp": 87.2,
+      "availability": null,
+      "draft_rank": 84,
+      "eligibility": [
+        "C",
+        "F"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "FGM",
+        "FGA",
+        "FTM",
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Jaren Jackson Jr.",
+      "nba_team": "UTAH",
+      "player_id": "4277961",
+      "projected_gp": null,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.9,
+        "AST": 2.1,
+        "BLK": 1.6,
+        "FTA": 5.4,
+        "PTS": 21.9,
+        "REB": 5.7,
+        "STL": 1.2,
+        "TO": 2.3
+      }
+    },
+    {
+      "adp": 99.8,
+      "availability": null,
+      "draft_rank": 94,
+      "eligibility": [
+        "F",
+        "G"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Josh Hart",
+      "nba_team": "NY",
+      "player_id": "3062679",
+      "projected_gp": 68,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1.4,
+        "AST": 5,
+        "BLK": 0.3,
+        "FGA": 9.1,
+        "FGM": 4.6,
+        "FTA": 2,
+        "FTM": 1.5,
+        "PTS": 12.2,
+        "REB": 7.7,
+        "STL": 1.2,
+        "TO": 2
+      }
+    },
+    {
+      "adp": 33.3,
+      "availability": null,
+      "draft_rank": 27,
+      "eligibility": [
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Jalen Duren",
+      "nba_team": "DET",
+      "player_id": "4433621",
+      "projected_gp": 72,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0,
+        "AST": 2.3,
+        "BLK": 1,
+        "FGA": 11.9,
+        "FGM": 7.8,
+        "FTA": 6.3,
+        "FTM": 4.7,
+        "PTS": 20.3,
+        "REB": 11.7,
+        "STL": 0.9,
+        "TO": 2
+      }
+    },
+    {
+      "adp": 66.4,
+      "availability": null,
+      "draft_rank": 54,
+      "eligibility": [
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Jarrett Allen",
+      "nba_team": "CLE",
+      "player_id": "4066328",
+      "projected_gp": 71,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0,
+        "AST": 2.2,
+        "BLK": 1,
+        "FGA": 9.7,
+        "FGM": 6.4,
+        "FTA": 4.2,
+        "FTM": 3,
+        "PTS": 15.8,
+        "REB": 10,
+        "STL": 0.9,
+        "TO": 1.4
+      }
+    },
+    {
+      "adp": 81,
+      "availability": null,
+      "draft_rank": 68,
+      "eligibility": [
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Donovan Clingan",
+      "nba_team": "POR",
+      "player_id": "5105565",
+      "projected_gp": 73,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 1,
+        "AST": 2,
+        "BLK": 1.7,
+        "FGA": 8.4,
+        "FGM": 4.4,
+        "FTA": 2.5,
+        "FTM": 1.7,
+        "PTS": 11.4,
+        "REB": 11.1,
+        "STL": 0.6,
+        "TO": 1.2
+      }
+    },
+    {
+      "adp": 92.7,
+      "availability": null,
+      "draft_rank": 73,
+      "eligibility": [
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Ivica Zubac",
+      "nba_team": "IND",
+      "player_id": "4017837",
+      "projected_gp": 69,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 0,
+        "AST": 2.2,
+        "BLK": 1.1,
+        "FGA": 10.3,
+        "FGM": 6.4,
+        "FTA": 2.9,
+        "FTM": 2,
+        "PTS": 14.9,
+        "REB": 11.3,
+        "STL": 0.5,
+        "TO": 1.6
+      }
+    },
+    {
+      "adp": 122.3,
+      "availability": null,
+      "draft_rank": 121,
+      "eligibility": [
+        "F",
+        "C"
+      ],
+      "injury_status": null,
+      "missing_stats": [
+        "FGM",
+        "FGA",
+        "FTM",
+        "EJ",
+        "PF",
+        "TF",
+        "DD",
+        "TD",
+        "QD"
+      ],
+      "name": "Jabari Smith Jr.",
+      "nba_team": "HOU",
+      "player_id": "4432639",
+      "projected_gp": null,
+      "source": "ESPN visible 2027 Projected averages",
+      "stats": {
+        "3PM": 2,
+        "AST": 1.6,
+        "BLK": 0.8,
+        "FTA": 2.5,
+        "PTS": 14.1,
+        "REB": 6.8,
+        "STL": 0.6,
+        "TO": 1.2
+      }
+    }
+  ],
+  "rules": {
+    "bench_slots": 4,
+    "ir_slots": 3,
+    "rounds": 10,
+    "scoring": {
+      "3PM": 1,
+      "AST": 2,
+      "BLK": 4,
+      "DD": 3,
+      "EJ": -5,
+      "FGA": -1,
+      "FGM": 2,
+      "FTA": -1,
+      "FTM": 1,
+      "PF": -1,
+      "PTS": 1,
+      "QD": 100,
+      "REB": 2,
+      "STL": 4,
+      "TD": 5,
+      "TF": -2,
+      "TO": -2
+    },
+    "starting_slots": [
+      "C",
+      "G",
+      "G",
+      "F",
+      "F",
+      "UTIL"
+    ],
+    "teams": 14
+  },
+  "schema_version": 1,
+  "seconds_remaining": null,
+  "session_id": "practice-1000000005",
+  "warnings": [
+    "Bonus/foul inputs missing; visible-window foundation"
+  ]
+}

@@ -1,0 +1,12 @@
+# SYNTHETIC_UI_FIXTURE: transient empty table state, hand-authored.
+# It is not an ESPN capture and is not source-verified data.
+ESPN Fantasy Basketball Draft - Practice Draft for Example League
+RND1of10
+Clock 00:30
+On the Clock: Pick13 ExampleTeam
+Roster combobox 14 teams
+Seat 13: Example Team
+Players
+Draft
+RK Player FPTS GP MIN FGM FGA FTM FTA 3PM REB AST STL BLK TO EJ PF
+No Players Available

@@ -1,0 +1,232 @@
+{
+  "fingerprint": "8cffb7006a3d2c3f4588d9cb034e56590a0142bfc05c75408836a637c42523d9",
+  "elapsed_seconds": 354.771060900006,
+  "complete_world_seeds": [
+    2026101400,
+    2026101401,
+    2026101402,
+    2026101403,
+    2026101404,
+    2026101405,
+    2026101406,
+    2026101407
+  ],
+  "complete_jobs": 48,
+  "target_jobs": 48,
+  "policy_metrics": {
+    "marginal": {
+      "points": 29731.241071428572,
+      "usable_starts": 677.3764880952381,
+      "benched_points": 1007.5863095238095,
+      "hindsight_points": 30265.54613095238,
+      "weekly_win_fraction": 0.6596840659340659
+    },
+    "foundation": {
+      "points": 28294.668154761905,
+      "usable_starts": 642.1041666666666,
+      "benched_points": 2872.9627976190477,
+      "hindsight_points": 29300.79910714286,
+      "weekly_win_fraction": 0.5831552706552706
+    },
+    "custom_ppg": {
+      "points": 23528.441964285714,
+      "usable_starts": 485.2455357142857,
+      "benched_points": 2694.3586309523807,
+      "hindsight_points": 24881.508928571428,
+      "weekly_win_fraction": 0.2921669380002713
+    },
+    "custom_total": {
+      "points": 28391.845238095237,
+      "usable_starts": 644.860119047619,
+      "benched_points": 2782.5119047619046,
+      "hindsight_points": 29394.255952380954,
+      "weekly_win_fraction": 0.5884123592456926
+    },
+    "positional_vor": {
+      "points": 25081.407738095237,
+      "usable_starts": 527.3705357142857,
+      "benched_points": 1166.638392857143,
+      "hindsight_points": 25898.21130952381,
+      "weekly_win_fraction": 0.37495972391805726
+    },
+    "market": {
+      "points": 26409.375,
+      "usable_starts": 636.0758928571429,
+      "benched_points": 1909.3035714285713,
+      "hindsight_points": 27325.458333333332,
+      "weekly_win_fraction": 0.4556348358431692
+    },
+    "espn_rank": {
+      "points": 27114.60119047619,
+      "usable_starts": 632.0178571428571,
+      "benched_points": 2773.7366071428573,
+      "hindsight_points": 28280.25744047619,
+      "weekly_win_fraction": 0.5049603174603174
+    }
+  },
+  "comparisons": [
+    {
+      "reference": "marginal",
+      "baseline": "foundation",
+      "pairs": 672,
+      "independent_clusters": 8,
+      "mean_delta": 1436.5729166666667,
+      "relative_delta": 0.050771859518164944,
+      "ci95": [
+        1034.875,
+        1864.1369047619048
+      ],
+      "classification": "advantage supported",
+      "exploratory": true,
+      "practically_meaningful": true,
+      "paired_win_fraction": 0.7455357142857143,
+      "worst_decile_mean_delta": -2808.5882352941176
+    },
+    {
+      "reference": "marginal",
+      "baseline": "custom_ppg",
+      "pairs": 672,
+      "independent_clusters": 8,
+      "mean_delta": 6202.799107142857,
+      "relative_delta": 0.2636298279570831,
+      "ci95": [
+        5726.872023809524,
+        6697.830357142857
+      ],
+      "classification": "advantage supported",
+      "exploratory": true,
+      "practically_meaningful": true,
+      "paired_win_fraction": 0.9970238095238095,
+      "worst_decile_mean_delta": 2416.1470588235293
+    },
+    {
+      "reference": "marginal",
+      "baseline": "custom_total",
+      "pairs": 672,
+      "independent_clusters": 8,
+      "mean_delta": 1339.3958333333333,
+      "relative_delta": 0.04717537102999478,
+      "ci95": [
+        916.0327380952382,
+        1789.21875
+      ],
+      "classification": "advantage supported",
+      "exploratory": true,
+      "practically_meaningful": true,
+      "paired_win_fraction": 0.7395833333333334,
+      "worst_decile_mean_delta": -2873.220588235294
+    },
+    {
+      "reference": "marginal",
+      "baseline": "positional_vor",
+      "pairs": 672,
+      "independent_clusters": 8,
+      "mean_delta": 4649.833333333333,
+      "relative_delta": 0.18538964725934703,
+      "ci95": [
+        4185.294642857143,
+        5097.770833333333
+      ],
+      "classification": "advantage supported",
+      "exploratory": true,
+      "practically_meaningful": true,
+      "paired_win_fraction": 0.984375,
+      "worst_decile_mean_delta": 979.0147058823529
+    },
+    {
+      "reference": "marginal",
+      "baseline": "market",
+      "pairs": 672,
+      "independent_clusters": 8,
+      "mean_delta": 3321.8660714285716,
+      "relative_delta": 0.1257835928123468,
+      "ci95": [
+        2618.0997023809523,
+        4257.486607142857
+      ],
+      "classification": "advantage supported",
+      "exploratory": true,
+      "practically_meaningful": true,
+      "paired_win_fraction": 0.8794642857142857,
+      "worst_decile_mean_delta": -2061.014705882353
+    },
+    {
+      "reference": "marginal",
+      "baseline": "espn_rank",
+      "pairs": 672,
+      "independent_clusters": 8,
+      "mean_delta": 2616.6398809523807,
+      "relative_delta": 0.09650298238100057,
+      "ci95": [
+        2030.107142857143,
+        3135.748511904762
+      ],
+      "classification": "advantage supported",
+      "exploratory": true,
+      "practically_meaningful": true,
+      "paired_win_fraction": 0.8854166666666666,
+      "worst_decile_mean_delta": -1877.0
+    }
+  ],
+  "opponent_comparisons": {
+    "nominal": [
+      {
+        "reference": "marginal",
+        "baseline": "espn_rank",
+        "pairs": 224,
+        "independent_clusters": 8,
+        "mean_delta": 3290.2366071428573,
+        "relative_delta": 0.12908239970632082,
+        "ci95": [
+          2589.566964285714,
+          3982.526785714286
+        ],
+        "classification": "advantage supported",
+        "exploratory": true,
+        "practically_meaningful": true,
+        "paired_win_fraction": 0.9196428571428571,
+        "worst_decile_mean_delta": -1235.6521739130435
+      }
+    ],
+    "market": [
+      {
+        "reference": "marginal",
+        "baseline": "espn_rank",
+        "pairs": 224,
+        "independent_clusters": 8,
+        "mean_delta": 2581.9285714285716,
+        "relative_delta": 0.0905465699900569,
+        "ci95": [
+          2075.03125,
+          3296.4375
+        ],
+        "classification": "advantage supported",
+        "exploratory": true,
+        "practically_meaningful": true,
+        "paired_win_fraction": 0.90625,
+        "worst_decile_mean_delta": -1259.304347826087
+      }
+    ],
+    "custom": [
+      {
+        "reference": "marginal",
+        "baseline": "espn_rank",
+        "pairs": 224,
+        "independent_clusters": 8,
+        "mean_delta": 1977.7544642857142,
+        "relative_delta": 0.07234067984892972,
+        "ci95": [
+          1015.8794642857143,
+          2848.65625
+        ],
+        "classification": "advantage supported",
+        "exploratory": true,
+        "practically_meaningful": true,
+        "paired_win_fraction": 0.8303571428571429,
+        "worst_decile_mean_delta": -2661.6521739130435
+      }
+    ]
+  },
+  "espn_drafts": 672,
+  "reference_rows_reproduced": 672
+}

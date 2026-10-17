@@ -1,0 +1,506 @@
+{
+  "artifact_version": "postclick-virtualized-feed-fixture-v1",
+  "derived_from": "validation/canonical-release-2026-10-11/postclick-dom-diagnostic-2026-10-12.json",
+  "note": "Allen, Knueppel and Fox ids and the roster cells come from the diagnostic. Towns/Duren ids, pick positions and filler picks are deterministic synthetic values so the 43-pick snake history is contiguous.",
+  "room": {
+    "league_id": "1000000012",
+    "season_id": "2027",
+    "team_id": "15",
+    "practice": true,
+    "heading": "ESPN Fantasy Basketball Draft - Practice Draft for Example League",
+    "source_league_id": "1000000000"
+  },
+  "own_team": "Example Team",
+  "current_pick": 44,
+  "team_order": [
+    "Team 1",
+    "Team 2",
+    "Team 3",
+    "Team 4",
+    "Team 5",
+    "Team 6",
+    "Team 7",
+    "Team 8",
+    "Team 9",
+    "Team 10",
+    "Team 11",
+    "Team 12",
+    "Example Team",
+    "Example Opponent 22"
+  ],
+  "feed_total": 31,
+  "feed": [
+    {
+      "pick_info": "R1, P13 - Example Team",
+      "player_name": "Karl-Anthony Towns",
+      "headshot_id": "3136195"
+    },
+    {
+      "pick_info": "R1, P14 - Example Opponent 22",
+      "player_name": "Filler Player14",
+      "headshot_id": "9014"
+    },
+    {
+      "pick_info": "R2, P1 - Example Opponent 22",
+      "player_name": "Filler Player15",
+      "headshot_id": "9015"
+    },
+    {
+      "pick_info": "R2, P2 - Example Team",
+      "player_name": "Jalen Duren",
+      "headshot_id": "4683021"
+    },
+    {
+      "pick_info": "R2, P3 - Team 12",
+      "player_name": "Filler Player17",
+      "headshot_id": "9017"
+    },
+    {
+      "pick_info": "R2, P4 - Team 11",
+      "player_name": "Filler Player18",
+      "headshot_id": "9018"
+    },
+    {
+      "pick_info": "R2, P5 - Team 10",
+      "player_name": "Filler Player19",
+      "headshot_id": "9019"
+    },
+    {
+      "pick_info": "R2, P6 - Team 9",
+      "player_name": "Filler Player20",
+      "headshot_id": "9020"
+    },
+    {
+      "pick_info": "R2, P7 - Team 8",
+      "player_name": "Filler Player21",
+      "headshot_id": "9021"
+    },
+    {
+      "pick_info": "R2, P8 - Team 7",
+      "player_name": "Filler Player22",
+      "headshot_id": "9022"
+    },
+    {
+      "pick_info": "R2, P9 - Team 6",
+      "player_name": "Filler Player23",
+      "headshot_id": "9023"
+    },
+    {
+      "pick_info": "R2, P10 - Team 5",
+      "player_name": "Filler Player24",
+      "headshot_id": "9024"
+    },
+    {
+      "pick_info": "R2, P11 - Team 4",
+      "player_name": "Filler Player25",
+      "headshot_id": "9025"
+    },
+    {
+      "pick_info": "R2, P12 - Team 3",
+      "player_name": "Filler Player26",
+      "headshot_id": "9026"
+    },
+    {
+      "pick_info": "R2, P13 - Team 2",
+      "player_name": "Filler Player27",
+      "headshot_id": "9027"
+    },
+    {
+      "pick_info": "R2, P14 - Team 1",
+      "player_name": "Filler Player28",
+      "headshot_id": "9028"
+    },
+    {
+      "pick_info": "R3, P1 - Team 1",
+      "player_name": "Filler Player29",
+      "headshot_id": "9029"
+    },
+    {
+      "pick_info": "R3, P2 - Team 2",
+      "player_name": "Filler Player30",
+      "headshot_id": "9030"
+    },
+    {
+      "pick_info": "R3, P3 - Team 3",
+      "player_name": "Filler Player31",
+      "headshot_id": "9031"
+    },
+    {
+      "pick_info": "R3, P4 - Team 4",
+      "player_name": "Filler Player32",
+      "headshot_id": "9032"
+    },
+    {
+      "pick_info": "R3, P5 - Team 5",
+      "player_name": "Filler Player33",
+      "headshot_id": "9033"
+    },
+    {
+      "pick_info": "R3, P6 - Team 6",
+      "player_name": "Filler Player34",
+      "headshot_id": "9034"
+    },
+    {
+      "pick_info": "R3, P7 - Team 7",
+      "player_name": "Filler Player35",
+      "headshot_id": "9035"
+    },
+    {
+      "pick_info": "R3, P8 - Team 8",
+      "player_name": "Filler Player36",
+      "headshot_id": "9036"
+    },
+    {
+      "pick_info": "R3, P9 - Team 9",
+      "player_name": "Filler Player37",
+      "headshot_id": "9037"
+    },
+    {
+      "pick_info": "R3, P10 - Team 10",
+      "player_name": "Filler Player38",
+      "headshot_id": "9038"
+    },
+    {
+      "pick_info": "R3, P11 - Team 11",
+      "player_name": "Filler Player39",
+      "headshot_id": "9039"
+    },
+    {
+      "pick_info": "R3, P12 - Team 12",
+      "player_name": "Filler Player40",
+      "headshot_id": "9040"
+    },
+    {
+      "pick_info": "R3, P13 - Example Team",
+      "player_name": "Jarrett Allen",
+      "headshot_id": "4066328"
+    },
+    {
+      "pick_info": "R3, P14 - Example Opponent 22",
+      "player_name": "Kon Knueppel",
+      "headshot_id": "5061575"
+    },
+    {
+      "pick_info": "R4, P1 - Example Opponent 22",
+      "player_name": "De'Aaron Fox",
+      "headshot_id": "4066259"
+    }
+  ],
+  "history": [
+    {
+      "pick_number": 1,
+      "team": "Team 1",
+      "player_id": "9001",
+      "player_name": "Filler Player1"
+    },
+    {
+      "pick_number": 2,
+      "team": "Team 2",
+      "player_id": "9002",
+      "player_name": "Filler Player2"
+    },
+    {
+      "pick_number": 3,
+      "team": "Team 3",
+      "player_id": "9003",
+      "player_name": "Filler Player3"
+    },
+    {
+      "pick_number": 4,
+      "team": "Team 4",
+      "player_id": "9004",
+      "player_name": "Filler Player4"
+    },
+    {
+      "pick_number": 5,
+      "team": "Team 5",
+      "player_id": "9005",
+      "player_name": "Filler Player5"
+    },
+    {
+      "pick_number": 6,
+      "team": "Team 6",
+      "player_id": "9006",
+      "player_name": "Filler Player6"
+    },
+    {
+      "pick_number": 7,
+      "team": "Team 7",
+      "player_id": "9007",
+      "player_name": "Filler Player7"
+    },
+    {
+      "pick_number": 8,
+      "team": "Team 8",
+      "player_id": "9008",
+      "player_name": "Filler Player8"
+    },
+    {
+      "pick_number": 9,
+      "team": "Team 9",
+      "player_id": "9009",
+      "player_name": "Filler Player9"
+    },
+    {
+      "pick_number": 10,
+      "team": "Team 10",
+      "player_id": "9010",
+      "player_name": "Filler Player10"
+    },
+    {
+      "pick_number": 11,
+      "team": "Team 11",
+      "player_id": "9011",
+      "player_name": "Filler Player11"
+    },
+    {
+      "pick_number": 12,
+      "team": "Team 12",
+      "player_id": "9012",
+      "player_name": "Filler Player12"
+    },
+    {
+      "pick_number": 13,
+      "team": "Example Team",
+      "player_id": "3136195",
+      "player_name": "Karl-Anthony Towns"
+    },
+    {
+      "pick_number": 14,
+      "team": "Example Opponent 22",
+      "player_id": "9014",
+      "player_name": "Filler Player14"
+    },
+    {
+      "pick_number": 15,
+      "team": "Example Opponent 22",
+      "player_id": "9015",
+      "player_name": "Filler Player15"
+    },
+    {
+      "pick_number": 16,
+      "team": "Example Team",
+      "player_id": "4683021",
+      "player_name": "Jalen Duren"
+    },
+    {
+      "pick_number": 17,
+      "team": "Team 12",
+      "player_id": "9017",
+      "player_name": "Filler Player17"
+    },
+    {
+      "pick_number": 18,
+      "team": "Team 11",
+      "player_id": "9018",
+      "player_name": "Filler Player18"
+    },
+    {
+      "pick_number": 19,
+      "team": "Team 10",
+      "player_id": "9019",
+      "player_name": "Filler Player19"
+    },
+    {
+      "pick_number": 20,
+      "team": "Team 9",
+      "player_id": "9020",
+      "player_name": "Filler Player20"
+    },
+    {
+      "pick_number": 21,
+      "team": "Team 8",
+      "player_id": "9021",
+      "player_name": "Filler Player21"
+    },
+    {
+      "pick_number": 22,
+      "team": "Team 7",
+      "player_id": "9022",
+      "player_name": "Filler Player22"
+    },
+    {
+      "pick_number": 23,
+      "team": "Team 6",
+      "player_id": "9023",
+      "player_name": "Filler Player23"
+    },
+    {
+      "pick_number": 24,
+      "team": "Team 5",
+      "player_id": "9024",
+      "player_name": "Filler Player24"
+    },
+    {
+      "pick_number": 25,
+      "team": "Team 4",
+      "player_id": "9025",
+      "player_name": "Filler Player25"
+    },
+    {
+      "pick_number": 26,
+      "team": "Team 3",
+      "player_id": "9026",
+      "player_name": "Filler Player26"
+    },
+    {
+      "pick_number": 27,
+      "team": "Team 2",
+      "player_id": "9027",
+      "player_name": "Filler Player27"
+    },
+    {
+      "pick_number": 28,
+      "team": "Team 1",
+      "player_id": "9028",
+      "player_name": "Filler Player28"
+    },
+    {
+      "pick_number": 29,
+      "team": "Team 1",
+      "player_id": "9029",
+      "player_name": "Filler Player29"
+    },
+    {
+      "pick_number": 30,
+      "team": "Team 2",
+      "player_id": "9030",
+      "player_name": "Filler Player30"
+    },
+    {
+      "pick_number": 31,
+      "team": "Team 3",
+      "player_id": "9031",
+      "player_name": "Filler Player31"
+    },
+    {
+      "pick_number": 32,
+      "team": "Team 4",
+      "player_id": "9032",
+      "player_name": "Filler Player32"
+    },
+    {
+      "pick_number": 33,
+      "team": "Team 5",
+      "player_id": "9033",
+      "player_name": "Filler Player33"
+    },
+    {
+      "pick_number": 34,
+      "team": "Team 6",
+      "player_id": "9034",
+      "player_name": "Filler Player34"
+    },
+    {
+      "pick_number": 35,
+      "team": "Team 7",
+      "player_id": "9035",
+      "player_name": "Filler Player35"
+    },
+    {
+      "pick_number": 36,
+      "team": "Team 8",
+      "player_id": "9036",
+      "player_name": "Filler Player36"
+    },
+    {
+      "pick_number": 37,
+      "team": "Team 9",
+      "player_id": "9037",
+      "player_name": "Filler Player37"
+    },
+    {
+      "pick_number": 38,
+      "team": "Team 10",
+      "player_id": "9038",
+      "player_name": "Filler Player38"
+    },
+    {
+      "pick_number": 39,
+      "team": "Team 11",
+      "player_id": "9039",
+      "player_name": "Filler Player39"
+    },
+    {
+      "pick_number": 40,
+      "team": "Team 12",
+      "player_id": "9040",
+      "player_name": "Filler Player40"
+    },
+    {
+      "pick_number": 41,
+      "team": "Example Team",
+      "player_id": "4066328",
+      "player_name": "Jarrett Allen"
+    },
+    {
+      "pick_number": 42,
+      "team": "Example Opponent 22",
+      "player_id": "5061575",
+      "player_name": "Kon Knueppel"
+    },
+    {
+      "pick_number": 43,
+      "team": "Example Opponent 22",
+      "player_id": "4066259",
+      "player_name": "De'Aaron Fox"
+    }
+  ],
+  "history_grid_rows": [
+    14,
+    14,
+    14,
+    1
+  ],
+  "roster_cells": [
+    {
+      "text": "Player",
+      "title": null
+    },
+    {
+      "text": "K. Towns",
+      "title": "Karl-Anthony Towns"
+    },
+    {
+      "text": "Empty",
+      "title": null
+    },
+    {
+      "text": "Empty",
+      "title": null
+    },
+    {
+      "text": "Empty",
+      "title": null
+    },
+    {
+      "text": "Empty",
+      "title": null
+    },
+    {
+      "text": "J. Duren",
+      "title": "Jalen Duren"
+    },
+    {
+      "text": "J. Allen",
+      "title": "Jarrett Allen"
+    },
+    {
+      "text": "Empty",
+      "title": null
+    },
+    {
+      "text": "Empty",
+      "title": null
+    },
+    {
+      "text": "Empty",
+      "title": null
+    }
+  ],
+  "roster_headshots": {
+    "K. Towns": "3136195",
+    "J. Duren": "4683021",
+    "J. Allen": "4066328"
+  }
+}

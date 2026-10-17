@@ -1,0 +1,25 @@
+{
+  "source_run": "<workspace>\\runtime\\strategy-quality-2026-10-14-v3",
+  "imported_jobs": [
+    "eee6b18a4c96e30a606e50a7",
+    "edf8bf946ffef1c51ece8d5f",
+    "f7f913a6314245cdc3b29f57",
+    "eb826bcdb52bcd428b22909c",
+    "7f754dc7e038bdd2d30a8bc4",
+    "f3cf0633222c478f1663e7ed",
+    "434ae96971f84cb9d6df3823",
+    "db1483812633440094f34fef",
+    "02d4023abc789534a22ae3e8",
+    "b9c25a612a72d90cb4a49240",
+    "c153ce0fe74137c5803e1811",
+    "b3bf455a3ba4269acd2fc6a5",
+    "3680cda02dce40b4481e473d",
+    "148d8d3112e107db798d7b4b",
+    "5c57af97546b2983a40d8c29",
+    "47fbffd0058097f42f4f3f0c",
+    "e8d50700d63f7f9c9bc004af",
+    "3c53a8d8ca73534ccaae0178",
+    "c1a9a4e98a9a06d432e4dedd"
+  ],
+  "validation": "Every model/data source hash matches; every scoring/statistical function AST matches."
+}

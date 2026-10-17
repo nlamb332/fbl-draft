@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FBL Draft Control</title>
+  <style>
+    :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
+    body { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+    button, input { font: inherit; padding: .5rem .7rem; margin: .2rem; }
+    button { cursor: pointer; }
+    .card { border: 1px solid #7775; border-radius: .6rem; padding: 1rem; margin: 1rem 0; }
+    .danger { color: #e66; }
+    pre { overflow: auto; max-height: 24rem; background: #7772; padding: .7rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .7rem; }
+    [data-practice="true"] { color: #1b8d5c; }
+    .bookmarklet-install { border: 2px solid #4c8bf5; background: #4c8bf51a; }
+    .bookmarklet-link { display: inline-block; border: 1px solid currentColor; border-radius: .4rem; padding: .65rem .8rem; font-weight: 700; cursor: grab; }
+    .bookmarklet-link:active { cursor: grabbing; }
+    .bookmarklet-url { width: 100%; box-sizing: border-box; font: .8rem ui-monospace, monospace; }
+    .bookmarklet-help { margin: .6rem 0 0; }
+    .bookmarklet-status { min-height: 1.3em; }
+  </style>
+</head>
+<body>
+  <h1>FBL Draft Control</h1>
+  <p id="state">Disconnected</p>
+  <section class="card">
+    <h2>Room</h2>
+    <input id="room-url" type="url" placeholder="https://fantasy.espn.com/basketball/draft?..." size="55" autocomplete="off">
+    <label><input id="practice" type="checkbox"> Practice room</label>
+    <button id="connect">Connect</button>
+    <p id="room-note">Connecting only observes. Start is always explicit.</p>
+    <p id="room-identity">No verified room.</p>
+  </section>
+  <section class="card bookmarklet-install" id="advisor-bookmarklet-card">
+    <h2>Install the ESPN advisor bookmarklet</h2>
+    <p><strong>Drag THIS link</strong> to the Chrome bookmarks bar. <strong>Do not bookmark this panel page with the browser star</strong>; that saves the localhost panel instead of the advisor.</p>
+    <a id="advisor-bookmarklet" class="bookmarklet-link" href="__BOOKMARKLET_HREF__" draggable="true" aria-describedby="advisor-bookmarklet-note">FBL Advisor — drag THIS link to bookmarks</a>
+    <p id="advisor-bookmarklet-note">__BOOKMARKLET_NOTE__</p>
+    <p class="bookmarklet-help"><button id="copy-advisor-bookmarklet" type="button">Copy bookmarklet URL</button> If dragging is inconvenient, copy the URL below, create a Chrome bookmark, and paste it into the bookmark’s <strong>URL</strong> field.</p>
+    <textarea id="advisor-bookmarklet-url" class="bookmarklet-url" rows="3" readonly spellcheck="false" aria-label="Advisor bookmarklet URL">__BOOKMARKLET_HREF__</textarea>
+    <p id="advisor-bookmarklet-status" class="bookmarklet-status" role="status" aria-live="polite"></p>
+    <ol id="advisor-bookmarklet-steps">
+      <li>Right-click the Chrome bookmarks bar and choose <strong>Add page</strong>.</li>
+      <li>Name it <strong>FBL Advisor</strong>.</li>
+      <li>Paste the copied text into <strong>URL</strong>, then save.</li>
+    </ol>
+  </section>
+  <section class="card">
+    <h2>Controls</h2>
+    <button data-control="start">Start</button>
+    <button data-control="pause">Pause</button>
+    <button data-control="resume">Resume</button>
+    <button data-control="manual-override">Manual override</button>
+    <span id="practice-badge"></span>
+  </section>
+  <section class="card">
+    <h2>Operator bridge</h2>
+    <p>Paste one JSON command or observation frame from the visible draft room.</p>
+    <form id="operator-form">
+      <textarea id="operator-payload" rows="10" cols="100" spellcheck="false" placeholder='{"operation":"status"}'></textarea><br>
+      <button type="submit">Execute operator command</button>
+    </form>
+    <pre id="operator-result">No operator command executed.</pre>
+  </section>
+  <section class="card">
+    <h2>Current state</h2>
+    <div class="grid"><div>Revision <strong id="revision">—</strong></div><div>Next turn <strong id="next-turn">—</strong></div><div>On clock <strong id="on-clock">—</strong></div><div>Seconds <strong id="seconds">—</strong></div><div>Age <strong id="age">—</strong></div><div>Coverage <strong id="coverage">—</strong></div></div>
+    <h3>Readiness</h3><ul id="readiness"><li>Connect to a room.</li></ul>
+    <h3>Next turns</h3><pre id="next-turns">—</pre>
+    <h3>Roster and coverage</h3><div id="roster">No roster observed.</div>
+    <p id="policy-note">Foundation policy</p><h3>Ranked candidates</h3><div id="components">No recommendation loaded.</div>
+    <h3>Last confirmed action</h3><div id="last-confirmed">No confirmed action.</div>
+    <h3>Journal</h3><pre id="journal">No journal entries.</pre>
+  </section>
+  <script>window.FBL_CSRF_TOKEN = "__CSRF_TOKEN__";</script>
+  <script src="/app.js" defer></script>
+</body>
+</html>

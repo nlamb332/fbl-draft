@@ -1,0 +1,319 @@
+{
+  "session": {
+    "session_id": "recovery-1000000008",
+    "room_json": "{\"league_id\":\"1000000008\",\"practice\":true,\"season_id\":\"2027\",\"team_id\":\"15\"}",
+    "state": "paused",
+    "reason": "observation requires recovery: pick history must be contiguous, unique, and complete through the current pick; pick history teams do not match the observed snake order",
+    "manual_override": 0,
+    "control_version": 5,
+    "latest_revision": 12,
+    "created_at": "2026-10-11T14:00:39.414712+00:00",
+    "updated_at": "2026-10-11T14:08:48.208023+00:00"
+  },
+  "actions": [
+    {
+      "action_id": "f846599e59e249ca8879e374004c8c6f",
+      "action_type": "draft",
+      "created_at": "2026-10-11T14:07:20.074399+00:00",
+      "detail": "manual_stage: user-requested pick staged; automation remains paused",
+      "expected_pick": 28,
+      "expected_team": "Example Team",
+      "player_id": "3149673",
+      "player_name": "Pascal Siakam",
+      "revision": 5,
+      "session_id": "recovery-1000000008",
+      "status": "confirmed",
+      "updated_at": "2026-10-11T14:07:39.327598+00:00"
+    },
+    {
+      "action_id": "6aec656f33054f3597cf8472be2ec91e",
+      "action_type": "draft",
+      "created_at": "2026-10-11T14:08:45.124194+00:00",
+      "detail": "confirmed by authoritative board history and roster",
+      "expected_pick": 29,
+      "expected_team": "Example Team",
+      "player_id": "4066261",
+      "player_name": "Bam Adebayo",
+      "revision": 10,
+      "session_id": "recovery-1000000008",
+      "status": "confirmed",
+      "updated_at": "2026-10-11T14:08:48.221164+00:00"
+    }
+  ],
+  "journal": [
+    {
+      "seq": 128,
+      "session_id": "recovery-1000000008",
+      "event": "connect",
+      "payload": {
+        "practice": true,
+        "safe_url": "https://fantasy.espn.com/basketball/draft?leagueId=1000000008&seasonId=2027&teamId=15"
+      },
+      "created_at": "2026-10-11T14:00:39.414712+00:00"
+    },
+    {
+      "seq": 129,
+      "session_id": "recovery-1000000008",
+      "event": "practice_attested",
+      "payload": {
+        "heading": "ESPN Fantasy Basketball Draft - Practice Draft for Example League",
+        "room": {
+          "league_id": "1000000008",
+          "practice": true,
+          "season_id": "2027",
+          "team_id": "15"
+        },
+        "source_league_id": "1000000000"
+      },
+      "created_at": "2026-10-11T14:00:39.718603+00:00"
+    },
+    {
+      "seq": 130,
+      "session_id": "recovery-1000000008",
+      "event": "observation",
+      "payload": {
+        "age_seconds": 1.183751,
+        "revision": 2
+      },
+      "created_at": "2026-10-11T14:06:24.880868+00:00"
+    },
+    {
+      "seq": 131,
+      "session_id": "recovery-1000000008",
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.95578,
+        "revision": 3
+      },
+      "created_at": "2026-10-11T14:06:38.431893+00:00"
+    },
+    {
+      "seq": 132,
+      "session_id": "recovery-1000000008",
+      "event": "start",
+      "payload": {
+        "from": "observing"
+      },
+      "created_at": "2026-10-11T14:06:38.451315+00:00"
+    },
+    {
+      "seq": 133,
+      "session_id": "recovery-1000000008",
+      "event": "stale_pause",
+      "payload": {
+        "age_seconds": 11.315437,
+        "cancelled": 0
+      },
+      "created_at": "2026-10-11T14:06:48.791454+00:00"
+    },
+    {
+      "seq": 134,
+      "session_id": "recovery-1000000008",
+      "event": "observation",
+      "payload": {
+        "age_seconds": 1.047119,
+        "revision": 4
+      },
+      "created_at": "2026-10-11T14:07:00.868311+00:00"
+    },
+    {
+      "seq": 135,
+      "session_id": "recovery-1000000008",
+      "event": "manual_override",
+      "payload": {
+        "cancelled": 0,
+        "reason": "manual override"
+      },
+      "created_at": "2026-10-11T14:07:10.137646+00:00"
+    },
+    {
+      "seq": 136,
+      "session_id": "recovery-1000000008",
+      "event": "observation",
+      "payload": {
+        "age_seconds": 1.135545,
+        "revision": 5
+      },
+      "created_at": "2026-10-11T14:07:15.910642+00:00"
+    },
+    {
+      "seq": 137,
+      "session_id": "recovery-1000000008",
+      "event": "manual_pick",
+      "payload": {
+        "action_id": "f846599e59e249ca8879e374004c8c6f",
+        "action_type": "draft",
+        "created_at": "2026-10-11T14:07:20.074399+00:00",
+        "detail": "manual_stage: user-requested pick staged; automation remains paused",
+        "expected_pick": 28,
+        "expected_team": "Example Team",
+        "player_id": "3149673",
+        "player_name": "Pascal Siakam",
+        "revision": 5,
+        "session_id": "recovery-1000000008",
+        "status": "pending",
+        "updated_at": "2026-10-11T14:07:20.074399+00:00"
+      },
+      "created_at": "2026-10-11T14:07:20.074399+00:00"
+    },
+    {
+      "seq": 138,
+      "session_id": "recovery-1000000008",
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.855477,
+        "revision": 6
+      },
+      "created_at": "2026-10-11T14:07:27.863552+00:00"
+    },
+    {
+      "seq": 139,
+      "session_id": "recovery-1000000008",
+      "event": "recommendation",
+      "payload": {
+        "candidates": 4,
+        "revision": 6
+      },
+      "created_at": "2026-10-11T14:07:27.880261+00:00"
+    },
+    {
+      "seq": 140,
+      "session_id": "recovery-1000000008",
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.934525,
+        "revision": 7
+      },
+      "created_at": "2026-10-11T14:07:32.042618+00:00"
+    },
+    {
+      "seq": 141,
+      "session_id": "recovery-1000000008",
+      "event": "action_confirmed",
+      "payload": {
+        "action_id": "f846599e59e249ca8879e374004c8c6f",
+        "detail": "manual_stage: user-requested pick staged; automation remains paused"
+      },
+      "created_at": "2026-10-11T14:07:39.327598+00:00"
+    },
+    {
+      "seq": 142,
+      "session_id": "recovery-1000000008",
+      "event": "observation",
+      "payload": {
+        "age_seconds": 1.009618,
+        "revision": 8
+      },
+      "created_at": "2026-10-11T14:08:18.857711+00:00"
+    },
+    {
+      "seq": 143,
+      "session_id": "recovery-1000000008",
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.26755,
+        "revision": 9
+      },
+      "created_at": "2026-10-11T14:08:43.862648+00:00"
+    },
+    {
+      "seq": 144,
+      "session_id": "recovery-1000000008",
+      "event": "resume",
+      "payload": {
+        "from": "paused"
+      },
+      "created_at": "2026-10-11T14:08:43.881275+00:00"
+    },
+    {
+      "seq": 145,
+      "session_id": "recovery-1000000008",
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.1255,
+        "revision": 10
+      },
+      "created_at": "2026-10-11T14:08:45.102641+00:00"
+    },
+    {
+      "seq": 146,
+      "session_id": "recovery-1000000008",
+      "event": "recommendation",
+      "payload": {
+        "candidates": 13,
+        "revision": 10
+      },
+      "created_at": "2026-10-11T14:08:45.118736+00:00"
+    },
+    {
+      "seq": 147,
+      "session_id": "recovery-1000000008",
+      "event": "action_proposed",
+      "payload": {
+        "action_id": "6aec656f33054f3597cf8472be2ec91e",
+        "action_type": "draft",
+        "created_at": "2026-10-11T14:08:45.124194+00:00",
+        "detail": "fresh recommendation candidate",
+        "expected_pick": 29,
+        "expected_team": "Example Team",
+        "player_id": "4066261",
+        "player_name": "Bam Adebayo",
+        "revision": 10,
+        "session_id": "recovery-1000000008",
+        "status": "pending",
+        "updated_at": "2026-10-11T14:08:45.124194+00:00"
+      },
+      "created_at": "2026-10-11T14:08:45.124194+00:00"
+    },
+    {
+      "seq": 148,
+      "session_id": "recovery-1000000008",
+      "event": "action_claimed",
+      "payload": {
+        "action_id": "6aec656f33054f3597cf8472be2ec91e",
+        "revision": 10
+      },
+      "created_at": "2026-10-11T14:08:45.130584+00:00"
+    },
+    {
+      "seq": 149,
+      "session_id": "recovery-1000000008",
+      "event": "action_submitted",
+      "payload": {
+        "action_id": "6aec656f33054f3597cf8472be2ec91e",
+        "detail": "fresh recommendation candidate"
+      },
+      "created_at": "2026-10-11T14:08:47.124490+00:00"
+    },
+    {
+      "seq": 150,
+      "session_id": "recovery-1000000008",
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.349859,
+        "revision": 12
+      },
+      "created_at": "2026-10-11T14:08:48.201937+00:00"
+    },
+    {
+      "seq": 151,
+      "session_id": "recovery-1000000008",
+      "event": "pause",
+      "payload": {
+        "cancelled": 0,
+        "reason": "observation requires recovery: pick history must be contiguous, unique, and complete through the current pick; pick history teams do not match the observed snake order"
+      },
+      "created_at": "2026-10-11T14:08:48.208023+00:00"
+    },
+    {
+      "seq": 152,
+      "session_id": "recovery-1000000008",
+      "event": "action_confirmed",
+      "payload": {
+        "action_id": "6aec656f33054f3597cf8472be2ec91e",
+        "detail": "confirmed by authoritative board history and roster"
+      },
+      "created_at": "2026-10-11T14:08:48.221164+00:00"
+    }
+  ]
+}

@@ -1,0 +1,1715 @@
+{
+  "artifact_version": "sanitized-session-v1",
+  "exported_at": "2026-10-11T15:24:12.760Z",
+  "sanitization": {
+    "projection": "session/actions/journal/final_observation",
+    "omitted": [
+      "claim_token",
+      "available_players",
+      "known_players",
+      "recommendation payloads",
+      "repeated observation payloads"
+    ],
+    "reason": "Durable audit projection keeps control and final-state evidence without credentials, claim material, or the full player catalog."
+  },
+  "session": {
+    "session_id": "example-2d920a5b38d10717",
+    "room": {
+      "league_id": "1000000007",
+      "practice": true,
+      "season_id": "2027",
+      "team_id": "15"
+    },
+    "state": "completed",
+    "reason": "authoritative final draft frame",
+    "manual_override": false,
+    "control_version": 2,
+    "latest_revision": 680,
+    "created_at": "2026-10-11T15:11:43.051316+00:00",
+    "updated_at": "2026-10-11T15:16:05.007048+00:00",
+    "foreground_invocation": {
+      "started_at": "2026-10-11T15:12:04.885Z",
+      "ended_at": "2026-10-11T15:16:05.351Z",
+      "duration_seconds": 240.5786,
+      "invocation_count": 1,
+      "recovery_pause_resume_after_start": false,
+      "provenance": "root CUA summary"
+    }
+  },
+  "practice_attestation": {
+    "heading": "ESPN Fantasy Basketball Draft - Practice Draft for Example League",
+    "room": {
+      "league_id": "1000000007",
+      "practice": true,
+      "season_id": "2027",
+      "team_id": "15"
+    },
+    "source_league_id": "1000000000",
+    "created_at": "2026-10-11T15:11:43.309654+00:00"
+  },
+  "actions": [
+    {
+      "action_id": "853f8696050d4976bfc1f0622bbc237c",
+      "pick": 13,
+      "player_id": "3136195",
+      "player_name": "Karl-Anthony Towns",
+      "revision": 49,
+      "status": "confirmed",
+      "created_at": "2026-10-11T15:12:13.937737+00:00",
+      "updated_at": "2026-10-11T15:12:16.444862+00:00"
+    },
+    {
+      "action_id": "7717cd7c606842e7ae57790eea1f8d6a",
+      "pick": 16,
+      "player_id": "4433621",
+      "player_name": "Jalen Duren",
+      "revision": 102,
+      "status": "confirmed",
+      "created_at": "2026-10-11T15:12:22.935602+00:00",
+      "updated_at": "2026-10-11T15:12:25.396314+00:00"
+    },
+    {
+      "action_id": "1d251db4b0c1451a8403c25b9dd0ffb7",
+      "pick": 41,
+      "player_id": "4066328",
+      "player_name": "Jarrett Allen",
+      "revision": 192,
+      "status": "confirmed",
+      "created_at": "2026-10-11T15:13:03.975720+00:00",
+      "updated_at": "2026-10-11T15:13:06.183212+00:00"
+    },
+    {
+      "action_id": "93f46e2e7f824695a4e42951543a096e",
+      "pick": 44,
+      "player_id": "3064514",
+      "player_name": "Julius Randle",
+      "revision": 277,
+      "status": "confirmed",
+      "created_at": "2026-10-11T15:13:13.015011+00:00",
+      "updated_at": "2026-10-11T15:13:16.056253+00:00"
+    },
+    {
+      "action_id": "69bc9ea36b6a49d597311f559034d71b",
+      "pick": 69,
+      "player_id": "4433136",
+      "player_name": "Walker Kessler",
+      "revision": 369,
+      "status": "confirmed",
+      "created_at": "2026-10-11T15:13:55.065384+00:00",
+      "updated_at": "2026-10-11T15:13:57.019586+00:00"
+    },
+    {
+      "action_id": "5ac2c12b16454e5f88be4cf3d3564a99",
+      "pick": 72,
+      "player_id": "5105623",
+      "player_name": "Kel'el Ware",
+      "revision": 430,
+      "status": "confirmed",
+      "created_at": "2026-10-11T15:14:03.023788+00:00",
+      "updated_at": "2026-10-11T15:14:05.536627+00:00"
+    },
+    {
+      "action_id": "4a73a94d3b124ad59573fc0c9c357af3",
+      "pick": 97,
+      "player_id": "6478",
+      "player_name": "Nikola Vucevic",
+      "revision": 519,
+      "status": "confirmed",
+      "created_at": "2026-10-11T15:14:44.012481+00:00",
+      "updated_at": "2026-10-11T15:14:46.419693+00:00"
+    },
+    {
+      "action_id": "ff55d7196c0d4e73943aa13ad9aac85a",
+      "pick": 100,
+      "player_id": "3908845",
+      "player_name": "John Collins",
+      "revision": 585,
+      "status": "confirmed",
+      "created_at": "2026-10-11T15:14:53.058563+00:00",
+      "updated_at": "2026-10-11T15:14:55.592974+00:00"
+    },
+    {
+      "action_id": "2afd12d5c219444ea615d347e0523741",
+      "pick": 125,
+      "player_id": "5174563",
+      "player_name": "Kyshawn George",
+      "revision": 635,
+      "status": "confirmed",
+      "created_at": "2026-10-11T15:15:35.116290+00:00",
+      "updated_at": "2026-10-11T15:15:37.074594+00:00"
+    },
+    {
+      "action_id": "df6e97cc274a40d9a8cefb600d722feb",
+      "pick": 128,
+      "player_id": "3995",
+      "player_name": "Jrue Holiday",
+      "revision": 670,
+      "status": "confirmed",
+      "created_at": "2026-10-11T15:15:44.072929+00:00",
+      "updated_at": "2026-10-11T15:15:46.583400+00:00"
+    }
+  ],
+  "journal": {
+    "source_table": "runtime/control.sqlite3.journal",
+    "sequence_start": 535,
+    "sequence_end": 730,
+    "event_counts": {
+      "connect": 1,
+      "practice_attested": 1,
+      "start": 1,
+      "observation": 142,
+      "recommendation": 10,
+      "action_proposed": 10,
+      "action_claimed": 10,
+      "action_submitted": 10,
+      "action_confirmed": 10,
+      "completed": 1
+    },
+    "control_events": [
+      {
+        "seq": 535,
+        "event": "connect",
+        "created_at": "2026-10-11T15:11:43.051316+00:00",
+        "payload": {
+          "practice": true,
+          "safe_url": "https://fantasy.espn.com/basketball/draft?leagueId=1000000007&seasonId=2027&teamId=15"
+        }
+      },
+      {
+        "seq": 536,
+        "event": "practice_attested",
+        "created_at": "2026-10-11T15:11:43.309654+00:00",
+        "payload": {
+          "heading": "ESPN Fantasy Basketball Draft - Practice Draft for Example League",
+          "room": {
+            "league_id": "1000000007",
+            "practice": true,
+            "season_id": "2027",
+            "team_id": "15"
+          },
+          "source_league_id": "1000000000"
+        }
+      },
+      {
+        "seq": 538,
+        "event": "start",
+        "created_at": "2026-10-11T15:12:12.937090+00:00",
+        "payload": {
+          "from": "observing"
+        }
+      },
+      {
+        "seq": 730,
+        "event": "completed",
+        "created_at": "2026-10-11T15:16:05.007048+00:00",
+        "payload": {
+          "history": 140,
+          "revision": 680,
+          "roster": 10
+        }
+      }
+    ],
+    "action_lifecycle": [
+      {
+        "action_id": "853f8696050d4976bfc1f0622bbc237c",
+        "events": [
+          "action_proposed",
+          "action_claimed",
+          "action_submitted",
+          "action_confirmed"
+        ]
+      },
+      {
+        "action_id": "7717cd7c606842e7ae57790eea1f8d6a",
+        "events": [
+          "action_proposed",
+          "action_claimed",
+          "action_submitted",
+          "action_confirmed"
+        ]
+      },
+      {
+        "action_id": "1d251db4b0c1451a8403c25b9dd0ffb7",
+        "events": [
+          "action_proposed",
+          "action_claimed",
+          "action_submitted",
+          "action_confirmed"
+        ]
+      },
+      {
+        "action_id": "93f46e2e7f824695a4e42951543a096e",
+        "events": [
+          "action_proposed",
+          "action_claimed",
+          "action_submitted",
+          "action_confirmed"
+        ]
+      },
+      {
+        "action_id": "69bc9ea36b6a49d597311f559034d71b",
+        "events": [
+          "action_proposed",
+          "action_claimed",
+          "action_submitted",
+          "action_confirmed"
+        ]
+      },
+      {
+        "action_id": "5ac2c12b16454e5f88be4cf3d3564a99",
+        "events": [
+          "action_proposed",
+          "action_claimed",
+          "action_submitted",
+          "action_confirmed"
+        ]
+      },
+      {
+        "action_id": "4a73a94d3b124ad59573fc0c9c357af3",
+        "events": [
+          "action_proposed",
+          "action_claimed",
+          "action_submitted",
+          "action_confirmed"
+        ]
+      },
+      {
+        "action_id": "ff55d7196c0d4e73943aa13ad9aac85a",
+        "events": [
+          "action_proposed",
+          "action_claimed",
+          "action_submitted",
+          "action_confirmed"
+        ]
+      },
+      {
+        "action_id": "2afd12d5c219444ea615d347e0523741",
+        "events": [
+          "action_proposed",
+          "action_claimed",
+          "action_submitted",
+          "action_confirmed"
+        ]
+      },
+      {
+        "action_id": "df6e97cc274a40d9a8cefb600d722feb",
+        "events": [
+          "action_proposed",
+          "action_claimed",
+          "action_submitted",
+          "action_confirmed"
+        ]
+      }
+    ],
+    "confirmation_detail": "confirmed by authoritative board history and roster",
+    "pause_resume_events_after_start": [],
+    "omitted_event_classes": [
+      "observation",
+      "recommendation"
+    ],
+    "omitted_event_note": "The final observation below is the terminal observation projection; repeated observation and recommendation payloads were omitted from this sanitized journal export."
+  },
+  "final_observation": {
+    "autopick": false,
+    "available_pool_complete": false,
+    "complete": true,
+    "current_pick": null,
+    "history": [
+      {
+        "pick_number": 1,
+        "player_id": "4278073",
+        "player_name": "Shai Gilgeous-Alexander",
+        "team": "Example Opponent 27"
+      },
+      {
+        "pick_number": 2,
+        "player_id": "3112335",
+        "player_name": "Nikola Jokic",
+        "team": "Example Opponent 06"
+      },
+      {
+        "pick_number": 3,
+        "player_id": "3945274",
+        "player_name": "Luka Doncic",
+        "team": "Team 16"
+      },
+      {
+        "pick_number": 4,
+        "player_id": "5104157",
+        "player_name": "Victor Wembanyama",
+        "team": "Example Opponent 07"
+      },
+      {
+        "pick_number": 5,
+        "player_id": "4701230",
+        "player_name": "Jalen Johnson",
+        "team": "Example Opponent 01"
+      },
+      {
+        "pick_number": 6,
+        "player_id": "3908809",
+        "player_name": "Donovan Mitchell",
+        "team": "Example Opponent 05"
+      },
+      {
+        "pick_number": 7,
+        "player_id": "3032977",
+        "player_name": "Giannis Antetokounmpo",
+        "team": "Example Opponent 26"
+      },
+      {
+        "pick_number": 8,
+        "player_id": "4594268",
+        "player_name": "Anthony Edwards",
+        "team": "Example Opponent 23"
+      },
+      {
+        "pick_number": 9,
+        "player_id": "4431678",
+        "player_name": "Tyrese Maxey",
+        "team": "Example Opponent 03"
+      },
+      {
+        "pick_number": 10,
+        "player_id": "4065648",
+        "player_name": "Jayson Tatum",
+        "team": "Example Opponent 21"
+      },
+      {
+        "pick_number": 11,
+        "player_id": "3155942",
+        "player_name": "Domantas Sabonis",
+        "team": "Example Opponent 22"
+      },
+      {
+        "pick_number": 12,
+        "player_id": "4432816",
+        "player_name": "LaMelo Ball",
+        "team": "Example Opponent 04"
+      },
+      {
+        "pick_number": 13,
+        "player_id": "3136195",
+        "player_name": "Karl-Anthony Towns",
+        "team": "Example Team"
+      },
+      {
+        "pick_number": 14,
+        "player_id": "4432166",
+        "player_name": "Cade Cunningham",
+        "team": "Example Opponent 24"
+      },
+      {
+        "pick_number": 15,
+        "player_id": "5041939",
+        "player_name": "Cooper Flagg",
+        "team": "Example Opponent 24"
+      },
+      {
+        "pick_number": 16,
+        "player_id": "4433621",
+        "player_name": "Jalen Duren",
+        "team": "Example Team"
+      },
+      {
+        "pick_number": 17,
+        "player_id": "3934672",
+        "player_name": "Jalen Brunson",
+        "team": "Example Opponent 04"
+      },
+      {
+        "pick_number": 18,
+        "player_id": "4871145",
+        "player_name": "Josh Giddey",
+        "team": "Example Opponent 22"
+      },
+      {
+        "pick_number": 19,
+        "player_id": "4684740",
+        "player_name": "Amen Thompson",
+        "team": "Example Opponent 21"
+      },
+      {
+        "pick_number": 20,
+        "player_id": "4396993",
+        "player_name": "Tyrese Haliburton",
+        "team": "Example Opponent 03"
+      },
+      {
+        "pick_number": 21,
+        "player_id": "4277905",
+        "player_name": "Trae Young",
+        "team": "Example Opponent 23"
+      },
+      {
+        "pick_number": 22,
+        "player_id": "4433134",
+        "player_name": "Scottie Barnes",
+        "team": "Example Opponent 26"
+      },
+      {
+        "pick_number": 23,
+        "player_id": "3202",
+        "player_name": "Kevin Durant",
+        "team": "Example Opponent 05"
+      },
+      {
+        "pick_number": 24,
+        "player_id": "3149673",
+        "player_name": "Pascal Siakam",
+        "team": "Example Opponent 01"
+      },
+      {
+        "pick_number": 25,
+        "player_id": "3136193",
+        "player_name": "Devin Booker",
+        "team": "Example Opponent 07"
+      },
+      {
+        "pick_number": 26,
+        "player_id": "4871144",
+        "player_name": "Alperen Sengun",
+        "team": "Team 16"
+      },
+      {
+        "pick_number": 27,
+        "player_id": "4683021",
+        "player_name": "Deni Avdija",
+        "team": "Example Opponent 06"
+      },
+      {
+        "pick_number": 28,
+        "player_id": "3992",
+        "player_name": "James Harden",
+        "team": "Example Opponent 27"
+      },
+      {
+        "pick_number": 29,
+        "player_id": "6583",
+        "player_name": "Anthony Davis",
+        "team": "Example Opponent 27"
+      },
+      {
+        "pick_number": 30,
+        "player_id": "3936299",
+        "player_name": "Jamal Murray",
+        "team": "Example Opponent 06"
+      },
+      {
+        "pick_number": 31,
+        "player_id": "4066457",
+        "player_name": "Austin Reaves",
+        "team": "Team 16"
+      },
+      {
+        "pick_number": 32,
+        "player_id": "4432158",
+        "player_name": "Evan Mobley",
+        "team": "Example Opponent 07"
+      },
+      {
+        "pick_number": 33,
+        "player_id": "6450",
+        "player_name": "Kawhi Leonard",
+        "team": "Example Opponent 01"
+      },
+      {
+        "pick_number": 34,
+        "player_id": "3975",
+        "player_name": "Stephen Curry",
+        "team": "Example Opponent 05"
+      },
+      {
+        "pick_number": 35,
+        "player_id": "3078576",
+        "player_name": "Derrick White",
+        "team": "Example Opponent 26"
+      },
+      {
+        "pick_number": 36,
+        "player_id": "4066261",
+        "player_name": "Bam Adebayo",
+        "team": "Example Opponent 23"
+      },
+      {
+        "pick_number": 37,
+        "player_id": "4593803",
+        "player_name": "Jalen Williams",
+        "team": "Example Opponent 03"
+      },
+      {
+        "pick_number": 38,
+        "player_id": "4066320",
+        "player_name": "Desmond Bane",
+        "team": "Example Opponent 21"
+      },
+      {
+        "pick_number": 39,
+        "player_id": "3917376",
+        "player_name": "Jaylen Brown",
+        "team": "Example Opponent 22"
+      },
+      {
+        "pick_number": 40,
+        "player_id": "4396907",
+        "player_name": "Darius Garland",
+        "team": "Example Opponent 04"
+      },
+      {
+        "pick_number": 41,
+        "player_id": "4066328",
+        "player_name": "Jarrett Allen",
+        "team": "Example Team"
+      },
+      {
+        "pick_number": 42,
+        "player_id": "4066259",
+        "player_name": "De'Aaron Fox",
+        "team": "Example Opponent 24"
+      },
+      {
+        "pick_number": 43,
+        "player_id": "4396971",
+        "player_name": "Naz Reid",
+        "team": "Example Opponent 24"
+      },
+      {
+        "pick_number": 44,
+        "player_id": "3064514",
+        "player_name": "Julius Randle",
+        "team": "Example Team"
+      },
+      {
+        "pick_number": 45,
+        "player_id": "5061575",
+        "player_name": "Kon Knueppel",
+        "team": "Example Opponent 04"
+      },
+      {
+        "pick_number": 46,
+        "player_id": "3147657",
+        "player_name": "Mikal Bridges",
+        "team": "Example Opponent 22"
+      },
+      {
+        "pick_number": 47,
+        "player_id": "1966",
+        "player_name": "LeBron James",
+        "team": "Example Opponent 21"
+      },
+      {
+        "pick_number": 48,
+        "player_id": "4278039",
+        "player_name": "Nickeil Alexander-Walker",
+        "team": "Example Opponent 03"
+      },
+      {
+        "pick_number": 49,
+        "player_id": "4432573",
+        "player_name": "Paolo Banchero",
+        "team": "Example Opponent 23"
+      },
+      {
+        "pick_number": 50,
+        "player_id": "4066336",
+        "player_name": "Lauri Markkanen",
+        "team": "Example Opponent 26"
+      },
+      {
+        "pick_number": 51,
+        "player_id": "4278104",
+        "player_name": "Michael Porter Jr.",
+        "team": "Example Opponent 05"
+      },
+      {
+        "pick_number": 52,
+        "player_id": "4869342",
+        "player_name": "Dyson Daniels",
+        "team": "Example Opponent 01"
+      },
+      {
+        "pick_number": 53,
+        "player_id": "4845367",
+        "player_name": "Stephon Castle",
+        "team": "Example Opponent 07"
+      },
+      {
+        "pick_number": 54,
+        "player_id": "6442",
+        "player_name": "Kyrie Irving",
+        "team": "Team 16"
+      },
+      {
+        "pick_number": 55,
+        "player_id": "3907497",
+        "player_name": "Dejounte Murray",
+        "team": "Example Opponent 06"
+      },
+      {
+        "pick_number": 56,
+        "player_id": "4065733",
+        "player_name": "Ty Jerome",
+        "team": "Example Opponent 27"
+      },
+      {
+        "pick_number": 57,
+        "player_id": "4395628",
+        "player_name": "Zion Williamson",
+        "team": "Example Opponent 27"
+      },
+      {
+        "pick_number": 58,
+        "player_id": "4566434",
+        "player_name": "Franz Wagner",
+        "team": "Example Opponent 06"
+      },
+      {
+        "pick_number": 59,
+        "player_id": "4433287",
+        "player_name": "Brandon Miller",
+        "team": "Team 16"
+      },
+      {
+        "pick_number": 60,
+        "player_id": "6606",
+        "player_name": "Damian Lillard",
+        "team": "Example Opponent 07"
+      },
+      {
+        "pick_number": 61,
+        "player_id": "4395725",
+        "player_name": "Tyler Herro",
+        "team": "Example Opponent 01"
+      },
+      {
+        "pick_number": 62,
+        "player_id": "4431680",
+        "player_name": "Onyeka Okongwu",
+        "team": "Example Opponent 05"
+      },
+      {
+        "pick_number": 63,
+        "player_id": "5095151",
+        "player_name": "Caleb Wilson",
+        "team": "Example Opponent 26"
+      },
+      {
+        "pick_number": 64,
+        "player_id": "4433627",
+        "player_name": "Keyonte George",
+        "team": "Example Opponent 23"
+      },
+      {
+        "pick_number": 65,
+        "player_id": "4397688",
+        "player_name": "Trey Murphy III",
+        "team": "Example Opponent 03"
+      },
+      {
+        "pick_number": 66,
+        "player_id": "2595516",
+        "player_name": "Norman Powell",
+        "team": "Example Opponent 21"
+      },
+      {
+        "pick_number": 67,
+        "player_id": "3032976",
+        "player_name": "Rudy Gobert",
+        "team": "Example Opponent 22"
+      },
+      {
+        "pick_number": 68,
+        "player_id": "5105565",
+        "player_name": "Donovan Clingan",
+        "team": "Example Opponent 04"
+      },
+      {
+        "pick_number": 69,
+        "player_id": "4433136",
+        "player_name": "Walker Kessler",
+        "team": "Example Team"
+      },
+      {
+        "pick_number": 70,
+        "player_id": "4433255",
+        "player_name": "Chet Holmgren",
+        "team": "Example Opponent 24"
+      },
+      {
+        "pick_number": 71,
+        "player_id": "4017837",
+        "player_name": "Ivica Zubac",
+        "team": "Example Opponent 24"
+      },
+      {
+        "pick_number": 72,
+        "player_id": "5105623",
+        "player_name": "Kel'el Ware",
+        "team": "Example Team"
+      },
+      {
+        "pick_number": 73,
+        "player_id": "5041935",
+        "player_name": "Cameron Boozer",
+        "team": "Example Opponent 04"
+      },
+      {
+        "pick_number": 74,
+        "player_id": "4279888",
+        "player_name": "Ja Morant",
+        "team": "Example Opponent 22"
+      },
+      {
+        "pick_number": 75,
+        "player_id": "5160992",
+        "player_name": "Alex Sarr",
+        "team": "Example Opponent 21"
+      },
+      {
+        "pick_number": 76,
+        "player_id": "3059318",
+        "player_name": "Joel Embiid",
+        "team": "Example Opponent 03"
+      },
+      {
+        "pick_number": 77,
+        "player_id": "5142718",
+        "player_name": "AJ Dybantsa",
+        "team": "Example Opponent 23"
+      },
+      {
+        "pick_number": 78,
+        "player_id": "4709138",
+        "player_name": "Brandin Podziemski",
+        "team": "Example Opponent 26"
+      },
+      {
+        "pick_number": 79,
+        "player_id": "2490149",
+        "player_name": "CJ McCollum",
+        "team": "Example Opponent 05"
+      },
+      {
+        "pick_number": 80,
+        "player_id": "4277961",
+        "player_name": "Jaren Jackson Jr.",
+        "team": "Example Opponent 01"
+      },
+      {
+        "pick_number": 81,
+        "player_id": "4066383",
+        "player_name": "Miles Bridges",
+        "team": "Example Opponent 07"
+      },
+      {
+        "pick_number": 82,
+        "player_id": "4869780",
+        "player_name": "Derik Queen",
+        "team": "Team 16"
+      },
+      {
+        "pick_number": 83,
+        "player_id": "5124612",
+        "player_name": "VJ Edgecombe",
+        "team": "Example Opponent 06"
+      },
+      {
+        "pick_number": 84,
+        "player_id": "4711294",
+        "player_name": "Matas Buzelis",
+        "team": "Example Opponent 27"
+      },
+      {
+        "pick_number": 85,
+        "player_id": "5037871",
+        "player_name": "Dylan Harper",
+        "team": "Example Opponent 27"
+      },
+      {
+        "pick_number": 86,
+        "player_id": "2991230",
+        "player_name": "Fred VanVleet",
+        "team": "Example Opponent 06"
+      },
+      {
+        "pick_number": 87,
+        "player_id": "4437244",
+        "player_name": "Jalen Green",
+        "team": "Team 16"
+      },
+      {
+        "pick_number": 88,
+        "player_id": "4395651",
+        "player_name": "Coby White",
+        "team": "Example Opponent 07"
+      },
+      {
+        "pick_number": 89,
+        "player_id": "4711272",
+        "player_name": "Reed Sheppard",
+        "team": "Example Opponent 01"
+      },
+      {
+        "pick_number": 90,
+        "player_id": "3978",
+        "player_name": "DeMar DeRozan",
+        "team": "Example Opponent 05"
+      },
+      {
+        "pick_number": 91,
+        "player_id": "3934719",
+        "player_name": "OG Anunoby",
+        "team": "Example Opponent 26"
+      },
+      {
+        "pick_number": 92,
+        "player_id": "4395724",
+        "player_name": "Immanuel Quickley",
+        "team": "Example Opponent 23"
+      },
+      {
+        "pick_number": 93,
+        "player_id": "4066354",
+        "player_name": "Payton Pritchard",
+        "team": "Example Opponent 03"
+      },
+      {
+        "pick_number": 94,
+        "player_id": "4397140",
+        "player_name": "Kevin Porter Jr.",
+        "team": "Example Opponent 21"
+      },
+      {
+        "pick_number": 95,
+        "player_id": "3062679",
+        "player_name": "Josh Hart",
+        "team": "Example Opponent 22"
+      },
+      {
+        "pick_number": 96,
+        "player_id": "4591725",
+        "player_name": "Ryan Rollins",
+        "team": "Example Opponent 04"
+      },
+      {
+        "pick_number": 97,
+        "player_id": "6478",
+        "player_name": "Nikola Vucevic",
+        "team": "Example Team"
+      },
+      {
+        "pick_number": 98,
+        "player_id": "5142620",
+        "player_name": "Darius Acuff Jr.",
+        "team": "Example Opponent 24"
+      },
+      {
+        "pick_number": 99,
+        "player_id": "4431671",
+        "player_name": "Jaden McDaniels",
+        "team": "Example Opponent 24"
+      },
+      {
+        "pick_number": 100,
+        "player_id": "3908845",
+        "player_name": "John Collins",
+        "team": "Example Team"
+      },
+      {
+        "pick_number": 101,
+        "player_id": "3102531",
+        "player_name": "Kristaps Porzingis",
+        "team": "Example Opponent 04"
+      },
+      {
+        "pick_number": 102,
+        "player_id": "4397002",
+        "player_name": "Ayo Dosunmu",
+        "team": "Example Opponent 22"
+      },
+      {
+        "pick_number": 103,
+        "player_id": "3059319",
+        "player_name": "Andrew Wiggins",
+        "team": "Example Opponent 21"
+      },
+      {
+        "pick_number": 104,
+        "player_id": "6440",
+        "player_name": "Tobias Harris",
+        "team": "Example Opponent 03"
+      },
+      {
+        "pick_number": 105,
+        "player_id": "4684742",
+        "player_name": "Ausar Thompson",
+        "team": "Example Opponent 23"
+      },
+      {
+        "pick_number": 106,
+        "player_id": "4395625",
+        "player_name": "RJ Barrett",
+        "team": "Example Opponent 26"
+      },
+      {
+        "pick_number": 107,
+        "player_id": "5175643",
+        "player_name": "Egor Demin",
+        "team": "Example Opponent 05"
+      },
+      {
+        "pick_number": 108,
+        "player_id": "5041955",
+        "player_name": "Darryn Peterson",
+        "team": "Example Opponent 01"
+      },
+      {
+        "pick_number": 109,
+        "player_id": "3913176",
+        "player_name": "Brandon Ingram",
+        "team": "Example Opponent 07"
+      },
+      {
+        "pick_number": 110,
+        "player_id": "4251",
+        "player_name": "Paul George",
+        "team": "Team 16"
+      },
+      {
+        "pick_number": 111,
+        "player_id": "4576087",
+        "player_name": "Peyton Watson",
+        "team": "Example Opponent 06"
+      },
+      {
+        "pick_number": 112,
+        "player_id": "5144091",
+        "player_name": "Jeremiah Fears",
+        "team": "Example Opponent 27"
+      },
+      {
+        "pick_number": 113,
+        "player_id": "3134908",
+        "player_name": "Jakob Poeltl",
+        "team": "Example Opponent 27"
+      },
+      {
+        "pick_number": 114,
+        "player_id": "4594327",
+        "player_name": "Keegan Murray",
+        "team": "Example Opponent 06"
+      },
+      {
+        "pick_number": 115,
+        "player_id": "4432848",
+        "player_name": "Jaime Jaquez Jr.",
+        "team": "Team 16"
+      },
+      {
+        "pick_number": 116,
+        "player_id": "4278585",
+        "player_name": "Collin Gillespie",
+        "team": "Example Opponent 07"
+      },
+      {
+        "pick_number": 117,
+        "player_id": "4397014",
+        "player_name": "Quentin Grimes",
+        "team": "Example Opponent 01"
+      },
+      {
+        "pick_number": 118,
+        "player_id": "4278067",
+        "player_name": "Nic Claxton",
+        "team": "Example Opponent 05"
+      },
+      {
+        "pick_number": 119,
+        "player_id": "4903027",
+        "player_name": "Cedric Coward",
+        "team": "Example Opponent 26"
+      },
+      {
+        "pick_number": 120,
+        "player_id": "4600663",
+        "player_name": "Zach Edey",
+        "team": "Example Opponent 23"
+      },
+      {
+        "pick_number": 121,
+        "player_id": "4277811",
+        "player_name": "Collin Sexton",
+        "team": "Example Opponent 03"
+      },
+      {
+        "pick_number": 122,
+        "player_id": "3133628",
+        "player_name": "Myles Turner",
+        "team": "Example Opponent 21"
+      },
+      {
+        "pick_number": 123,
+        "player_id": "4432639",
+        "player_name": "Jabari Smith Jr.",
+        "team": "Example Opponent 22"
+      },
+      {
+        "pick_number": 124,
+        "player_id": "4601023",
+        "player_name": "Oso Ighodaro",
+        "team": "Example Opponent 04"
+      },
+      {
+        "pick_number": 125,
+        "player_id": "5174563",
+        "player_name": "Kyshawn George",
+        "team": "Example Team"
+      },
+      {
+        "pick_number": 126,
+        "player_id": "4395712",
+        "player_name": "Andrew Nembhard",
+        "team": "Example Opponent 24"
+      },
+      {
+        "pick_number": 127,
+        "player_id": "4278049",
+        "player_name": "Daniel Gafford",
+        "team": "Example Opponent 24"
+      },
+      {
+        "pick_number": 128,
+        "player_id": "3995",
+        "player_name": "Jrue Holiday",
+        "team": "Example Team"
+      },
+      {
+        "pick_number": 129,
+        "player_id": "4397424",
+        "player_name": "Neemias Queta",
+        "team": "Example Opponent 04"
+      },
+      {
+        "pick_number": 130,
+        "player_id": "3064440",
+        "player_name": "Zach LaVine",
+        "team": "Example Opponent 22"
+      },
+      {
+        "pick_number": 131,
+        "player_id": "4222252",
+        "player_name": "Isaiah Hartenstein",
+        "team": "Example Opponent 21"
+      },
+      {
+        "pick_number": 132,
+        "player_id": "4712849",
+        "player_name": "Anthony Black",
+        "team": "Example Opponent 03"
+      },
+      {
+        "pick_number": 133,
+        "player_id": "4431785",
+        "player_name": "Scotty Pippen Jr.",
+        "team": "Example Opponent 23"
+      },
+      {
+        "pick_number": 134,
+        "player_id": "3064290",
+        "player_name": "Aaron Gordon",
+        "team": "Example Opponent 26"
+      },
+      {
+        "pick_number": 135,
+        "player_id": "4873138",
+        "player_name": "Ace Bailey",
+        "team": "Example Opponent 05"
+      },
+      {
+        "pick_number": 136,
+        "player_id": "4351852",
+        "player_name": "Mitchell Robinson",
+        "team": "Example Opponent 01"
+      },
+      {
+        "pick_number": 137,
+        "player_id": "3448",
+        "player_name": "Brook Lopez",
+        "team": "Example Opponent 07"
+      },
+      {
+        "pick_number": 138,
+        "player_id": "4592479",
+        "player_name": "Julian Champagnie",
+        "team": "Team 16"
+      },
+      {
+        "pick_number": 139,
+        "player_id": "4066262",
+        "player_name": "Malik Monk",
+        "team": "Example Opponent 06"
+      },
+      {
+        "pick_number": 140,
+        "player_id": "4432194",
+        "player_name": "Day'Ron Sharpe",
+        "team": "Example Opponent 27"
+      }
+    ],
+    "history_complete": true,
+    "observed_at": "2026-10-11T15:16:04.271Z",
+    "on_clock_team": null,
+    "phase": "complete",
+    "pick_order": [
+      "Example Opponent 27",
+      "Example Opponent 06",
+      "Team 16",
+      "Example Opponent 07",
+      "Example Opponent 01",
+      "Example Opponent 05",
+      "Example Opponent 26",
+      "Example Opponent 23",
+      "Example Opponent 03",
+      "Example Opponent 21",
+      "Example Opponent 22",
+      "Example Opponent 04",
+      "Example Team",
+      "Example Opponent 24"
+    ],
+    "revision": 680,
+    "room": {
+      "league_id": "1000000007",
+      "practice": true,
+      "season_id": "2027",
+      "team_id": "15"
+    },
+    "roster": [
+      {
+        "adp": 21.3,
+        "availability": null,
+        "draft_rank": 24,
+        "eligibility": [
+          "C"
+        ],
+        "injury_status": null,
+        "missing_stats": [
+          "EJ",
+          "PF",
+          "TF",
+          "DD",
+          "TD",
+          "QD"
+        ],
+        "name": "Karl-Anthony Towns",
+        "nba_team": null,
+        "player_id": "3136195",
+        "projected_gp": 70,
+        "source": "ESPN 2027 Projected averages observed in paused room 1000000009",
+        "stats": {
+          "3PM": 1.8,
+          "AST": 4.4,
+          "BLK": 0.6,
+          "FGA": 15.2,
+          "FGM": 7.8,
+          "FTA": 5.4,
+          "FTM": 4.6,
+          "PTS": 21.9,
+          "REB": 11.2,
+          "STL": 0.9,
+          "TO": 2.6
+        }
+      },
+      {
+        "adp": 134.5,
+        "availability": null,
+        "draft_rank": 127,
+        "eligibility": [
+          "G",
+          "F"
+        ],
+        "injury_status": null,
+        "missing_stats": [
+          "EJ",
+          "PF",
+          "TF",
+          "DD",
+          "TD",
+          "QD"
+        ],
+        "name": "Kyshawn George",
+        "nba_team": null,
+        "player_id": "5174563",
+        "projected_gp": 66,
+        "source": "ESPN 2027 Projected averages observed in paused room 1000000009",
+        "stats": {
+          "3PM": 2.1,
+          "AST": 4.2,
+          "BLK": 0.9,
+          "FGA": 11.6,
+          "FGM": 5,
+          "FTA": 2.5,
+          "FTM": 2,
+          "PTS": 14,
+          "REB": 5.1,
+          "STL": 1,
+          "TO": 2.4
+        }
+      },
+      {
+        "adp": 133.3,
+        "availability": null,
+        "draft_rank": 135,
+        "eligibility": [
+          "G"
+        ],
+        "injury_status": null,
+        "missing_stats": [
+          "EJ",
+          "PF",
+          "TF",
+          "DD",
+          "TD",
+          "QD"
+        ],
+        "name": "Jrue Holiday",
+        "nba_team": null,
+        "player_id": "3995",
+        "projected_gp": 68,
+        "source": "ESPN 2027 Projected averages observed in paused room 1000000009",
+        "stats": {
+          "3PM": 1.9,
+          "AST": 4.5,
+          "BLK": 0.4,
+          "FGA": 10,
+          "FGM": 4.6,
+          "FTA": 1.3,
+          "FTM": 1.1,
+          "PTS": 12.2,
+          "REB": 4.4,
+          "STL": 0.9,
+          "TO": 1.8
+        }
+      },
+      {
+        "adp": 59.8,
+        "availability": null,
+        "draft_rank": 50,
+        "eligibility": [
+          "F"
+        ],
+        "injury_status": null,
+        "missing_stats": [
+          "EJ",
+          "PF",
+          "TF",
+          "DD",
+          "TD",
+          "QD"
+        ],
+        "name": "Julius Randle",
+        "nba_team": null,
+        "player_id": "3064514",
+        "projected_gp": 72,
+        "source": "ESPN 2027 Projected averages observed in paused room 1000000009",
+        "stats": {
+          "3PM": 1.6,
+          "AST": 5,
+          "BLK": 0.2,
+          "FGA": 16.4,
+          "FGM": 7.8,
+          "FTA": 6.1,
+          "FTM": 4.8,
+          "PTS": 22,
+          "REB": 8.1,
+          "STL": 0.7,
+          "TO": 3.1
+        }
+      },
+      {
+        "adp": 115.4,
+        "availability": null,
+        "draft_rank": 102,
+        "eligibility": [
+          "F",
+          "C"
+        ],
+        "injury_status": null,
+        "missing_stats": [
+          "EJ",
+          "PF",
+          "TF",
+          "DD",
+          "TD",
+          "QD"
+        ],
+        "name": "John Collins",
+        "nba_team": null,
+        "player_id": "3908845",
+        "projected_gp": 68,
+        "source": "ESPN 2027 Projected averages observed in paused room 1000000009",
+        "stats": {
+          "3PM": 1.4,
+          "AST": 1.3,
+          "BLK": 0.9,
+          "FGA": 11.7,
+          "FGM": 6.3,
+          "FTA": 2.9,
+          "FTM": 2.3,
+          "PTS": 16.4,
+          "REB": 7.7,
+          "STL": 0.8,
+          "TO": 1.7
+        }
+      },
+      {
+        "adp": 33.2,
+        "availability": null,
+        "draft_rank": 27,
+        "eligibility": [
+          "C"
+        ],
+        "injury_status": "DTD",
+        "missing_stats": [
+          "EJ",
+          "PF",
+          "TF",
+          "DD",
+          "TD",
+          "QD"
+        ],
+        "name": "Jalen Duren",
+        "nba_team": null,
+        "player_id": "4433621",
+        "projected_gp": 72,
+        "source": "ESPN 2027 Projected averages observed in paused room 1000000009",
+        "stats": {
+          "3PM": 0,
+          "AST": 2.3,
+          "BLK": 1,
+          "FGA": 11.9,
+          "FGM": 7.8,
+          "FTA": 6.3,
+          "FTM": 4.7,
+          "PTS": 20.3,
+          "REB": 11.7,
+          "STL": 0.9,
+          "TO": 2
+        }
+      },
+      {
+        "adp": 66.4,
+        "availability": null,
+        "draft_rank": 54,
+        "eligibility": [
+          "C"
+        ],
+        "injury_status": null,
+        "missing_stats": [
+          "EJ",
+          "PF",
+          "TF",
+          "DD",
+          "TD",
+          "QD"
+        ],
+        "name": "Jarrett Allen",
+        "nba_team": null,
+        "player_id": "4066328",
+        "projected_gp": 71,
+        "source": "ESPN 2027 Projected averages observed in paused room 1000000009",
+        "stats": {
+          "3PM": 0,
+          "AST": 2.2,
+          "BLK": 1,
+          "FGA": 9.7,
+          "FGM": 6.4,
+          "FTA": 4.2,
+          "FTM": 3,
+          "PTS": 15.8,
+          "REB": 10,
+          "STL": 0.9,
+          "TO": 1.4
+        }
+      },
+      {
+        "adp": 79.3,
+        "availability": null,
+        "draft_rank": 69,
+        "eligibility": [
+          "C"
+        ],
+        "injury_status": "DTD",
+        "missing_stats": [
+          "EJ",
+          "PF",
+          "TF",
+          "DD",
+          "TD",
+          "QD"
+        ],
+        "name": "Walker Kessler",
+        "nba_team": null,
+        "player_id": "4433136",
+        "projected_gp": 64,
+        "source": "ESPN 2027 Projected averages observed in paused room 1000000009",
+        "stats": {
+          "3PM": 0.1,
+          "AST": 1.7,
+          "BLK": 2.6,
+          "FGA": 7.5,
+          "FGM": 5,
+          "FTA": 2.7,
+          "FTM": 1.4,
+          "PTS": 11.5,
+          "REB": 12.4,
+          "STL": 0.7,
+          "TO": 1.6
+        }
+      },
+      {
+        "adp": 100.7,
+        "availability": null,
+        "draft_rank": 76,
+        "eligibility": [
+          "C"
+        ],
+        "injury_status": null,
+        "missing_stats": [
+          "EJ",
+          "PF",
+          "TF",
+          "DD",
+          "TD",
+          "QD"
+        ],
+        "name": "Kel'el Ware",
+        "nba_team": null,
+        "player_id": "5105623",
+        "projected_gp": 72,
+        "source": "ESPN 2027 Projected averages observed in paused room 1000000009",
+        "stats": {
+          "3PM": 1.3,
+          "AST": 0.9,
+          "BLK": 1.3,
+          "FGA": 9.9,
+          "FGM": 5.3,
+          "FTA": 1.5,
+          "FTM": 1.1,
+          "PTS": 13,
+          "REB": 10.6,
+          "STL": 0.9,
+          "TO": 1
+        }
+      },
+      {
+        "adp": 117.3,
+        "availability": null,
+        "draft_rank": 101,
+        "eligibility": [
+          "C"
+        ],
+        "injury_status": null,
+        "missing_stats": [
+          "EJ",
+          "PF",
+          "TF",
+          "DD",
+          "TD",
+          "QD"
+        ],
+        "name": "Nikola Vucevic",
+        "nba_team": null,
+        "player_id": "6478",
+        "projected_gp": 72,
+        "source": "ESPN 2027 Projected averages observed in paused room 1000000009",
+        "stats": {
+          "3PM": 1.2,
+          "AST": 2.7,
+          "BLK": 0.6,
+          "FGA": 11.4,
+          "FGM": 5.7,
+          "FTA": 1.4,
+          "FTM": 1.1,
+          "PTS": 13.8,
+          "REB": 7.7,
+          "STL": 0.6,
+          "TO": 1.2
+        }
+      }
+    ],
+    "rules": {
+      "bench_slots": 4,
+      "ir_slots": 3,
+      "rounds": 10,
+      "scoring": {
+        "3PM": 1,
+        "AST": 2,
+        "BLK": 4,
+        "DD": 3,
+        "EJ": -5,
+        "FGA": -1,
+        "FGM": 2,
+        "FTA": -1,
+        "FTM": 1,
+        "PF": -1,
+        "PTS": 1,
+        "QD": 100,
+        "REB": 2,
+        "STL": 4,
+        "TD": 5,
+        "TF": -2,
+        "TO": -2
+      },
+      "starting_slots": [
+        "C",
+        "G",
+        "G",
+        "F",
+        "F",
+        "UTIL"
+      ],
+      "teams": 14
+    },
+    "schema_version": 1,
+    "seconds_remaining": null,
+    "session_id": "example-2d920a5b38d10717",
+    "warnings": [
+      "Preloaded ESPN 2027 projections; bonus/foul inputs unknown; current visible pickfeed and player button IDs"
+    ],
+    "history_summary": {
+      "count": 140,
+      "unique_player_ids": 140,
+      "first_pick": "Shai Gilgeous-Alexander",
+      "last_pick": "Day'Ron Sharpe",
+      "our_confirmed_picks": [
+        13,
+        16,
+        41,
+        44,
+        69,
+        72,
+        97,
+        100,
+        125,
+        128
+      ]
+    },
+    "roster_summary": {
+      "players": 10,
+      "eligibility_counts": {
+        "C": 7,
+        "G": 2,
+        "F": 3
+      },
+      "center_only_count": 6,
+      "legal_roster": true
+    }
+  },
+  "latency": {
+    "provenance": "root CUA summary",
+    "units": {
+      "observation_to_click": "milliseconds",
+      "click_to_confirm": "milliseconds",
+      "clock": "seconds remaining at prepare observation"
+    },
+    "rows": [
+      {
+        "pick": 13,
+        "player": "Karl-Anthony Towns",
+        "observation_to_click_ms": 1445,
+        "click_to_confirm_ms": 1954,
+        "clock_seconds": 81,
+        "history_and_roster_confirmed": true
+      },
+      {
+        "pick": 16,
+        "player": "Jalen Duren",
+        "observation_to_click_ms": 1703,
+        "click_to_confirm_ms": 2067,
+        "clock_seconds": 85,
+        "history_and_roster_confirmed": true
+      },
+      {
+        "pick": 41,
+        "player": "Jarrett Allen",
+        "observation_to_click_ms": 1698,
+        "click_to_confirm_ms": 1856,
+        "clock_seconds": 86,
+        "history_and_roster_confirmed": true
+      },
+      {
+        "pick": 44,
+        "player": "Julius Randle",
+        "observation_to_click_ms": 1867,
+        "click_to_confirm_ms": 2607,
+        "clock_seconds": 85,
+        "history_and_roster_confirmed": true
+      },
+      {
+        "pick": 69,
+        "player": "Walker Kessler",
+        "observation_to_click_ms": 1832,
+        "click_to_confirm_ms": 1583,
+        "clock_seconds": 85,
+        "history_and_roster_confirmed": true
+      },
+      {
+        "pick": 72,
+        "player": "Kel'el Ware",
+        "observation_to_click_ms": 1769,
+        "click_to_confirm_ms": 2122,
+        "clock_seconds": 85,
+        "history_and_roster_confirmed": true
+      },
+      {
+        "pick": 97,
+        "player": "Nikola Vucevic",
+        "observation_to_click_ms": 1777,
+        "click_to_confirm_ms": 1945,
+        "clock_seconds": 86,
+        "history_and_roster_confirmed": true
+      },
+      {
+        "pick": 100,
+        "player": "John Collins",
+        "observation_to_click_ms": 1802,
+        "click_to_confirm_ms": 2072,
+        "clock_seconds": 85,
+        "history_and_roster_confirmed": true
+      },
+      {
+        "pick": 125,
+        "player": "Kyshawn George",
+        "observation_to_click_ms": 1652,
+        "click_to_confirm_ms": 1485,
+        "clock_seconds": 85,
+        "history_and_roster_confirmed": true
+      },
+      {
+        "pick": 128,
+        "player": "Jrue Holiday",
+        "observation_to_click_ms": 1814,
+        "click_to_confirm_ms": 1977,
+        "clock_seconds": 85,
+        "history_and_roster_confirmed": true
+      }
+    ],
+    "clean_timing_gate": "passed"
+  },
+  "release_limits": [
+    "The live room used an equivalent root REPL prototype; the exact canonical module runner is only unit-tested.",
+    "Real ninety-minute foreground continuity was not rehearsed.",
+    "Queue fallback remains disabled or only partially evidenced.",
+    "The final roster is structurally center-heavy (C=7, G=2, F=3, C-only=6); utilization review remains advisory.",
+    "This clean timing gate does not establish that all production release gates pass."
+  ],
+  "verification": {
+    "source": "runtime/control.sqlite3 terminal observation revision 680",
+    "history_rows_exported": 140,
+    "unique_history_player_ids": 140,
+    "contiguous_pick_numbers": true,
+    "snake_order_matches_pick_order": true,
+    "snake_order_mismatches": [],
+    "confirmed_action_player_ids_match_history": true
+  }
+}

@@ -1,0 +1,1237 @@
+{
+  "session_id": "practice-1000000005",
+  "actions": [
+    {
+      "action_id": "9279ddc1d2cb480e89c09e324916ba94",
+      "action_type": "draft",
+      "created_at": "2026-10-11T02:59:39.676873+00:00",
+      "detail": "confirmed by authoritative board history and roster",
+      "expected_pick": 13,
+      "expected_team": "Example Team",
+      "player_id": "3155942",
+      "player_name": "Domantas Sabonis",
+      "revision": 6,
+      "session_id": "practice-1000000005",
+      "status": "confirmed",
+      "updated_at": "2026-10-11T03:00:41.979899+00:00"
+    },
+    {
+      "action_id": "dee1d6d39b52480c97b96f1299f33d50",
+      "action_type": "draft",
+      "created_at": "2026-10-11T03:01:16.160611+00:00",
+      "detail": "confirmed by authoritative board history and roster",
+      "expected_pick": 16,
+      "expected_team": "Example Team",
+      "player_id": "4433621",
+      "player_name": "Jalen Duren",
+      "revision": 105,
+      "session_id": "practice-1000000005",
+      "status": "confirmed",
+      "updated_at": "2026-10-11T03:01:27.947718+00:00"
+    },
+    {
+      "action_id": "57d5b8bd14574adc845143780f6dd64f",
+      "action_type": "draft",
+      "created_at": "2026-10-11T03:02:40.274861+00:00",
+      "detail": "confirmed by authoritative board history and roster",
+      "expected_pick": 41,
+      "expected_team": "Example Team",
+      "player_id": "4066328",
+      "player_name": "Jarrett Allen",
+      "revision": 108,
+      "session_id": "practice-1000000005",
+      "status": "confirmed",
+      "updated_at": "2026-10-11T03:03:08.996445+00:00"
+    },
+    {
+      "action_id": "cbe4f7f038374db289683fc10a693bd6",
+      "action_type": "draft",
+      "created_at": "2026-10-11T03:03:10.034673+00:00",
+      "detail": "confirmed by authoritative board history and roster",
+      "expected_pick": 44,
+      "expected_team": "Example Team",
+      "player_id": "5105565",
+      "player_name": "Donovan Clingan",
+      "revision": 111,
+      "session_id": "practice-1000000005",
+      "status": "confirmed",
+      "updated_at": "2026-10-11T03:03:21.164029+00:00"
+    },
+    {
+      "action_id": "fcb9c889f4a5441f85fe2e67043f07ee",
+      "action_type": "draft",
+      "created_at": "2026-10-11T03:03:52.553942+00:00",
+      "detail": "confirmed by authoritative board history and roster",
+      "expected_pick": 69,
+      "expected_team": "Example Team",
+      "player_id": "4277961",
+      "player_name": "Jaren Jackson Jr.",
+      "revision": 121,
+      "session_id": "practice-1000000005",
+      "status": "confirmed",
+      "updated_at": "2026-10-11T03:04:01.601844+00:00"
+    },
+    {
+      "action_id": "d9598ed281e64ff792da1ef4368163ba",
+      "action_type": "draft",
+      "created_at": "2026-10-11T03:04:02.124763+00:00",
+      "detail": "confirmed by authoritative board history and roster",
+      "expected_pick": 72,
+      "expected_team": "Example Team",
+      "player_id": "4017837",
+      "player_name": "Ivica Zubac",
+      "revision": 123,
+      "session_id": "practice-1000000005",
+      "status": "confirmed",
+      "updated_at": "2026-10-11T03:04:16.272205+00:00"
+    },
+    {
+      "action_id": "fd1fbfcb8d13467aa02fcadae5442c63",
+      "action_type": "draft",
+      "created_at": "2026-10-11T03:04:50.119670+00:00",
+      "detail": "confirmed by authoritative board history and roster",
+      "expected_pick": 97,
+      "expected_team": "Example Team",
+      "player_id": "3062679",
+      "player_name": "Josh Hart",
+      "revision": 132,
+      "session_id": "practice-1000000005",
+      "status": "confirmed",
+      "updated_at": "2026-10-11T03:04:57.309790+00:00"
+    },
+    {
+      "action_id": "331c5167105c4ac7bb2a82b7f905fd91",
+      "action_type": "draft",
+      "created_at": "2026-10-11T03:04:57.852516+00:00",
+      "detail": "confirmed by authoritative board history and roster",
+      "expected_pick": 100,
+      "expected_team": "Example Team",
+      "player_id": "4432639",
+      "player_name": "Jabari Smith Jr.",
+      "revision": 134,
+      "session_id": "practice-1000000005",
+      "status": "confirmed",
+      "updated_at": "2026-10-11T03:05:06.259636+00:00"
+    },
+    {
+      "action_id": "d52a8174cb08423dbc6644ca43eb052b",
+      "action_type": "draft",
+      "created_at": "2026-10-11T03:05:41.515003+00:00",
+      "detail": "confirmed by authoritative board history and roster",
+      "expected_pick": 125,
+      "expected_team": "Example Team",
+      "player_id": "3135045",
+      "player_name": "Grayson Allen",
+      "revision": 144,
+      "session_id": "practice-1000000005",
+      "status": "confirmed",
+      "updated_at": "2026-10-11T03:05:49.579823+00:00"
+    },
+    {
+      "action_id": "a2d857b944dc43aa9a6af8690da511e4",
+      "action_type": "draft",
+      "created_at": "2026-10-11T03:05:50.134070+00:00",
+      "detail": "confirmed by authoritative board history and roster",
+      "expected_pick": 128,
+      "expected_team": "Example Team",
+      "player_id": "5174563",
+      "player_name": "Kyshawn George",
+      "revision": 146,
+      "session_id": "practice-1000000005",
+      "status": "confirmed",
+      "updated_at": "2026-10-11T03:06:29.207207+00:00"
+    }
+  ],
+  "events": [
+    {
+      "event": "connect",
+      "payload": {
+        "practice": true,
+        "safe_url": "https://fantasy.espn.com/basketball/draft?leagueId=1000000005&seasonId=2027&teamId=15"
+      },
+      "created_at": "2026-10-11T02:55:04.537217+00:00"
+    },
+    {
+      "event": "practice_attested",
+      "payload": {
+        "heading": "ESPN Fantasy Basketball Draft - Practice Draft for Example League",
+        "room": {
+          "league_id": "1000000005",
+          "practice": true,
+          "season_id": "2027",
+          "team_id": "15"
+        },
+        "source_league_id": "1000000000"
+      },
+      "created_at": "2026-10-11T02:55:04.776322+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 3.262559,
+        "revision": 2
+      },
+      "created_at": "2026-10-11T02:59:18.749629+00:00"
+    },
+    {
+      "event": "start",
+      "payload": {
+        "from": "observing"
+      },
+      "created_at": "2026-10-11T02:59:18.754545+00:00"
+    },
+    {
+      "event": "stale_pause",
+      "payload": {
+        "age_seconds": 10.938273,
+        "cancelled": 0
+      },
+      "created_at": "2026-10-11T02:59:26.425276+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.101445,
+        "revision": 4
+      },
+      "created_at": "2026-10-11T02:59:31.410501+00:00"
+    },
+    {
+      "event": "recommendation",
+      "payload": {
+        "candidates": 14,
+        "revision": 4
+      },
+      "created_at": "2026-10-11T02:59:31.416716+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.062803,
+        "revision": 5
+      },
+      "created_at": "2026-10-11T02:59:39.207853+00:00"
+    },
+    {
+      "event": "resume",
+      "payload": {
+        "from": "paused"
+      },
+      "created_at": "2026-10-11T02:59:39.213037+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.083121,
+        "revision": 6
+      },
+      "created_at": "2026-10-11T02:59:39.668170+00:00"
+    },
+    {
+      "event": "recommendation",
+      "payload": {
+        "candidates": 14,
+        "revision": 6
+      },
+      "created_at": "2026-10-11T02:59:39.674766+00:00"
+    },
+    {
+      "event": "action_proposed",
+      "payload": {
+        "action_id": "9279ddc1d2cb480e89c09e324916ba94",
+        "action_type": "draft",
+        "created_at": "2026-10-11T02:59:39.676873+00:00",
+        "detail": "fresh recommendation candidate",
+        "expected_pick": 13,
+        "expected_team": "Example Team",
+        "player_id": "3155942",
+        "player_name": "Domantas Sabonis",
+        "revision": 6,
+        "session_id": "practice-1000000005",
+        "status": "pending",
+        "updated_at": "2026-10-11T02:59:39.676873+00:00"
+      },
+      "created_at": "2026-10-11T02:59:39.676873+00:00"
+    },
+    {
+      "event": "action_claimed",
+      "payload": {
+        "action_id": "9279ddc1d2cb480e89c09e324916ba94",
+        "revision": 6
+      },
+      "created_at": "2026-10-11T02:59:39.679796+00:00"
+    },
+    {
+      "event": "stale_pause",
+      "payload": {
+        "age_seconds": 10.841939,
+        "cancelled": 0
+      },
+      "created_at": "2026-10-11T02:59:50.426941+00:00"
+    },
+    {
+      "event": "action_submitted",
+      "payload": {
+        "action_id": "9279ddc1d2cb480e89c09e324916ba94",
+        "detail": "Exact player Draft button clicked once at 2026-10-11T02:59:59.547Z"
+      },
+      "created_at": "2026-10-11T02:59:59.658478+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.075203,
+        "revision": 101
+      },
+      "created_at": "2026-10-11T03:00:41.967252+00:00"
+    },
+    {
+      "event": "action_confirmed",
+      "payload": {
+        "action_id": "9279ddc1d2cb480e89c09e324916ba94",
+        "detail": "confirmed by authoritative board history and roster"
+      },
+      "created_at": "2026-10-11T03:00:41.979899+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.107107,
+        "revision": 102
+      },
+      "created_at": "2026-10-11T03:00:53.479154+00:00"
+    },
+    {
+      "event": "resume",
+      "payload": {
+        "from": "paused"
+      },
+      "created_at": "2026-10-11T03:00:53.490961+00:00"
+    },
+    {
+      "event": "stale_pause",
+      "payload": {
+        "age_seconds": 10.101646,
+        "cancelled": 0
+      },
+      "created_at": "2026-10-11T03:01:03.473647+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.08267,
+        "revision": 103
+      },
+      "created_at": "2026-10-11T03:01:11.538726+00:00"
+    },
+    {
+      "event": "recommendation",
+      "payload": {
+        "candidates": 14,
+        "revision": 103
+      },
+      "created_at": "2026-10-11T03:01:11.545752+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.111068,
+        "revision": 104
+      },
+      "created_at": "2026-10-11T03:01:15.688117+00:00"
+    },
+    {
+      "event": "resume",
+      "payload": {
+        "from": "paused"
+      },
+      "created_at": "2026-10-11T03:01:15.692947+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.104878,
+        "revision": 105
+      },
+      "created_at": "2026-10-11T03:01:16.152926+00:00"
+    },
+    {
+      "event": "recommendation",
+      "payload": {
+        "candidates": 14,
+        "revision": 105
+      },
+      "created_at": "2026-10-11T03:01:16.158686+00:00"
+    },
+    {
+      "event": "action_proposed",
+      "payload": {
+        "action_id": "dee1d6d39b52480c97b96f1299f33d50",
+        "action_type": "draft",
+        "created_at": "2026-10-11T03:01:16.160611+00:00",
+        "detail": "fresh recommendation candidate",
+        "expected_pick": 16,
+        "expected_team": "Example Team",
+        "player_id": "4433621",
+        "player_name": "Jalen Duren",
+        "revision": 105,
+        "session_id": "practice-1000000005",
+        "status": "pending",
+        "updated_at": "2026-10-11T03:01:16.160611+00:00"
+      },
+      "created_at": "2026-10-11T03:01:16.160611+00:00"
+    },
+    {
+      "event": "action_claimed",
+      "payload": {
+        "action_id": "dee1d6d39b52480c97b96f1299f33d50",
+        "revision": 105
+      },
+      "created_at": "2026-10-11T03:01:16.162674+00:00"
+    },
+    {
+      "event": "action_submitted",
+      "payload": {
+        "action_id": "dee1d6d39b52480c97b96f1299f33d50",
+        "detail": "Single exact player click"
+      },
+      "created_at": "2026-10-11T03:01:16.943985+00:00"
+    },
+    {
+      "event": "stale_pause",
+      "payload": {
+        "age_seconds": 10.378455,
+        "cancelled": 0
+      },
+      "created_at": "2026-10-11T03:01:26.426457+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.068255,
+        "revision": 106
+      },
+      "created_at": "2026-10-11T03:01:27.942306+00:00"
+    },
+    {
+      "event": "action_confirmed",
+      "payload": {
+        "action_id": "dee1d6d39b52480c97b96f1299f33d50",
+        "detail": "confirmed by authoritative board history and roster"
+      },
+      "created_at": "2026-10-11T03:01:27.947718+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.103029,
+        "revision": 107
+      },
+      "created_at": "2026-10-11T03:02:39.728165+00:00"
+    },
+    {
+      "event": "resume",
+      "payload": {
+        "from": "paused"
+      },
+      "created_at": "2026-10-11T03:02:39.734281+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.111111,
+        "revision": 108
+      },
+      "created_at": "2026-10-11T03:02:40.256167+00:00"
+    },
+    {
+      "event": "recommendation",
+      "payload": {
+        "candidates": 14,
+        "revision": 108
+      },
+      "created_at": "2026-10-11T03:02:40.272003+00:00"
+    },
+    {
+      "event": "action_proposed",
+      "payload": {
+        "action_id": "57d5b8bd14574adc845143780f6dd64f",
+        "action_type": "draft",
+        "created_at": "2026-10-11T03:02:40.274861+00:00",
+        "detail": "fresh recommendation candidate",
+        "expected_pick": 41,
+        "expected_team": "Example Team",
+        "player_id": "4066328",
+        "player_name": "Jarrett Allen",
+        "revision": 108,
+        "session_id": "practice-1000000005",
+        "status": "pending",
+        "updated_at": "2026-10-11T03:02:40.274861+00:00"
+      },
+      "created_at": "2026-10-11T03:02:40.274861+00:00"
+    },
+    {
+      "event": "action_claimed",
+      "payload": {
+        "action_id": "57d5b8bd14574adc845143780f6dd64f",
+        "revision": 108
+      },
+      "created_at": "2026-10-11T03:02:40.277766+00:00"
+    },
+    {
+      "event": "action_submitted",
+      "payload": {
+        "action_id": "57d5b8bd14574adc845143780f6dd64f",
+        "detail": "Single exact player click"
+      },
+      "created_at": "2026-10-11T03:02:42.684106+00:00"
+    },
+    {
+      "event": "stale_pause",
+      "payload": {
+        "age_seconds": 10.287366,
+        "cancelled": 0
+      },
+      "created_at": "2026-10-11T03:02:50.432368+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.094352,
+        "revision": 109
+      },
+      "created_at": "2026-10-11T03:03:08.980400+00:00"
+    },
+    {
+      "event": "action_confirmed",
+      "payload": {
+        "action_id": "57d5b8bd14574adc845143780f6dd64f",
+        "detail": "confirmed by authoritative board history and roster"
+      },
+      "created_at": "2026-10-11T03:03:08.996445+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.182689,
+        "revision": 110
+      },
+      "created_at": "2026-10-11T03:03:09.541737+00:00"
+    },
+    {
+      "event": "resume",
+      "payload": {
+        "from": "paused"
+      },
+      "created_at": "2026-10-11T03:03:09.556608+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.14144,
+        "revision": 111
+      },
+      "created_at": "2026-10-11T03:03:10.022507+00:00"
+    },
+    {
+      "event": "recommendation",
+      "payload": {
+        "candidates": 26,
+        "revision": 111
+      },
+      "created_at": "2026-10-11T03:03:10.031356+00:00"
+    },
+    {
+      "event": "action_proposed",
+      "payload": {
+        "action_id": "cbe4f7f038374db289683fc10a693bd6",
+        "action_type": "draft",
+        "created_at": "2026-10-11T03:03:10.034673+00:00",
+        "detail": "fresh recommendation candidate",
+        "expected_pick": 44,
+        "expected_team": "Example Team",
+        "player_id": "5105565",
+        "player_name": "Donovan Clingan",
+        "revision": 111,
+        "session_id": "practice-1000000005",
+        "status": "pending",
+        "updated_at": "2026-10-11T03:03:10.034673+00:00"
+      },
+      "created_at": "2026-10-11T03:03:10.034673+00:00"
+    },
+    {
+      "event": "action_claimed",
+      "payload": {
+        "action_id": "cbe4f7f038374db289683fc10a693bd6",
+        "revision": 111
+      },
+      "created_at": "2026-10-11T03:03:10.037777+00:00"
+    },
+    {
+      "event": "action_submitted",
+      "payload": {
+        "action_id": "cbe4f7f038374db289683fc10a693bd6",
+        "detail": "Single exact player Draft click 2026-10-11T03:03:10.794Z"
+      },
+      "created_at": "2026-10-11T03:03:10.878472+00:00"
+    },
+    {
+      "event": "stale_pause",
+      "payload": {
+        "age_seconds": 10.54631,
+        "cancelled": 0
+      },
+      "created_at": "2026-10-11T03:03:20.427312+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.108617,
+        "revision": 112
+      },
+      "created_at": "2026-10-11T03:03:21.157667+00:00"
+    },
+    {
+      "event": "action_confirmed",
+      "payload": {
+        "action_id": "cbe4f7f038374db289683fc10a693bd6",
+        "detail": "confirmed by authoritative board history and roster"
+      },
+      "created_at": "2026-10-11T03:03:21.164029+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.092271,
+        "revision": 113
+      },
+      "created_at": "2026-10-11T03:03:24.557325+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.088557,
+        "revision": 114
+      },
+      "created_at": "2026-10-11T03:03:28.712605+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.098658,
+        "revision": 115
+      },
+      "created_at": "2026-10-11T03:03:32.832706+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.121835,
+        "revision": 116
+      },
+      "created_at": "2026-10-11T03:03:36.581884+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.142505,
+        "revision": 117
+      },
+      "created_at": "2026-10-11T03:03:44.049682+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.103636,
+        "revision": 118
+      },
+      "created_at": "2026-10-11T03:03:48.340687+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.096324,
+        "revision": 119
+      },
+      "created_at": "2026-10-11T03:03:51.577374+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.102602,
+        "revision": 120
+      },
+      "created_at": "2026-10-11T03:03:52.057660+00:00"
+    },
+    {
+      "event": "resume",
+      "payload": {
+        "from": "paused"
+      },
+      "created_at": "2026-10-11T03:03:52.067875+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.108584,
+        "revision": 121
+      },
+      "created_at": "2026-10-11T03:03:52.531631+00:00"
+    },
+    {
+      "event": "recommendation",
+      "payload": {
+        "candidates": 26,
+        "revision": 121
+      },
+      "created_at": "2026-10-11T03:03:52.550018+00:00"
+    },
+    {
+      "event": "action_proposed",
+      "payload": {
+        "action_id": "fcb9c889f4a5441f85fe2e67043f07ee",
+        "action_type": "draft",
+        "created_at": "2026-10-11T03:03:52.553942+00:00",
+        "detail": "fresh recommendation candidate",
+        "expected_pick": 69,
+        "expected_team": "Example Team",
+        "player_id": "4277961",
+        "player_name": "Jaren Jackson Jr.",
+        "revision": 121,
+        "session_id": "practice-1000000005",
+        "status": "pending",
+        "updated_at": "2026-10-11T03:03:52.553942+00:00"
+      },
+      "created_at": "2026-10-11T03:03:52.553942+00:00"
+    },
+    {
+      "event": "action_claimed",
+      "payload": {
+        "action_id": "fcb9c889f4a5441f85fe2e67043f07ee",
+        "revision": 121
+      },
+      "created_at": "2026-10-11T03:03:52.557596+00:00"
+    },
+    {
+      "event": "action_submitted",
+      "payload": {
+        "action_id": "fcb9c889f4a5441f85fe2e67043f07ee",
+        "detail": "Single exact player Draft click 2026-10-11T03:03:53.220Z"
+      },
+      "created_at": "2026-10-11T03:03:53.290016+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.108183,
+        "revision": 122
+      },
+      "created_at": "2026-10-11T03:04:01.591239+00:00"
+    },
+    {
+      "event": "action_confirmed",
+      "payload": {
+        "action_id": "fcb9c889f4a5441f85fe2e67043f07ee",
+        "detail": "confirmed by authoritative board history and roster"
+      },
+      "created_at": "2026-10-11T03:04:01.601844+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.125951,
+        "revision": 123
+      },
+      "created_at": "2026-10-11T03:04:02.100000+00:00"
+    },
+    {
+      "event": "recommendation",
+      "payload": {
+        "candidates": 23,
+        "revision": 123
+      },
+      "created_at": "2026-10-11T03:04:02.120842+00:00"
+    },
+    {
+      "event": "action_proposed",
+      "payload": {
+        "action_id": "d9598ed281e64ff792da1ef4368163ba",
+        "action_type": "draft",
+        "created_at": "2026-10-11T03:04:02.124763+00:00",
+        "detail": "fresh recommendation candidate",
+        "expected_pick": 72,
+        "expected_team": "Example Team",
+        "player_id": "4017837",
+        "player_name": "Ivica Zubac",
+        "revision": 123,
+        "session_id": "practice-1000000005",
+        "status": "pending",
+        "updated_at": "2026-10-11T03:04:02.124763+00:00"
+      },
+      "created_at": "2026-10-11T03:04:02.124763+00:00"
+    },
+    {
+      "event": "action_claimed",
+      "payload": {
+        "action_id": "d9598ed281e64ff792da1ef4368163ba",
+        "revision": 123
+      },
+      "created_at": "2026-10-11T03:04:02.128874+00:00"
+    },
+    {
+      "event": "action_submitted",
+      "payload": {
+        "action_id": "d9598ed281e64ff792da1ef4368163ba",
+        "detail": "Single exact player Draft click 2026-10-11T03:04:02.786Z"
+      },
+      "created_at": "2026-10-11T03:04:02.852034+00:00"
+    },
+    {
+      "event": "stale_pause",
+      "payload": {
+        "age_seconds": 10.45646,
+        "cancelled": 0
+      },
+      "created_at": "2026-10-11T03:04:12.430462+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.107941,
+        "revision": 124
+      },
+      "created_at": "2026-10-11T03:04:16.262989+00:00"
+    },
+    {
+      "event": "action_confirmed",
+      "payload": {
+        "action_id": "d9598ed281e64ff792da1ef4368163ba",
+        "detail": "confirmed by authoritative board history and roster"
+      },
+      "created_at": "2026-10-11T03:04:16.272205+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 2.214652,
+        "revision": 125
+      },
+      "created_at": "2026-10-11T03:04:22.685710+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.123466,
+        "revision": 126
+      },
+      "created_at": "2026-10-11T03:04:27.633514+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.123912,
+        "revision": 127
+      },
+      "created_at": "2026-10-11T03:04:32.748961+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.14673,
+        "revision": 128
+      },
+      "created_at": "2026-10-11T03:04:37.630788+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.119381,
+        "revision": 129
+      },
+      "created_at": "2026-10-11T03:04:41.567432+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.18587,
+        "revision": 130
+      },
+      "created_at": "2026-10-11T03:04:49.124918+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.106902,
+        "revision": 131
+      },
+      "created_at": "2026-10-11T03:04:49.587951+00:00"
+    },
+    {
+      "event": "resume",
+      "payload": {
+        "from": "paused"
+      },
+      "created_at": "2026-10-11T03:04:49.605920+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.094535,
+        "revision": 132
+      },
+      "created_at": "2026-10-11T03:04:50.092619+00:00"
+    },
+    {
+      "event": "recommendation",
+      "payload": {
+        "candidates": 26,
+        "revision": 132
+      },
+      "created_at": "2026-10-11T03:04:50.114375+00:00"
+    },
+    {
+      "event": "action_proposed",
+      "payload": {
+        "action_id": "fd1fbfcb8d13467aa02fcadae5442c63",
+        "action_type": "draft",
+        "created_at": "2026-10-11T03:04:50.119670+00:00",
+        "detail": "fresh recommendation candidate",
+        "expected_pick": 97,
+        "expected_team": "Example Team",
+        "player_id": "3062679",
+        "player_name": "Josh Hart",
+        "revision": 132,
+        "session_id": "practice-1000000005",
+        "status": "pending",
+        "updated_at": "2026-10-11T03:04:50.119670+00:00"
+      },
+      "created_at": "2026-10-11T03:04:50.119670+00:00"
+    },
+    {
+      "event": "action_claimed",
+      "payload": {
+        "action_id": "fd1fbfcb8d13467aa02fcadae5442c63",
+        "revision": 132
+      },
+      "created_at": "2026-10-11T03:04:50.124303+00:00"
+    },
+    {
+      "event": "action_submitted",
+      "payload": {
+        "action_id": "fd1fbfcb8d13467aa02fcadae5442c63",
+        "detail": "Single exact player Draft click 2026-10-11T03:04:50.809Z"
+      },
+      "created_at": "2026-10-11T03:04:50.877086+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.133565,
+        "revision": 133
+      },
+      "created_at": "2026-10-11T03:04:57.297615+00:00"
+    },
+    {
+      "event": "action_confirmed",
+      "payload": {
+        "action_id": "fd1fbfcb8d13467aa02fcadae5442c63",
+        "detail": "confirmed by authoritative board history and roster"
+      },
+      "created_at": "2026-10-11T03:04:57.309790+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.11291,
+        "revision": 134
+      },
+      "created_at": "2026-10-11T03:04:57.821960+00:00"
+    },
+    {
+      "event": "recommendation",
+      "payload": {
+        "candidates": 23,
+        "revision": 134
+      },
+      "created_at": "2026-10-11T03:04:57.846961+00:00"
+    },
+    {
+      "event": "action_proposed",
+      "payload": {
+        "action_id": "331c5167105c4ac7bb2a82b7f905fd91",
+        "action_type": "draft",
+        "created_at": "2026-10-11T03:04:57.852516+00:00",
+        "detail": "fresh recommendation candidate",
+        "expected_pick": 100,
+        "expected_team": "Example Team",
+        "player_id": "4432639",
+        "player_name": "Jabari Smith Jr.",
+        "revision": 134,
+        "session_id": "practice-1000000005",
+        "status": "pending",
+        "updated_at": "2026-10-11T03:04:57.852516+00:00"
+      },
+      "created_at": "2026-10-11T03:04:57.852516+00:00"
+    },
+    {
+      "event": "action_claimed",
+      "payload": {
+        "action_id": "331c5167105c4ac7bb2a82b7f905fd91",
+        "revision": 134
+      },
+      "created_at": "2026-10-11T03:04:57.858002+00:00"
+    },
+    {
+      "event": "action_submitted",
+      "payload": {
+        "action_id": "331c5167105c4ac7bb2a82b7f905fd91",
+        "detail": "Single exact player Draft click 2026-10-11T03:04:58.572Z"
+      },
+      "created_at": "2026-10-11T03:04:58.639819+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.112809,
+        "revision": 135
+      },
+      "created_at": "2026-10-11T03:05:06.229863+00:00"
+    },
+    {
+      "event": "pause",
+      "payload": {
+        "cancelled": 0,
+        "reason": "observation requires recovery: pick history must be contiguous, unique, and complete through the current pick; pick history teams do not match the observed snake order"
+      },
+      "created_at": "2026-10-11T03:05:06.244438+00:00"
+    },
+    {
+      "event": "action_confirmed",
+      "payload": {
+        "action_id": "331c5167105c4ac7bb2a82b7f905fd91",
+        "detail": "confirmed by authoritative board history and roster"
+      },
+      "created_at": "2026-10-11T03:05:06.259636+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.102684,
+        "revision": 136
+      },
+      "created_at": "2026-10-11T03:05:10.094732+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.116932,
+        "revision": 137
+      },
+      "created_at": "2026-10-11T03:05:14.607007+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.126152,
+        "revision": 138
+      },
+      "created_at": "2026-10-11T03:05:18.826204+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.121797,
+        "revision": 139
+      },
+      "created_at": "2026-10-11T03:05:22.680846+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.109599,
+        "revision": 140
+      },
+      "created_at": "2026-10-11T03:05:26.287701+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.106817,
+        "revision": 141
+      },
+      "created_at": "2026-10-11T03:05:31.097873+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.11189,
+        "revision": 142
+      },
+      "created_at": "2026-10-11T03:05:40.400969+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.115332,
+        "revision": 143
+      },
+      "created_at": "2026-10-11T03:05:40.924385+00:00"
+    },
+    {
+      "event": "resume",
+      "payload": {
+        "from": "paused"
+      },
+      "created_at": "2026-10-11T03:05:40.946559+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.109577,
+        "revision": 144
+      },
+      "created_at": "2026-10-11T03:05:41.489629+00:00"
+    },
+    {
+      "event": "recommendation",
+      "payload": {
+        "candidates": 22,
+        "revision": 144
+      },
+      "created_at": "2026-10-11T03:05:41.508774+00:00"
+    },
+    {
+      "event": "action_proposed",
+      "payload": {
+        "action_id": "d52a8174cb08423dbc6644ca43eb052b",
+        "action_type": "draft",
+        "created_at": "2026-10-11T03:05:41.515003+00:00",
+        "detail": "fresh recommendation candidate",
+        "expected_pick": 125,
+        "expected_team": "Example Team",
+        "player_id": "3135045",
+        "player_name": "Grayson Allen",
+        "revision": 144,
+        "session_id": "practice-1000000005",
+        "status": "pending",
+        "updated_at": "2026-10-11T03:05:41.515003+00:00"
+      },
+      "created_at": "2026-10-11T03:05:41.515003+00:00"
+    },
+    {
+      "event": "action_claimed",
+      "payload": {
+        "action_id": "d52a8174cb08423dbc6644ca43eb052b",
+        "revision": 144
+      },
+      "created_at": "2026-10-11T03:05:41.521544+00:00"
+    },
+    {
+      "event": "action_submitted",
+      "payload": {
+        "action_id": "d52a8174cb08423dbc6644ca43eb052b",
+        "detail": "Single exact player Draft click 2026-10-11T03:05:42.151Z"
+      },
+      "created_at": "2026-10-11T03:05:42.218094+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.107915,
+        "revision": 145
+      },
+      "created_at": "2026-10-11T03:05:49.566964+00:00"
+    },
+    {
+      "event": "action_confirmed",
+      "payload": {
+        "action_id": "d52a8174cb08423dbc6644ca43eb052b",
+        "detail": "confirmed by authoritative board history and roster"
+      },
+      "created_at": "2026-10-11T03:05:49.579823+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.13098,
+        "revision": 146
+      },
+      "created_at": "2026-10-11T03:05:50.112034+00:00"
+    },
+    {
+      "event": "recommendation",
+      "payload": {
+        "candidates": 20,
+        "revision": 146
+      },
+      "created_at": "2026-10-11T03:05:50.128051+00:00"
+    },
+    {
+      "event": "action_proposed",
+      "payload": {
+        "action_id": "a2d857b944dc43aa9a6af8690da511e4",
+        "action_type": "draft",
+        "created_at": "2026-10-11T03:05:50.134070+00:00",
+        "detail": "fresh recommendation candidate",
+        "expected_pick": 128,
+        "expected_team": "Example Team",
+        "player_id": "5174563",
+        "player_name": "Kyshawn George",
+        "revision": 146,
+        "session_id": "practice-1000000005",
+        "status": "pending",
+        "updated_at": "2026-10-11T03:05:50.134070+00:00"
+      },
+      "created_at": "2026-10-11T03:05:50.134070+00:00"
+    },
+    {
+      "event": "action_claimed",
+      "payload": {
+        "action_id": "a2d857b944dc43aa9a6af8690da511e4",
+        "revision": 146
+      },
+      "created_at": "2026-10-11T03:05:50.140304+00:00"
+    },
+    {
+      "event": "action_submitted",
+      "payload": {
+        "action_id": "a2d857b944dc43aa9a6af8690da511e4",
+        "detail": "Single exact player Draft click 2026-10-11T03:05:50.857Z"
+      },
+      "created_at": "2026-10-11T03:05:50.923558+00:00"
+    },
+    {
+      "event": "stale_pause",
+      "payload": {
+        "age_seconds": 10.441332,
+        "cancelled": 0
+      },
+      "created_at": "2026-10-11T03:06:00.422334+00:00"
+    },
+    {
+      "event": "observation",
+      "payload": {
+        "age_seconds": 0.10206,
+        "revision": 147
+      },
+      "created_at": "2026-10-11T03:06:29.193124+00:00"
+    },
+    {
+      "event": "completed",
+      "payload": {
+        "history": 140,
+        "revision": 147,
+        "roster": 10
+      },
+      "created_at": "2026-10-11T03:06:29.193124+00:00"
+    },
+    {
+      "event": "action_confirmed",
+      "payload": {
+        "action_id": "a2d857b944dc43aa9a6af8690da511e4",
+        "detail": "confirmed by authoritative board history and roster"
+      },
+      "created_at": "2026-10-11T03:06:29.207207+00:00"
+    }
+  ]
+}

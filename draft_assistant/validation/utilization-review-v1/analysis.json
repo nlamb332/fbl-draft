@@ -1,0 +1,80 @@
+{
+  "artifact_version": "utilization-review-v1",
+  "status": "advisory_only",
+  "source": "../browser-practice-2026-10-10/final_observation.json",
+  "source_type": "completed synthetic practice room observation",
+  "league": {
+    "teams": 14,
+    "opponents": 13,
+    "rounds": 10,
+    "draft_picks": 140,
+    "starting_slots": ["C", "G", "G", "F", "F", "UTIL"],
+    "bench_slots": 4,
+    "ir_slots": 3,
+    "unlimited_games": true,
+    "weekly_add_limit": 4
+  },
+  "actual_roster_structural_review": {
+    "roster_size": 10,
+    "legal_final_roster": true,
+    "eligibility_counts": {"C": 7, "G": 3, "F": 5},
+    "center_only_count": 4,
+    "structural_start_capacity": 6,
+    "all_active_day": {
+      "active_starter_count": 6,
+      "bench_count": 4,
+      "interpretation": "capacity check only; it is not a schedule forecast"
+    },
+    "known_stat_value_by_player": {
+      "3155942": 60.2,
+      "3135045": 29.0,
+      "5174563": 35.4,
+      "4277961": 40.6,
+      "3062679": 40.6,
+      "4433621": 54.0,
+      "4066328": 46.9,
+      "5105565": 45.0,
+      "4017837": 46.7,
+      "4432639": 33.6
+    },
+    "known_stat_value_warning": "These are partial known-scoring-component sums. All ten observations mark missing scoring fields; they are not complete custom-FP projections.",
+    "projected_gp_observed_count": 7,
+    "daily_schedule_observed": false,
+    "daily_utilization_rate": null,
+    "daily_utilization_note": "The practice observation contains no dated game schedule or health matrix, so a real weekly start rate cannot be computed from this artifact."
+  },
+  "synthetic_counterexamples": [
+    {
+      "name": "only_center_only_players_active",
+      "days": 1,
+      "active_roster_count": 4,
+      "active_starter_count": 2,
+      "active_starter_rate": 0.3333333333,
+      "inactive_starters": 4,
+      "interpretation": "The roster is legal, but only C plus UTIL can be filled by the four active C-only players."
+    },
+    {
+      "name": "only_non_center_players_active",
+      "days": 1,
+      "active_roster_count": 3,
+      "active_starter_count": 3,
+      "active_starter_rate": 0.5,
+      "inactive_starters": 3,
+      "interpretation": "The three G/F-eligible players cannot be reused across the six slots, leaving three inactive starts."
+    }
+  ],
+  "interpretation": {
+    "finding": "Legality is necessary but does not establish daily start utilization. The completed practice roster has a center-heavy shape with only three G-eligible players and four C-only players.",
+    "recommendation": "Keep the frozen foundation scorer and lookahead benchmark unchanged. Evaluate candidates with an advisory schedule-aware marginal usable value and a soft balanced-bench adjustment when a dated schedule matrix is available.",
+    "guardrail": "Do not promote this advisory policy or infer real weekly starts from the synthetic counterexamples. Obtain dated NBA schedules, player availability, and complete scoring inputs first."
+  },
+  "frozen_artifacts": {
+    "foundation_and_lookahead_untouched": true,
+    "frozen_paths": [
+      "../heldout-v2/validation_summary.json",
+      "../../../mock_draft/results/synthetic/RESULTS.md",
+      "../../../mock_draft/results/real_verified/RESULTS.md"
+    ],
+    "policy_binding_changed": false
+  }
+}

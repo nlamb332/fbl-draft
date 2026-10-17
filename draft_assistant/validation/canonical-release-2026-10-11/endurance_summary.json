@@ -1,0 +1,24 @@
+{
+  "artifact_version": "foreground-endurance-v1",
+  "suite": "node --test draft_assistant/test_operator_runtime.test.js",
+  "focused_tests_passed": 25,
+  "focused_tests_failed": 0,
+  "simulated_duration_minutes": 210,
+  "simulated_duration_is_wall_clock": false,
+  "batches": 3,
+  "terminal_history_count": 140,
+  "terminal_roster_count": 10,
+  "terminal_confirmed_own_picks": 10,
+  "pending_action_at_boundaries": false,
+  "guards": [
+    "checkpoint requires paused state; terminal evidence requires completed state",
+    "checkpoint rejects pending or uncertain action",
+    "checkpoint requires exact confirmed direct draft actions with claimed and dispatched provenance",
+    "checkpoint rejects unresolved_actions, unresolved_queue_mutations, queue actions, cross-room state, and stale status receipts",
+    "resume requires fresh explicitly running coordinator status after Resume",
+    "checkpoint count cannot exceed authoritative history",
+    "resumed observation cannot regress below durable history or revision",
+    "bounded batch retains last fresh observation and stop reason"
+  ],
+  "interpretation": "Accelerated multi-batch continuity evidence only. It does not establish 90 minutes of live browser wall-clock continuity or a canonical live browser run."
+}

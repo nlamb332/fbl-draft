@@ -1,0 +1,1143 @@
+{
+  "room": "uninterrupted-1000000007",
+  "algorithm_version": "marginal-lineup-v1",
+  "params": {
+    "weeks": 12,
+    "completion_days": 14,
+    "vor_weight": 0.5,
+    "depth_scale": 1.25,
+    "opponent_market_weight": 0.25,
+    "use_imputation": true,
+    "pf_scale": 1.0,
+    "util_share": 1.0,
+    "max_candidates": null
+  },
+  "catalog": "mock_draft/data/players_2026-27_espn_projection.csv (all 140 drafted players matched by name)",
+  "limits": [
+    "Pass 1 replays the real board at each of our ten turns with our actual earlier picks.",
+    "Pass 2 keeps opponent picks fixed; a pick we took first is replaced by the best remaining ESPN rank, so opponent behaviour is not re-simulated.",
+    "Opening-week starts use the captured NBA opening-week schedule and a schedule-only matrix (no draft-date health).",
+    "PF/DD/TD are imputed (tagged) for the policy; the opening-week review scores known components only."
+  ],
+  "turns": [
+    {
+      "pick": 13,
+      "actual_pick": "Karl-Anthony Towns",
+      "roster_before": [],
+      "marginal_status": "ranked",
+      "marginal_seconds": 0.0475,
+      "marginal_top5": [
+        {
+          "name": "Jalen Duren",
+          "score": 81.51,
+          "explanation": "marginal lineup +62.2 weekly pts (standalone 163.0; replacement 35.5 FP/g; over-replacement +38.6; C-only; imputed DD,PF,TD)",
+          "raw_weekly_value": 163.01,
+          "replacement_level_fp_per_game": 35.53,
+          "marginal_lineup_weekly": 62.19,
+          "c_only": 1.0,
+          "foundation_rank": 1.0
+        },
+        {
+          "name": "Karl-Anthony Towns",
+          "score": 79.02,
+          "explanation": "marginal lineup +60.3 weekly pts (standalone 161.8; replacement 35.5 FP/g; over-replacement +37.5; C-only; imputed DD,PF,TD)",
+          "raw_weekly_value": 161.85,
+          "replacement_level_fp_per_game": 35.53,
+          "marginal_lineup_weekly": 60.28,
+          "c_only": 1.0,
+          "foundation_rank": 3.0
+        },
+        {
+          "name": "Cade Cunningham",
+          "score": 76.79,
+          "explanation": "marginal lineup +51.9 weekly pts (standalone 163.2; replacement 32.4 FP/g; over-replacement +49.8; imputed DD,PF,TD)",
+          "raw_weekly_value": 163.23,
+          "replacement_level_fp_per_game": 32.4,
+          "marginal_lineup_weekly": 51.88,
+          "c_only": 0.0,
+          "foundation_rank": 2.0
+        },
+        {
+          "name": "Alperen Sengun",
+          "score": 75.58,
+          "explanation": "marginal lineup +59.3 weekly pts (standalone 156.9; replacement 35.5 FP/g; over-replacement +32.6; C-only; imputed DD,PF,TD)",
+          "raw_weekly_value": 156.93,
+          "replacement_level_fp_per_game": 35.53,
+          "marginal_lineup_weekly": 59.3,
+          "c_only": 1.0,
+          "foundation_rank": 5.0
+        },
+        {
+          "name": "Cooper Flagg",
+          "score": 68.22,
+          "explanation": "marginal lineup +49.6 weekly pts (standalone 154.6; replacement 33.5 FP/g; over-replacement +37.2; imputed DD,PF,TD)",
+          "raw_weekly_value": 154.58,
+          "replacement_level_fp_per_game": 33.55,
+          "marginal_lineup_weekly": 49.65,
+          "c_only": 0.0,
+          "foundation_rank": 4.0
+        }
+      ],
+      "foundation_top5": [
+        {
+          "name": "Jalen Duren",
+          "score": 47.47
+        },
+        {
+          "name": "Cade Cunningham",
+          "score": 47.26
+        },
+        {
+          "name": "Karl-Anthony Towns",
+          "score": 47.25
+        },
+        {
+          "name": "Cooper Flagg",
+          "score": 46.08
+        },
+        {
+          "name": "Alperen Sengun",
+          "score": 46.07
+        }
+      ],
+      "actual_pick_marginal_rank": 2,
+      "actual_pick_marginal_detail": {
+        "name": "Karl-Anthony Towns",
+        "score": 79.02,
+        "explanation": "marginal lineup +60.3 weekly pts (standalone 161.8; replacement 35.5 FP/g; over-replacement +37.5; C-only; imputed DD,PF,TD)",
+        "raw_weekly_value": 161.85,
+        "replacement_level_fp_per_game": 35.53,
+        "marginal_lineup_weekly": 60.28,
+        "c_only": 1.0,
+        "foundation_rank": 3.0
+      }
+    },
+    {
+      "pick": 16,
+      "actual_pick": "Jalen Duren",
+      "roster_before": [
+        "Karl-Anthony Towns"
+      ],
+      "marginal_status": "ranked",
+      "marginal_seconds": 0.0343,
+      "marginal_top5": [
+        {
+          "name": "Josh Giddey",
+          "score": 89.0,
+          "explanation": "marginal lineup +64.3 weekly pts (standalone 162.8; replacement 32.4 FP/g; over-replacement +49.4; imputed DD,PF,TD)",
+          "raw_weekly_value": 162.79,
+          "replacement_level_fp_per_game": 32.4,
+          "marginal_lineup_weekly": 64.31,
+          "c_only": 0.0,
+          "foundation_rank": 3.0
+        },
+        {
+          "name": "Jalen Duren",
+          "score": 81.25,
+          "explanation": "marginal lineup +61.9 weekly pts (standalone 163.0; replacement 35.5 FP/g; over-replacement +38.6; C-only; imputed DD,PF,TD)",
+          "raw_weekly_value": 163.01,
+          "replacement_level_fp_per_game": 35.53,
+          "marginal_lineup_weekly": 61.92,
+          "c_only": 1.0,
+          "foundation_rank": 1.0
+        },
+        {
+          "name": "Scottie Barnes",
+          "score": 73.47,
+          "explanation": "marginal lineup +53.2 weekly pts (standalone 154.0; replacement 32.4 FP/g; over-replacement +40.6; imputed DD,PF,TD)",
+          "raw_weekly_value": 154.04,
+          "replacement_level_fp_per_game": 32.4,
+          "marginal_lineup_weekly": 53.16,
+          "c_only": 0.0,
+          "foundation_rank": 6.0
+        },
+        {
+          "name": "Amen Thompson",
+          "score": 70.3,
+          "explanation": "marginal lineup +50.8 weekly pts (standalone 152.4; replacement 32.4 FP/g; over-replacement +39.0; imputed DD,PF,TD)",
+          "raw_weekly_value": 152.38,
+          "replacement_level_fp_per_game": 32.4,
+          "marginal_lineup_weekly": 50.81,
+          "c_only": 0.0,
+          "foundation_rank": 5.0
+        },
+        {
+          "name": "Alperen Sengun",
+          "score": 68.99,
+          "explanation": "marginal lineup +52.7 weekly pts (standalone 156.9; replacement 35.5 FP/g; over-replacement +32.6; C-only; imputed DD,PF,TD)",
+          "raw_weekly_value": 156.93,
+          "replacement_level_fp_per_game": 35.53,
+          "marginal_lineup_weekly": 52.71,
+          "c_only": 1.0,
+          "foundation_rank": 2.0
+        }
+      ],
+      "foundation_top5": [
+        {
+          "name": "Jalen Duren",
+          "score": 47.42
+        },
+        {
+          "name": "Alperen Sengun",
+          "score": 46.02
+        },
+        {
+          "name": "Josh Giddey",
+          "score": 46.01
+        },
+        {
+          "name": "Anthony Davis",
+          "score": 45.37
+        },
+        {
+          "name": "Amen Thompson",
+          "score": 45.35
+        }
+      ],
+      "actual_pick_marginal_rank": 2,
+      "actual_pick_marginal_detail": {
+        "name": "Jalen Duren",
+        "score": 81.25,
+        "explanation": "marginal lineup +61.9 weekly pts (standalone 163.0; replacement 35.5 FP/g; over-replacement +38.6; C-only; imputed DD,PF,TD)",
+        "raw_weekly_value": 163.01,
+        "replacement_level_fp_per_game": 35.53,
+        "marginal_lineup_weekly": 61.92,
+        "c_only": 1.0,
+        "foundation_rank": 1.0
+      }
+    },
+    {
+      "pick": 41,
+      "actual_pick": "Jarrett Allen",
+      "roster_before": [
+        "Karl-Anthony Towns",
+        "Jalen Duren"
+      ],
+      "marginal_status": "ranked",
+      "marginal_seconds": 0.0315,
+      "marginal_top5": [
+        {
+          "name": "Paolo Banchero",
+          "score": 47.61,
+          "explanation": "marginal lineup +38.6 weekly pts (standalone 133.3; replacement 33.0 FP/g; over-replacement +17.9; imputed DD,PF,TD)",
+          "raw_weekly_value": 133.29,
+          "replacement_level_fp_per_game": 32.96,
+          "marginal_lineup_weekly": 38.64,
+          "c_only": 0.0,
+          "foundation_rank": 7.0
+        },
+        {
+          "name": "Dyson Daniels",
+          "score": 45.04,
+          "explanation": "marginal lineup +36.0 weekly pts (standalone 129.3; replacement 31.8 FP/g; over-replacement +18.0; imputed DD,PF,TD)",
+          "raw_weekly_value": 129.35,
+          "replacement_level_fp_per_game": 31.8,
+          "marginal_lineup_weekly": 36.01,
+          "c_only": 0.0,
+          "foundation_rank": 12.0
+        },
+        {
+          "name": "LeBron James",
+          "score": 38.65,
+          "explanation": "marginal lineup +31.8 weekly pts (standalone 129.1; replacement 33.0 FP/g; over-replacement +13.7; imputed DD,PF,TD)",
+          "raw_weekly_value": 129.05,
+          "replacement_level_fp_per_game": 32.96,
+          "marginal_lineup_weekly": 31.8,
+          "c_only": 0.0,
+          "foundation_rank": 14.0
+        },
+        {
+          "name": "Stephon Castle",
+          "score": 36.62,
+          "explanation": "marginal lineup +29.1 weekly pts (standalone 126.3; replacement 31.8 FP/g; over-replacement +15.0; imputed DD,PF,TD)",
+          "raw_weekly_value": 126.34,
+          "replacement_level_fp_per_game": 31.8,
+          "marginal_lineup_weekly": 29.1,
+          "c_only": 0.0,
+          "foundation_rank": 17.0
+        },
+        {
+          "name": "Caleb Wilson",
+          "score": 35.15,
+          "explanation": "marginal lineup +30.1 weekly pts (standalone 125.5; replacement 33.0 FP/g; over-replacement +10.2; imputed DD,PF,TD)",
+          "raw_weekly_value": 125.51,
+          "replacement_level_fp_per_game": 32.96,
+          "marginal_lineup_weekly": 30.08,
+          "c_only": 0.0,
+          "foundation_rank": 16.0
+        }
+      ],
+      "foundation_top5": [
+        {
+          "name": "Jarrett Allen",
+          "score": 40.57
+        },
+        {
+          "name": "Rudy Gobert",
+          "score": 40.39
+        },
+        {
+          "name": "Donovan Clingan",
+          "score": 40.02
+        },
+        {
+          "name": "Naz Reid",
+          "score": 39.96
+        },
+        {
+          "name": "Walker Kessler",
+          "score": 39.82
+        }
+      ],
+      "actual_pick_marginal_rank": 28,
+      "actual_pick_marginal_detail": {
+        "name": "Jarrett Allen",
+        "score": 13.49,
+        "explanation": "marginal lineup +6.8 weekly pts (standalone 137.7; replacement 35.5 FP/g; over-replacement +13.3; C-only; imputed DD,PF,TD)",
+        "raw_weekly_value": 137.66,
+        "replacement_level_fp_per_game": 35.53,
+        "marginal_lineup_weekly": 6.84,
+        "c_only": 1.0,
+        "foundation_rank": 1.0
+      }
+    },
+    {
+      "pick": 44,
+      "actual_pick": "Julius Randle",
+      "roster_before": [
+        "Karl-Anthony Towns",
+        "Jalen Duren",
+        "Jarrett Allen"
+      ],
+      "marginal_status": "ranked",
+      "marginal_seconds": 0.0298,
+      "marginal_top5": [
+        {
+          "name": "Kon Knueppel",
+          "score": 43.65,
+          "explanation": "marginal lineup +34.7 weekly pts (standalone 129.3; replacement 31.8 FP/g; over-replacement +18.0; imputed DD,PF,TD)",
+          "raw_weekly_value": 129.27,
+          "replacement_level_fp_per_game": 31.8,
+          "marginal_lineup_weekly": 34.66,
+          "c_only": 0.0,
+          "foundation_rank": 7.0
+        },
+        {
+          "name": "Julius Randle",
+          "score": 42.65,
+          "explanation": "marginal lineup +33.3 weekly pts (standalone 134.0; replacement 33.0 FP/g; over-replacement +18.6; imputed DD,PF,TD)",
+          "raw_weekly_value": 133.95,
+          "replacement_level_fp_per_game": 32.96,
+          "marginal_lineup_weekly": 33.35,
+          "c_only": 0.0,
+          "foundation_rank": 4.0
+        },
+        {
+          "name": "Paolo Banchero",
+          "score": 40.06,
+          "explanation": "marginal lineup +31.1 weekly pts (standalone 133.3; replacement 33.0 FP/g; over-replacement +17.9; imputed DD,PF,TD)",
+          "raw_weekly_value": 133.29,
+          "replacement_level_fp_per_game": 32.96,
+          "marginal_lineup_weekly": 31.09,
+          "c_only": 0.0,
+          "foundation_rank": 5.0
+        },
+        {
+          "name": "Dyson Daniels",
+          "score": 39.47,
+          "explanation": "marginal lineup +30.5 weekly pts (standalone 129.3; replacement 31.8 FP/g; over-replacement +18.0; imputed DD,PF,TD)",
+          "raw_weekly_value": 129.35,
+          "replacement_level_fp_per_game": 31.8,
+          "marginal_lineup_weekly": 30.45,
+          "c_only": 0.0,
+          "foundation_rank": 10.0
+        },
+        {
+          "name": "Michael Porter Jr.",
+          "score": 37.3,
+          "explanation": "marginal lineup +29.9 weekly pts (standalone 130.1; replacement 33.0 FP/g; over-replacement +14.7; imputed DD,PF,TD)",
+          "raw_weekly_value": 130.09,
+          "replacement_level_fp_per_game": 32.96,
+          "marginal_lineup_weekly": 29.93,
+          "c_only": 0.0,
+          "foundation_rank": 9.0
+        }
+      ],
+      "foundation_top5": [
+        {
+          "name": "Rudy Gobert",
+          "score": 40.39
+        },
+        {
+          "name": "Donovan Clingan",
+          "score": 40.02
+        },
+        {
+          "name": "Walker Kessler",
+          "score": 39.82
+        },
+        {
+          "name": "Julius Randle",
+          "score": 39.73
+        },
+        {
+          "name": "Paolo Banchero",
+          "score": 39.56
+        }
+      ],
+      "actual_pick_marginal_rank": 2,
+      "actual_pick_marginal_detail": {
+        "name": "Julius Randle",
+        "score": 42.65,
+        "explanation": "marginal lineup +33.3 weekly pts (standalone 134.0; replacement 33.0 FP/g; over-replacement +18.6; imputed DD,PF,TD)",
+        "raw_weekly_value": 133.95,
+        "replacement_level_fp_per_game": 32.96,
+        "marginal_lineup_weekly": 33.35,
+        "c_only": 0.0,
+        "foundation_rank": 4.0
+      }
+    },
+    {
+      "pick": 69,
+      "actual_pick": "Walker Kessler",
+      "roster_before": [
+        "Karl-Anthony Towns",
+        "Jalen Duren",
+        "Jarrett Allen",
+        "Julius Randle"
+      ],
+      "marginal_status": "ranked",
+      "marginal_seconds": 0.0221,
+      "marginal_top5": [
+        {
+          "name": "Cameron Boozer",
+          "score": 25.96,
+          "explanation": "marginal lineup +20.2 weekly pts (standalone 124.8; replacement 32.4 FP/g; over-replacement +11.4; imputed DD,PF,TD)",
+          "raw_weekly_value": 124.84,
+          "replacement_level_fp_per_game": 32.4,
+          "marginal_lineup_weekly": 20.24,
+          "c_only": 0.0,
+          "foundation_rank": 4.0
+        },
+        {
+          "name": "Brandin Podziemski",
+          "score": 13.39,
+          "explanation": "marginal lineup +7.6 weekly pts (standalone 116.6; replacement 30.0 FP/g; over-replacement +11.7; imputed DD,PF,TD)",
+          "raw_weekly_value": 116.56,
+          "replacement_level_fp_per_game": 29.96,
+          "marginal_lineup_weekly": 7.55,
+          "c_only": 0.0,
+          "foundation_rank": 7.0
+        },
+        {
+          "name": "Miles Bridges",
+          "score": 9.62,
+          "explanation": "marginal lineup +8.1 weekly pts (standalone 116.4; replacement 32.4 FP/g; over-replacement +3.0; imputed DD,PF,TD)",
+          "raw_weekly_value": 116.4,
+          "replacement_level_fp_per_game": 32.4,
+          "marginal_lineup_weekly": 8.13,
+          "c_only": 0.0,
+          "foundation_rank": 10.0
+        },
+        {
+          "name": "Matas Buzelis",
+          "score": 8.66,
+          "explanation": "marginal lineup +7.7 weekly pts (standalone 115.4; replacement 32.4 FP/g; over-replacement +1.9; imputed DD,PF,TD)",
+          "raw_weekly_value": 115.35,
+          "replacement_level_fp_per_game": 32.4,
+          "marginal_lineup_weekly": 7.69,
+          "c_only": 0.0,
+          "foundation_rank": 11.0
+        },
+        {
+          "name": "AJ Dybantsa",
+          "score": 5.91,
+          "explanation": "marginal lineup +8.2 weekly pts (standalone 108.8; replacement 32.4 FP/g; over-replacement -4.7; imputed DD,PF,TD)",
+          "raw_weekly_value": 108.75,
+          "replacement_level_fp_per_game": 32.4,
+          "marginal_lineup_weekly": 8.23,
+          "c_only": 0.0,
+          "foundation_rank": 15.0
+        }
+      ],
+      "foundation_top5": [
+        {
+          "name": "Walker Kessler",
+          "score": 39.82
+        },
+        {
+          "name": "Ivica Zubac",
+          "score": 39.27
+        },
+        {
+          "name": "Kel'el Ware",
+          "score": 38.96
+        },
+        {
+          "name": "Cameron Boozer",
+          "score": 37.14
+        },
+        {
+          "name": "Chet Holmgren",
+          "score": 36.86
+        }
+      ],
+      "actual_pick_marginal_rank": 24,
+      "actual_pick_marginal_detail": {
+        "name": "Walker Kessler",
+        "score": -11.08,
+        "explanation": "marginal lineup -16.5 weekly pts (standalone 135.3; replacement 35.6 FP/g; over-replacement +10.9; C-only; imputed DD,PF,TD)",
+        "raw_weekly_value": 135.29,
+        "replacement_level_fp_per_game": 35.55,
+        "marginal_lineup_weekly": -16.51,
+        "c_only": 1.0,
+        "foundation_rank": 1.0
+      }
+    },
+    {
+      "pick": 72,
+      "actual_pick": "Kel'el Ware",
+      "roster_before": [
+        "Karl-Anthony Towns",
+        "Jalen Duren",
+        "Jarrett Allen",
+        "Julius Randle",
+        "Walker Kessler"
+      ],
+      "marginal_status": "ranked",
+      "marginal_seconds": 0.0207,
+      "marginal_top5": [
+        {
+          "name": "Cameron Boozer",
+          "score": 13.78,
+          "explanation": "marginal lineup +8.1 weekly pts (standalone 124.8; replacement 32.4 FP/g; over-replacement +11.4; imputed DD,PF,TD)",
+          "raw_weekly_value": 124.84,
+          "replacement_level_fp_per_game": 32.4,
+          "marginal_lineup_weekly": 8.06,
+          "c_only": 0.0,
+          "foundation_rank": 2.0
+        },
+        {
+          "name": "Alex Sarr",
+          "score": 6.13,
+          "explanation": "marginal lineup +3.1 weekly pts (standalone 119.4; replacement 32.4 FP/g; over-replacement +6.0; imputed DD,PF,TD)",
+          "raw_weekly_value": 119.41,
+          "replacement_level_fp_per_game": 32.4,
+          "marginal_lineup_weekly": 3.13,
+          "c_only": 0.0,
+          "foundation_rank": 3.0
+        },
+        {
+          "name": "Derik Queen",
+          "score": 2.28,
+          "explanation": "marginal lineup +0.3 weekly pts (standalone 117.4; replacement 32.4 FP/g; over-replacement +4.0; imputed DD,PF,TD)",
+          "raw_weekly_value": 117.42,
+          "replacement_level_fp_per_game": 32.4,
+          "marginal_lineup_weekly": 0.28,
+          "c_only": 0.0,
+          "foundation_rank": 6.0
+        },
+        {
+          "name": "Brandin Podziemski",
+          "score": 0.62,
+          "explanation": "marginal lineup -4.2 weekly pts (standalone 116.6; replacement 30.5 FP/g; over-replacement +9.7; imputed DD,PF,TD)",
+          "raw_weekly_value": 116.56,
+          "replacement_level_fp_per_game": 30.53,
+          "marginal_lineup_weekly": -4.22,
+          "c_only": 0.0,
+          "foundation_rank": 4.0
+        },
+        {
+          "name": "Josh Hart",
+          "score": 0.49,
+          "explanation": "marginal lineup -2.8 weekly pts (standalone 113.4; replacement 30.5 FP/g; over-replacement +6.5; imputed DD,PF,TD)",
+          "raw_weekly_value": 113.41,
+          "replacement_level_fp_per_game": 30.53,
+          "marginal_lineup_weekly": -2.78,
+          "c_only": 0.0,
+          "foundation_rank": 10.0
+        }
+      ],
+      "foundation_top5": [
+        {
+          "name": "Kel'el Ware",
+          "score": 38.96
+        },
+        {
+          "name": "Cameron Boozer",
+          "score": 37.14
+        },
+        {
+          "name": "Alex Sarr",
+          "score": 35.64
+        },
+        {
+          "name": "Brandin Podziemski",
+          "score": 35.29
+        },
+        {
+          "name": "Joel Embiid",
+          "score": 35.27
+        }
+      ],
+      "actual_pick_marginal_rank": 42,
+      "actual_pick_marginal_detail": {
+        "name": "Kel'el Ware",
+        "score": -33.35,
+        "explanation": "marginal lineup -40.3 weekly pts (standalone 132.9; replacement 34.0 FP/g; over-replacement +13.9; C-only; imputed DD,PF,TD)",
+        "raw_weekly_value": 132.88,
+        "replacement_level_fp_per_game": 34.01,
+        "marginal_lineup_weekly": -40.28,
+        "c_only": 1.0,
+        "foundation_rank": 1.0
+      }
+    },
+    {
+      "pick": 97,
+      "actual_pick": "Nikola Vucevic",
+      "roster_before": [
+        "Karl-Anthony Towns",
+        "Jalen Duren",
+        "Jarrett Allen",
+        "Julius Randle",
+        "Walker Kessler",
+        "Kel'el Ware"
+      ],
+      "marginal_status": "ranked",
+      "marginal_seconds": 0.0212,
+      "marginal_top5": [
+        {
+          "name": "Cedric Coward",
+          "score": -4.64,
+          "explanation": "marginal lineup -4.6 weekly pts (standalone 101.8; replacement 29.1 FP/g; over-replacement +0.0; imputed DD,PF,TD)",
+          "raw_weekly_value": 101.77,
+          "replacement_level_fp_per_game": 29.08,
+          "marginal_lineup_weekly": -4.64,
+          "c_only": 0.0,
+          "foundation_rank": 15.0
+        },
+        {
+          "name": "John Collins",
+          "score": -7.25,
+          "explanation": "marginal lineup -7.3 weekly pts (standalone 108.9; replacement 31.1 FP/g; over-replacement +0.0; imputed DD,PF,TD)",
+          "raw_weekly_value": 108.88,
+          "replacement_level_fp_per_game": 31.11,
+          "marginal_lineup_weekly": -7.25,
+          "c_only": 0.0,
+          "foundation_rank": 3.0
+        },
+        {
+          "name": "Jaime Jaquez Jr.",
+          "score": -9.22,
+          "explanation": "marginal lineup -7.7 weekly pts (standalone 98.7; replacement 29.1 FP/g; over-replacement -3.1; imputed DD,PF,TD)",
+          "raw_weekly_value": 98.71,
+          "replacement_level_fp_per_game": 29.08,
+          "marginal_lineup_weekly": -7.69,
+          "c_only": 0.0,
+          "foundation_rank": 21.0
+        },
+        {
+          "name": "RJ Barrett",
+          "score": -9.81,
+          "explanation": "marginal lineup -9.7 weekly pts (standalone 101.5; replacement 29.1 FP/g; over-replacement -0.2; imputed DD,PF,TD)",
+          "raw_weekly_value": 101.54,
+          "replacement_level_fp_per_game": 29.08,
+          "marginal_lineup_weekly": -9.69,
+          "c_only": 0.0,
+          "foundation_rank": 12.0
+        },
+        {
+          "name": "Kristaps Porzingis",
+          "score": -14.59,
+          "explanation": "marginal lineup -12.1 weekly pts (standalone 104.0; replacement 31.1 FP/g; over-replacement -4.9; imputed DD,PF,TD)",
+          "raw_weekly_value": 103.99,
+          "replacement_level_fp_per_game": 31.11,
+          "marginal_lineup_weekly": -12.14,
+          "c_only": 0.0,
+          "foundation_rank": 8.0
+        }
+      ],
+      "foundation_top5": [
+        {
+          "name": "Nikola Vucevic",
+          "score": 33.27
+        },
+        {
+          "name": "Zach Edey",
+          "score": 33.09
+        },
+        {
+          "name": "John Collins",
+          "score": 32.79
+        },
+        {
+          "name": "Jakob Poeltl",
+          "score": 32.23
+        },
+        {
+          "name": "Ausar Thompson",
+          "score": 31.55
+        }
+      ],
+      "actual_pick_marginal_rank": 82,
+      "actual_pick_marginal_detail": {
+        "name": "Nikola Vucevic",
+        "score": -80.29,
+        "explanation": "marginal lineup -79.5 weekly pts (standalone 111.2; replacement 32.3 FP/g; over-replacement -1.7; C-only; imputed DD,PF,TD)",
+        "raw_weekly_value": 111.23,
+        "replacement_level_fp_per_game": 32.26,
+        "marginal_lineup_weekly": -79.46,
+        "c_only": 1.0,
+        "foundation_rank": 1.0
+      }
+    },
+    {
+      "pick": 100,
+      "actual_pick": "John Collins",
+      "roster_before": [
+        "Karl-Anthony Towns",
+        "Jalen Duren",
+        "Jarrett Allen",
+        "Julius Randle",
+        "Walker Kessler",
+        "Kel'el Ware",
+        "Nikola Vucevic"
+      ],
+      "marginal_status": "ranked",
+      "marginal_seconds": 0.0144,
+      "marginal_top5": [
+        {
+          "name": "John Collins",
+          "score": -2.42,
+          "explanation": "marginal lineup -2.4 weekly pts (standalone 108.9; replacement 31.1 FP/g; over-replacement +0.0; imputed DD,PF,TD)",
+          "raw_weekly_value": 108.88,
+          "replacement_level_fp_per_game": 31.11,
+          "marginal_lineup_weekly": -2.42,
+          "c_only": 0.0,
+          "foundation_rank": 1.0
+        },
+        {
+          "name": "Cedric Coward",
+          "score": -4.64,
+          "explanation": "marginal lineup -4.6 weekly pts (standalone 101.8; replacement 29.1 FP/g; over-replacement +0.0; imputed DD,PF,TD)",
+          "raw_weekly_value": 101.77,
+          "replacement_level_fp_per_game": 29.08,
+          "marginal_lineup_weekly": -4.64,
+          "c_only": 0.0,
+          "foundation_rank": 7.0
+        },
+        {
+          "name": "RJ Barrett",
+          "score": -4.97,
+          "explanation": "marginal lineup -4.9 weekly pts (standalone 101.5; replacement 29.1 FP/g; over-replacement -0.2; imputed DD,PF,TD)",
+          "raw_weekly_value": 101.54,
+          "replacement_level_fp_per_game": 29.08,
+          "marginal_lineup_weekly": -4.86,
+          "c_only": 0.0,
+          "foundation_rank": 6.0
+        },
+        {
+          "name": "Jaime Jaquez Jr.",
+          "score": -9.22,
+          "explanation": "marginal lineup -7.7 weekly pts (standalone 98.7; replacement 29.1 FP/g; over-replacement -3.1; imputed DD,PF,TD)",
+          "raw_weekly_value": 98.71,
+          "replacement_level_fp_per_game": 29.08,
+          "marginal_lineup_weekly": -7.69,
+          "c_only": 0.0,
+          "foundation_rank": 11.0
+        },
+        {
+          "name": "Kristaps Porzingis",
+          "score": -9.75,
+          "explanation": "marginal lineup -7.3 weekly pts (standalone 104.0; replacement 31.1 FP/g; over-replacement -4.9; imputed DD,PF,TD)",
+          "raw_weekly_value": 103.99,
+          "replacement_level_fp_per_game": 31.11,
+          "marginal_lineup_weekly": -7.31,
+          "c_only": 0.0,
+          "foundation_rank": 3.0
+        }
+      ],
+      "foundation_top5": [
+        {
+          "name": "John Collins",
+          "score": 32.79
+        },
+        {
+          "name": "Ausar Thompson",
+          "score": 31.55
+        },
+        {
+          "name": "Kristaps Porzingis",
+          "score": 31.25
+        },
+        {
+          "name": "Tobias Harris",
+          "score": 31.03
+        },
+        {
+          "name": "Jabari Smith Jr.",
+          "score": 30.8
+        }
+      ],
+      "actual_pick_marginal_rank": 1,
+      "actual_pick_marginal_detail": {
+        "name": "John Collins",
+        "score": -2.42,
+        "explanation": "marginal lineup -2.4 weekly pts (standalone 108.9; replacement 31.1 FP/g; over-replacement +0.0; imputed DD,PF,TD)",
+        "raw_weekly_value": 108.88,
+        "replacement_level_fp_per_game": 31.11,
+        "marginal_lineup_weekly": -2.42,
+        "c_only": 0.0,
+        "foundation_rank": 1.0
+      }
+    },
+    {
+      "pick": 125,
+      "actual_pick": "Kyshawn George",
+      "roster_before": [
+        "Karl-Anthony Towns",
+        "Jalen Duren",
+        "Jarrett Allen",
+        "Julius Randle",
+        "Walker Kessler",
+        "Kel'el Ware",
+        "Nikola Vucevic",
+        "John Collins"
+      ],
+      "marginal_status": "ranked",
+      "marginal_seconds": 0.008,
+      "marginal_top5": [
+        {
+          "name": "Jrue Holiday",
+          "score": -0.56,
+          "explanation": "marginal lineup +2.0 weekly pts (standalone 88.8; replacement 26.8 FP/g; over-replacement -5.2; imputed DD,PF,TD)",
+          "raw_weekly_value": 88.77,
+          "replacement_level_fp_per_game": 26.85,
+          "marginal_lineup_weekly": 2.04,
+          "c_only": 0.0,
+          "foundation_rank": 2.0
+        },
+        {
+          "name": "Andrew Nembhard",
+          "score": -1.0,
+          "explanation": "marginal lineup +1.7 weekly pts (standalone 88.5; replacement 26.8 FP/g; over-replacement -5.5; imputed DD,PF,TD)",
+          "raw_weekly_value": 88.48,
+          "replacement_level_fp_per_game": 26.85,
+          "marginal_lineup_weekly": 1.74,
+          "c_only": 0.0,
+          "foundation_rank": 3.0
+        },
+        {
+          "name": "Anthony Black",
+          "score": -1.79,
+          "explanation": "marginal lineup +1.2 weekly pts (standalone 87.9; replacement 26.8 FP/g; over-replacement -6.0; imputed DD,PF,TD)",
+          "raw_weekly_value": 87.95,
+          "replacement_level_fp_per_game": 26.85,
+          "marginal_lineup_weekly": 1.21,
+          "c_only": 0.0,
+          "foundation_rank": 4.0
+        },
+        {
+          "name": "Kyshawn George",
+          "score": -3.44,
+          "explanation": "marginal lineup -3.4 weekly pts (standalone 94.0; replacement 26.8 FP/g; over-replacement +0.0; imputed DD,PF,TD)",
+          "raw_weekly_value": 93.96,
+          "replacement_level_fp_per_game": 26.85,
+          "marginal_lineup_weekly": -3.44,
+          "c_only": 0.0,
+          "foundation_rank": 1.0
+        },
+        {
+          "name": "Scotty Pippen Jr.",
+          "score": -3.57,
+          "explanation": "marginal lineup +0.0 weekly pts (standalone 86.8; replacement 26.8 FP/g; over-replacement -7.2; imputed DD,PF,TD)",
+          "raw_weekly_value": 86.76,
+          "replacement_level_fp_per_game": 26.85,
+          "marginal_lineup_weekly": 0.02,
+          "c_only": 0.0,
+          "foundation_rank": 6.0
+        }
+      ],
+      "foundation_top5": [
+        {
+          "name": "Kyshawn George",
+          "score": 28.56
+        },
+        {
+          "name": "Jrue Holiday",
+          "score": 27.03
+        },
+        {
+          "name": "Andrew Nembhard",
+          "score": 27.01
+        },
+        {
+          "name": "Anthony Black",
+          "score": 26.9
+        },
+        {
+          "name": "Zach LaVine",
+          "score": 26.75
+        }
+      ],
+      "actual_pick_marginal_rank": 4,
+      "actual_pick_marginal_detail": {
+        "name": "Kyshawn George",
+        "score": -3.44,
+        "explanation": "marginal lineup -3.4 weekly pts (standalone 94.0; replacement 26.8 FP/g; over-replacement +0.0; imputed DD,PF,TD)",
+        "raw_weekly_value": 93.96,
+        "replacement_level_fp_per_game": 26.85,
+        "marginal_lineup_weekly": -3.44,
+        "c_only": 0.0,
+        "foundation_rank": 1.0
+      }
+    },
+    {
+      "pick": 128,
+      "actual_pick": "Jrue Holiday",
+      "roster_before": [
+        "Karl-Anthony Towns",
+        "Jalen Duren",
+        "Jarrett Allen",
+        "Julius Randle",
+        "Walker Kessler",
+        "Kel'el Ware",
+        "Nikola Vucevic",
+        "John Collins",
+        "Kyshawn George"
+      ],
+      "marginal_status": "ranked",
+      "marginal_seconds": 0.0066,
+      "marginal_top5": [
+        {
+          "name": "Jrue Holiday",
+          "score": 2.04,
+          "explanation": "marginal lineup +2.0 weekly pts (standalone 88.8; replacement 25.4 FP/g; over-replacement +0.0; imputed DD,PF,TD)",
+          "raw_weekly_value": 88.77,
+          "replacement_level_fp_per_game": 25.36,
+          "marginal_lineup_weekly": 2.04,
+          "c_only": 0.0,
+          "foundation_rank": 1.0
+        },
+        {
+          "name": "Anthony Black",
+          "score": 0.8,
+          "explanation": "marginal lineup +1.2 weekly pts (standalone 87.9; replacement 25.4 FP/g; over-replacement -0.8; imputed DD,PF,TD)",
+          "raw_weekly_value": 87.95,
+          "replacement_level_fp_per_game": 25.36,
+          "marginal_lineup_weekly": 1.21,
+          "c_only": 0.0,
+          "foundation_rank": 2.0
+        },
+        {
+          "name": "Zach LaVine",
+          "score": -0.43,
+          "explanation": "marginal lineup +0.4 weekly pts (standalone 87.1; replacement 25.4 FP/g; over-replacement -1.6; imputed DD,PF,TD)",
+          "raw_weekly_value": 87.13,
+          "replacement_level_fp_per_game": 25.36,
+          "marginal_lineup_weekly": 0.39,
+          "c_only": 0.0,
+          "foundation_rank": 3.0
+        },
+        {
+          "name": "Scotty Pippen Jr.",
+          "score": -0.98,
+          "explanation": "marginal lineup +0.0 weekly pts (standalone 86.8; replacement 25.4 FP/g; over-replacement -2.0; imputed DD,PF,TD)",
+          "raw_weekly_value": 86.76,
+          "replacement_level_fp_per_game": 25.36,
+          "marginal_lineup_weekly": 0.02,
+          "c_only": 0.0,
+          "foundation_rank": 4.0
+        },
+        {
+          "name": "Malik Monk",
+          "score": -5.09,
+          "explanation": "marginal lineup -2.7 weekly pts (standalone 84.0; replacement 25.4 FP/g; over-replacement -4.7; imputed DD,PF,TD)",
+          "raw_weekly_value": 84.03,
+          "replacement_level_fp_per_game": 25.36,
+          "marginal_lineup_weekly": -2.71,
+          "c_only": 0.0,
+          "foundation_rank": 7.0
+        }
+      ],
+      "foundation_top5": [
+        {
+          "name": "Jrue Holiday",
+          "score": 26.98
+        },
+        {
+          "name": "Anthony Black",
+          "score": 26.85
+        },
+        {
+          "name": "Zach LaVine",
+          "score": 26.7
+        },
+        {
+          "name": "Scotty Pippen Jr.",
+          "score": 26.07
+        },
+        {
+          "name": "Dillon Brooks",
+          "score": 25.77
+        }
+      ],
+      "actual_pick_marginal_rank": 1,
+      "actual_pick_marginal_detail": {
+        "name": "Jrue Holiday",
+        "score": 2.04,
+        "explanation": "marginal lineup +2.0 weekly pts (standalone 88.8; replacement 25.4 FP/g; over-replacement +0.0; imputed DD,PF,TD)",
+        "raw_weekly_value": 88.77,
+        "replacement_level_fp_per_game": 25.36,
+        "marginal_lineup_weekly": 2.04,
+        "c_only": 0.0,
+        "foundation_rank": 1.0
+      }
+    }
+  ],
+  "policy_path": [
+    {
+      "pick": 13,
+      "policy_pick": "Jalen Duren",
+      "actual_pick": "Karl-Anthony Towns",
+      "explanation": "marginal lineup +62.2 weekly pts (standalone 163.0; replacement 35.5 FP/g; over-replacement +38.6; C-only; imputed DD,PF,TD)",
+      "eligibility": [
+        "C"
+      ]
+    },
+    {
+      "pick": 16,
+      "policy_pick": "Anthony Davis",
+      "actual_pick": "Jalen Duren",
+      "explanation": "marginal lineup +77.7 weekly pts (standalone 156.1; replacement 33.5 FP/g; over-replacement +38.6; imputed DD,PF,TD)",
+      "eligibility": [
+        "C",
+        "F"
+      ]
+    },
+    {
+      "pick": 41,
+      "policy_pick": "Paolo Banchero",
+      "actual_pick": "Jarrett Allen",
+      "explanation": "marginal lineup +15.6 weekly pts (standalone 133.3; replacement 33.0 FP/g; over-replacement +17.9; imputed DD,PF,TD)",
+      "eligibility": [
+        "F"
+      ]
+    },
+    {
+      "pick": 44,
+      "policy_pick": "Walker Kessler",
+      "actual_pick": "Julius Randle",
+      "explanation": "marginal lineup +24.8 weekly pts (standalone 135.3; replacement 34.1 FP/g; over-replacement +15.9; C-only; imputed DD,PF,TD)",
+      "eligibility": [
+        "C"
+      ]
+    },
+    {
+      "pick": 69,
+      "policy_pick": "Julius Randle",
+      "actual_pick": "Walker Kessler",
+      "explanation": "marginal lineup +11.1 weekly pts (standalone 134.0; replacement 33.0 FP/g; over-replacement +18.6; imputed DD,PF,TD)",
+      "eligibility": [
+        "F"
+      ]
+    },
+    {
+      "pick": 72,
+      "policy_pick": "Cameron Boozer",
+      "actual_pick": "Kel'el Ware",
+      "explanation": "marginal lineup +14.8 weekly pts (standalone 124.8; replacement 32.4 FP/g; over-replacement +11.4; imputed DD,PF,TD)",
+      "eligibility": [
+        "F"
+      ]
+    },
+    {
+      "pick": 97,
+      "policy_pick": "Jaime Jaquez Jr.",
+      "actual_pick": "Nikola Vucevic",
+      "explanation": "marginal lineup -1.6 weekly pts (standalone 98.7; replacement 29.1 FP/g; over-replacement -3.1; imputed DD,PF,TD)",
+      "eligibility": [
+        "F",
+        "G"
+      ]
+    },
+    {
+      "pick": 100,
+      "policy_pick": "Ayo Dosunmu",
+      "actual_pick": "John Collins",
+      "explanation": "marginal lineup +12.4 weekly pts (standalone 97.9; replacement 29.1 FP/g; over-replacement -3.9; imputed DD,PF,TD)",
+      "eligibility": [
+        "G"
+      ]
+    },
+    {
+      "pick": 125,
+      "policy_pick": "Julian Champagnie",
+      "actual_pick": "Kyshawn George",
+      "explanation": "marginal lineup +5.3 weekly pts (standalone 93.5; replacement 26.8 FP/g; over-replacement -0.4; imputed DD,PF,TD)",
+      "eligibility": [
+        "F"
+      ]
+    },
+    {
+      "pick": 128,
+      "policy_pick": "Kyshawn George",
+      "actual_pick": "Jrue Holiday",
+      "explanation": "marginal lineup -4.3 weekly pts (standalone 94.0; replacement 26.8 FP/g; over-replacement +0.0; imputed DD,PF,TD)",
+      "eligibility": [
+        "F",
+        "G"
+      ]
+    }
+  ],
+  "opening_week": {
+    "actual": {
+      "players": [
+        "Karl-Anthony Towns",
+        "Jalen Duren",
+        "Jarrett Allen",
+        "Julius Randle",
+        "Walker Kessler",
+        "Kel'el Ware",
+        "Nikola Vucevic",
+        "John Collins",
+        "Kyshawn George",
+        "Jrue Holiday"
+      ],
+      "usable_starts": 25,
+      "lineup_slots": 42,
+      "scheduled_player_games": 31,
+      "center_only_count": 6,
+      "eligibility_counts": {
+        "C": 7,
+        "G": 2,
+        "F": 3
+      },
+      "weekly_known_points": 1113.2
+    },
+    "policy": {
+      "players": [
+        "Jalen Duren",
+        "Anthony Davis",
+        "Paolo Banchero",
+        "Walker Kessler",
+        "Julius Randle",
+        "Cameron Boozer",
+        "Jaime Jaquez Jr.",
+        "Ayo Dosunmu",
+        "Julian Champagnie",
+        "Kyshawn George"
+      ],
+      "usable_starts": 29,
+      "lineup_slots": 42,
+      "scheduled_player_games": 35,
+      "center_only_count": 2,
+      "eligibility_counts": {
+        "C": 3,
+        "G": 3,
+        "F": 7
+      },
+      "weekly_known_points": 1277.6
+    }
+  }
+}

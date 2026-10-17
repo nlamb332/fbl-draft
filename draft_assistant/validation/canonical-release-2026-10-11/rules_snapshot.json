@@ -1,0 +1,10 @@
+{
+  "artifact_version": "canonical-room-rules-v1",
+  "captured_at": "2026-10-11T20:57:00.360Z",
+  "room_league_id": "1000000016",
+  "teams": 14,
+  "scoring_type": "Head to Head Points",
+  "roster": {"C": 1, "G": 2, "F": 2, "UTIL": 1, "BE": 4, "IR": 3},
+  "scoring": {"FGM": 2, "FGA": -1, "FTM": 1, "FTA": -1, "TPM": 1, "REB": 2, "AST": 2, "STL": 4, "BLK": 4, "TO": -2, "E": -5, "PF": -1, "TF": -2, "DD": 3, "TD": 5, "QD": 100, "PTS": 1},
+  "source_provenance": "ESPN Rules tab visibly read back while the room was natively paused."
+}

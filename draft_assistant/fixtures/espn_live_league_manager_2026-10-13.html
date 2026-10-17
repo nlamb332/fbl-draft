@@ -1,0 +1,62 @@
+<!-- Reduced from the live ESPN practice room 1000000015 (League Manager view, paused),
+     captured 2026-10-13. Structure, roles, classes and data-testid are as observed;
+     player rows and unrelated controls are trimmed. The view tabs nest
+     <button role="tab"> inside <li role="tab">, and the active tab panel renders
+     inside the same role="tablist" wrapper. The select name is a synthetic placeholder. -->
+<div class="draft-column">
+  <div class="inner-column">
+    <div class="roster w-100 ph4">
+      <div class="dropdown dropdown--sm margin-left-auto roster__dropdown">
+        <select class="dropdown__select" name="fixture-roster-select">
+          <option value="6">Example Opponent 21</option>
+          <option value="15" selected>Example Team</option>
+        </select>
+      </div>
+    </div>
+    <div class="form__group cf autoPick-toggle form__group--toggle"><input type="checkbox" class="form__control form__control--toggle"></div>
+  </div>
+</div>
+<div class="draft-column raised flex flex-column">
+  <div class="draft_tabs_container flex overflow-hidden relative">
+    <div class="tabs__wrapper" role="tablist">
+      <ul class="tabs__list">
+        <li class="tabs__list__item" role="tab"><button class="Button--unstyled tabs__link" role="tab">Players</button></li>
+        <li class="tabs__list__item" role="tab"><button class="Button--unstyled tabs__link" role="tab">Pick History</button></li>
+        <li class="tabs__list__item" role="tab"><button class="Button--unstyled tabs__link" role="tab">Board</button></li>
+        <li class="tabs__list__item" role="tab"><button class="Button--unstyled tabs__link" role="tab">Rules</button></li>
+        <li class="tabs__list__item tabs__list__item--clicked tabs__list__item--active" role="tab"><button class="Button--unstyled tabs__link" role="tab">League Manager</button></li>
+      </ul>
+      <div class="tabs__content" role="tabpanel">
+        <div class="tab__item">
+          <div class="league-manager-container bg-clr-white clr-black flex flex-column">
+            <div class="league-manager-control__container bg-clr-white clr-black">
+              <p>Pause the draft to enable all of the League Manager functions</p>
+              <div class="control-option__container">
+                <button class="Button Button--default pause-resume-draft ttu Button--sm control-option">Resume</button>
+              </div>
+              <div class="form__group cf control-option autoPick-toggle form__group--toggle"><input type="checkbox" class="form__control form__control--toggle" checked></div>
+              <div class="dropdowns__container">
+                <div class="control-option__container">
+                  <p>Configure the amount of time to make a pick</p>
+                  <div class="dropdown dropdown--sm control-option">
+                    <select class="dropdown__select" name="1791911649062::48850000::53a54b97:c592:21f2:ca17:96b97491a837" data-testid="pickTimeDropdown">
+                      <option value="15000">15 seconds</option>
+                      <option value="30000"{{T30}}>30 seconds</option>
+                      <option value="60000">60 seconds</option>
+                      <option value="90000"{{T90}}>90 seconds</option>
+                      <option value="120000">2 minutes</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="make-picks">
+              <p>Make draft picks for other players</p>
+              <button class="Button">Undo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

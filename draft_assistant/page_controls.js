@@ -227,17 +227,18 @@ function mountPageControls({
   root.setAttribute("data-fbl-collapsed", "false");
 
   const header = document.createElement("header");
-  header.style.cssText = "display:flex;justify-content:space-between;gap:10px;align-items:flex-start";
+  header.style.cssText = "display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:center";
   const headingWrap = document.createElement("div");
+  headingWrap.style.cssText = "flex:1 1 100%;min-width:0";
   const headingRow = document.createElement("div");
-  headingRow.style.cssText = "display:flex;align-items:center;gap:7px;min-width:0";
+  headingRow.style.cssText = "display:flex;flex-wrap:wrap;align-items:center;gap:7px;min-width:0";
   const moveHandle = button(document, headingRow, "Move advisor", () => undefined, "border-color:#9db3cc;color:#294563;padding:5px 8px;cursor:grab;touch-action:none;white-space:nowrap");
   moveHandle.title = "Drag to move the advisor, or use the arrow keys";
   moveHandle.setAttribute("aria-label", "Move advisor. Drag this handle or use arrow keys");
   moveHandle.setAttribute("aria-keyshortcuts", "ArrowLeft ArrowRight ArrowUp ArrowDown Home End");
-  appendText(document, headingRow, "h2", "FBL draft advisor", "margin:0;font-size:18px;line-height:1.2;color:#102a43;overflow-wrap:anywhere");
+  const heading = appendText(document, headingRow, "h2", "FBL draft advisor", "margin:0;font-size:18px;line-height:1.2;color:#102a43;white-space:nowrap;flex-shrink:0");
   headingWrap.appendChild(headingRow);
-  appendText(document, headingWrap, "p", "You make picks manually. FBL only observes and recommends.", "margin:4px 0 0;color:#526273;font-size:12px");
+  const subtitle = appendText(document, headingWrap, "p", "You make picks manually. FBL only observes and recommends.", "margin:4px 0 0;color:#526273;font-size:12px");
   header.appendChild(headingWrap);
   const headerActions = document.createElement("div");
   headerActions.style.cssText = "display:flex;align-items:center;gap:6px;flex-shrink:0";
@@ -276,7 +277,11 @@ function mountPageControls({
   compactBar.id = "fbl-attended-compact-summary";
   compactBar.setAttribute("role", "status");
   compactBar.style.cssText = "display:none;align-items:center;justify-content:space-between;gap:10px;padding:4px 0 0;color:#294563;font-size:12px;font-weight:700";
-  const compactText = appendText(document, compactBar, "span", "No recommendation yet · Turn unknown", "min-width:0;overflow-wrap:anywhere");
+  const compactText = document.createElement("div");
+  compactText.style.cssText = "min-width:0;flex:1;overflow-wrap:break-word";
+  const compactPlayer = appendText(document, compactText, "div", "No recommendation yet", "font-size:15px;font-weight:750;line-height:1.3;color:#102a43");
+  const compactTurn = appendText(document, compactText, "div", "Turn unknown", "font-size:12px;font-weight:400;line-height:1.4;color:#526273;margin-top:3px");
+  compactBar.appendChild(compactText);
   const expandButton = button(document, compactBar, "Expand advisor", () => setCollapsed(false), "border-color:#9db3cc;padding:5px 8px;white-space:nowrap;flex-shrink:0");
   root.appendChild(compactBar);
 
@@ -400,9 +405,11 @@ function mountPageControls({
     root.setAttribute("data-fbl-collapsed", collapsed ? "true" : "false");
     root.setAttribute("aria-expanded", collapsed ? "false" : "true");
     compactBar.style.display = collapsed ? "flex" : "none";
-    collapseButton.textContent = collapsed ? "Show full advisor" : "Collapse advisor";
-    collapseButton.setAttribute("aria-label", collapsed ? "Show full advisor" : "Collapse advisor");
-    collapseButton.style.cursor = "pointer";
+    collapseButton.style.display = collapsed ? "none" : "";
+    heading.textContent = collapsed ? "FBL advisor" : "FBL draft advisor";
+    headingWrap.style.flexBasis = collapsed ? "170px" : "100%";
+    moveHandle.textContent = collapsed ? "↕" : "Move advisor";
+    subtitle.style.display = collapsed ? "none" : "";
     [notice, actionBar, recommendation, detailsGrid, diagnostics, footer].forEach(node => { node.style.display = collapsed ? "none" : ""; });
     root.style.width = collapsed ? "min(380px,calc(100vw - 24px))" : "min(460px,calc(100vw - 24px))";
     root.style.maxHeight = collapsed ? "none" : "min(78vh,720px)";
@@ -420,7 +427,9 @@ function mountPageControls({
     const source = capture && capture.source !== undefined ? `source ${text(capture.source)}` : "";
     const capturedAt = capture && capture.capturedAt !== undefined ? `captured ${formatTime(capture.capturedAt)}` : "";
     const metadata = [source, capturedAt].filter(Boolean).join(" · ");
-    compactText.textContent = `${player} · ${turn}${metadata ? ` · ${metadata}` : ""}`;
+    compactPlayer.textContent = player;
+    compactTurn.textContent = turn;
+    compactText.title = metadata;
   }
 
   function captureMetadataText(current) {

@@ -138,8 +138,9 @@ test("shows cached capture provenance in the notice and compact metadata", async
   await ui.controls.refresh();
   assert.match(ui.allText(ui.controls.root), /Inputs source cached/);
   ui.controls.collapse();
-  assert.match(ui.allText(ui.controls.root), /source cached/);
-  assert.match(ui.allText(ui.controls.root), /captured/);
+  const metadata = ui.nodes.find(node => node.title && node.title.includes("source cached"));
+  assert.ok(metadata);
+  assert.match(metadata.title, /captured/);
 });
 
 test("observation UI captures, starts, refreshes, and stops without actor methods", async () => {
@@ -333,6 +334,8 @@ test("collapse leaves a compact recommendation bar and keeps observing controls 
   assert.equal(ui.nodes.find(node => node.tag === "div" && node.children.some(child => child.textContent === "Rescan players")).style.display, "none");
   assert.equal(ui.button("Stop observing").disabled, false);
   assert.equal(ui.calls.length, callsBeforeCollapse);
+  assert.equal(ui.button("Collapse advisor").style.display, "none");
+  assert.equal(ui.button("Show full advisor"), undefined);
   await ui.button("Expand advisor").click();
   assert.equal(ui.controls.root["data-fbl-collapsed"], "false");
   assert.equal(ui.nodes.find(node => node.id === "fbl-attended-compact-summary").style.display, "none");

@@ -27,6 +27,59 @@ in a full `git clone` for development or strategy research.
 See [bookmarklet installation](docs/DRAFT_ADVISOR_BOOKMARKLET.md) after opening
 the local panel.
 
+## Prepare the player catalog in a practice draft
+
+Run a full capture in an ESPN practice draft **before your real draft**. This
+builds a saved catalog of player IDs, eligibility, and available projections,
+so the real draft can start recommending without a lengthy player scan.
+
+1. Launch the local panel and open a practice draft for your configured ESPN
+   league, season, and team. Wait for the draft heading and team list to load,
+   then click your **FBL Advisor** bookmark.
+2. Click **Capture inputs** (or **Rescan players** to replace an older scan).
+   If the practice draft has not started, the advisor waits for it to begin.
+   Once it starts, the advisor requests Pause once and waits for ESPN to
+   confirm it. An already paused room can proceed directly to capture.
+3. Keep the ESPN tab visible and the practice draft paused. The advisor reads
+   Rules, then scrolls through the Players grid to collect the catalog. Let
+   both the initial scan and any repair pass finish; reaching the full player
+   count alone does not mean capture is complete. Avoid changing tabs,
+   filters, or scroll position during capture.
+4. Confirm the advisor has finished capturing without an error. In the
+   expanded advisor, the input source should say **captured**, with a fresh
+   capture time. In **Diagnostics**, check that `capture.cache_status` is
+   `saved`; a storage failure means the scan is not saved for another room.
+   **Start observing** becomes available. You may use it to check
+   recommendations in the practice room, then close the advisor when done.
+5. Capture again close to draft day if ESPN's player projections or
+   eligibility have changed. Only a successfully completed catalog replaces
+   the saved scan. Some cataloged players lack sufficient projections to be
+   scored; projection coverage can therefore be lower than the catalog count.
+
+### Reuse the catalog in your real draft
+
+1. Launch the local panel again if you closed it, open your real ESPN draft
+   room, and click the same **FBL Advisor** bookmark. Use the same Chrome profile and ESPN site
+   origin used for the practice capture, with the same season, team ID, and
+   exact team name.
+2. Expand the advisor and confirm **Loaded saved scan** or **Inputs source
+   cache**, then check the capture time. Click **Start observing**. The
+   advisor re-reads the real room's scoring rules and uses its live pick
+   history and your current roster to remove drafted players and update
+   recommendations. Practice-room picks and rosters are not carried into the
+   real draft.
+3. Make your picks manually. Observation updates recommendations as picks
+   happen. If no usable saved scan is available, **Capture inputs** can scan
+   the real room directly, but it takes time while picks continue. The
+   real-draft workflow never requests native Pause or Resume.
+
+The player catalog is stored in **Chrome local storage for the ESPN site**,
+not in the downloaded folder. A fresh download or launcher restart does not
+clear it. Different browser profiles and origins have separate storage;
+incognito storage is separate and is lost when all incognito windows close.
+For a dependable practice-to-real handoff, use the same regular Chrome
+profile for both. Historical captures are not included in the download ZIP.
+
 ## Full repository contents
 
 - `draft_assistant/` — local coordinator, valuation and strategy policies,
@@ -88,7 +141,7 @@ For the recommendation-only ESPN advisor, open the panel after starting it
 with `-PageRunner`, then drag **FBL Advisor — drag to bookmarks** from the
 **ESPN advisor bookmarklet** card to the browser bookmarks bar. Save that link,
 rather than bookmarking the localhost panel page with Chrome's star. Open the
-current ESPN basketball draft room and click the bookmark after the practice
+current ESPN basketball draft room and click the bookmark after the draft
 heading and fourteen-team roster list render. Read
 `docs/DRAFT_ADVISOR_BOOKMARKLET.md` for the popup, origin, and fresh-server
 connection requirements; the bookmarklet does not authorize picks or queue

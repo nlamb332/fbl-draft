@@ -67,7 +67,6 @@ _PRACTICE_HEADING_RE = re.compile(
     r"^ESPN Fantasy Basketball Draft\s*-\s*Practice Draft\s+for\s+(.+)$",
     re.IGNORECASE,
 )
-_EXPECTED_PRACTICE_TEAM = "Example League"
 # This marker is emitted when recommendation mode intentionally evaluates a
 # scorable subset of a larger, known catalog.  It is distinct from unresolved
 # feed-health warnings, which must continue to block preview generation.
@@ -323,7 +322,9 @@ class Coordinator:
     def _valid_practice_heading(cls, heading: str) -> bool:
         normalized = cls._normalize_practice_heading(heading)
         match = _PRACTICE_HEADING_RE.fullmatch(normalized)
-        return bool(match and match.group(1).strip().casefold() == _EXPECTED_PRACTICE_TEAM.casefold())
+        # League names are user data, not a fixed application identity. The
+        # attestation binds the room and configured source IDs separately.
+        return bool(match and match.group(1).strip())
 
     def _practice_attestation(self, session_id: str) -> sqlite3.Row | None:
         return self._db.execute(

@@ -137,7 +137,7 @@ function makeCase(index) {{
   const teams = Array.from({{length: 14}}, (_, seat) => `Visible Team ${{index}}-${{seat + 1}}`);
   const ownSeat = index === 1 ? 4 : 11;
   const ownTeam = teams[ownSeat - 1];
-  const heading = {{textContent: realRoom ? `ESPN Fantasy Basketball Draft - Live Draft ${{index}}` : `ESPN Fantasy Basketball Draft - Practice Draft ${{index}}`, getAttribute() {{ return null; }}}};
+  const heading = {{textContent: realRoom ? `ESPN Fantasy Basketball Draft - Live Draft ${{index}}` : `ESPN Fantasy Basketball Draft - Practice Draft for Weekend Hoops League ${{index}}`, getAttribute() {{ return null; }}}};
   const options = teams.map((text, seat) => ({{
     textContent: text,
     getAttribute(name) {{ return name === "data-seat" ? String(seat + 1) : null; }},

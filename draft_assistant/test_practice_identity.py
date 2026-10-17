@@ -94,9 +94,31 @@ class PracticeIdentityTests(unittest.TestCase):
         with self.assertRaises(IdentityError):
             self.coordinator.attest_practice(
                 session_id,
-                heading="ESPN Fantasy Basketball Draft - Practice Draft for Another Team",
+                heading="ESPN Fantasy Basketball Draft - Live Draft for Weekend Hoops League",
                 source_league_id=LIVE_LEAGUE_ID,
             )
+
+    def test_practice_heading_accepts_user_league_names_and_remains_bound(self) -> None:
+        heading = "ESPN Fantasy Basketball Draft – Practice Draft for Weekend Hoops League"
+        session_id = self.coordinator.create_session(self.room)["session_id"]
+        self.coordinator.attest_practice(session_id, heading=heading, source_league_id=LIVE_LEAGUE_ID)
+        self.coordinator.close()
+        self.coordinator = Coordinator(self.db)
+        self.assertTrue(self.coordinator.readiness(session_id)["checks"]["practice_attestation"])
+        with self.assertRaises(IdentityError):
+            self.coordinator.attest_practice(session_id, heading=PRACTICE_HEADING, source_league_id=LIVE_LEAGUE_ID)
+
+    def test_practice_heading_requires_complete_visible_banner(self) -> None:
+        for heading in (
+            "ESPN Fantasy Basketball Draft - Practice Draft for ",
+            "Practice Draft for Weekend Hoops League",
+            "ESPN Fantasy Basketball Draft - Live Draft for Weekend Hoops League",
+            "ESPN Fantasy Basketball Draft - Practice Draft for Weekend\nHoops League",
+        ):
+            with self.subTest(heading=heading):
+                session_id = self.coordinator.create_session(self.room)["session_id"]
+                with self.assertRaises(IdentityError):
+                    self.coordinator.attest_practice(session_id, heading=heading, source_league_id=LIVE_LEAGUE_ID)
 
     def test_attestation_persists_across_coordinator_restart(self) -> None:
         session_id = self.coordinator.create_session(self.room)["session_id"]

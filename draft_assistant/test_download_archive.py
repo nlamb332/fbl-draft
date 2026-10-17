@@ -35,6 +35,21 @@ try:
     assert info['startup_source']['git_revision'] is None
     assert 'Close advisor' in get('/page-runner.js')
     assert 'bookmarklet bootstrap' in get('/advisor-bookmarklet.js')
+    request = urllib.request.Request(
+        base + '/api/operator',
+        data=json.dumps({
+            'operation': 'connect-advisor',
+            'url': 'https://fantasy.espn.com/basketball/draft?leagueId=2000000000&seasonId=2027&teamId=15',
+            'practice': True,
+            'visible_heading': 'ESPN Fantasy Basketball Draft - Practice Draft for Weekend Hoops League',
+            'expected_seat': 1,
+        }).encode('utf-8'),
+        headers={'Content-Type': 'application/json', 'Origin': 'https://fantasy.espn.com', 'X-CSRF-Token': coordinator.csrf_token},
+    )
+    with urllib.request.urlopen(request, timeout=5) as response:
+        connected = json.load(response)
+    assert connected['room']['practice'] is True
+    assert connected['practice_attestation']['heading'].endswith('Weekend Hoops League')
 finally:
     server.shutdown()
     server.server_close()

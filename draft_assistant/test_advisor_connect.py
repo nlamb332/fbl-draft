@@ -25,6 +25,14 @@ def team_url(league_id: str, season_id: str = "2027", team_id: str = "15") -> st
 
 
 class AdvisorConnectHTTPTests(unittest.TestCase):
+    def test_practice_banner_accepts_a_user_league_name(self) -> None:
+        heading = "ESPN Fantasy Basketball Draft - Practice Draft for Weekend Hoops League"
+        status, result = self.connect(heading=heading)
+        self.assertEqual(status, 200, result)
+        self.assertEqual(result["practice_attestation"]["heading"], heading)
+        self.assertEqual(result["practice_attestation"]["source_league_id"], self.coordinator.config.league_id)
+        self.assertTrue(self.coordinator.readiness(result["session_id"])["checks"]["practice_attestation"])
+
     def setUp(self) -> None:
         self.coordinator = Coordinator(":memory:", recover=False)
         self.server = create_server(self.coordinator, port=0, page_runner_enabled=True)

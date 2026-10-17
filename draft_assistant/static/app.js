@@ -140,7 +140,11 @@
     const status = $("advisor-bookmarklet-status");
     if (!link || !copy || !url || !status) return;
     const bookmarklet = link.getAttribute("href") || "";
-    const enabled = bookmarklet.startsWith("javascript:");
+    // Positive identification of the server-generated bookmarklet href. This
+    // does not validate or authorize a navigation URL; the click handler
+    // always prevents navigation and the value is only copied to bookmarks.
+    const isGeneratedAdvisorBookmarklet = (href) => href.startsWith("javascript:");
+    const enabled = isGeneratedAdvisorBookmarklet(bookmarklet);
     copy.disabled = !enabled;
     link.setAttribute("aria-disabled", String(!enabled));
     const selectUrl = () => {

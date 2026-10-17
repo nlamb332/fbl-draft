@@ -161,34 +161,154 @@ function isHidden(element) {
   return false;
 }
 
+function isWhitespace(char) {
+  return char === " " || char === "\t" || char === "\n" || char === "\r" || char === "\f";
+}
+
+function isAsciiLetter(char) {
+  if (!char) return false;
+  const code = char.charCodeAt(0);
+  return (code >= 65 && code <= 90) || (code >= 97 && code <= 122);
+}
+
+function isTagNameChar(char) {
+  if (!char) return false;
+  const code = char.charCodeAt(0);
+  return isAsciiLetter(char) || (code >= 48 && code <= 57) || char === "_" || char === "-";
+}
+
+function appendText(stack, value) {
+  if (!value) return;
+  const text = decode(value);
+  const parent = stack[stack.length - 1];
+  if (text.trim() || parent.localName === "button") parent.children.push(text);
+}
+
 function parseHtml(html) {
   const root = new FixtureElement("body");
   const stack = [root];
-  const tokenPattern = /<!--[\s\S]*?-->|<\/([a-zA-Z][\w-]*)\s*>|<([a-zA-Z][\w-]*)((?:\s+[^\s=>/]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+))?)*)\s*(\/?)>|([^<]+)/g;
-  let match;
-  while ((match = tokenPattern.exec(html))) {
-    if (match[0].startsWith("<!--")) continue;
-    if (match[1]) {
-      const name = match[1].toLowerCase();
+  const source = String(html);
+  let cursor = 0;
+  while (cursor < source.length) {
+    const open = source.indexOf("<", cursor);
+    if (open < 0) {
+      appendText(stack, source.slice(cursor));
+      break;
+    }
+    if (open > cursor) appendText(stack, source.slice(cursor, open));
+
+    if (source.startsWith("<!--", open)) {
+      const close = source.indexOf("-->", open + 4);
+      if (close < 0) {
+        appendText(stack, source.slice(open));
+        break;
+      }
+      cursor = close + 3;
+      continue;
+    }
+
+    let index = open + 1;
+    if (source[index] === "/") {
+      index += 1;
+      const nameStart = index;
+      if (!isAsciiLetter(source[index])) {
+        appendText(stack, "<");
+        cursor = open + 1;
+        continue;
+      }
+      index += 1;
+      while (isTagNameChar(source[index])) index += 1;
+      const name = source.slice(nameStart, index).toLowerCase();
+      while (isWhitespace(source[index])) index += 1;
+      if (source[index] !== ">") {
+        appendText(stack, "<");
+        cursor = open + 1;
+        continue;
+      }
       for (let index = stack.length - 1; index > 0; index -= 1) {
         if (stack[index].localName === name) { stack.length = index; break; }
       }
-    } else if (match[2]) {
-      const name = match[2].toLowerCase();
-      const attributes = {};
-      const attrPattern = /([^\s=>/]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+)))?/g;
-      let attr;
-      while ((attr = attrPattern.exec(match[3] || ""))) {
-        const value = attr[2] ?? attr[3] ?? attr[4];
-        attributes[attr[1].toLowerCase()] = value === undefined ? "" : decode(value);
-      }
-      const element = new FixtureElement(name, attributes);
-      stack[stack.length - 1].appendChild(element);
-      if (!match[4] && !VOID_ELEMENTS.has(name)) stack.push(element);
-    } else if (match[5]) {
-      const text = decode(match[5]);
-      if (text.trim() || stack[stack.length - 1].localName === "button") stack[stack.length - 1].children.push(text);
+      cursor = index + 1;
+      continue;
     }
+
+    if (!isAsciiLetter(source[index])) {
+      appendText(stack, "<");
+      cursor = open + 1;
+      continue;
+    }
+
+    const nameStart = index;
+    index += 1;
+    while (isTagNameChar(source[index])) index += 1;
+    const name = source.slice(nameStart, index).toLowerCase();
+    const attributes = {};
+    let selfClosing = false;
+    let closed = false;
+    let malformed = false;
+
+    while (index < source.length) {
+      while (isWhitespace(source[index])) index += 1;
+      if (source[index] === ">") {
+        index += 1;
+        closed = true;
+        break;
+      }
+      if (source[index] === "/" && source[index + 1] === ">") {
+        index += 2;
+        selfClosing = true;
+        closed = true;
+        break;
+      }
+      if (source[index] === "<") {
+        malformed = true;
+        break;
+      }
+
+      const attrStart = index;
+      while (index < source.length && !isWhitespace(source[index]) && !"=>/".includes(source[index])) index += 1;
+      if (index === attrStart) {
+        index += 1;
+        continue;
+      }
+      const attrName = source.slice(attrStart, index).toLowerCase();
+      while (isWhitespace(source[index])) index += 1;
+      let value = "";
+      if (source[index] === "=") {
+        index += 1;
+        while (isWhitespace(source[index])) index += 1;
+        const quote = source[index];
+        if (quote === '"' || quote === "'") {
+          index += 1;
+          const valueStart = index;
+          const valueEnd = source.indexOf(quote, index);
+          if (valueEnd < 0) {
+            malformed = true;
+            break;
+          }
+          value = source.slice(valueStart, valueEnd);
+          index = valueEnd + 1;
+        } else {
+          const valueStart = index;
+          while (index < source.length && !isWhitespace(source[index]) && source[index] !== ">") index += 1;
+          value = source.slice(valueStart, index);
+        }
+      }
+      attributes[attrName] = decode(value);
+    }
+
+    if (!closed || malformed) {
+      // Keep malformed markup as literal text, then continue at the next
+      // character so a later valid sibling still parses normally.
+      appendText(stack, "<");
+      cursor = open + 1;
+      continue;
+    }
+
+    const element = new FixtureElement(name, attributes);
+    stack[stack.length - 1].appendChild(element);
+    if (!selfClosing && !VOID_ELEMENTS.has(name)) stack.push(element);
+    cursor = index;
   }
   return root;
 }

@@ -51,6 +51,24 @@ PAGE_RUNNER_OPERATIONS = frozenset({"connect-advisor", "status", "publish", "pre
 ADVISOR_TOKEN_OPERATIONS = frozenset({"status", "recommend-preview"})
 
 
+def _canonical_page_origin(origin: str | None, page_origins: frozenset[str]) -> str | None:
+    """Return the matching trusted origin value, never the request header.
+
+    Header values are untrusted even when they compare equal to an allowlist
+    entry.  Comparing against and returning the configured entry keeps values
+    used in response headers on the trusted side of the boundary, while the
+    explicit CR/LF checks reject header injection and malformed configuration.
+    """
+    if not isinstance(origin, str) or not origin or not origin.isascii() or "\r" in origin or "\n" in origin:
+        return None
+    for allowed in page_origins:
+        if not isinstance(allowed, str) or not allowed or not allowed.isascii() or "\r" in allowed or "\n" in allowed:
+            continue
+        if origin == allowed:
+            return allowed
+    return None
+
+
 def _json_bytes(value: Any) -> bytes:
     return json.dumps(value, sort_keys=True, default=str).encode("utf-8")
 
@@ -100,8 +118,7 @@ class DraftRequestHandler(BaseHTTPRequestHandler):
         return getattr(self.server, "page_origins", PAGE_ORIGINS)
 
     def _page_origin(self) -> str | None:
-        origin = self.headers.get("Origin")
-        return origin if origin in self.page_origins else None
+        return _canonical_page_origin(self.headers.get("Origin"), self.page_origins)
 
     def _page_post_ok(self) -> bool:
         """A cross-origin POST from an allowed page: host, origin and token."""
@@ -777,7 +794,14 @@ class DraftHTTPServer(ThreadingHTTPServer):
         self.coordinator_lock = threading.RLock()
         self.page_dispatch_enabled = page_dispatch_enabled
         self.page_runner_enabled = page_runner_enabled
-        self.page_origins = frozenset(page_origins)
+        # Ignore malformed configurable origins before they can reach a
+        # response header.  _canonical_page_origin repeats the check for the
+        # request value and keeps this boundary safe if a test or embedding
+        # caller replaces page_origins after initialization.
+        self.page_origins = frozenset(
+            origin for origin in page_origins
+            if isinstance(origin, str) and origin and "\r" not in origin and "\n" not in origin
+        )
         # These credentials intentionally live only for this server process;
         # they are never persisted in Coordinator's SQLite state or exposed by
         # the normal owner registry.

@@ -11,7 +11,7 @@ from dataclasses import replace
 
 from .contracts import DraftObservation, LivePlayer, PickEvent, RoomIdentity, utc_now
 from .coordinator import Coordinator
-from .server import create_server
+from .server import _canonical_page_origin, create_server
 from .test_heartbeat_freshness import ORDER, OUR_TEAM, POOL, ROOM
 from mock_draft.fixture import SCORING_WEIGHTS
 
@@ -103,6 +103,20 @@ class HeartbeatServerTests(unittest.TestCase):
                 status, headers, _ = self.preflight(origin)
                 self.assertEqual(status, 403)
                 self.assertFalse([h for h in headers if h.startswith("access-control-allow")])
+
+    def test_origin_matching_returns_only_a_clean_configured_value(self) -> None:
+        self.assertEqual(_canonical_page_origin(ESPN, frozenset({ESPN})), ESPN)
+        injected = ESPN + "\r\nX-Evil: reflected"
+        self.assertIsNone(_canonical_page_origin(injected, frozenset({ESPN, injected})))
+        self.assertIsNone(_canonical_page_origin(ESPN, frozenset({injected})))
+        self.assertIsNone(_canonical_page_origin("https://fantasy.espn.com/évil", frozenset({ESPN})))
+
+    def test_rejected_origin_is_never_reflected_into_cors_headers(self) -> None:
+        body = {"observation": frame(self.sid).to_dict()}
+        status, headers, _ = self.post("/api/heartbeat", body, origin="https://fantasy.espn.com.evil.example")
+        self.assertEqual(status, 403)
+        self.assertNotIn("access-control-allow-origin", headers)
+        self.assertNotIn("vary", headers)
 
     def test_preflight_rejects_other_headers_methods_paths_and_hosts(self) -> None:
         self.assertEqual(self.preflight(ESPN, headers="content-type, x-csrf-token, authorization")[0], 403)

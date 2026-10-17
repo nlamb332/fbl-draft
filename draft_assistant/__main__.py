@@ -109,14 +109,24 @@ def _promotion(args: argparse.Namespace) -> str | None:
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     config = None
+    setup_path = args.league_config or Path("runtime/league.json")
+    if args.command == "serve":
+        if setup_path.exists():
+            values = json.loads(setup_path.read_text(encoding="utf-8-sig"))
+            values.pop("legacy_team_names", None)
+            if "starting_slots" in values:
+                values["starting_slots"] = tuple(values["starting_slots"])
+            config = LeagueConfig(**values)
+        pending_path = setup_path.with_name("setup-pending.json")
+        pending = json.loads(pending_path.read_text(encoding="utf-8-sig")) if pending_path.exists() else None
+        setup_complete = setup_path.exists() and pending is None
+        serve(coordinator=Coordinator(args.db, config=config, recover=True, promotion_path=_promotion(args)), host=args.host, port=args.port, page_dispatch_enabled=args.page_dispatch, page_runner_enabled=args.page_runner, open_browser=args.open_browser, setup_config_path=setup_path, setup_complete=setup_complete, setup_pending_source=pending if isinstance(pending, dict) and "league_id" in pending else None)
+        return 0
     if args.league_config is not None:
         values = json.loads(args.league_config.read_text(encoding="utf-8-sig"))
         if "starting_slots" in values:
             values["starting_slots"] = tuple(values["starting_slots"])
         config = LeagueConfig(**values)
-    if args.command == "serve":
-        serve(coordinator=Coordinator(args.db, config=config, recover=True, promotion_path=_promotion(args)), host=args.host, port=args.port, page_dispatch_enabled=args.page_dispatch, page_runner_enabled=args.page_runner, open_browser=args.open_browser)
-        return 0
     if args.command == "page-loader":
         from .page_bundle import loader_snippet
 

@@ -25,6 +25,19 @@
 <body>
   <h1>FBL Draft Control</h1>
   <p id="state">Disconnected</p>
+  <section class="card" id="setup-card" hidden>
+    <h2 id="setup-title">Set up your ESPN league</h2>
+    <p id="setup-help">Open the ESPN basketball draft room for your league and click the FBL Advisor bookmarklet below. It reads the visible team list and IDs without connecting a session. Then select your team here.</p>
+    <div id="setup-fields">
+      <label>Source ESPN team URL<br><input id="setup-url-input" type="url" size="70" autocomplete="off" placeholder="https://fantasy.espn.com/basketball/team?..." required></label>
+      <button id="setup-source" type="button">Save source team</button>
+      <p id="setup-url">Save a source team URL before reading the draft room.</p>
+      <label>Your team in the observed ESPN list<br><select id="setup-team" required><option value="">Waiting for ESPN team list…</option></select></label><br>
+      <button id="setup-save" type="button" disabled>Save setup</button>
+    </div>
+    <button id="setup-edit" type="button" hidden>Edit setup</button>
+    <p id="setup-summary" role="status"></p>
+  </section>
   <section class="card">
     <h2>Room</h2>
     <input id="room-url" type="url" placeholder="https://fantasy.espn.com/basketball/team?..." size="55" autocomplete="off">

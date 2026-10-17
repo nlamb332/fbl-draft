@@ -1,5 +1,7 @@
 (() => {
   let sessionId = null;
+  let editingSetup = false;
+  let setupOptionsKey = null;
   const $ = (id) => document.getElementById(id);
   const showError = (error) => { $("state").textContent = `Error: ${error}`; };
   function text(tag, value) { const node = document.createElement(tag); node.textContent = value == null ? "—" : String(value); return node; }
@@ -11,6 +13,25 @@
     return value;
   }
   function update(data) {
+    if (data.setup_required) {
+      $("setup-card").hidden = false;
+      if (!editingSetup) {
+        $("setup-title").textContent = "Set up your ESPN league";
+        $("setup-help").textContent = "Save your source team URL, open its ESPN draft room, and click the FBL Advisor bookmarklet below. It reads the visible team list and room IDs without creating a session. Select your team here to finish setup.";
+        $("setup-edit").hidden = true;
+      }
+      document.querySelectorAll("#room-url, #practice, #connect, [data-control]").forEach((node) => { node.disabled = true; });
+      $("state").textContent = "Setup needed: no ESPN room can be connected yet.";
+      return;
+    }
+    document.querySelectorAll("#room-url, #practice, #connect").forEach((node) => { node.disabled = false; });
+    const saved = data.configured_team;
+    if (saved && !editingSetup) {
+      $("setup-card").hidden = false;
+      $("setup-fields").hidden = true;
+      $("setup-edit").hidden = false;
+      $("setup-summary").textContent = `Configured: ${saved.our_team} · league ${saved.league_id} · season ${saved.season_id} · team ${saved.team_id}`;
+    }
     const status = data.sessions ? (data.sessions.find((item) => item.session_id === sessionId) || data.sessions[0]) : data;
     if (!status) return;
     sessionId = status.session_id || sessionId;
@@ -87,6 +108,73 @@
     $("journal").textContent = JSON.stringify(status.journal || [], null, 2);
   }
   async function refresh() { try { const response = await fetch("/api/status", { cache: "no-store" }); update(await response.json()); } catch (error) { showError(error.message); } }
+  async function loadSetup() {
+    try {
+      const response = await fetch("/api/setup", { cache: "no-store" });
+      const value = await response.json();
+      if (value.configured && value.team && !editingSetup) {
+        $("setup-card").hidden = false;
+        $("setup-fields").hidden = true;
+        $("setup-url-input").value = `https://fantasy.espn.com/basketball/team?leagueId=${encodeURIComponent(value.team.league_id)}&seasonId=${encodeURIComponent(value.team.season_id)}&teamId=${encodeURIComponent(value.team.team_id)}`;
+        $("setup-team").value = value.team.our_team;
+        $("setup-summary").textContent = `Configured: ${value.team.our_team} · league ${value.team.league_id} · season ${value.team.season_id} · team ${value.team.team_id}`;
+        $("setup-edit").hidden = false;
+      } else { $("setup-card").hidden = false; }
+    } catch (error) { showError(error.message); }
+  }
+  $("setup-save").addEventListener("click", async () => {
+    const button = $("setup-save"); button.disabled = true;
+    try {
+      const result = await api("/api/setup", { our_team: $("setup-team").value });
+      $("setup-summary").textContent = `Saved locally for ${result.team.our_team} (league ${result.team.league_id}, season ${result.team.season_id}, team ${result.team.team_id}).`;
+      editingSetup = false;
+      await refresh(); await loadSetup();
+    } catch (error) { $("setup-summary").textContent = `Setup error: ${error.message}`; }
+    finally { button.disabled = false; }
+  });
+  $("setup-source").addEventListener("click", async () => {
+    const button = $("setup-source"); button.disabled = true;
+    try {
+      const value = await api("/api/setup/source", { url: $("setup-url-input").value.trim() });
+      $("setup-url").textContent = `Source saved: league ${value.league_id}, season ${value.season_id}, team ID ${value.team_id}. Open its ESPN draft room and click the FBL Advisor bookmarklet.`;
+      $("setup-team").replaceChildren(new Option("Waiting for observed team list…", ""));
+      setupOptionsKey = null;
+      $("setup-save").disabled = true;
+    } catch (error) { $("setup-url").textContent = `Source URL error: ${error.message}`; }
+    finally { button.disabled = false; }
+  });
+  $("setup-edit").addEventListener("click", async () => {
+    try {
+      await api("/api/setup/begin", {});
+      editingSetup = true;
+      $("setup-fields").hidden = false;
+      $("setup-edit").hidden = true;
+      $("setup-title").textContent = "Edit league setup";
+      $("setup-help").textContent = "The current setup is paused while you update it. Open the intended ESPN draft room and click the FBL Advisor bookmarklet, then choose the observed team.";
+      $("setup-team").replaceChildren(new Option("Waiting for ESPN team list…", ""));
+      setupOptionsKey = null;
+      $("setup-save").disabled = true;
+      $("setup-url").textContent = "Confirm the saved team URL or paste a different one, then click Save source team.";
+      await refresh();
+    } catch (error) { showError(error.message); }
+  });
+  async function refreshSetupOptions() {
+    if (!$("setup-card") || $("setup-card").hidden) return;
+    try {
+      const response = await fetch("/api/setup/options", { cache: "no-store" });
+      const value = await response.json();
+      if (!Array.isArray(value.team_options) || !value.team_options.length) return;
+      const optionsKey = JSON.stringify([value.league_id, value.season_id, value.team_id, value.team_options]);
+      if (optionsKey === setupOptionsKey) return;
+      setupOptionsKey = optionsKey;
+      const selected = $("setup-team").value;
+      $("setup-team").replaceChildren(new Option("Select your ESPN team…", ""));
+      value.team_options.forEach((name) => $("setup-team").add(new Option(name, name)));
+      if (value.team_options.includes(selected)) $("setup-team").value = selected;
+      $("setup-url").textContent = `Observed and verified for source league ${value.league_id}, season ${value.season_id}, team ID ${value.team_id}.`;
+      $("setup-save").disabled = false;
+    } catch (_error) { /* setup remains available while discovery is pending */ }
+  }
   $("operator-form").addEventListener("submit", async (event) => {
     event.preventDefault();
     const submit = event.submitter || $("operator-form").querySelector("button[type=submit]");
@@ -174,6 +262,8 @@
     });
   }
   setupBookmarkletInstall();
+  loadSetup();
+  refreshSetupOptions();
   refresh();
-  setInterval(refresh, 2000);
+  setInterval(() => { refresh(); refreshSetupOptions(); }, 2000);
 })();

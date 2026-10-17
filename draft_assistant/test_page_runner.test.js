@@ -103,6 +103,7 @@ function cachedRecommendationRunner(storage, { leagueId = ROOM.league_id, ownTea
     fetchFn: io.fetchFn,
     csrfToken: "csrf",
     sessionId: SESSION,
+    sourceLeagueId: "1000000000",
     ownerToken: "owner",
     ownTeam,
     expectedSeat: 1,
@@ -566,7 +567,7 @@ test("wrong-team advisory evidence stays staged and cannot change drafted univer
 
 test("recommendation attachment reloads a valid cache without starting a catalog scan", () => {
   const storage = memoryStorage();
-  const saved = writeInputCache(storage, ROOM, OWN, cacheInputs());
+  const saved = writeInputCache(storage, ROOM, "1000000000", cacheInputs());
   assert.equal(saved.status, "saved");
 
   // A fresh practice league may have a different league ID while retaining
@@ -582,18 +583,41 @@ test("recommendation attachment reloads a valid cache without starting a catalog
   assert.equal(Object.prototype.hasOwnProperty.call(runner.cacheSnapshot(), "feed"), false);
 });
 
+test("version 2 input cache identity survives display-name changes but separates source leagues", () => {
+  const sameTeamAfterRename = inputCacheKey(ROOM, "1000000000");
+  assert.equal(sameTeamAfterRename, inputCacheKey({ ...ROOM }, "1000000000"));
+  assert.notEqual(sameTeamAfterRename, inputCacheKey(ROOM, "1000000001"));
+  assert.match(sameTeamAfterRename, /v2:1000000000:2027:15$/);
+  assert.equal(inputCacheKey(ROOM, OWN), null, "a display name cannot stand in for a trusted source league ID");
+});
+
+test("ambiguous version 1 cache is explained and never migrated across an unbound league identity", () => {
+  const legacyKey = `fbl:advisor:input-cache:v1:${ROOM.season_id}:${ROOM.team_id}:${encodeURIComponent(OWN)}`;
+  const values = new Map([[legacyKey, JSON.stringify({ schema: "fbl-advisor-input-cache", version: 1 })]]);
+  const storage = {
+    length: values.size,
+    key(index) { return [...values.keys()][index] || null; },
+    getItem(key) { return values.get(key) || null; },
+    setItem(key, value) { values.set(key, String(value)); },
+  };
+  const result = readInputCache(storage, ROOM, "1000000000");
+  assert.equal(result.status, "legacy_ignored");
+  assert.match(result.reason, /source league ID/);
+  assert.equal(values.size, 1, "ambiguous legacy data remains untouched");
+});
+
 test("corrupt, partial, and different-scope cache records are ignored safely", () => {
   const room = ROOM;
-  const key = inputCacheKey(room, OWN);
+  const key = inputCacheKey(room, "1000000000");
   const corrupt = memoryStorage({ [key]: "{not-json" });
   const corruptRunner = cachedRecommendationRunner(corrupt);
   assert.equal(corruptRunner.summary().recommendation.capture.source, null);
   assert.equal(corruptRunner.summary().recommendation.capture.cache_status, "ignored");
 
   const partialStorage = memoryStorage();
-  const partial = writeInputCache(partialStorage, room, OWN, cacheInputs("2026-10-14T13:00:00.000Z", { catalog_complete: false }));
+  const partial = writeInputCache(partialStorage, room, "1000000000", cacheInputs("2026-10-14T13:00:00.000Z", { catalog_complete: false }));
   assert.equal(partial.status, "rejected");
-  assert.equal(readInputCache(partialStorage, room, OWN).status, "missing");
+  assert.equal(readInputCache(partialStorage, room, "1000000000").status, "missing");
 
   const wrongScopeRecord = {
     schema: "fbl-advisor-input-cache",
@@ -613,10 +637,10 @@ test("corrupt, partial, and different-scope cache records are ignored safely", (
 
 test("only a successful complete rescan replaces cache and live feed fields never persist", () => {
   const storage = memoryStorage();
-  const initial = writeInputCache(storage, ROOM, OWN, cacheInputs("2026-10-14T13:00:00.000Z"));
+  const initial = writeInputCache(storage, ROOM, "1000000000", cacheInputs("2026-10-14T13:00:00.000Z"));
   assert.equal(initial.status, "saved");
 
-  const rejected = writeInputCache(storage, ROOM, OWN, cacheInputs("2026-10-14T14:00:00.000Z", {
+  const rejected = writeInputCache(storage, ROOM, "1000000000", cacheInputs("2026-10-14T14:00:00.000Z", {
     catalog_complete: false,
     feed: [{ player_id: "live-pick" }],
     roster: [{ player_id: "live-roster" }],
@@ -624,16 +648,16 @@ test("only a successful complete rescan replaces cache and live feed fields neve
     owner_token: "secret",
   }));
   assert.equal(rejected.status, "rejected");
-  assert.equal(readInputCache(storage, ROOM, OWN).snapshot.captured_at, "2026-10-14T13:00:00.000Z");
+  assert.equal(readInputCache(storage, ROOM, "1000000000").snapshot.captured_at, "2026-10-14T13:00:00.000Z");
 
-  const replacement = writeInputCache(storage, ROOM, OWN, cacheInputs("2026-10-14T15:00:00.000Z", {
+  const replacement = writeInputCache(storage, ROOM, "1000000000", cacheInputs("2026-10-14T15:00:00.000Z", {
     feed: [{ player_id: "live-pick" }],
     roster: [{ player_id: "live-roster" }],
     actions: [{ action_id: "secret-action" }],
     owner_token: "secret",
   }));
   assert.equal(replacement.status, "saved");
-  const raw = JSON.parse(storage.raw(inputCacheKey(ROOM, OWN)));
+  const raw = JSON.parse(storage.raw(inputCacheKey(ROOM, "1000000000")));
   assert.equal(raw.captured_at, "2026-10-14T15:00:00.000Z");
   assert.equal(Object.prototype.hasOwnProperty.call(raw, "feed"), false);
   assert.equal(Object.prototype.hasOwnProperty.call(raw, "roster"), false);
@@ -648,6 +672,6 @@ test("localStorage failures leave recommendation attachment and manual capture u
   };
   const runner = cachedRecommendationRunner(brokenStorage);
   assert.equal(runner.summary().recommendation.capture.cache_status, "unavailable");
-  assert.equal(writeInputCache(brokenStorage, ROOM, OWN, cacheInputs()).status, "unavailable");
+  assert.equal(writeInputCache(brokenStorage, ROOM, "1000000000", cacheInputs()).status, "unavailable");
 });
 

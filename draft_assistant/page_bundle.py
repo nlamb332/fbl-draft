@@ -294,13 +294,18 @@ def recommendation_loader_snippet(
   const connection = await response.json();
   if (!response.ok || connection?.error) throw new Error(connection?.error || "the advisor connection was refused");
   const credentials = connection?.result && typeof connection.result === "object" ? connection.result : connection;
+  if (credentials.setup_discovery === true) {
+    const message = "FBL read the visible ESPN team list. Return to the local panel and choose your team to finish setup.";
+    if (typeof window.alert === "function") window.alert(message);
+    return { status: "setup-discovered", team_options: credentials.team_options || [], league_id: credentials.league_id, season_id: credentials.season_id, team_id: credentials.team_id };
+  }
   const sessionId = credentials.session_id || credentials.sessionId;
   const ownerToken = credentials.observer_token || credentials.observer_only_token || credentials.owner_token || credentials.ownerToken || credentials.token;
   const ownTeam = credentials.own_team || credentials.ownTeam;
   if (!sessionId || !ownerToken || !ownTeam) throw new Error("advisor connection did not return observer credentials and own team");
   const expectedSeat = Number(credentials.expected_seat ?? credentials.expectedSeat);
   if (!Number.isInteger(expectedSeat) || expectedSeat < 1 || expectedSeat > 14) throw new Error("the visible roster seat is invalid");
-  pageWindow.FBL.attach({ sessionId, ownerToken, ownTeam, expectedSeat, mode: "recommendation" });
+  pageWindow.FBL.attach({ sessionId, ownerToken, ownTeam, expectedSeat, sourceLeagueId: credentials.source_league_id, mode: "recommendation" });
   mountAdvisor(pageWindow.FBL.runner());
   return { status: "connected", session_id: sessionId, own_team: ownTeam, expected_seat: expectedSeat, bundle_hash: pageWindow.FBL.bundle_hash, mode: "recommendation" };
 })()'''

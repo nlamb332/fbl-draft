@@ -8,13 +8,14 @@ import os
 import secrets
 import socket
 import threading
+from dataclasses import asdict, replace
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
 from urllib.parse import parse_qs, urlparse
 
-from .contracts import RoomIdentity
+from .contracts import RoomIdentity, LeagueConfig
 from .coordinator import Coordinator, CoordinatorError, IdentityError
 from .bridge import BrowserBridge
 from .page_bundle import (
@@ -261,7 +262,15 @@ class DraftRequestHandler(BaseHTTPRequestHandler):
         if parsed.path == "/api/status":
             with self.coordinator_lock:
                 result = self.coordinator.status()
+            result["setup_required"] = not getattr(self.server, "setup_complete", False)
+            result["configured_team"] = getattr(self.server, "setup_summary", None)
             self._send(HTTPStatus.OK, result)
+            return
+        if parsed.path == "/api/setup":
+            self._send(HTTPStatus.OK, {"configured": getattr(self.server, "setup_complete", False), "team": getattr(self.server, "setup_summary", None)})
+            return
+        if parsed.path == "/api/setup/options":
+            self._send(HTTPStatus.OK, getattr(self.server, "setup_candidates", None) or {})
             return
         if parsed.path == "/api/csrf":
             self._send(HTTPStatus.OK, {"csrf_token": self.coordinator.csrf_token})
@@ -284,6 +293,10 @@ class DraftRequestHandler(BaseHTTPRequestHandler):
             self._send(HTTPStatus.FORBIDDEN, {"error": "same-origin request or local CSRF token required"})
             return
         parsed = urlparse(self.path)
+        if not getattr(self.server, "setup_complete", True) and parsed.path not in {"/api/setup", "/api/setup/begin", "/api/setup/source", "/api/operator"}:
+            self._discard_body()
+            self._send(HTTPStatus.CONFLICT, {"error": "Finish setup in the panel before connecting to an ESPN room."})
+            return
         body: dict[str, Any] = {}
         try:
             body = self._body()
@@ -406,6 +419,21 @@ class DraftRequestHandler(BaseHTTPRequestHandler):
             normalized_order = [" ".join(item.split()).casefold() for item in pick_order]
             if len(set(normalized_order)) != len(normalized_order):
                 raise ValueError("pick_order must contain unique team names")
+            if not getattr(self.server, "setup_complete", True):
+                source = getattr(self.server, "setup_pending_source", None)
+                if not source:
+                    raise IdentityError("First paste and save your source ESPN team URL in the panel, then read the visible draft-room list.")
+                room = RoomIdentity.from_url(raw_url, practice=requested_practice)
+                normalized_heading = self.coordinator._normalize_practice_heading(heading)  # type: ignore[attr-defined]
+                if room.season_id != source["season_id"] or room.team_id != source["team_id"]:
+                    raise IdentityError("This ESPN room does not match the saved source team ID. Check the source URL or choose Edit setup and observe the intended room.")
+                if requested_practice:
+                    if room.league_id == source["league_id"] or not self.coordinator._valid_practice_heading(normalized_heading):  # type: ignore[attr-defined]
+                        raise IdentityError("Practice discovery requires a visible ESPN Practice Draft heading for the source team.")
+                elif room.league_id != source["league_id"] or not normalized_heading.casefold().startswith("espn fantasy basketball draft"):
+                    raise IdentityError("Real-room discovery must match the saved source league and show its ESPN draft heading.")
+                self.server.setup_candidates = {**source, "room_url": room.safe_url(), "team_options": pick_order, "observed_at": self.coordinator.clock()}
+                return {"setup_discovery": True, "team_options": pick_order, "league_id": source["league_id"], "season_id": source["season_id"], "team_id": source["team_id"]}
             own_team_key = " ".join(config.our_team.split()).casefold()
             own_indexes = [index for index, item in enumerate(normalized_order) if item == own_team_key]
             if len(own_indexes) != 1:
@@ -515,6 +543,8 @@ class DraftRequestHandler(BaseHTTPRequestHandler):
 
     def _operator(self, body: dict[str, Any]) -> dict[str, Any]:
         operation = str(body.get("operation", "")).strip().lower().replace("_", "-")
+        if not getattr(self.server, "setup_complete", True) and operation != "connect-advisor":
+            raise CoordinatorError("Finish league setup in the panel before using the advisor.")
         queue_operations = {"queue-prepare", "queue-claim", "queue-final-guard", "queue-ack", "queue-reconcile"}
         ownership_operations = {"claim-owner", "transfer-owner"}
         if operation not in {"connect-advisor", "publish", "start", "resume", "pause", "prepare", "ack", "reconcile", "recommend-preview", "status", "preflight", *ownership_operations, *queue_operations}:
@@ -708,6 +738,94 @@ class DraftRequestHandler(BaseHTTPRequestHandler):
         return self._operator_envelope(operation, result)
 
     def _dispatch_post(self, path: str, body: dict[str, Any]) -> Any:
+        if path == "/api/setup":
+            config_path = getattr(self.server, "setup_config_path", None)
+            if config_path is None:
+                raise CoordinatorError("Setup saving is unavailable for this launch. Start the Windows launcher or pass --league-config under runtime/.")
+            candidates = getattr(self.server, "setup_candidates", None)
+            name = body.get("our_team")
+            if not isinstance(candidates, dict) or not isinstance(candidates.get("team_options"), list):
+                raise ValueError("Open the ESPN draft room and click the FBL Advisor bookmarklet to read its team list first.")
+            if not isinstance(name, str) or name not in candidates["team_options"]:
+                raise ValueError("Select one of the team names observed in the ESPN draft room.")
+            previous = self.coordinator.config
+            config = replace(previous, league_id=candidates["league_id"], season_id=candidates["season_id"], team_id=candidates["team_id"], our_team=name)
+            changed = (previous.league_id, previous.season_id, previous.team_id, previous.our_team) != (config.league_id, config.season_id, config.team_id, config.our_team)
+            config_path.parent.mkdir(parents=True, exist_ok=True)
+            temp_path = config_path.with_suffix(config_path.suffix + ".tmp")
+            temp_path.write_text(json.dumps(asdict(config), indent=2) + "\n", encoding="utf-8")
+            temp_path.replace(config_path)
+            if changed:
+                now = self.coordinator.clock()
+                with self.coordinator._transaction() as db:
+                    rows = db.execute("SELECT session_id FROM sessions").fetchall()
+                    for row in rows:
+                        sid = row["session_id"]
+                        db.execute("UPDATE sessions SET state='disconnected', reason=?, control_version=control_version+1, updated_at=? WHERE session_id=?", ("league identity changed in setup; reconnect to the selected ESPN room", now, sid))
+                        db.execute("DELETE FROM session_owners WHERE session_id=?", (sid,))
+                        actions = db.execute("SELECT action_id,payload FROM actions WHERE session_id=? AND status='pending' AND dispatched=0", (sid,)).fetchall()
+                        for action in actions:
+                            payload = json.loads(action["payload"])
+                            payload.update(status="cancelled", detail="cancelled because league identity changed before dispatch", updated_at=now)
+                            db.execute("UPDATE actions SET status='cancelled',payload=?,claim_token=NULL,updated_at=? WHERE action_id=?", (json.dumps(payload, sort_keys=True), now, action["action_id"]))
+                        mutations = db.execute("SELECT mutation_id,payload FROM queue_mutations WHERE session_id=? AND status='pending' AND dispatched=0", (sid,)).fetchall()
+                        for mutation in mutations:
+                            payload = json.loads(mutation["payload"])
+                            payload.update(status="cancelled", detail="cancelled because league identity changed before dispatch", updated_at=now)
+                            db.execute("UPDATE queue_mutations SET status='cancelled',payload=?,claim_token=NULL,updated_at=? WHERE mutation_id=?", (json.dumps(payload, sort_keys=True), now, mutation["mutation_id"]))
+                        self.coordinator._journal_db(db, sid, "identity_invalidated", {"reason": "league setup changed; reconnect required"}, now)
+                self.server.advisor_tokens.clear()
+                self.server.advisor_nonces.clear()
+            self.coordinator.config = config
+            self.server.setup_complete = True
+            self.server.setup_summary = {"league_id": config.league_id, "season_id": config.season_id, "team_id": config.team_id, "our_team": config.our_team}
+            self.server.setup_candidates = None
+            self.server.setup_pending_source = None
+            pending_path = config_path.with_name("setup-pending.json")
+            if pending_path.exists():
+                pending_path.unlink()
+            return {"configured": True, "team": self.server.setup_summary}
+        if path == "/api/setup/source":
+            raw_url = body.get("url")
+            if not isinstance(raw_url, str):
+                raise ValueError("Paste an HTTPS ESPN basketball team or draft URL.")
+            room = RoomIdentity.from_url(raw_url)
+            self.server.setup_pending_source = {"league_id": room.league_id, "season_id": room.season_id, "team_id": room.team_id}
+            marker = self.server.setup_config_path.with_name("setup-pending.json") if self.server.setup_config_path else None
+            if marker:
+                marker.parent.mkdir(parents=True, exist_ok=True)
+                marker.write_text(json.dumps(self.server.setup_pending_source, indent=2) + "\n", encoding="utf-8")
+            self.server.setup_candidates = None
+            return {"source_saved": True, **self.server.setup_pending_source}
+        if path == "/api/setup/begin":
+            self.server.setup_complete = False
+            self.server.setup_candidates = None
+            self.server.setup_pending_source = None
+            marker = self.server.setup_config_path.with_name("setup-pending.json") if self.server.setup_config_path else None
+            if marker:
+                marker.parent.mkdir(parents=True, exist_ok=True)
+                marker.write_text(json.dumps({"editing": True}, indent=2) + "\n", encoding="utf-8")
+            now = self.coordinator.clock()
+            with self.coordinator._transaction() as db:
+                rows = db.execute("SELECT session_id FROM sessions").fetchall()
+                for row in rows:
+                    sid = row["session_id"]
+                    db.execute("UPDATE sessions SET state='disconnected', reason=?, control_version=control_version+1, updated_at=? WHERE session_id=?", ("league setup is being edited; reconnect after saving", now, sid))
+                    db.execute("DELETE FROM session_owners WHERE session_id=?", (sid,))
+                    for action in db.execute("SELECT action_id,payload FROM actions WHERE session_id=? AND status='pending' AND dispatched=0", (sid,)).fetchall():
+                        payload = json.loads(action["payload"])
+                        payload.update(status="cancelled", detail="cancelled because league setup editing started before dispatch", updated_at=now)
+                        db.execute("UPDATE actions SET status='cancelled',payload=?,claim_token=NULL,updated_at=? WHERE action_id=?", (json.dumps(payload, sort_keys=True), now, action["action_id"]))
+                    for mutation in db.execute("SELECT mutation_id,payload FROM queue_mutations WHERE session_id=? AND status='pending' AND dispatched=0", (sid,)).fetchall():
+                        payload = json.loads(mutation["payload"])
+                        payload.update(status="cancelled", detail="cancelled because league setup editing started before dispatch", updated_at=now)
+                        db.execute("UPDATE queue_mutations SET status='cancelled',payload=?,claim_token=NULL,updated_at=? WHERE mutation_id=?", (json.dumps(payload, sort_keys=True), now, mutation["mutation_id"]))
+                    self.coordinator._journal_db(db, sid, "identity_invalidated", {"reason": "setup edit started"}, now)
+            self.server.advisor_tokens.clear()
+            self.server.advisor_nonces.clear()
+            return {"configured": False}
+        if not getattr(self.server, "setup_complete", True) and path not in {"/api/setup", "/api/setup/source", "/api/operator"}:
+            raise CoordinatorError("Finish setup in the panel before connecting to an ESPN room.")
         if path == "/api/connect":
             # URL is parsed and stored by the coordinator; it is not rendered
             # into the panel and connect never starts a draft.
@@ -786,7 +904,7 @@ class DraftHTTPServer(ThreadingHTTPServer):
             self.allow_reuse_address = False
         super().server_bind()
 
-    def __init__(self, server_address: tuple[str, int], coordinator: Coordinator, *, page_dispatch_enabled: bool = False, page_runner_enabled: bool = False, page_origins: frozenset[str] = PAGE_ORIGINS):
+    def __init__(self, server_address: tuple[str, int], coordinator: Coordinator, *, page_dispatch_enabled: bool = False, page_runner_enabled: bool = False, page_origins: frozenset[str] = PAGE_ORIGINS, setup_config_path: Path | None = None, setup_complete: bool = True, setup_pending_source: dict[str, str] | None = None):
         super().__init__(server_address, DraftRequestHandler)
         self.coordinator = coordinator
         # Overridable in tests; fails closed (None) when listeners are unknowable.
@@ -802,6 +920,11 @@ class DraftHTTPServer(ThreadingHTTPServer):
             origin for origin in page_origins
             if isinstance(origin, str) and origin and "\r" not in origin and "\n" not in origin
         )
+        self.setup_config_path = setup_config_path
+        self.setup_complete = setup_complete
+        self.setup_candidates = None
+        self.setup_pending_source = setup_pending_source
+        self.setup_summary = ({"league_id": coordinator.config.league_id, "season_id": coordinator.config.season_id, "team_id": coordinator.config.team_id, "our_team": coordinator.config.our_team} if setup_complete else None)
         # These credentials intentionally live only for this server process;
         # they are never persisted in Coordinator's SQLite state or exposed by
         # the normal owner registry.
@@ -810,16 +933,16 @@ class DraftHTTPServer(ThreadingHTTPServer):
         self.startup_source = startup_source()
 
 
-def create_server(coordinator: Coordinator, host: str = "127.0.0.1", port: int = 8765, *, page_dispatch_enabled: bool = False, page_runner_enabled: bool = False) -> DraftHTTPServer:
+def create_server(coordinator: Coordinator, host: str = "127.0.0.1", port: int = 8765, *, page_dispatch_enabled: bool = False, page_runner_enabled: bool = False, setup_config_path: Path | None = None, setup_complete: bool = True, setup_pending_source: dict[str, str] | None = None) -> DraftHTTPServer:
     if host not in {"127.0.0.1", "localhost"}:
         raise ValueError("draft control server must bind to localhost")
-    return DraftHTTPServer(("127.0.0.1" if host == "localhost" else host, int(port)), coordinator, page_dispatch_enabled=page_dispatch_enabled, page_runner_enabled=page_runner_enabled)
+    return DraftHTTPServer(("127.0.0.1" if host == "localhost" else host, int(port)), coordinator, page_dispatch_enabled=page_dispatch_enabled, page_runner_enabled=page_runner_enabled, setup_config_path=setup_config_path, setup_complete=setup_complete, setup_pending_source=setup_pending_source)
 
 
-def serve(coordinator: Coordinator | None = None, *, host: str = "127.0.0.1", port: int = 8765, page_dispatch_enabled: bool = False, page_runner_enabled: bool = False, open_browser: bool = False) -> None:
+def serve(coordinator: Coordinator | None = None, *, host: str = "127.0.0.1", port: int = 8765, page_dispatch_enabled: bool = False, page_runner_enabled: bool = False, open_browser: bool = False, setup_config_path: Path | None = None, setup_complete: bool = True, setup_pending_source: dict[str, str] | None = None) -> None:
     own = coordinator is None
     coordinator = coordinator or Coordinator()
-    httpd = create_server(coordinator, host, port, page_dispatch_enabled=page_dispatch_enabled, page_runner_enabled=page_runner_enabled)
+    httpd = create_server(coordinator, host, port, page_dispatch_enabled=page_dispatch_enabled, page_runner_enabled=page_runner_enabled, setup_config_path=setup_config_path, setup_complete=setup_complete, setup_pending_source=setup_pending_source)
     try:
         if open_browser:
             import webbrowser

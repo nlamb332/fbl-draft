@@ -31,7 +31,7 @@ const capture = require("./page_capture.js");
 const draftUniverse = require("./draft_universe.js");
 
 const MAX_EVENTS = 400;
-const INPUT_CACHE_VERSION = 1;
+const INPUT_CACHE_VERSION = 2;
 const INPUT_CACHE_SCHEMA = "fbl-advisor-input-cache";
 
 function isRecord(value) {
@@ -47,26 +47,26 @@ function copyJson(value) {
   }
 }
 
-function cacheScope(room, ownTeam) {
-  if (!room || !/^(?:\d+)$/.test(String(room.season_id || "")) || !/^(?:\d+)$/.test(String(room.team_id || "")) || !String(ownTeam || "").trim()) return null;
+function cacheScope(room, sourceLeagueId) {
+  if (!room || !/^(?:\d+)$/.test(String(room.season_id || "")) || !/^(?:\d+)$/.test(String(room.team_id || "")) || !/^(?:\d+)$/.test(String(sourceLeagueId || ""))) return null;
   return {
+    source_league_id: String(sourceLeagueId),
     season_id: String(room.season_id),
     team_id: String(room.team_id),
-    own_team: String(ownTeam).trim(),
   };
 }
 
-function inputCacheKey(room, ownTeam) {
-  const scope = cacheScope(room, ownTeam);
+function inputCacheKey(room, sourceLeagueId) {
+  const scope = cacheScope(room, sourceLeagueId);
   if (!scope) return null;
   return [
     "fbl",
     "advisor",
     "input-cache",
     `v${INPUT_CACHE_VERSION}`,
+    encodeURIComponent(scope.source_league_id),
     encodeURIComponent(scope.season_id),
     encodeURIComponent(scope.team_id),
-    encodeURIComponent(scope.own_team),
   ].join(":");
 }
 
@@ -120,10 +120,10 @@ function validateInputCacheRecord(value, expectedScope) {
   if (!isRecord(value)) return { ok: false, reason: "cache record is not an object" };
   if (value.schema !== INPUT_CACHE_SCHEMA || value.version !== INPUT_CACHE_VERSION) return { ok: false, reason: "cache schema or version is unsupported" };
   if (!isRecord(value.scope) || !expectedScope
+    || String(value.scope.source_league_id) !== expectedScope.source_league_id
     || String(value.scope.season_id) !== expectedScope.season_id
-    || String(value.scope.team_id) !== expectedScope.team_id
-    || String(value.scope.own_team) !== expectedScope.own_team) {
-    return { ok: false, reason: "cache scope does not match this season, team, and own team" };
+    || String(value.scope.team_id) !== expectedScope.team_id) {
+    return { ok: false, reason: "cache scope does not match the configured source league, season, and team" };
   }
   if (value.source !== "captured") return { ok: false, reason: "cache source is not an explicit capture" };
   if (!String(value.captured_at || "") || !Number.isFinite(Date.parse(String(value.captured_at)))) return { ok: false, reason: "cache captured_at is invalid" };
@@ -147,9 +147,9 @@ function validateInputCacheRecord(value, expectedScope) {
   return { ok: true, snapshot };
 }
 
-function readInputCache(storage, room, ownTeam) {
-  const scope = cacheScope(room, ownTeam);
-  const key = inputCacheKey(room, ownTeam);
+function readInputCache(storage, room, sourceLeagueId) {
+  const scope = cacheScope(room, sourceLeagueId);
+  const key = inputCacheKey(room, sourceLeagueId);
   if (!storage || typeof storage.getItem !== "function" || !key || !scope) return { status: "unavailable", key, reason: "localStorage is unavailable" };
   let raw;
   try {
@@ -157,7 +157,22 @@ function readInputCache(storage, room, ownTeam) {
   } catch (_error) {
     return { status: "unavailable", key, reason: "localStorage read failed" };
   }
-  if (raw === null || raw === undefined || raw === "") return { status: "missing", key };
+  if (raw === null || raw === undefined || raw === "") {
+    // Version 1 keys did not bind a saved scan to its configured source
+    // league. Detect them only to explain why a one-time recapture is needed;
+    // never copy or consume that ambiguous data automatically.
+    const legacyPrefix = ["fbl", "advisor", "input-cache", "v1", encodeURIComponent(scope.season_id), encodeURIComponent(scope.team_id)].join(":") + ":";
+    let legacyFound = false;
+    try {
+      for (let index = 0; index < Number(storage.length || 0); index += 1) {
+        const legacyKey = storage.key(index);
+        if (typeof legacyKey === "string" && legacyKey.startsWith(legacyPrefix) && storage.getItem(legacyKey)) { legacyFound = true; break; }
+      }
+    } catch (_error) { /* localStorage failures remain a cache miss */ }
+    return legacyFound
+      ? { status: "legacy_ignored", key, reason: "an older saved scan exists but does not include the source league ID; capture once to bind it safely" }
+      : { status: "missing", key };
+  }
   let parsed;
   try {
     parsed = JSON.parse(String(raw));
@@ -170,9 +185,9 @@ function readInputCache(storage, room, ownTeam) {
     : { status: "ignored", key, reason: validation.reason };
 }
 
-function writeInputCache(storage, room, ownTeam, inputs, now = Date.now) {
-  const scope = cacheScope(room, ownTeam);
-  const key = inputCacheKey(room, ownTeam);
+function writeInputCache(storage, room, sourceLeagueId, inputs, now = Date.now) {
+  const scope = cacheScope(room, sourceLeagueId);
+  const key = inputCacheKey(room, sourceLeagueId);
   if (!storage || typeof storage.setItem !== "function" || !key || !scope) return { status: "unavailable", key, reason: "localStorage is unavailable" };
   const source = inputs && inputs.catalog_summary && inputs.catalog_summary.source;
   const snapshot = {
@@ -404,6 +419,7 @@ function createPageRunner({
   sessionId,
   ownerToken,
   ownTeam,
+  sourceLeagueId = null,
   expectedSeat,
   rules = null,
   catalog = null,
@@ -461,7 +477,7 @@ function createPageRunner({
       // verifiedRoom() reports the actionable tab error later; cache lookup is
       // best effort and must never prevent a manual capture.
     }
-    const loaded = readInputCache(pageStorage, pageRoom, ownTeam);
+    const loaded = readInputCache(pageStorage, pageRoom, sourceLeagueId || pageRoom?.league_id);
     cacheState = { status: loaded.status, key: loaded.key || null, reason: loaded.reason || null };
     if (loaded.status === "loaded" && loaded.snapshot) {
       cachedSnapshot = loaded.snapshot;
@@ -637,7 +653,7 @@ function createPageRunner({
       };
       runner = null;
       if (inputs.catalog_complete === true) {
-        const saved = writeInputCache(pageStorage, room, ownTeam, inputs, now);
+        const saved = writeInputCache(pageStorage, room, sourceLeagueId || room.league_id, inputs, now);
         cacheState = { status: saved.status, key: saved.key || null, reason: saved.reason || null };
         if (saved.status === "saved" && saved.snapshot) {
           cachedSnapshot = saved.snapshot;
@@ -986,6 +1002,7 @@ function createPageRunner({
         catalog_players: inputs.catalog.length,
         catalog_complete: inputs.catalog_complete === true,
       } : (mode === "recommendation" ? { source: null, captured_at: null, cache_status: cacheState.status } : null),
+      cache_reason: cacheState.reason || null,
       capture_progress: captureProgress ? { ...captureProgress } : null,
       blocked_reason: recommendation.blocked_reason,
       error: recommendation.error,

@@ -37,6 +37,14 @@ function Show-PanelStatus {
             Write-Host "A service answered at $panelUrl but its runtime identity is invalid." -ForegroundColor Yellow
             return $false
         }
+        $normalizedRoot = [System.IO.Path]::GetFullPath($repoRoot).TrimEnd('\', '/').ToLowerInvariant().Replace('\', '/')
+        $sha = [System.Security.Cryptography.SHA256]::Create()
+        try { $expectedRootId = ([System.BitConverter]::ToString($sha.ComputeHash([System.Text.Encoding]::UTF8.GetBytes($normalizedRoot)))).Replace('-', '').ToLowerInvariant() }
+        finally { $sha.Dispose() }
+        if ($runtime.source_root_id -ne $expectedRootId) {
+            Write-Host "A different FBL download is serving $panelUrl. Stop it and launch from this folder so the correct private setup is used." -ForegroundColor Yellow
+            return $false
+        }
         $requestedPolicy = if ($FoundationOnly) { 'foundation' } else { 'marginal-lineup-v1' }
         if ($runtime.policy.name -ne $requestedPolicy) {
             Write-Host "The service policy is $($runtime.policy.name), but this launch requests $requestedPolicy. Restart with the requested policy." -ForegroundColor Yellow
@@ -113,26 +121,6 @@ if (-not $pythonCommand) {
 }
 New-Item -ItemType Directory -Force -Path (Split-Path -Parent $database) | Out-Null
 $leagueConfigPath = Join-Path $repoRoot 'runtime\league.json'
-if (-not (Test-Path -LiteralPath $leagueConfigPath)) {
-    Write-Host 'First-time setup: league details are saved locally under runtime, never in Git.'
-    $teamUrl = Read-Host 'Paste your ESPN team URL (containing leagueId, teamId, and seasonId)'
-    Push-Location -LiteralPath $repoRoot
-    try {
-        $parsedRoom = & $pythonCommand.Source @pythonPrefix -c 'import json, sys; from dataclasses import asdict; from draft_assistant.contracts import RoomIdentity; print(json.dumps(asdict(RoomIdentity.from_url(sys.argv[1]))))' $teamUrl
-        if ($LASTEXITCODE -ne 0) { throw 'Enter a valid HTTPS ESPN basketball team or draft URL with all three IDs.' }
-        $roomIdentity = $parsedRoom | ConvertFrom-Json
-    }
-    finally { Pop-Location }
-    $leagueId = $roomIdentity.league_id
-    $seasonId = $roomIdentity.season_id
-    $teamId = $roomIdentity.team_id
-    $teamName = Read-Host 'Your exact ESPN team name'
-    if ($leagueId -notmatch '^\d+$' -or $seasonId -notmatch '^\d+$' -or $teamId -notmatch '^\d+$' -or -not $teamName.Trim()) {
-        throw 'League, season, and team IDs must be numeric; the team name cannot be empty.'
-    }
-    @{ league_id = $leagueId; season_id = $seasonId; team_id = $teamId; our_team = $teamName.Trim() } |
-        ConvertTo-Json | Set-Content -LiteralPath $leagueConfigPath -Encoding UTF8
-}
 Set-Location -LiteralPath $repoRoot
 Write-Host "Starting the FBL local coordinator. Open $panelUrl"
 if ($FoundationOnly) { Write-Host 'Selection policy: foundation (--foundation-only).' }
@@ -146,5 +134,7 @@ $serveArgs = @()
 if ($PageRunner) { $serveArgs = @('--page-runner') }
 if ($OpenPanel) { $serveArgs += '--open-browser' }
 if ($PageRunner) { Write-Host 'In-page runner enabled: /page-runner.js is served and owned sessions accept page-origin operator requests.' }
-& $pythonCommand.Source @pythonPrefix -m draft_assistant --db $database --league-config $leagueConfigPath @policyArgs serve --host 127.0.0.1 --port $Port @serveArgs
+$configArgs = @()
+if (Test-Path -LiteralPath $leagueConfigPath) { $configArgs = @('--league-config', $leagueConfigPath) }
+& $pythonCommand.Source @pythonPrefix -m draft_assistant --db $database @configArgs @policyArgs serve --host 127.0.0.1 --port $Port @serveArgs
 exit $LASTEXITCODE

@@ -11,10 +11,12 @@ Choose **Code → Download ZIP** on GitHub, extract the archive, and double-clic
 **Launch Advisor.cmd** on Windows. Python 3.10 or newer must be installed and
 available on PATH. Keep the launcher window open while using the advisor.
 
-On first launch, paste your ESPN team URL and enter your exact team name. The
-launcher reads the league, season, and team IDs from the URL. These details
-are saved only in ignored `runtime/league.json`. Public
-defaults are examples. CLI users can copy `league.example.json` to
+On first launch, the launcher opens the local panel without asking console
+questions. In the panel, save the ESPN team URL for your live league, open its
+draft room, and click the FBL Advisor bookmarklet to read the visible team
+list. Select your team from that observed list. League, season, team IDs, and
+the selected team name are saved only in ignored `runtime/league.json`; until
+then the service cannot connect to a room. Public defaults are examples. CLI users can copy `league.example.json` to
 `runtime/league.json`, edit it locally, and pass `--league-config runtime/league.json`
 before `serve`. See the [privacy notes](docs/PUBLIC_RELEASE_PRIVACY.md).
 
@@ -60,8 +62,10 @@ so the real draft can start recommending without a lengthy player scan.
 
 1. Launch the local panel again if you closed it, open your real ESPN draft
    room, and click the same **FBL Advisor** bookmark. Use the same Chrome profile and ESPN site
-   origin used for the practice capture, with the same season, team ID, and
-   exact team name.
+   origin used for the practice capture, with the same configured source
+   league, season, and team ID. The saved scan identity does not depend on the
+   displayed team name, so a verified rename keeps the scan available after
+   you edit setup and select the renamed team from the current ESPN roster.
 2. Expand the advisor and confirm **Loaded saved scan** or **Inputs source
    cache**, then check the capture time. Click **Start observing**. The
    advisor re-reads the real room's scoring rules and uses its live pick
@@ -77,6 +81,10 @@ The player catalog is stored in **Chrome local storage for the ESPN site**,
 not in the downloaded folder. A fresh download or launcher restart does not
 clear it. Different browser profiles and origins have separate storage;
 incognito storage is separate and is lost when all incognito windows close.
+New scans are scoped to the configured source league, season, and team ID, so
+they survive display-name changes and can be reused between practice and real
+rooms. Older saved scans did not record the source league ID; FBL leaves those
+untouched and asks for one fresh capture before reuse.
 For a dependable practice-to-real handoff, use the same regular Chrome
 profile for both. Historical captures are not included in the download ZIP.
 

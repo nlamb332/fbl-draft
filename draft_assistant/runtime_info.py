@@ -33,10 +33,13 @@ def runtime_info(server: Any) -> dict[str, Any]:
     coordinator = server.coordinator
     payload = load_promotion_payload(coordinator.promotion_path)
     promoted = payload is not None and promotion_valid(payload, coordinator.config)
+    root = Path(__file__).resolve().parents[1]
+    normalized_root = str(root).rstrip("\\/").lower().replace("\\", "/")
     return {
         "service": "fbl-draft-control",
         "schema_version": 1,
         "startup_source": server.startup_source,
+        "source_root_id": hashlib.sha256(normalized_root.encode("utf-8")).hexdigest(),
         "policy": {
             "name": "marginal-lineup-v1" if promoted else "foundation",
             "promotion_valid": promoted,

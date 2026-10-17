@@ -120,6 +120,7 @@ function normalizeSummary(summary) {
     autopick,
     captureProgress,
     captureMeta: captureSource !== undefined || captureAt !== undefined ? { source: captureSource, capturedAt: captureAt } : undefined,
+    cacheReason: first(root, "cache_reason"),
     diagnostics: diagnostics === undefined && ownTurns.length === 0 && !root.capture ? undefined : { capture: root.capture || null, own_turns: ownTurns, events: diagnostics === undefined ? [] : diagnostics },
   };
 }
@@ -434,11 +435,13 @@ function mountPageControls({
 
   function captureMetadataText(current) {
     const capture = current && current.captureMeta;
-    if (!capture) return "";
+    const cacheReason = current && current.cacheReason;
+    if (!capture) return cacheReason ? ` Saved scan not loaded: ${text(cacheReason)}.` : "";
     const source = capture.source === undefined ? "" : `source ${text(capture.source)}`;
     const capturedAt = capture.capturedAt === undefined ? "" : `captured ${formatTime(capture.capturedAt)}`;
     const metadata = [source, capturedAt].filter(Boolean).join(" · ");
-    return metadata ? ` Inputs ${metadata}.` : "";
+    const reason = cacheReason ? ` Saved scan not loaded: ${text(cacheReason)}.` : "";
+    return (metadata ? ` Inputs ${metadata}.` : "") + reason;
   }
 
   function captureUsesSavedScan(current) {

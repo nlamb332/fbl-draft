@@ -660,7 +660,7 @@ function createPageRunner({
     return tab.playwright.locator("body").evaluate(nativeActivation.inspectDraftLifecycle);
   }
 
-  async function pausePracticeDraft({ onProgress = null, pausePollMs = 150, pausePolls = 40 } = {}) {
+  async function pausePracticeDraft({ onProgress = null, pausePollMs = 150, pausePolls = 200 } = {}) {
     let lifecycle = await readDraftLifecycle();
     if (lifecycle.paused) return lifecycle;
     if (!lifecycle.running) {
@@ -681,12 +681,14 @@ function createPageRunner({
     if (!click || !click.clicked) {
       throw new PageRunnerError(`native Pause was not clicked: ${(click && click.reason) || "control changed"}`, "native_pause_not_clicked", { lifecycle, click });
     }
-    for (let attempt = 0; attempt < pausePolls; attempt += 1) {
+    // ESPN's pause acknowledgement can take longer than six seconds. Keep
+    // observing this one request; never toggle Pause again while waiting.
+    for (let attempt = 0; attempt <= pausePolls; attempt += 1) {
       lifecycle = await readDraftLifecycle();
       if (lifecycle.paused) return lifecycle;
-      if (pausePollMs > 0) await sleep(pausePollMs);
+      if (attempt < pausePolls && pausePollMs > 0) await sleep(pausePollMs);
     }
-    throw new PageRunnerError("native Pause was clicked but the room did not read back paused", "native_pause_unconfirmed", { lifecycle });
+    throw new PageRunnerError("ESPN has not confirmed the pause yet. Leave the room paused and retry Capture inputs once RESUME appears", "native_pause_unconfirmed", { lifecycle });
   }
 
   /**
@@ -695,7 +697,7 @@ function createPageRunner({
    * start, pause it once, and then capture the complete rules/player catalog.
    * A non-practice room is scanned immediately and is never paused here.
    */
-  async function scanInputs({ maxPlayers = 1500, onProgress = null, waitForStartMs = 300_000, waitPollMs = 250, pausePollMs = 150, pausePolls = 40 } = {}) {
+  async function scanInputs({ maxPlayers = 1500, onProgress = null, waitForStartMs = 300_000, waitPollMs = 250, pausePollMs = 150, pausePolls = 200 } = {}) {
     const report = (progress) => {
       if (typeof onProgress === "function") {
         try { onProgress(progress); } catch (_error) { /* advisory UI callback */ }

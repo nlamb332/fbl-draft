@@ -296,7 +296,12 @@ test("page tab refuses a Draft click after the document becomes hidden", async (
 });
 
 test("scanInputs waits only for practice lifecycle and pauses it before a complete capture", async () => {
-  for (const initiallyPaused of [false, true]) {
+  for (const { initiallyPaused, pauseDelayReads = 0, fails = false } of [
+    { initiallyPaused: false },
+    { initiallyPaused: true },
+    { initiallyPaused: false, pauseDelayReads: 45 },
+    { initiallyPaused: false, pauseDelayReads: 250, fails: true },
+  ]) {
   const { EspnRoomSimulator } = require("./room_simulator.js");
   const scanRoom = { ...ROOM };
   const simulator = new EspnRoomSimulator({
@@ -307,6 +312,21 @@ test("scanInputs waits only for practice lifecycle and pauses it before a comple
     paused: initiallyPaused,
     playersWindow: 14,
   });
+  let pauseClicks = 0;
+  let pauseRequested = false;
+  let pendingReads = 0;
+  let scrolls = 0;
+  const pause = simulator.pause.bind(simulator);
+  const body = simulator.body.bind(simulator);
+  simulator.pause = () => {
+    pauseClicks += 1;
+    pauseRequested = true;
+    if (!pauseDelayReads) pause();
+  };
+  simulator.body = () => {
+    if (pauseRequested && ++pendingReads > pauseDelayReads) pause();
+    return body();
+  };
   if (initiallyPaused) {
     const html = simulator.html.bind(simulator);
     simulator.html = () => html().replace(/(class="clock__digits">)[^<]*/, '$1- - : - -')
@@ -328,7 +348,7 @@ test("scanInputs waits only for practice lifecycle and pauses it before a comple
     ownerToken: "owner",
     ownTeam: OWN,
     expectedSeat: 1,
-    wheelScroller: async (deltaX, deltaY) => simulator.scrollPlayers(deltaX, deltaY),
+    wheelScroller: async (deltaX, deltaY) => { scrolls += 1; return simulator.scrollPlayers(deltaX, deltaY); },
     sleep: async () => {},
     mode: "recommendation",
   });
@@ -337,7 +357,14 @@ test("scanInputs waits only for practice lifecycle and pauses it before a comple
   global.window = pageWindow;
   global.document = document;
   try {
+    if (fails) {
+      await assert.rejects(() => runner.scanInputs({ maxPlayers: 50, waitForStartMs: 0 }), error => error.code === "native_pause_unconfirmed");
+      assert.equal(pauseClicks, 1);
+      assert.equal(scrolls, 0, "do not scan without pause confirmation");
+      continue;
+    }
     const result = await runner.scanInputs({ maxPlayers: 50, waitForStartMs: 0 });
+    assert.equal(pauseClicks, initiallyPaused ? 0 : 1);
     assert.equal(result.scan_mode, "practice_wait_pause_scan");
     assert.equal(simulator.paused, true);
     assert.equal(result.catalog_complete, true);
@@ -363,6 +390,7 @@ test("scanInputs drives a non-practice room immediately without pausing it", asy
     paused: false,
     playersWindow: 14,
   });
+  simulator.pause = () => { throw new Error("a real draft must never be paused by a scan"); };
   const io = transport({ room: realRoom });
   const pageWindow = {
     getComputedStyle: () => ({ display: "block", visibility: "visible" }),

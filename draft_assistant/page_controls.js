@@ -524,7 +524,7 @@ function mountPageControls({
 
   function applyStatus() {
     const { current } = summaryState();
-    if (current.captureProgress) captureProgress = current.captureProgress;
+    if (current.captureProgress && !(busy && activeAction === "capture")) captureProgress = current.captureProgress;
     const hasError = Boolean(lastError || current.error);
     status.textContent = busy && activeAction === "capture" ? "Capturing" : hasError ? "Error" : current.blocked ? "Blocked" : current.stale ? "Stale" : observing ? "Observing" : (captured ? "Captured" : "Ready");
     status.style.background = hasError || current.blocked ? "#fff0f0" : current.stale ? "#fff7df" : observing ? "#e7f5ed" : "#edf2f7";
@@ -610,6 +610,7 @@ function mountPageControls({
     busy = true;
     activeAction = action;
     lastError = "";
+    if (action === "capture") captureProgress = { phase: "Preparing capture" };
     applyStatus();
     try {
       const result = await operation();

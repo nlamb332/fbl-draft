@@ -296,6 +296,7 @@ test("page tab refuses a Draft click after the document becomes hidden", async (
 });
 
 test("scanInputs waits only for practice lifecycle and pauses it before a complete capture", async () => {
+  for (const initiallyPaused of [false, true]) {
   const { EspnRoomSimulator } = require("./room_simulator.js");
   const scanRoom = { ...ROOM };
   const simulator = new EspnRoomSimulator({
@@ -303,9 +304,14 @@ test("scanInputs waits only for practice lifecycle and pauses it before a comple
     order: ORDER,
     ownTeam: OWN,
     room: scanRoom,
-    paused: false,
+    paused: initiallyPaused,
     playersWindow: 14,
   });
+  if (initiallyPaused) {
+    const html = simulator.html.bind(simulator);
+    simulator.html = () => html().replace(/(class="clock__digits">)[^<]*/, '$1- - : - -')
+      + '<h3>The draft has been paused by the League Manager.</h3>';
+  }
   const io = transport();
   const pageWindow = {
     getComputedStyle: () => ({ display: "block", visibility: "visible" }),
@@ -331,7 +337,7 @@ test("scanInputs waits only for practice lifecycle and pauses it before a comple
   global.window = pageWindow;
   global.document = document;
   try {
-    const result = await runner.scanInputs({ maxPlayers: 50 });
+    const result = await runner.scanInputs({ maxPlayers: 50, waitForStartMs: 0 });
     assert.equal(result.scan_mode, "practice_wait_pause_scan");
     assert.equal(simulator.paused, true);
     assert.equal(result.catalog_complete, true);
@@ -341,6 +347,7 @@ test("scanInputs waits only for practice lifecycle and pauses it before a comple
     else global.window = previousWindow;
     if (previousDocument === undefined) delete global.document;
     else global.document = previousDocument;
+  }
   }
 });
 

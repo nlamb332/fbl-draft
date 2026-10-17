@@ -123,7 +123,8 @@ function inspectDraftLifecycle(body) {
   const bodyText = clean(body.innerText || body.textContent);
   const complete = /draft\s+(?:is\s+)?complete/i.test(bodyText);
   const controls = inspectNativeControls(body);
-  const started = complete || controls.pause.status === "unique" || controls.resume.status === "unique" && Boolean(clock && onClock);
+  const pausedBanner = headings.some(value => /^the draft has been paused by the league manager\.?$/i.test(value));
+  const started = complete || controls.pause.status === "unique" || controls.resume.status === "unique" && Boolean(pausedBanner || clock && onClock);
   const running = controls.pause.status === "unique";
   const paused = controls.resume.status === "unique" && !running;
   return {

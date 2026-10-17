@@ -131,6 +131,25 @@ test("draft lifecycle identifies the practice banner and native running/paused s
   assert.equal(running.running, true);
 });
 
+test("an ESPN paused banner confirms start even when the clock displays dashes", async () => {
+  const simulator = room({ paused: true });
+  const html = simulator.html.bind(simulator);
+  simulator.html = () => html().replace(/(class="clock__digits">)[^<]*/, '$1- - : - -')
+    + '<h3>The draft has been paused by the League Manager.</h3>';
+  const state = await lifecycle(simulator);
+  assert.equal(state.clock, "");
+  assert.equal(state.paused, true);
+  assert.equal(state.started, true);
+});
+
+test("a pre-start Resume control with a dashed clock still waits for draft start", async () => {
+  const simulator = room({ paused: true });
+  const html = simulator.html.bind(simulator);
+  simulator.html = () => html().replace(/(class="clock__digits">)[^<]*/, '$1- - : - -');
+  const state = await lifecycle(simulator);
+  assert.equal(state.started, false);
+});
+
 test("Scan/Rescan pause mutation clicks one scoped native Pause and reads it back", async () => {
   const simulator = room({ paused: false });
   const result = await simulator.tab().playwright.locator("body").evaluate(clickPauseInPage);

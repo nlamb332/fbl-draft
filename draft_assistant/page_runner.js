@@ -587,6 +587,9 @@ function createPageRunner({
 
   async function captureInputs({ maxPlayers = 1500, onProgress = null } = {}) {
     captureProgress = { phase: "rules", catalog_count: 0, progress: 0, pass: 0, steps: 0 };
+    if (typeof onProgress === "function") {
+      try { onProgress({ ...captureProgress }); } catch (_error) { /* advisory UI callback */ }
+    }
     try {
       const room = await verifiedRoom();
       await showTab("^rules$");
@@ -698,6 +701,7 @@ function createPageRunner({
         try { onProgress(progress); } catch (_error) { /* advisory UI callback */ }
       }
     };
+    report({ phase: "Verifying draft room" });
     const room = await verifiedRoom();
     let lifecycle = await readDraftLifecycle();
     const practice = room.practice === true;

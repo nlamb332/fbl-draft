@@ -352,3 +352,22 @@ test("renders optional capture progress without exposing player IDs", async () =
   finish({});
   await pending;
 });
+
+test("a new scan shows fresh progress instead of cached catalog metadata", async () => {
+  const old = { capture: { source: "cache", catalog_players: 1095, captured_at: "2026-10-14T00:00:00Z" } };
+  const ui = setup({ runnerSummary: { inputs: {}, recommendation: old } });
+  let finish;
+  let report;
+  ui.runner.scanInputs = options => new Promise(resolve => { finish = resolve; report = options.onProgress; });
+  const pending = ui.button("Rescan players").click();
+  assert.match(ui.allText(ui.controls.root), /Preparing capture/);
+  assert.doesNotMatch(ui.nodes.find(node => node.textContent.startsWith("Capture in progress")).textContent, /1095/);
+  report({ phase: "waiting_for_start" });
+  assert.match(ui.allText(ui.controls.root), /Waiting for practice draft to start/);
+  report({ phase: "scan", catalog_count: 14 });
+  const notice = ui.nodes.find(node => node.textContent.startsWith("Capture in progress"));
+  assert.match(notice.textContent, /14 captured/);
+  assert.doesNotMatch(notice.textContent, /1095/);
+  finish({});
+  await pending;
+});

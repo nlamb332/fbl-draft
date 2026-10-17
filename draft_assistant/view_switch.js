@@ -72,7 +72,9 @@ function inspectGridKinds(body) {
     const headers = Array.from(grid.querySelectorAll('[role="columnheader"], thead th')).map((node) => clean(node.textContent));
     const joined = headers.join(" ");
     if (joined.includes("pick") && joined.includes("player") && joined.includes("team")) return "history";
-    if (joined.includes("rk") && joined.includes("player") && joined.includes("fpts")) return "players";
+    // Rank and Player stay pinned. ESPN virtualizes the other columns, so
+    // FPTS disappears from the DOM after a horizontal projection read.
+    if (headers.includes("rk") && headers.includes("player")) return "players";
     return "other";
   });
 }

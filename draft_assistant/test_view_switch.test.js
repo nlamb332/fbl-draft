@@ -70,3 +70,9 @@ test("grid inspection ignores retained hidden panels", async () => {
   const kinds = await tab.playwright.locator("body").evaluate(inspectGridKinds);
   assert.deepEqual(kinds, ["history"]);
 });
+
+test("Players remains mounted when horizontal scrolling virtualizes FPTS away", async () => {
+  const body = parseHtml(`<div role="grid"><div role="columnheader">RK</div><div role="columnheader">PLAYER</div><div role="columnheader">FTA</div><div role="columnheader">3PM</div><div role="columnheader">REB</div></div>`);
+  const tab = createFixtureTab({ getBody: () => body, url: "https://fantasy.espn.com/basketball/draft?leagueId=1000000012&seasonId=2027&teamId=15" });
+  assert.deepEqual(await tab.playwright.locator("body").evaluate(inspectGridKinds), ["players"]);
+});

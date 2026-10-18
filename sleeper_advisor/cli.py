@@ -2,24 +2,28 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import sys
 import time
 from datetime import datetime
+from dataclasses import asdict
 from pathlib import Path
 from typing import Any, Callable, Sequence
 
-from .advisor import recommend
+from .advisor import POLICY_ID, recommend
 from .api import SleeperClient, parse_draft_id
 from .lineup import best_lineup
+from .lock_in import ForecastConfig, estimate_player, load_forecasts
 from .model import build_state
 from .scoring import fantasy_points
 
 DEFAULT_CACHE_DIR = "runtime/sleeper"
 DEFAULT_PORT = 8766
 DEFAULT_INTERVAL = 3.0
-LEGEND = ("Score = expected starting-lineup FP/g gained vs. the best player "
-          "likely to last until your next pick.")
+LEGEND = ("Added/wk = estimated starting-lineup Lock-In points gained. "
+          "Lock-In/wk values one selected game per player each week; depth ties use that value. "
+          "Forecast assumptions are not calibrated player predictions.")
 CONFIG_KEYS = ("draft_url", "username")
 _MEMO_SECONDS = 600.0
 
@@ -75,23 +79,28 @@ def _player_fp(player: Any, scoring: dict) -> float:
     return fantasy_points(player.stats, scoring)[0]
 
 
-def build_snapshot(state: Any, recs: Sequence[Any], draft: dict | None = None) -> dict:
+def build_snapshot(state: Any, recs: Sequence[Any], draft: dict | None = None,
+                   forecasts: ForecastConfig | None = None) -> dict:
     """Plain-data (JSON-safe) description of the draft, our team and advice."""
     league = state.league
+    if forecasts is not None:
+        forecasts.validate_for(league.season, league.scoring)
     draft = draft or {}
     metadata = draft.get("metadata") or {}
     name = metadata.get("name") or draft.get("name")
 
-    entries = [(p.player_id, tuple(p.positions), _player_fp(p, league.scoring))
+    projections = {p.player_id:estimate_player(p, league.scoring, forecasts) for p in state.our_roster}
+    entries = [(p.player_id, tuple(p.positions), projections[p.player_id].weekly_points)
                for p in state.our_roster]
     total, assignment = best_lineup(entries, league.starting_slots)
     by_id = {p.player_id: p for p in state.our_roster}
-    fp_by_id = {e[0]: e[2] for e in entries}
 
     def row(pid: str, slot: str | None) -> dict:
         p = by_id[pid]
         return {"slot": slot, "player_id": pid, "name": p.name,
-                "positions": list(p.positions), "fp_per_game": round(fp_by_id[pid], 2)}
+                "positions": list(p.positions), "fp_per_game": round(projections[pid].fp_per_game, 2),
+                "lock_in_weekly_points":round(projections[pid].weekly_points,2),
+                "forecast_source":projections[pid].source}
 
     by_slot: dict[str, list[str]] = {}
     for pid, slot in assignment.items():
@@ -101,9 +110,10 @@ def build_snapshot(state: Any, recs: Sequence[Any], draft: dict | None = None) -
         queue = by_slot.get(slot) or []
         lineup.append(row(queue.pop(0), slot) if queue else
                       {"slot": slot, "player_id": None, "name": None,
-                       "positions": [], "fp_per_game": None})
+                       "positions": [], "fp_per_game": None, "lock_in_weekly_points":None,
+                       "forecast_source":None})
     bench = [row(p.player_id, None) for p in state.our_roster if p.player_id not in assignment]
-    bench.sort(key=lambda r: -(r["fp_per_game"] or 0.0))
+    bench.sort(key=lambda r: -(r["lock_in_weekly_points"] or 0.0))
 
     current = state.current_pick
     upcoming = [n for n in state.our_next_picks if current is None or n >= current]
@@ -114,7 +124,8 @@ def build_snapshot(state: Any, recs: Sequence[Any], draft: dict | None = None) -
         picks_away = 0
 
     warnings = list(dict.fromkeys(
-        list(state.warnings) + [w for r in recs for w in r.warnings]))
+        list(state.warnings) + [w for r in recs for w in r.warnings]
+        + [warning for projection in projections.values() for warning in projection.warnings]))
 
     return {
         "draft": {
@@ -132,6 +143,9 @@ def build_snapshot(state: Any, recs: Sequence[Any], draft: dict | None = None) -
         "on_clock": on_clock,
         "lineup": lineup,
         "lineup_total": round(total, 2),
+        "strategy": {"id":POLICY_ID, "mode":"lock_in", "value_units":"estimated weekly Lock-In points",
+                     "local_forecast_file":forecasts is not None,
+                     "assumptions_notice":"Season averages do not supply game variance, schedules or health probabilities. Unlisted players use labeled assumptions."},
         "bench": bench,
         "recommendations": [
             {"rank": i, "player_id": r.player_id, "name": r.name,
@@ -148,17 +162,20 @@ def build_snapshot(state: Any, recs: Sequence[Any], draft: dict | None = None) -
 
 # -- polling ----------------------------------------------------------------
 class Poller:
-    """Fetches draft state; recomputes advice only when the draft moves."""
+    """Fetches draft state; recomputes advice when draft or forecast inputs change."""
 
     def __init__(self, client: Any, draft_id: str, username: str | None = None,
                  slot: int | None = None, top: int = 10,
-                 recommend_fn: Callable[..., list] = recommend):
+                 recommend_fn: Callable[..., list] = recommend,
+                 forecast_path: str | Path | None = None):
         self.client = client if isinstance(client, PollingClient) else PollingClient(client)
         self.draft_id = draft_id
         self.username = username
         self.slot = slot
         self.top = top
         self.recommend_fn = recommend_fn
+        self.forecast_path = Path(forecast_path) if forecast_path is not None else Path(getattr(self.client, "cache_dir", DEFAULT_CACHE_DIR)) / "lock_in_forecasts.json"
+        self.forecast_explicit = forecast_path is not None
         self.snapshot: dict | None = None
         self.error: str | None = None
         self._key: tuple | None = None
@@ -170,17 +187,35 @@ class Poller:
 
     def poll(self) -> bool:
         """One tick. Returns True when the advice was recomputed."""
+        loading_forecasts = False
         try:
             state = build_state(self.client, self.draft_id, self.username, self.slot)
-            key = (len(state.picks), state.league.status)
+            forecasts = None
+            forecast_bytes = b""
+            if self.forecast_path.exists() or self.forecast_explicit:
+                loading_forecasts = True
+                forecast_bytes = self.forecast_path.read_bytes()
+                forecasts = load_forecasts(self.forecast_path, season=state.league.season, scoring=state.league.scoring)
+                if self.forecast_path.read_bytes() != forecast_bytes:
+                    raise ValueError("Forecast file changed while loading; retrying")
+                loading_forecasts = False
+            # A pick count alone misses changed forecasts, scoring, ownership
+            # or player projections. Bind advice to the full observed inputs.
+            state_bytes = json.dumps(asdict(state), sort_keys=True, allow_nan=False,
+                                     default=lambda value: sorted(value) if isinstance(value,(set,frozenset)) else str(value)).encode("utf-8")
+            key = (hashlib.sha256(state_bytes).digest(), hashlib.sha256(forecast_bytes).digest())
             changed = key != self._key
             if changed:
-                self._recs = self.recommend_fn(state, self.top)
-            snapshot = build_snapshot(state, self._recs, self.client.last_draft)
+                self._recs = (self.recommend_fn(state, self.top, forecasts=forecasts) if forecasts is not None
+                              else self.recommend_fn(state, self.top))
+            snapshot = build_snapshot(state, self._recs, self.client.last_draft, forecasts)
         except Exception as exc:  # network or data problems must not kill polling
             self.error = f"{type(exc).__name__}: {exc}"
             if self.snapshot is not None:
                 self.snapshot = dict(self.snapshot, error=self.error)
+                if loading_forecasts or isinstance(exc, ValueError):
+                    self.snapshot["recommendations"] = []
+                    self._key = None
             return False
         self._key = key
         self.error = None
@@ -238,13 +273,13 @@ def render_text(snap: dict) -> str:
         lines.append(f"Your pick in {snap['picks_away']}")
 
     lines.append("")
-    lines.append(f"Best lineup ({snap['lineup_total']:.1f} FP/g):")
+    lines.append(f"Best lineup ({snap['lineup_total']:.1f} estimated Lock-In FP/week):")
     for r in snap["lineup"]:
         if r["name"] is None:
             lines.append(f"  {r['slot']:<5} -")
         else:
             lines.append(f"  {r['slot']:<5} {_clip(r['name'], 26):<26} "
-                         f"{'/'.join(r['positions']):<8} {r['fp_per_game']:>5.1f}")
+                         f"{'/'.join(r['positions']):<8} {r['lock_in_weekly_points']:>5.1f}")
     if snap["bench"]:
         lines.append("Bench: " + ", ".join(
             f"{b['name']} ({'/'.join(b['positions'])})" for b in snap["bench"]))
@@ -254,12 +289,12 @@ def render_text(snap: dict) -> str:
     if not recs:
         lines.append("No recommendations available.")
     else:
-        lines.append(f"{'#':>2}  {'Player':<24} {'Pos':<8} {'FP/g':>5} {'ADP':>5} {'Score':>6}  Why")
+        lines.append(f"{'#':>2}  {'Player':<24} {'Pos':<8} {'Lock/wk':>7} {'ADP':>5} {'Added/wk':>8}  Why")
         for r in recs:
             adp = "-" if r["adp"] is None else f"{r['adp']:.1f}"
             lines.append(
                 f"{r['rank']:>2}  {_clip(r['name'], 24):<24} {'/'.join(r['positions']):<8} "
-                f"{r['fp_per_game']:>5.1f} {adp:>5} {r['score']:>+6.1f}  {r['explanation']}")
+                f"{r['components']['lock_in_weekly_points']:>7.1f} {adp:>5} {r['score']:>+8.1f}  {r['explanation']}")
         lines.append(LEGEND)
     for w in snap["warnings"]:
         lines.append(f"warning: {w}")
@@ -272,7 +307,8 @@ def _stamp() -> str:
 
 
 def cmd_once(args: argparse.Namespace, client: Any, out: Any) -> int:
-    poller = Poller(client, parse_draft_id(args.draft), args.user, args.slot, args.top)
+    poller = Poller(client, parse_draft_id(args.draft), args.user, args.slot, args.top,
+                    forecast_path=args.lock_in_forecasts)
     poller.poll()
     if poller.snapshot is None or poller.error:
         print(f"error: could not load the draft ({poller.error})", file=sys.stderr)
@@ -286,7 +322,8 @@ def cmd_once(args: argparse.Namespace, client: Any, out: Any) -> int:
 
 def cmd_watch(args: argparse.Namespace, client: Any, out: Any, sleep: Callable[[float], Any],
               max_iterations: int | None) -> int:
-    poller = Poller(client, parse_draft_id(args.draft), args.user, args.slot, args.top)
+    poller = Poller(client, parse_draft_id(args.draft), args.user, args.slot, args.top,
+                    forecast_path=args.lock_in_forecasts)
     state = {"printed_error": None}
 
     def on_update(p: Poller, changed: bool) -> None:
@@ -350,6 +387,8 @@ def build_parser() -> argparse.ArgumentParser:
         p.add_argument("--top", type=int, default=10, help="recommendations to show (default 10)")
         p.add_argument("--cache-dir", default=DEFAULT_CACHE_DIR,
                        help=f"cache folder (default {DEFAULT_CACHE_DIR})")
+        p.add_argument("--lock-in-forecasts", default=None, metavar="PATH",
+                       help="optional season/scoring-bound weekly forecasts; otherwise reads lock_in_forecasts.json in the cache folder")
 
     once = sub.add_parser("once", help="print one snapshot and exit")
     common(once)

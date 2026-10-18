@@ -4,6 +4,7 @@ import time
 import unittest
 
 from sleeper_advisor.advisor import Recommendation, _survival, recommend
+from sleeper_advisor.lock_in import ForecastConfig, GameForecast, estimate_player
 from sleeper_advisor.model import DraftState, SleeperLeague, SleeperPlayer
 
 SLOTS = ("PG", "SG", "G", "SF", "PF", "F", "C", "UTIL", "UTIL")
@@ -46,7 +47,8 @@ class AdvisorTests(unittest.TestCase):
         self.assertEqual(recs[0].player_id, "pg")
         by = {r.player_id: r for r in recs}
         self.assertAlmostEqual(by["c4"].components["lineup_gain"], 0.0)
-        self.assertAlmostEqual(by["pg"].components["lineup_gain"], 40.0)
+        self.assertAlmostEqual(by["pg"].components["lineup_gain"],
+                               estimate_player(avail[1], SCORING).weekly_points, places=4)
 
     def test_scarce_need_wins_when_fp_close_but_big_gap_wins(self):
         lg = league(slots=("PG", "C", "UTIL"), bench=2)
@@ -152,3 +154,38 @@ class AdvisorTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class LockInIntegrationTests(unittest.TestCase):
+    def test_forecast_opportunities_change_pick_without_summing_games(self):
+        lg = league(slots=("UTIL",), bench=1)
+        players = [player("high_mean", ("PG",), 30), player("options", ("PG",), 25)]
+        config = ForecastConfig(season="2026", scoring=SCORING, player_weeks={
+            "high_mean": {1: (GameForecast(30, 0, 1),)},
+            "options": {1: (GameForecast(25, 20, 1), GameForecast(25, 0, 1))}})
+        recs = recommend(state(players, lg=lg), forecasts=config)
+        self.assertEqual(recs[0].player_id, "options")
+        self.assertLess(recs[0].score, 50)
+        self.assertGreater(recs[0].score, 30)
+
+    def test_wrong_season_rejected_before_recommendation(self):
+        config = ForecastConfig(season="2027", scoring=SCORING)
+        with self.assertRaisesRegex(ValueError, "season"):
+            recommend(state([player("a", ("PG",), 20)]), forecasts=config)
+
+    def test_last_roster_spot_preserves_required_center(self):
+        lg = league(slots=("PG", "C"), bench=0)
+        recs = recommend(state([player("pg", ("PG",), 100), player("c", ("C",), 20)],
+                               roster=[player("r", ("PG",), 40)], lg=lg))
+        self.assertEqual([r.player_id for r in recs], ["c"])
+
+    def test_drafted_player_never_recommended(self):
+        s = dataclasses.replace(state([player("a", ("PG",), 100), player("b", ("PG",), 20)]),
+                                drafted_ids=frozenset({"a"}))
+        self.assertEqual([r.player_id for r in recommend(s)], ["b"])
+
+
+    def test_incomplete_feed_warns_about_completion(self):
+        lg = league(slots=("PG", "C"), bench=0)
+        recs = recommend(state([player("c", ("C",), 30)], lg=lg))
+        self.assertTrue(any("cannot fill every starting slot" in w for w in recs[0].warnings))

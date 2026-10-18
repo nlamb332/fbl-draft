@@ -77,18 +77,30 @@ class DraftState:
 - `best_lineup(players: Sequence[tuple[str, tuple[str,...], float]], slots: Sequence[str]) -> tuple[float, dict[str, str]]` — exact max-weight assignment (greedy descending value with augmenting-path matchability check is exact: transversal matroid). Returns total and player_id → slot.
 - Positions are never capped or quota'd; value comes only from lineup scoring (owner rule: no position caps).
 
-### `sleeper_advisor/advisor.py` (agent B)
-- `recommend(state: DraftState, top_n=10) -> list[Recommendation]` where
-  `@dataclass(frozen=True) class Recommendation: player_id, name, positions, score, fp_per_game, adp, components: dict[str,float], explanation: str, warnings: tuple[str,...]`.
-- Method (deterministic):
-  1. Each available player's value `v = fantasy_points(...)` per game (players with ADP but no projection get `v = 0` and a warning; they sort last).
-  2. **Expected roster completion**: for our remaining picks after this one, assume players taken in ADP order (ties/unknown ADP by FP) by other teams between our picks; at each of our future picks we take the best remaining player by marginal lineup gain. Limit to the roster size (starting + bench).
-  3. **Score** of candidate X = (starting-lineup total of our roster + X + expected completion) − (same with a replacement pick instead of X, where the replacement is the best player expected to survive to our next pick), plus a small bench term: `0.15 ×` the FP of the best non-starter (depth for injuries/rest). Evaluate the top ~25 candidates by FP and ADP union, within a 2 s budget.
-  4. `components` includes `fp_per_game`, `lineup_gain`, `survival` (estimated probability X is still available at our next pick from ADP vs picks in between: logistic on `(adp − next_pick)/max(3, 0.15·next_pick)`), `bench_term`. `explanation` is one short sentence (e.g. "Fills SG; 41.2 FP/g; likely gone before pick 18 (ADP 9.4)").
-  5. When `our_slot` is unknown, assume the next pick is ours and that our next pick is `teams` picks later.
+### Production Lock-In strategy (`forecast-lock-in-lineup-v1`)
+
+- `lock_in.py` supplies season/scoring-bound `ForecastConfig`, strict JSON
+  loading and a normal-score/DNP Bellman stopping-value calculation.
+- `recommend(state, top_n=10, *, forecasts=None)` ranks exact marginal weekly
+  starting-lineup value, then player weekly value for depth ties, then ADP.
+  ADP survival is informational only. No ADP completion planner, bench-weight
+  bonus, replacement premium or fixed position quota is used.
+- Weekly value represents one selected game. Defaults (three games, 20% SD,
+  90% availability) are explicitly labeled assumptions. Injury status does
+  not determine availability. Local per-week forecasts can override them.
+- Candidate capacity checks reserve enough roster room for required slots;
+  these do not guarantee legal completion from future available players.
+  An incomplete eligible pool is explicitly warned. Displayed best lineups
+  omit zero/negative-value players and can show empty required slots.
+- Components expose `fp_per_game`, `lock_in_weekly_points`,
+  `lineup_gain_weekly`, `scheduled_games_per_week` and informational `survival`.
+  `score` and the compatibility `lineup_gain` field use weekly units.
+- The production module has no dependency on archived research engines.
+  Synthetic study results do not validate the exact live policy or calibrate
+  its default inputs. See `SLEEPER_ADVISOR.md` for the file schema and limits.
 
 ### `sleeper_advisor/__main__.py`, `cli.py`, `panel.py` (agent C, after A and B)
-- `python -m sleeper_advisor watch <draft_url_or_id> [--user USERNAME] [--slot N] [--interval 3] [--top 10]` — polls draft + picks every interval; recomputes only when `pick_no` count or status changes; prints a compact table (UTF-8 safe: reconfigure stdout to UTF-8 with `errors="replace"`) and a banner when we are on the clock or our pick is within 2.
+- `python -m sleeper_advisor watch <draft_url_or_id> [--user USERNAME] [--slot N] [--interval 3] [--top 10]` — polls draft + picks every interval; recomputes when observed state or local forecast contents change; prints a compact table (UTF-8 safe: reconfigure stdout to UTF-8 with `errors="replace"`) and a banner when we are on the clock or our pick is within 2.
 - `python -m sleeper_advisor serve <draft_url_or_id> [--user ...] [--port 8766]` — 127.0.0.1-only stdlib HTTP server: `GET /` small self-refreshing HTML page (league summary, our roster by slot, on-clock indicator, top recommendations table), `GET /api/state` JSON. No POST routes, no CORS, binds loopback only.
 - `python -m sleeper_advisor once <draft> [--json]` — single snapshot.
 - `Launch Sleeper Advisor.cmd` at repo root: prompts for the draft URL and Sleeper username (remembered in ignored `runtime/sleeper/config.json`), runs `serve`, opens the browser. Mirror the friendly Python checks in `Launch Advisor.cmd`.

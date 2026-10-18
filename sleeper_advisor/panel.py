@@ -46,6 +46,7 @@ ul{margin:0;padding-left:18px}
 <main>
 <h1 id="title">Sleeper Advisor</h1>
 <div class="sub" id="summary">Loading...</div>
+<div class="sub">Lock-In draft strategy · estimated weekly contribution · assumed game forecasts unless local forecasts are supplied</div>
 <div id="banner" class="banner" hidden></div>
 <div class="card"><h2>Your lineup</h2><div id="lineup"></div><div class="sub" id="bench"></div></div>
 <div class="card"><h2>Recommended picks</h2><div id="recs"></div><div class="legend" id="legend"></div></div>
@@ -93,14 +94,14 @@ function render(s) {
     else if (s.picks_away !== null && s.picks_away > 0 && s.picks_away <= 2) { b.hidden = false; b.className = "banner"; b.textContent = "Your pick in " + s.picks_away; }
     else if (s.our_next_picks.length) { b.hidden = false; b.className = "banner"; b.style.fontWeight = "400"; b.textContent = "Your next picks: " + s.our_next_picks.slice(0, 6).join(", "); }
     else { b.hidden = true; }
-    replace("lineup", table(["Slot", "Player", "Pos", "FP/g"],
-      s.lineup.map(function (r) { return [r.slot, r.name === null ? "-" : r.name, r.positions.join("/"), fmt(r.fp_per_game, 1)]; }), [3]));
+    replace("lineup", table(["Slot", "Player", "Pos", "Lock-In/wk"],
+      s.lineup.map(function (r) { return [r.slot, r.name === null ? "-" : r.name, r.positions.join("/"), fmt(r.lock_in_weekly_points, 1)]; }), [3]));
     $("bench").textContent = s.bench.length ? ("Bench: " + s.bench.map(function (r) { return r.name + " (" + r.positions.join("/") + ")"; }).join(", ")) : "Bench: empty";
     if (s.recommendations.length) {
-      replace("recs", table(["#", "Player", "Pos", "FP/g", "ADP", "Score", "Why"],
+      replace("recs", table(["#", "Player", "Pos", "Lock-In/wk", "ADP", "Added/wk", "Why"],
         s.recommendations.map(function (r) {
           var sc = (r.score >= 0 ? "+" : "") + r.score.toFixed(1);
-          return [r.rank, r.name, r.positions.join("/"), fmt(r.fp_per_game, 1), fmt(r.adp, 1), { text: sc, cls: r.score >= 0 ? "pos" : "neg" }, r.explanation];
+          return [r.rank, r.name, r.positions.join("/"), fmt(r.components.lock_in_weekly_points, 1), fmt(r.adp, 1), { text: sc, cls: r.score >= 0 ? "pos" : "neg" }, r.explanation];
         }), [0, 3, 4, 5]));
     } else { replace("recs", el("div", "No recommendations available.", "sub")); }
     $("legend").textContent = s.legend;
@@ -240,7 +241,8 @@ def cmd_serve(args: Any, client: Any, out: Any) -> int:
         return 1
     port = server.server_address[1]
     url = f"http://127.0.0.1:{port}/"
-    poller = Poller(client, draft_id, args.user, args.slot, args.top)
+    poller = Poller(client, draft_id, args.user, args.slot, args.top,
+                    forecast_path=getattr(args,"lock_in_forecasts",None))
     stop = threading.Event()
     start_polling(poller, store, args.interval, stop)
     print(f"Sleeper advisor panel: {url}  (Ctrl+C to stop)", file=out, flush=True)

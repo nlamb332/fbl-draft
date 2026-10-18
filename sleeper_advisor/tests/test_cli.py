@@ -234,3 +234,48 @@ class ConfigTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ForecastPollingTests(unittest.TestCase):
+    def test_forecast_reload_and_invalid_file_clear_recommendations(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            client = fixture_client(tmp, "pre")
+            path = Path(tmp) / "forecasts.json"
+            scoring = load_fixture("league")["scoring_settings"]
+            def write(games=1, season="2026"):
+                path.write_text(json.dumps({"mode":"lock_in", "season":season,
+                    "scoring":scoring, "defaults":{"scheduled_games_per_week":games,
+                    "stddev_fraction":0.2,"availability_probability":0.9}}))
+            write()
+            poller = Poller(client, DRAFT_ID, slot=1, forecast_path=path)
+            self.assertTrue(poller.poll(), poller.error)
+            first = poller.snapshot["recommendations"][0]["components"]["lock_in_weekly_points"]
+            self.assertFalse(poller.poll())
+            write(games=4)
+            self.assertTrue(poller.poll(), poller.error)
+            second = poller.snapshot["recommendations"][0]["components"]["lock_in_weekly_points"]
+            self.assertGreater(second, first)
+            self.assertEqual(poller.snapshot["picks_made"], 0)
+            write(season="2027")
+            self.assertFalse(poller.poll())
+            self.assertIn("season", poller.error)
+            self.assertEqual(poller.snapshot["recommendations"], [])
+            write()
+            self.assertTrue(poller.poll(), poller.error)
+            path.unlink()
+            self.assertFalse(poller.poll())
+            self.assertEqual(poller.snapshot["recommendations"], [])
+
+    def test_rules_change_recomputes_at_same_pick_count(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            routes = fixture_routes("pre")
+            league_url = next(url for url in routes if "/league/" in url)
+            league = routes[league_url]
+            routes[league_url] = lambda _url: league
+            client = SleeperClient(fetch_json=fake_fetch(routes), cache_dir=Path(tmp)/"sleeper")
+            poller = Poller(client, DRAFT_ID, slot=1)
+            self.assertTrue(poller.poll(), poller.error)
+            first = poller.snapshot["recommendations"][0]["components"]["lock_in_weekly_points"]
+            league["scoring_settings"]["pts"] *= 2
+            self.assertTrue(poller.poll(), poller.error)
+            self.assertGreater(poller.snapshot["recommendations"][0]["components"]["lock_in_weekly_points"], first)

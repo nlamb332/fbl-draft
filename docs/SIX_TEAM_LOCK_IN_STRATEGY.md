@@ -34,4 +34,4 @@ The earlier +3.9% daily-lineup result does not establish a Lock-In advantage. Ne
 
 A forecast-based sequential policy observes the just-completed game and remaining scheduled opportunities. It must not inspect future realized scores, future DNPs or the best eventual game. A hindsight bound, if shown, is labeled separately and is not an ordinary scoring result.
 
-This is research and manual strategy guidance. It does not change the ESPN advisor or Claude's separate Sleeper advisor and is not production-policy validation.
+The Sleeper advisor now uses forecast weekly Lock-In value with exact marginal starting-lineup fit and weekly-value depth ties (`forecast-lock-in-lineup-v1`). This operational adapter is not identical to the synthetic study ranker, and the study is not production-policy validation. Its default game-count, variance and availability inputs are labeled assumptions; see `SLEEPER_ADVISOR.md` for local forecast overrides. The ESPN advisor is unchanged.

@@ -15,6 +15,23 @@ SMOKE = """
 import json
 import threading
 import urllib.request
+from sleeper_advisor.advisor import recommend
+from sleeper_advisor.model import DraftState, SleeperLeague, SleeperPlayer
+from sleeper_advisor.cli import build_snapshot
+from sleeper_advisor.panel import PAGE
+league = SleeperLeague(draft_id='1',league_id=None,season='2026',draft_type='snake',
+    mock_type=None,status='drafting',teams=6,rounds=14,
+    starting_slots=('PG','SG','G','SF','PF','F','C','UTIL','UTIL'),bench_slots=5,
+    reversal_round=None,scoring={'pts':0.5})
+player = SleeperPlayer(player_id='example',name='Example Player',positions=('PG',),
+    nba_team=None,injury_status=None,stats={'pts':40},adp=1,has_projection=True)
+state = DraftState(league=league,our_slot=1,current_pick=1,on_clock_slot=1,picks=(),
+    drafted_ids=frozenset(),our_roster=(),available=(player,),our_next_picks=(1,12),warnings=())
+recs = recommend(state)
+assert recs and recs[0].components['lock_in_weekly_points'] > 0
+snapshot = build_snapshot(state,recs)
+assert snapshot['strategy']['mode'] == 'lock_in'
+assert 'Lock-In/wk' in PAGE
 from draft_assistant.coordinator import Coordinator
 from draft_assistant.marginal_lineup import DEFAULT_PROMOTION_PATH
 from draft_assistant.server import create_server
@@ -73,6 +90,8 @@ class DownloadArchiveTests(unittest.TestCase):
                 names = set(bundle.namelist())
                 for required in (
                     "Launch Advisor.cmd", "scripts/local-panel.ps1",
+                    "Launch Sleeper Advisor.cmd", "sleeper_advisor/lock_in.py",
+                    "docs/SLEEPER_ADVISOR.md",
                     "draft_assistant/validation/marginal-lineup-v1/promotion_artifact.json",
                     "draft_assistant/validation/marginal-lineup-v1/frozen_params.json",
                     "docs/DRAFT_ADVISOR_BOOKMARKLET.md",

@@ -3,6 +3,7 @@
 /studies export-ignore
 /profiles export-ignore
 /mock_draft/six_team.py export-ignore
+/mock_draft/lock_in.py export-ignore
 /skills export-ignore
 /preliminary_strategy.md export-ignore
 /docs/* export-ignore

@@ -1,5 +1,7 @@
 # Six-team strategy outcomes
 
+**Historical daily-accumulation experiment. Not applicable as Lock-In validation.** This experiment summed daily starts; Sleeper Lock-In counts one selected game per player each week. See the [replacement Lock-In study](../../lock-in/2026-10-17/README.md). Retained numerical results are evidence about the old assumed model only.
+
 October 17, 2026. Branch: `sleeper-advisor`. This study uses the user's supplied scoring and PG/SG/G/SF/PF/F/C/UTIL/UTIL starters plus five bench players. Both bonus pairs stack. See the [strategy profile](../../../../docs/SIX_TEAM_STRATEGY.md) and [machine-readable settings](../../../../profiles/six_team_points.json).
 
 ![Held-out scoring outcomes](strategy_outcomes.png)

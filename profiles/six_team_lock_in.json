@@ -1,0 +1,70 @@
+{
+  "profile_id": "six_team_lock_in_research",
+  "status": "research_only_advisory",
+  "mode": "lock_in",
+  "daily_accumulation": false,
+  "live_consumption": false,
+  "consumer": "mock_draft.lock_in",
+  "settings": {
+    "total_teams": 6,
+    "rounds": 14,
+    "picks": 84,
+    "starting_slots": ["PG", "SG", "G", "SF", "PF", "F", "C", "UTIL", "UTIL"],
+    "bench_slots": 5,
+    "roster_size": 14,
+    "ir_slots": 1,
+    "ir_transactions_modeled": false,
+    "snake_draft": true,
+    "keeper": false,
+    "fixed_weekly_starter_assignment": true,
+    "bench_swapping": false,
+    "one_lock_per_player_per_week": true,
+    "negative_scores_legal": true,
+    "final_scheduled_dnp_defaults_zero": true,
+    "double_double_includes_triple_double": true,
+    "threshold_bonuses_stack": true
+  },
+  "scoring": {
+    "PTS": 0.5,
+    "REB": 1,
+    "AST": 1,
+    "STL": 2,
+    "BLK": 2,
+    "TO": -1,
+    "DD": 1,
+    "TD": 2,
+    "TF": -2,
+    "FLAGRANT_FOUL": -2,
+    "3PM": 0.5,
+    "POINTS_40_PLUS": 2,
+    "POINTS_50_PLUS": 2
+  },
+  "forecast_rate_semantics": {
+    "DD": "derived from sampled game stat lines and inclusive of triple doubles",
+    "TD": "derived subset of DD",
+    "POINTS_40_PLUS": "derived from sampled points and inclusive of 50-plus games",
+    "POINTS_50_PLUS": "derived subset of 40-plus games"
+  },
+  "strategies": [
+    "custom_per_game",
+    "availability",
+    "legacy_daily_lineup_coverage",
+    "replacement_aware",
+    "lock_in_value",
+    "market_aware_timing"
+  ],
+  "lock_policies": ["always_first", "mean_threshold", "forecast_dp"],
+  "strategy_principles": [
+    "Use a shared policy manager across isolated draft strategies.",
+    "Draft and policy decisions receive forecast distributions; realized future games are never exposed before completion.",
+    "Score fixed weekly starter assignments with one immutable lock per starter slot and no bench swapping.",
+    "Report hindsight upper bound separately from ordinary policy results."
+  ],
+  "evidence_limitations": [
+    "All player pools, schedules, forecast models, outcomes, opponent noise, and structural shifts are synthetic.",
+    "One IR slot is confirmed by the user's settings screenshot; IR transactions are not modeled.",
+    "Replacement-aware estimates native-position undrafted alternatives using market-order depletion; this is not an observed waiver pool.",
+    "Market-aware timing compares current plus next-own-pick Lock-In value under market-order opponent depletion; this is not observed live behavior.",
+    "The study is a bounded sensitivity comparison, not calibrated player projections or win probabilities."
+  ]
+}

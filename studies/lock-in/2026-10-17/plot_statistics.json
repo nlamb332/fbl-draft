@@ -1,0 +1,128 @@
+{
+  "selected_strategy": "lock_in_value",
+  "heldout_pool_seeds": [
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208
+  ],
+  "bootstrap_seed": 20261017,
+  "bootstrap_resamples": 4000,
+  "paired_comparisons": [
+    {
+      "baseline": "replacement_aware",
+      "mean": -0.0742187500000071,
+      "low": -0.8828450520833474,
+      "high": 0.7930013020833264
+    },
+    {
+      "baseline": "market_aware_timing",
+      "mean": 0.2356770833333357,
+      "low": -0.12369791666665737,
+      "high": 0.5924804687499907
+    },
+    {
+      "baseline": "custom_per_game",
+      "mean": 4.529947916666671,
+      "low": 1.3551432291666812,
+      "high": 8.079524739583329
+    },
+    {
+      "baseline": "legacy_daily_lineup_coverage",
+      "mean": 5.5286458333333215,
+      "low": 3.4321614583333027,
+      "high": 7.625
+    },
+    {
+      "baseline": "availability",
+      "mean": 5.8984375,
+      "low": 4.165299479166662,
+      "high": 7.395833333333343
+    }
+  ],
+  "strategy_order": [
+    "replacement_aware",
+    "lock_in_value",
+    "market_aware_timing",
+    "custom_per_game",
+    "legacy_daily_lineup_coverage",
+    "availability"
+  ],
+  "scenario_order": [
+    "nominal",
+    "injury_stress",
+    "forecast_shift"
+  ],
+  "management_rule_order": [
+    "always_first",
+    "mean_threshold",
+    "forecast_dp"
+  ],
+  "robustness_weekly_points": [
+    [
+      288.2864583333333,
+      272.8841145833333,
+      281.9153645833333
+    ],
+    [
+      288.2122395833333,
+      273.3997395833333,
+      283.4908854166667
+    ],
+    [
+      287.9765625,
+      274.17578125,
+      283.2291666666667
+    ],
+    [
+      283.6822916666667,
+      267.7122395833333,
+      278.36328125
+    ],
+    [
+      282.68359375,
+      269.2526041666667,
+      278.8880208333333
+    ],
+    [
+      282.3138020833333,
+      267.00390625,
+      278.375
+    ]
+  ],
+  "management_weekly_points": [
+    [
+      281.1653645833333,
+      266.7395833333333,
+      281.1067708333333
+    ],
+    [
+      288.2486979166667,
+      273.2604166666667,
+      283.6979166666667
+    ],
+    [
+      288.2122395833333,
+      273.3997395833333,
+      283.4908854166667
+    ]
+  ],
+  "management_comparisons": [
+    {
+      "baseline": "always_first",
+      "mean": 7.046874999999993,
+      "low": 5.385384114583324,
+      "high": 8.420572916666657
+    },
+    {
+      "baseline": "mean_threshold",
+      "mean": -0.0364583333333357,
+      "low": -1.109375,
+      "high": 0.6940104166666506
+    }
+  ]
+}

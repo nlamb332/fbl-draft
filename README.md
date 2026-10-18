@@ -5,9 +5,10 @@ and its draft-strategy research. The package is self-contained: the live draft
 control plane and browser observer use only `draft_assistant` and `mock_draft`
 modules in this repository, with no dependency on the season-management code.
 
-For six-person leagues, see the [six-team strategy profile](docs/SIX_TEAM_STRATEGY.md).
-It uses the supplied Sleeper scoring and nine starters plus five bench players;
-the accompanying simulations are exploratory strategy research.
+For six-person leagues, see the [Lock-In strategy profile](docs/SIX_TEAM_LOCK_IN_STRATEGY.md).
+It uses the supplied Sleeper scoring and nine starters plus five bench players.
+The research profile and plots are available in a full clone.
+The earlier daily-accumulation study is historical and does not validate Lock-In strategy.
 
 ## Quick start (Windows)
 

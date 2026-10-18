@@ -1,0 +1,75 @@
+{
+  "fetched_at_utc": "2026-10-18T03:50:38.337237+00:00",
+  "seasons": {
+    "2026": {
+      "url": "https://api.sleeper.app/projections/nba/2026?season_type=regular&position[]=PG&position[]=SG&position[]=SF&position[]=PF&position[]=C",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response_bytes": 1489870,
+      "response_sha256": "5d535f2941ff4e288e6b62b3d3568a39bac3a1e0cd1f4264bd8106db94775e8e",
+      "rows": 2132,
+      "unique_player_ids": 2132,
+      "complete_core_rows": 487,
+      "field_coverage": {
+        "pts": 529,
+        "reb": 529,
+        "ast": 529,
+        "stl": 527,
+        "blk": 519,
+        "to": 528,
+        "tpm": 495,
+        "dd": 209,
+        "td": 26,
+        "tf": 0,
+        "ff": 1,
+        "bonus_pt_40p": 0,
+        "bonus_pt_50p": 0
+      },
+      "nonempty_stats_rows": 1865,
+      "empty_stats_rows": 267,
+      "declared_seasons": [
+        "2026"
+      ],
+      "companies": [
+        "rotowire"
+      ],
+      "date_nonnull_rows": 0,
+      "week_nonnull_rows": 0
+    },
+    "2027": {
+      "url": "https://api.sleeper.app/projections/nba/2027?season_type=regular&position[]=PG&position[]=SG&position[]=SF&position[]=PF&position[]=C",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "response_bytes": 909350,
+      "response_sha256": "fda64db499a616f618b114d817beefd9e60276ef6258513acb31dff58cc3ecdc",
+      "rows": 1856,
+      "unique_player_ids": 1856,
+      "complete_core_rows": 0,
+      "field_coverage": {
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0,
+        "tpm": 0,
+        "dd": 0,
+        "td": 0,
+        "tf": 0,
+        "ff": 0,
+        "bonus_pt_40p": 0,
+        "bonus_pt_50p": 0
+      },
+      "nonempty_stats_rows": 0,
+      "empty_stats_rows": 1856,
+      "declared_seasons": [
+        "2027"
+      ],
+      "companies": [
+        "rotowire"
+      ],
+      "date_nonnull_rows": 0,
+      "week_nonnull_rows": 0
+    }
+  }
+}

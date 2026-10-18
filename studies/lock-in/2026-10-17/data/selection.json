@@ -1,0 +1,7 @@
+{
+  "development_selected_strategy": "lock_in_value",
+  "development_selected_policy_rule": "forecast_dp",
+  "selection_metric": "weekly_opponent_pair_win_fraction_mean, tie-break weekly_realized_points_mean",
+  "selection_scope": "development nominal only; heldout nominal is an audit",
+  "interpretation": "best within tested synthetic worlds, not a calibrated win probability or globally optimal policy"
+}

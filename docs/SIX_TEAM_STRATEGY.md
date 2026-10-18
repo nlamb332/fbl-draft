@@ -1,5 +1,7 @@
 # Six-team points strategy
 
+**Historical daily-accumulation baseline, superseded for this league.** The user has selected Sleeper Lock-In as the working mode. Use the [Lock-In profile](SIX_TEAM_LOCK_IN_STRATEGY.md). The daily scoring results below do not validate Lock-In rankings. The later settings screenshot also confirms one IR slot.
+
 Created October 17, 2026 (America/Chicago). Manual strategy and local research profile. Live advisor support is not enabled. Settings come from the user in this chat, including the final correction that both bonus pairs stack.
 
 Machine-readable settings: [six_team_points.json](../profiles/six_team_points.json).

@@ -12,9 +12,17 @@ Open `http://127.0.0.1:8765/`. In the **Install the ESPN advisor bookmarklet** c
 
 On first launch, paste your live league's ESPN team URL into **Source ESPN team
 URL** and click **Save source team**. Open a practice or real draft for that
-team and click the bookmark to read its visible team list. Return to the local
-panel, select your team, and click **Save setup**. Click the bookmark again to
-connect the advisor. Discovery alone never creates a draft session.
+team and click the bookmark. During first-time setup the bookmark reads the
+visible team list and opens a small picker right in the ESPN page, showing the
+league, season, and team ID it will bind to. Choose your team and click **Save
+and connect**: setup is saved and the advisor connects immediately, with no
+second bookmark click. **Cancel** or Escape closes the picker without saving. If
+the source team URL has not been saved yet, the picker tells you to do that in
+the panel first. You can still finish from the local panel instead: select your
+team there and click **Save setup**, then click the bookmark again. Discovery
+alone never creates a draft session, and the in-page save is accepted only while
+setup is waiting for a team choice, only for a team name from the list just
+read, and only with the one-time code issued to that page.
 
 To correct setup or select a renamed team, click **Edit setup** in the local
 panel. This disconnects existing sessions. Confirm the prefilled source URL

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hmac
 import html
 import json
 import os
@@ -44,7 +45,7 @@ PAGE_DISPATCH_OPERATIONS = frozenset({"prepare", "ack", "reconcile"})
 # sequence from the ESPN page.  Ownership claim/transfer and queue operations
 # stay panel/CLI-only, and every page request must present the owner token of
 # an already-owned session.
-PAGE_RUNNER_OPERATIONS = frozenset({"connect-advisor", "status", "publish", "preflight", "start", "resume", "pause", "prepare", "ack", "reconcile", "recommend-preview"})
+PAGE_RUNNER_OPERATIONS = frozenset({"connect-advisor", "setup-select-team", "status", "publish", "preflight", "start", "resume", "pause", "prepare", "ack", "reconcile", "recommend-preview"})
 # A generic room loader receives a short-lived token that is deliberately
 # narrower than normal page-runner ownership. It can observe its session and
 # request an in-memory recommendation preview, but can never control ESPN or
@@ -431,7 +432,7 @@ class DraftRequestHandler(BaseHTTPRequestHandler):
             if not getattr(self.server, "setup_complete", True):
                 source = getattr(self.server, "setup_pending_source", None)
                 if not source:
-                    raise IdentityError("First paste and save your source ESPN team URL in the panel, then read the visible draft-room list.")
+                    raise IdentityError(f"Setup needs your source ESPN team URL first. Open the FBL panel at http://127.0.0.1:{getattr(self.server, 'server_port', 8765)}/ , paste your league's ESPN team URL, click Save source team, then click the bookmark again.")
                 room = RoomIdentity.from_url(raw_url, practice=requested_practice)
                 normalized_heading = self.coordinator._normalize_practice_heading(heading)  # type: ignore[attr-defined]
                 if room.season_id != source["season_id"] or room.team_id != source["team_id"]:
@@ -442,7 +443,10 @@ class DraftRequestHandler(BaseHTTPRequestHandler):
                 elif room.league_id != source["league_id"] or not normalized_heading.casefold().startswith("espn fantasy basketball draft"):
                     raise IdentityError("Real-room discovery must match the saved source league and show its ESPN draft heading.")
                 self.server.setup_candidates = {**source, "room_url": room.safe_url(), "team_options": pick_order, "observed_at": self.coordinator.clock()}
-                return {"setup_discovery": True, "team_options": pick_order, "league_id": source["league_id"], "season_id": source["season_id"], "team_id": source["team_id"]}
+                # One-time, memory-only nonce: only the page that received this
+                # discovery response can ask the server to bind a team.
+                self.server.setup_discovery_nonce = secrets.token_urlsafe(32)
+                return {"setup_discovery": True, "setup_nonce": self.server.setup_discovery_nonce, "team_options": pick_order, "league_id": source["league_id"], "season_id": source["season_id"], "team_id": source["team_id"]}
             own_team_key = " ".join(config.our_team.split()).casefold()
             own_indexes = [index for index, item in enumerate(normalized_order) if item == own_team_key]
             if len(own_indexes) != 1:
@@ -550,8 +554,24 @@ class DraftRequestHandler(BaseHTTPRequestHandler):
             raise CoordinatorError("practice preflight refused: " + "; ".join(result.reasons))
         return result
 
+    def _setup_select_team(self, body: dict[str, Any]) -> dict[str, Any]:
+        """Bind the observed team from the ESPN page during setup discovery only."""
+        if not getattr(self, "_cors_response", False) or self._page_origin() is None:
+            raise CoordinatorError("setup-select-team requires an allowed ESPN page origin")
+        if getattr(self.server, "setup_complete", True) or not isinstance(getattr(self.server, "setup_candidates", None), dict):
+            raise CoordinatorError("setup-select-team is only available while setup is waiting for a team choice")
+        expected = getattr(self.server, "setup_discovery_nonce", None)
+        supplied = body.get("setup_nonce")
+        if not isinstance(expected, str) or not isinstance(supplied, str) or not hmac.compare_digest(expected, supplied):
+            raise CoordinatorError("setup-select-team requires the current discovery nonce; click the bookmark again")
+        result = self._save_setup_selection(body.get("our_team"))
+        self.server.setup_discovery_nonce = None
+        return result
+
     def _operator(self, body: dict[str, Any]) -> dict[str, Any]:
         operation = str(body.get("operation", "")).strip().lower().replace("_", "-")
+        if operation == "setup-select-team":
+            return self._operator_envelope(operation, self._setup_select_team(body), status="setup_saved")
         if not getattr(self.server, "setup_complete", True) and operation != "connect-advisor":
             raise CoordinatorError("Finish league setup in the panel before using the advisor.")
         queue_operations = {"queue-prepare", "queue-claim", "queue-final-guard", "queue-ack", "queue-reconcile"}
@@ -747,54 +767,58 @@ class DraftRequestHandler(BaseHTTPRequestHandler):
         result = self.coordinator.status(body.get("session_id"))
         return self._operator_envelope(operation, result)
 
+    def _save_setup_selection(self, name: Any) -> dict[str, Any]:
+        """Persist the observed team selection; shared by the panel and the in-room picker."""
+        config_path = getattr(self.server, "setup_config_path", None)
+        if config_path is None:
+            raise CoordinatorError("Setup saving is unavailable for this launch. Start the Windows launcher or pass --league-config under runtime/.")
+        candidates = getattr(self.server, "setup_candidates", None)
+        if not isinstance(candidates, dict) or not isinstance(candidates.get("team_options"), list):
+            raise ValueError("Open the ESPN draft room and click the FBL Advisor bookmarklet to read its team list first.")
+        if not isinstance(name, str) or name not in candidates["team_options"]:
+            raise ValueError("Select one of the team names observed in the ESPN draft room.")
+        previous = self.coordinator.config
+        config = replace(previous, league_id=candidates["league_id"], season_id=candidates["season_id"], team_id=candidates["team_id"], our_team=name)
+        changed = (previous.league_id, previous.season_id, previous.team_id, previous.our_team) != (config.league_id, config.season_id, config.team_id, config.our_team)
+        config_path.parent.mkdir(parents=True, exist_ok=True)
+        temp_path = config_path.with_suffix(config_path.suffix + ".tmp")
+        temp_path.write_text(json.dumps(asdict(config), indent=2) + "\n", encoding="utf-8")
+        temp_path.replace(config_path)
+        if changed:
+            now = self.coordinator.clock()
+            with self.coordinator._transaction() as db:
+                rows = db.execute("SELECT session_id FROM sessions").fetchall()
+                for row in rows:
+                    sid = row["session_id"]
+                    db.execute("UPDATE sessions SET state='disconnected', reason=?, control_version=control_version+1, updated_at=? WHERE session_id=?", ("league identity changed in setup; reconnect to the selected ESPN room", now, sid))
+                    db.execute("DELETE FROM session_owners WHERE session_id=?", (sid,))
+                    actions = db.execute("SELECT action_id,payload FROM actions WHERE session_id=? AND status='pending' AND dispatched=0", (sid,)).fetchall()
+                    for action in actions:
+                        payload = json.loads(action["payload"])
+                        payload.update(status="cancelled", detail="cancelled because league identity changed before dispatch", updated_at=now)
+                        db.execute("UPDATE actions SET status='cancelled',payload=?,claim_token=NULL,updated_at=? WHERE action_id=?", (json.dumps(payload, sort_keys=True), now, action["action_id"]))
+                    mutations = db.execute("SELECT mutation_id,payload FROM queue_mutations WHERE session_id=? AND status='pending' AND dispatched=0", (sid,)).fetchall()
+                    for mutation in mutations:
+                        payload = json.loads(mutation["payload"])
+                        payload.update(status="cancelled", detail="cancelled because league identity changed before dispatch", updated_at=now)
+                        db.execute("UPDATE queue_mutations SET status='cancelled',payload=?,claim_token=NULL,updated_at=? WHERE mutation_id=?", (json.dumps(payload, sort_keys=True), now, mutation["mutation_id"]))
+                    self.coordinator._journal_db(db, sid, "identity_invalidated", {"reason": "league setup changed; reconnect required"}, now)
+            self.server.advisor_tokens.clear()
+            self.server.advisor_nonces.clear()
+        self.coordinator.config = config
+        self.server.setup_complete = True
+        self.server.setup_summary = {"league_id": config.league_id, "season_id": config.season_id, "team_id": config.team_id, "our_team": config.our_team}
+        self.server.setup_candidates = None
+        self.server.setup_discovery_nonce = None
+        self.server.setup_pending_source = None
+        pending_path = config_path.with_name("setup-pending.json")
+        if pending_path.exists():
+            pending_path.unlink()
+        return {"configured": True, "team": self.server.setup_summary}
+
     def _dispatch_post(self, path: str, body: dict[str, Any]) -> Any:
         if path == "/api/setup":
-            config_path = getattr(self.server, "setup_config_path", None)
-            if config_path is None:
-                raise CoordinatorError("Setup saving is unavailable for this launch. Start the Windows launcher or pass --league-config under runtime/.")
-            candidates = getattr(self.server, "setup_candidates", None)
-            name = body.get("our_team")
-            if not isinstance(candidates, dict) or not isinstance(candidates.get("team_options"), list):
-                raise ValueError("Open the ESPN draft room and click the FBL Advisor bookmarklet to read its team list first.")
-            if not isinstance(name, str) or name not in candidates["team_options"]:
-                raise ValueError("Select one of the team names observed in the ESPN draft room.")
-            previous = self.coordinator.config
-            config = replace(previous, league_id=candidates["league_id"], season_id=candidates["season_id"], team_id=candidates["team_id"], our_team=name)
-            changed = (previous.league_id, previous.season_id, previous.team_id, previous.our_team) != (config.league_id, config.season_id, config.team_id, config.our_team)
-            config_path.parent.mkdir(parents=True, exist_ok=True)
-            temp_path = config_path.with_suffix(config_path.suffix + ".tmp")
-            temp_path.write_text(json.dumps(asdict(config), indent=2) + "\n", encoding="utf-8")
-            temp_path.replace(config_path)
-            if changed:
-                now = self.coordinator.clock()
-                with self.coordinator._transaction() as db:
-                    rows = db.execute("SELECT session_id FROM sessions").fetchall()
-                    for row in rows:
-                        sid = row["session_id"]
-                        db.execute("UPDATE sessions SET state='disconnected', reason=?, control_version=control_version+1, updated_at=? WHERE session_id=?", ("league identity changed in setup; reconnect to the selected ESPN room", now, sid))
-                        db.execute("DELETE FROM session_owners WHERE session_id=?", (sid,))
-                        actions = db.execute("SELECT action_id,payload FROM actions WHERE session_id=? AND status='pending' AND dispatched=0", (sid,)).fetchall()
-                        for action in actions:
-                            payload = json.loads(action["payload"])
-                            payload.update(status="cancelled", detail="cancelled because league identity changed before dispatch", updated_at=now)
-                            db.execute("UPDATE actions SET status='cancelled',payload=?,claim_token=NULL,updated_at=? WHERE action_id=?", (json.dumps(payload, sort_keys=True), now, action["action_id"]))
-                        mutations = db.execute("SELECT mutation_id,payload FROM queue_mutations WHERE session_id=? AND status='pending' AND dispatched=0", (sid,)).fetchall()
-                        for mutation in mutations:
-                            payload = json.loads(mutation["payload"])
-                            payload.update(status="cancelled", detail="cancelled because league identity changed before dispatch", updated_at=now)
-                            db.execute("UPDATE queue_mutations SET status='cancelled',payload=?,claim_token=NULL,updated_at=? WHERE mutation_id=?", (json.dumps(payload, sort_keys=True), now, mutation["mutation_id"]))
-                        self.coordinator._journal_db(db, sid, "identity_invalidated", {"reason": "league setup changed; reconnect required"}, now)
-                self.server.advisor_tokens.clear()
-                self.server.advisor_nonces.clear()
-            self.coordinator.config = config
-            self.server.setup_complete = True
-            self.server.setup_summary = {"league_id": config.league_id, "season_id": config.season_id, "team_id": config.team_id, "our_team": config.our_team}
-            self.server.setup_candidates = None
-            self.server.setup_pending_source = None
-            pending_path = config_path.with_name("setup-pending.json")
-            if pending_path.exists():
-                pending_path.unlink()
-            return {"configured": True, "team": self.server.setup_summary}
+            return self._save_setup_selection(body.get("our_team"))
         if path == "/api/setup/source":
             raw_url = body.get("url")
             if not isinstance(raw_url, str):
@@ -933,6 +957,7 @@ class DraftHTTPServer(ThreadingHTTPServer):
         self.setup_config_path = setup_config_path
         self.setup_complete = setup_complete
         self.setup_candidates = None
+        self.setup_discovery_nonce: str | None = None
         self.setup_pending_source = setup_pending_source
         self.bookmarklet_seen = False
         self.setup_summary = ({"league_id": coordinator.config.league_id, "season_id": coordinator.config.season_id, "team_id": coordinator.config.team_id, "our_team": coordinator.config.our_team} if setup_complete else None)

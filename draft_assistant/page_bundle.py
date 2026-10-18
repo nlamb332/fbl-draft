@@ -286,28 +286,128 @@ def recommendation_loader_snippet(
   if (existingRunner && existingSummary?.mode === "recommendation" && typeof existingRunner.stopRecommendations === "function") existingRunner.stopRecommendations();
 
   const pickOrder = readVisiblePickOrder();
-  const response = await pageWindow.fetch(`${baseUrl}/api/operator`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", "X-CSRF-Token": csrfToken },
-    body: JSON.stringify({ operation: "connect-advisor", url: safeRoom.toString(), practice, visible_heading: visibleHeading, pick_order: pickOrder }),
+  const postOperator = async (payload) => {
+    const response = await pageWindow.fetch(`${baseUrl}/api/operator`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-CSRF-Token": csrfToken },
+      body: JSON.stringify(payload),
+    });
+    const parsed = await response.json();
+    if (!response.ok || parsed?.error) throw new Error(parsed?.error || "the advisor connection was refused");
+    return parsed?.result && typeof parsed.result === "object" ? parsed.result : parsed;
+  };
+  const connectPayload = () => ({ operation: "connect-advisor", url: safeRoom.toString(), practice, visible_heading: visibleHeading, pick_order: pickOrder });
+  const finishConnection = (credentials) => {
+    const sessionId = credentials.session_id || credentials.sessionId;
+    const ownerToken = credentials.observer_token || credentials.observer_only_token || credentials.owner_token || credentials.ownerToken || credentials.token;
+    const ownTeam = credentials.own_team || credentials.ownTeam;
+    if (!sessionId || !ownerToken || !ownTeam) throw new Error("advisor connection did not return observer credentials and own team");
+    const expectedSeat = Number(credentials.expected_seat ?? credentials.expectedSeat);
+    if (!Number.isInteger(expectedSeat) || expectedSeat < 1 || expectedSeat > 14) throw new Error("the visible roster seat is invalid");
+    pageWindow.FBL.attach({ sessionId, ownerToken, ownTeam, expectedSeat, sourceLeagueId: credentials.source_league_id, mode: "recommendation" });
+    mountAdvisor(pageWindow.FBL.runner());
+    return { status: "connected", session_id: sessionId, own_team: ownTeam, expected_seat: expectedSeat, bundle_hash: pageWindow.FBL.bundle_hash, mode: "recommendation" };
+  };
+
+  // In-page setup overlay. It is plain DOM with inline styles and is removed on
+  // Escape, Cancel, or a successful connection; it never persists anything itself.
+  const showSetupOverlay = (spec) => new Promise((resolve) => {
+    const OVERLAY_ID = "fbl-setup-overlay";
+    pageDocument.getElementById?.(OVERLAY_ID)?.remove();
+    const make = (tag, text, css) => {
+      const node = pageDocument.createElement(tag);
+      if (text !== undefined && text !== null) node.textContent = text;
+      if (css) node.style.cssText = css;
+      return node;
+    };
+    const backdrop = make("div", null, "position:fixed;inset:0;z-index:2147483647;background:rgba(23,43,77,.45);display:flex;align-items:center;justify-content:center;font:13px system-ui,sans-serif");
+    backdrop.setAttribute("id", OVERLAY_ID);
+    backdrop.setAttribute("role", "dialog");
+    backdrop.setAttribute("aria-modal", "true");
+    const card = make("div", null, "width:min(420px,92vw);max-height:86vh;overflow:auto;padding:16px;color:#172b4d;background:#fff;border:1px solid #b8c7d9;border-radius:14px;box-shadow:0 12px 40px rgba(23,43,77,.35)");
+    card.appendChild(make("h2", "FBL Advisor setup", "margin:0 0 6px;font-size:16px"));
+    if (!spec.sourceMissing) card.appendChild(make("p", `Binding to league ${spec.league_id}, season ${spec.season_id}, team ID ${spec.team_id}.`, "margin:0 0 10px;color:#294563;line-height:1.4"));
+    card.appendChild(make("p", spec.sourceMissing || "Choose your team from the list ESPN is showing.", "margin:0 0 10px;color:#294563;line-height:1.4;overflow-wrap:anywhere"));
+    const errorLine = make("p", "", "display:none;margin:0 0 10px;padding:8px 10px;border-left:3px solid #c62828;background:#fdecea;color:#7f1d1d;line-height:1.4;overflow-wrap:anywhere");
+    errorLine.setAttribute("role", "alert");
+    card.appendChild(errorLine);
+    let chosen = null;
+    const save = make("button", "Save and connect", "border:1px solid #1677ff;border-radius:7px;background:#1677ff;color:#fff;padding:7px 12px;font:600 12px system-ui,sans-serif;cursor:pointer");
+    save.setAttribute("type", "button");
+    save.disabled = true;
+    if (!spec.sourceMissing) {
+      const list = make("div", null, "display:grid;gap:4px;margin:0 0 12px");
+      (spec.team_options || []).forEach((name) => {
+        const label = make("label", null, "display:flex;align-items:center;gap:8px;padding:6px 8px;border:1px solid #d9e2ec;border-radius:8px;background:#f7f9fc;cursor:pointer");
+        const radio = make("input");
+        radio.setAttribute("type", "radio");
+        radio.setAttribute("name", "fbl-setup-team");
+        radio.addEventListener("change", () => { chosen = name; save.disabled = false; });
+        label.appendChild(radio);
+        label.appendChild(make("span", name));
+        list.appendChild(label);
+      });
+      card.appendChild(list);
+    }
+    const actions = make("div", null, "display:flex;gap:8px;justify-content:flex-end");
+    const cancel = make("button", "Cancel", "border:1px solid #b8c7d9;border-radius:7px;background:#fff;color:#294563;padding:7px 12px;font:600 12px system-ui,sans-serif;cursor:pointer");
+    cancel.setAttribute("type", "button");
+    actions.appendChild(cancel);
+    if (!spec.sourceMissing) actions.appendChild(save);
+    card.appendChild(actions);
+    backdrop.appendChild(card);
+
+    let closed = false;
+    let saved = false;
+    let busy = false;
+    const onKey = (event) => { if (event && event.key === "Escape") close({ status: "setup-cancelled" }); };
+    const close = (result) => {
+      if (closed) return;
+      closed = true;
+      pageDocument.removeEventListener?.("keydown", onKey, true);
+      backdrop.remove();
+      resolve(result);
+    };
+    const showError = (text) => { errorLine.textContent = text; errorLine.style.display = "block"; };
+    cancel.addEventListener("click", () => close({ status: "setup-cancelled" }));
+    save.addEventListener("click", async () => {
+      if (busy || !chosen) return;
+      busy = true;
+      save.disabled = true;
+      errorLine.style.display = "none";
+      try {
+        if (!saved) {
+          await postOperator({ operation: "setup-select-team", our_team: chosen, setup_nonce: spec.setup_nonce });
+          saved = true;
+        }
+        const result = finishConnection(await postOperator(connectPayload()));
+        close({ ...result, setup_saved: true });
+      } catch (error) {
+        showError(String(error?.message || error));
+        busy = false;
+        save.disabled = false;
+      }
+    });
+    pageDocument.addEventListener?.("keydown", onKey, true);
+    pageDocument.body.appendChild(backdrop);
   });
-  const connection = await response.json();
-  if (!response.ok || connection?.error) throw new Error(connection?.error || "the advisor connection was refused");
-  const credentials = connection?.result && typeof connection.result === "object" ? connection.result : connection;
-  if (credentials.setup_discovery === true) {
-    const message = "FBL read the visible ESPN team list. Return to the local panel and choose your team to finish setup.";
-    if (typeof window.alert === "function") window.alert(message);
-    return { status: "setup-discovered", team_options: credentials.team_options || [], league_id: credentials.league_id, season_id: credentials.season_id, team_id: credentials.team_id };
+
+  let credentials;
+  try {
+    credentials = await postOperator(connectPayload());
+  } catch (error) {
+    const text = String(error?.message || error);
+    if (/source ESPN team URL/i.test(text)) {
+      await showSetupOverlay({ sourceMissing: text });
+      return { status: "setup-source-missing", message: text };
+    }
+    throw error;
   }
-  const sessionId = credentials.session_id || credentials.sessionId;
-  const ownerToken = credentials.observer_token || credentials.observer_only_token || credentials.owner_token || credentials.ownerToken || credentials.token;
-  const ownTeam = credentials.own_team || credentials.ownTeam;
-  if (!sessionId || !ownerToken || !ownTeam) throw new Error("advisor connection did not return observer credentials and own team");
-  const expectedSeat = Number(credentials.expected_seat ?? credentials.expectedSeat);
-  if (!Number.isInteger(expectedSeat) || expectedSeat < 1 || expectedSeat > 14) throw new Error("the visible roster seat is invalid");
-  pageWindow.FBL.attach({ sessionId, ownerToken, ownTeam, expectedSeat, sourceLeagueId: credentials.source_league_id, mode: "recommendation" });
-  mountAdvisor(pageWindow.FBL.runner());
-  return { status: "connected", session_id: sessionId, own_team: ownTeam, expected_seat: expectedSeat, bundle_hash: pageWindow.FBL.bundle_hash, mode: "recommendation" };
+  if (credentials.setup_discovery === true) {
+    const outcome = await showSetupOverlay(credentials);
+    return { ...outcome, team_options: credentials.team_options || [], league_id: credentials.league_id, season_id: credentials.season_id, team_id: credentials.team_id };
+  }
+  return finishConnection(credentials);
 })()'''
     return (
         template.replace("__BASE_URL__", json.dumps(base))

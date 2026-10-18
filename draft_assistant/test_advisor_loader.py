@@ -104,6 +104,159 @@ class RecommendationLoaderTests(unittest.TestCase):
         self.assertIn("not an ESPN basketball draft room", result["error"])
         self.assertEqual(result["posts"], [])
 
+    def test_setup_overlay_saves_team_and_connects_with_retry_and_cancel(self) -> None:
+        bundle = build_bundle(MODULE_DIR)
+        snippet = recommendation_loader_snippet("http://127.0.0.1:8765", csrf_token="test-csrf", module_dir=MODULE_DIR)
+        result = self._run_node(self._overlay_harness(snippet, bundle.bundle_hash))
+        saved = result["saved"]
+        self.assertEqual(saved["result"]["status"], "connected")
+        self.assertTrue(saved["result"]["setup_saved"])
+        self.assertEqual(saved["radios"], 14)
+        self.assertIn("league 2000000000", saved["binding"])
+        self.assertEqual([post["operation"] for post in saved["posts"]], ["connect-advisor", "setup-select-team", "connect-advisor", "connect-advisor"])
+        self.assertEqual(saved["posts"][1]["our_team"], "Visible Team 3")
+        self.assertEqual(saved["posts"][1]["setup_nonce"], "nonce-1")
+        self.assertEqual(saved["posts"][0]["pick_order"], saved["posts"][2]["pick_order"])
+        self.assertIn("second connect refused", saved["error_after_failure"])
+        self.assertTrue(saved["overlay_present_after_failure"])
+        self.assertFalse(saved["overlay_present_at_end"])
+        self.assertEqual(saved["alerts"], 0)
+        self.assertEqual(saved["attach"]["ownTeam"], "Visible Team 3")
+        self.assertEqual(result["cancelled"]["result"]["status"], "setup-cancelled")
+        self.assertFalse(result["cancelled"]["overlay_present_at_end"])
+        self.assertEqual([post["operation"] for post in result["cancelled"]["posts"]], ["connect-advisor"])
+        self.assertEqual(result["missing"]["result"]["status"], "setup-source-missing")
+        self.assertIn("http://127.0.0.1:8765/", result["missing"]["text"])
+        self.assertEqual(result["missing"]["alerts"], 0)
+
+    @staticmethod
+    def _overlay_harness(snippet: str, bundle_hash: str) -> str:
+        return f"""
+const vm = require("vm");
+const snippet = {json.dumps(snippet)};
+const expectedHash = {json.dumps(bundle_hash)};
+const teams = Array.from({{length: 14}}, (_, i) => `Visible Team ${{i + 1}}`);
+
+function makeNode(tag) {{
+  const node = {{
+    tag, children: [], listeners: {{}}, attrs: {{}}, style: {{}}, textContent: "", removed: false, parent: null,
+    setAttribute(k, v) {{ this.attrs[k] = v; }},
+    getAttribute(k) {{ return this.attrs[k] ?? null; }},
+    appendChild(c) {{ c.parent = this; this.children.push(c); return c; }},
+    addEventListener(t, fn) {{ (this.listeners[t] ||= []).push(fn); }},
+    removeEventListener() {{}},
+    remove() {{ this.removed = true; }},
+  }};
+  return node;
+}}
+function walk(node, fn) {{ fn(node); node.children.forEach(c => walk(c, fn)); }}
+async function click(node) {{ for (const fn of node.listeners.click || []) await fn({{}}); }}
+const tick = () => new Promise(r => setTimeout(r, 0));
+
+function makeCase(responses) {{
+  const heading = {{textContent: "ESPN Fantasy Basketball Draft - Practice Draft for Weekend Hoops League", getAttribute() {{ return null; }}}};
+  const options = teams.map(text => ({{textContent: text, getAttribute() {{ return null; }}}}));
+  const select = {{options, getAttribute() {{ return null; }}}};
+  const body = makeNode("body");
+  const docListeners = {{}};
+  const posts = [];
+  const attached = [];
+  let alerts = 0;
+  let runner = null;
+  const document = {{
+    body,
+    head: {{appendChild() {{}}}},
+    querySelectorAll(selector) {{
+      if (selector === "h1,h2,h3,[role='heading']") return [heading];
+      if (selector === "select,[role='combobox']") return [select];
+      return [];
+    }},
+    getElementById(id) {{
+      let found = null;
+      walk(body, n => {{ if (n.attrs.id === id && !n.removed) found = n; }});
+      return found;
+    }},
+    createElement: makeNode,
+    addEventListener(t, fn) {{ (docListeners[t] ||= []).push(fn); }},
+    removeEventListener(t, fn) {{ docListeners[t] = (docListeners[t] || []).filter(f => f !== fn); }},
+  }};
+  const FBL = {{
+    bundle_hash: expectedHash, bundle: "fbl-page-runner-v1",
+    modules: {{"page_controls.js": {{mountPageControls() {{ return {{dock() {{}}, collapse() {{}}, dispose() {{}}}}; }}}}}},
+    configure() {{}},
+    runner() {{ if (!runner) throw new Error("not attached"); return runner; }},
+    attach(options) {{ attached.push(options); runner = {{summary() {{ return {{mode: "recommendation"}}; }}}}; }},
+  }};
+  const queue = responses.slice();
+  const pageWindow = {{
+    FBL, alert() {{ alerts += 1; }},
+    getComputedStyle() {{ return {{display: "block", visibility: "visible"}}; }},
+    async fetch(url, options) {{
+      const parsed = JSON.parse(options.body);
+      posts.push(parsed);
+      const next = queue.shift();
+      return {{ok: !next.error, async json() {{ return next; }}}};
+    }},
+  }};
+  const location = {{href: "https://fantasy.espn.com/basketball/draft?leagueId=2000000088&seasonId=2028&teamId=7"}};
+  pageWindow.location = location;
+  const context = {{window: pageWindow, document, location, URL, console}};
+  vm.createContext(context);
+  const overlay = () => document.getElementById("fbl-setup-overlay");
+  const run = () => vm.runInContext(`(async () => {{ return ${{snippet}}; }})()`, context);
+  return {{run, overlay, posts, attached, docListeners, alert: () => alerts, walk}};
+}}
+
+const discovery = {{setup_discovery: true, setup_nonce: "nonce-1", team_options: teams, league_id: "2000000000", season_id: "2028", team_id: "7"}};
+const connected = {{session_id: "s1", observer_token: "tok", own_team: "Visible Team 3", expected_seat: 3}};
+
+async function scenarioSaved() {{
+  const c = makeCase([discovery, {{status: "setup_saved"}}, {{error: "second connect refused"}}, connected]);
+  const pending = c.run();
+  await tick(); await tick();
+  const root = c.overlay();
+  const radios = []; const buttons = []; const texts = []; const errors = [];
+  c.walk(root, n => {{
+    if (n.attrs.type === "radio") radios.push(n);
+    if (n.tag === "button") buttons.push(n);
+    if (n.tag === "p") texts.push(n);
+  }});
+  radios[2].listeners.change[0]({{}});
+  const save = buttons.find(b => b.textContent === "Save and connect");
+  await click(save);
+  await tick(); await tick();
+  const errorNode = texts.find(n => n.attrs.role === "alert");
+  const errorAfter = errorNode.textContent;
+  const presentAfterFailure = Boolean(c.overlay());
+  await click(save);
+  const result = await pending;
+  return {{result, radios: radios.length, binding: texts[0].textContent, posts: c.posts.map(p => p), error_after_failure: errorAfter, overlay_present_after_failure: presentAfterFailure, overlay_present_at_end: Boolean(c.overlay()), alerts: c.alert(), attach: c.attached[0]}};
+}}
+async function scenarioCancel() {{
+  const c = makeCase([discovery]);
+  const pending = c.run();
+  await tick(); await tick();
+  const present = Boolean(c.overlay());
+  c.docListeners.keydown[0]({{key: "Escape"}});
+  const result = await pending;
+  if (!present) throw new Error("overlay never appeared");
+  return {{result, posts: c.posts, overlay_present_at_end: Boolean(c.overlay())}};
+}}
+async function scenarioMissing() {{
+  const c = makeCase([{{error: "Setup needs your source ESPN team URL first. Open the FBL panel at http://127.0.0.1:8765/ , paste it."}}]);
+  const pending = c.run();
+  await tick(); await tick();
+  const texts = [];
+  c.walk(c.overlay(), n => {{ if (n.tag === "p") texts.push(n.textContent); }});
+  c.docListeners.keydown[0]({{key: "Escape"}});
+  const result = await pending;
+  return {{result, text: texts.join(" "), alerts: c.alert()}};
+}}
+(async () => {{
+  console.log(JSON.stringify({{saved: await scenarioSaved(), cancelled: await scenarioCancel(), missing: await scenarioMissing()}}));
+}})().catch(e => {{ console.error(e); process.exitCode = 1; }});
+"""
+
     @staticmethod
     def _run_node(script: str):
         completed = subprocess.run(

@@ -5,18 +5,31 @@ and its draft-strategy research. The package is self-contained: the live draft
 control plane and browser observer use only `draft_assistant` and `mock_draft`
 modules in this repository, with no dependency on the season-management code.
 
-## Download and run
+## Quick start (Windows)
 
-Choose **Code → Download ZIP** on GitHub, extract the archive, and double-click
-**Launch Advisor.cmd** on Windows. Python 3.10 or newer must be installed and
-available on PATH. Keep the launcher window open while using the advisor.
+1. Install [Python 3.10 or newer](https://www.python.org/downloads/) and tick
+   **Add python.exe to PATH** in the installer.
+2. On GitHub choose **Code → Download ZIP**, extract it, and double-click
+   **Launch Advisor.cmd**. Keep that window open while you use the advisor;
+   if something is wrong it stays open and explains how to fix it.
+3. The local panel opens in Chrome with a **Get started** checklist:
+   1. **Add the FBL Advisor bookmark** — drag the link to the bookmarks bar.
+   2. **Link your ESPN league** — paste the address of your ESPN *My Team*
+      page and click **Save source team**.
+   3. **Choose your team** — open a practice (or real) draft room for that
+      league on ESPN and click the bookmark. Pick your team in the box that
+      appears on the ESPN page and click **Save and connect**. (You can also
+      pick it in the panel.)
+   4. **Capture the player catalog** in a practice draft (see below).
+   5. **Draft day** — open the real draft room, click the bookmark, and
+      **Start observing**.
 
-On first launch, the launcher opens the local panel without asking console
-questions. In the panel, save the ESPN team URL for your live league, open its
-draft room, and click the FBL Advisor bookmarklet to read the visible team
-list. Select your team from that observed list. League, season, team IDs, and
-the selected team name are saved only in ignored `runtime/league.json`; until
-then the service cannot connect to a room. Public defaults are examples. CLI users can copy `league.example.json` to
+Your league, season, team IDs, and team name are saved only in the ignored
+`runtime/league.json`. To change them later, click **Change** in the panel.
+Operator tools (manual room connection, controls, journal) are under
+**Advanced** in the panel.
+
+CLI users can copy `league.example.json` to
 `runtime/league.json`, edit it locally, and pass `--league-config runtime/league.json`
 before `serve`. See the [privacy notes](docs/PUBLIC_RELEASE_PRIVACY.md).
 

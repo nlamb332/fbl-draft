@@ -14,30 +14,100 @@
     pre { overflow: auto; max-height: 24rem; background: #7772; padding: .7rem; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .7rem; }
     [data-practice="true"] { color: #1b8d5c; }
-    .bookmarklet-install { border: 2px solid #4c8bf5; background: #4c8bf51a; }
     .bookmarklet-link { display: inline-block; border: 1px solid currentColor; border-radius: .4rem; padding: .65rem .8rem; font-weight: 700; cursor: grab; }
     .bookmarklet-link:active { cursor: grabbing; }
     .bookmarklet-url { width: 100%; box-sizing: border-box; font: .8rem ui-monospace, monospace; }
     .bookmarklet-help { margin: .6rem 0 0; }
     .bookmarklet-status { min-height: 1.3em; }
+    .steps { list-style: none; padding: 0; margin: 1rem 0 0; }
+    .step { border: 1px solid #7775; border-radius: .6rem; padding: .7rem 1rem; margin: .6rem 0; }
+    .step[data-state="current"] { border: 2px solid #4c8bf5; background: #4c8bf51a; }
+    .step[data-state="done"] { border-color: #1b8d5c88; }
+    .step[data-state="upcoming"] .step-body { display: none; }
+    .step[data-state="done"] .step-body { display: none; }
+    .step-head { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
+    .step-head h3 { margin: 0; font-size: 1.05rem; flex: 1 1 12rem; }
+    .step-num { display: inline-flex; align-items: center; justify-content: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; border: 2px solid currentColor; font-weight: 700; }
+    .step[data-state="done"] .step-num { background: #1b8d5c; border-color: #1b8d5c; color: #fff; }
+    .step[data-state="current"] .step-num { background: #4c8bf5; border-color: #4c8bf5; color: #fff; }
+    .step-badge { font-size: .85rem; opacity: .8; }
+    .step[data-state="done"] .step-badge { color: #1b8d5c; opacity: 1; font-weight: 700; }
+    .step[data-open="true"] .step-body { display: block; }
+    .step-head { cursor: pointer; }
+    .step-body { margin-top: .6rem; }
+    .hint { opacity: .85; }
+    .waiting { font-style: italic; }
+    .summary-bar { border: 1px solid #1b8d5c88; border-radius: .6rem; padding: .3rem 1rem; margin: .6rem 0; }
+    .advanced { margin: 1rem 0; }
+    .advanced > summary { cursor: pointer; font-weight: 600; padding: .5rem 0; }
+    input, select, textarea { max-width: 100%; box-sizing: border-box; }
+    @media (max-width: 40rem) { body { margin: 1rem auto; } input[type=url] { width: 100%; } }
   </style>
 </head>
 <body>
   <h1>FBL Draft Control</h1>
-  <p id="state">Disconnected</p>
-  <section class="card" id="setup-card" hidden>
-    <h2 id="setup-title">Set up your ESPN league</h2>
-    <p id="setup-help">Open the ESPN basketball draft room for your league and click the FBL Advisor bookmarklet below. It reads the visible team list and IDs without connecting a session. Then select your team here.</p>
-    <div id="setup-fields">
-      <label>Source ESPN team URL<br><input id="setup-url-input" type="url" size="70" autocomplete="off" placeholder="https://fantasy.espn.com/basketball/team?..." required></label>
-      <button id="setup-source" type="button">Save source team</button>
-      <p id="setup-url">Save a source team URL before reading the draft room.</p>
-      <label>Your team in the observed ESPN list<br><select id="setup-team" required><option value="">Waiting for ESPN team list…</option></select></label><br>
-      <button id="setup-save" type="button" disabled>Save setup</button>
+  <p id="state">Loading…</p>
+  <section class="card" id="setup-card">
+    <h2 id="setup-title">Get started</h2>
+    <p id="setup-help">A few quick steps, done once. You will need Chrome and your ESPN fantasy basketball league.</p>
+    <div id="setup-summary-bar" class="summary-bar" hidden>
+      <p id="setup-summary" role="status"></p>
+      <p id="setup-next"></p>
+      <button id="setup-edit" type="button" hidden>Change</button>
+      <button id="setup-toggle-steps" type="button" hidden>Show the steps again</button>
     </div>
-    <button id="setup-edit" type="button" hidden>Edit setup</button>
-    <p id="setup-summary" role="status"></p>
+    <ol id="setup-fields" class="steps">
+      <li class="step" id="step-1" data-state="current">
+        <div class="step-head"><span class="step-num">1</span><h3>Add the FBL Advisor bookmark</h3><span class="step-badge" id="step-1-badge">Do this now</span></div>
+        <div class="step-body" id="step-1-body">
+          <p><strong>Drag THIS link</strong> to the Chrome bookmarks bar (press Ctrl+Shift+B if the bar is hidden). <strong>Do not bookmark this panel page with the browser star</strong>; that saves this panel instead of the advisor.</p>
+          <a id="advisor-bookmarklet" class="bookmarklet-link" href="__BOOKMARKLET_HREF__" draggable="true" aria-describedby="advisor-bookmarklet-note">FBL Advisor — drag THIS link to bookmarks</a>
+          <p id="advisor-bookmarklet-note">__BOOKMARKLET_NOTE__</p>
+          <p class="bookmarklet-help"><button id="copy-advisor-bookmarklet" type="button">Copy bookmarklet URL</button> If dragging is inconvenient, copy the URL below, create a Chrome bookmark, and paste it into the bookmark’s <strong>URL</strong> field.</p>
+          <textarea id="advisor-bookmarklet-url" class="bookmarklet-url" rows="3" readonly spellcheck="false" aria-label="Advisor bookmarklet URL">__BOOKMARKLET_HREF__</textarea>
+          <p id="advisor-bookmarklet-status" class="bookmarklet-status" role="status" aria-live="polite"></p>
+          <ol id="advisor-bookmarklet-steps">
+            <li>Right-click the Chrome bookmarks bar and choose <strong>Add page</strong>.</li>
+            <li>Name it <strong>FBL Advisor</strong>.</li>
+            <li>Paste the copied text into <strong>URL</strong>, then save.</li>
+          </ol>
+          <button id="bookmark-done" type="button">I’ve added it</button>
+        </div>
+      </li>
+      <li class="step" id="step-2" data-state="upcoming">
+        <div class="step-head"><span class="step-num">2</span><h3>Link your ESPN league</h3><span class="step-badge" id="step-2-badge">Next</span></div>
+        <div class="step-body" id="step-2-body">
+          <p class="hint">On ESPN, open <strong>My Team</strong> for your fantasy basketball league and copy the full address from the browser’s address bar.</p>
+          <label>Your ESPN team page address<br><input id="setup-url-input" type="url" size="70" autocomplete="off" placeholder="https://fantasy.espn.com/basketball/team?..." required></label>
+          <button id="setup-source" type="button">Save</button>
+          <p id="setup-url" role="status">Paste your team page address, then press Save.</p>
+        </div>
+      </li>
+      <li class="step" id="step-3" data-state="upcoming">
+        <div class="step-head"><span class="step-num">3</span><h3>Choose your team</h3><span class="step-badge" id="step-3-badge">Next</span></div>
+        <div class="step-body" id="step-3-body">
+          <p>Open a <strong>practice draft</strong> (or your real draft) room for this league on ESPN, then click the <strong>FBL Advisor</strong> bookmark. You can pick your team here or inside the ESPN overlay.</p>
+          <p id="setup-team-status" class="waiting" role="status">Waiting for the ESPN team list…</p>
+          <label>Your team<br><select id="setup-team" required><option value="">Waiting for ESPN team list…</option></select></label><br>
+          <button id="setup-save" type="button" disabled>Save setup</button>
+        </div>
+      </li>
+      <li class="step" id="step-4" data-state="upcoming">
+        <div class="step-head"><span class="step-num">4</span><h3>Capture the player catalog in a practice draft</h3><span class="step-badge" id="step-4-badge">Next</span></div>
+        <div class="step-body" id="step-4-body">
+          <p>In a <strong>practice draft room</strong> on ESPN, click the FBL Advisor bookmark and press <strong>Capture inputs</strong>. Keep that browser tab visible (do not switch tabs or minimize the window) until it says it has finished.</p>
+        </div>
+      </li>
+      <li class="step" id="step-5" data-state="upcoming">
+        <div class="step-head"><span class="step-num">5</span><h3>Draft day</h3><span class="step-badge" id="step-5-badge">Later</span></div>
+        <div class="step-body" id="step-5-body">
+          <p>Open your real draft room on ESPN and click the FBL Advisor bookmark. Confirm it says <strong>Loaded saved scan</strong>, then press <strong>Start observing</strong>.</p>
+        </div>
+      </li>
+    </ol>
   </section>
+  <details id="advanced" class="advanced">
+    <summary>Advanced: manual room control and diagnostics</summary>
   <section class="card">
     <h2>Room</h2>
     <input id="room-url" type="url" placeholder="https://fantasy.espn.com/basketball/team?..." size="55" autocomplete="off">
@@ -45,20 +115,6 @@
     <button id="connect">Connect</button>
     <p id="room-note">Paste an ESPN team or draft URL. FBL reads leagueId, teamId, and seasonId automatically. Connecting only observes; Start is always explicit.</p>
     <p id="room-identity">No verified room.</p>
-  </section>
-  <section class="card bookmarklet-install" id="advisor-bookmarklet-card">
-    <h2>Install the ESPN advisor bookmarklet</h2>
-    <p><strong>Drag THIS link</strong> to the Chrome bookmarks bar. <strong>Do not bookmark this panel page with the browser star</strong>; that saves the localhost panel instead of the advisor.</p>
-    <a id="advisor-bookmarklet" class="bookmarklet-link" href="__BOOKMARKLET_HREF__" draggable="true" aria-describedby="advisor-bookmarklet-note">FBL Advisor — drag THIS link to bookmarks</a>
-    <p id="advisor-bookmarklet-note">__BOOKMARKLET_NOTE__</p>
-    <p class="bookmarklet-help"><button id="copy-advisor-bookmarklet" type="button">Copy bookmarklet URL</button> If dragging is inconvenient, copy the URL below, create a Chrome bookmark, and paste it into the bookmark’s <strong>URL</strong> field.</p>
-    <textarea id="advisor-bookmarklet-url" class="bookmarklet-url" rows="3" readonly spellcheck="false" aria-label="Advisor bookmarklet URL">__BOOKMARKLET_HREF__</textarea>
-    <p id="advisor-bookmarklet-status" class="bookmarklet-status" role="status" aria-live="polite"></p>
-    <ol id="advisor-bookmarklet-steps">
-      <li>Right-click the Chrome bookmarks bar and choose <strong>Add page</strong>.</li>
-      <li>Name it <strong>FBL Advisor</strong>.</li>
-      <li>Paste the copied text into <strong>URL</strong>, then save.</li>
-    </ol>
   </section>
   <section class="card">
     <h2>Controls</h2>
@@ -87,6 +143,7 @@
     <h3>Last confirmed action</h3><div id="last-confirmed">No confirmed action.</div>
     <h3>Journal</h3><pre id="journal">No journal entries.</pre>
   </section>
+  </details>
   <script>window.FBL_CSRF_TOKEN = "__CSRF_TOKEN__";</script>
   <script src="/app.js" defer></script>
 </body>

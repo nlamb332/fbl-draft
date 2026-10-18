@@ -230,6 +230,7 @@ class DraftRequestHandler(BaseHTTPRequestHandler):
             self._send(HTTPStatus.OK, build_bundle().text, content_type="text/javascript; charset=utf-8")
             return
         if parsed.path == "/advisor-bookmarklet.js" and getattr(self.server, "page_runner_enabled", False):
+            self.server.bookmarklet_seen = True
             # The runtime contains loader code only.  It receives the current
             # token and bundle hash from the nonce-bound bridge in the ESPN
             # page, so this response never embeds either secret or a stale
@@ -267,7 +268,15 @@ class DraftRequestHandler(BaseHTTPRequestHandler):
             self._send(HTTPStatus.OK, result)
             return
         if parsed.path == "/api/setup":
-            self._send(HTTPStatus.OK, {"configured": getattr(self.server, "setup_complete", False), "team": getattr(self.server, "setup_summary", None)})
+            pending = getattr(self.server, "setup_pending_source", None)
+            candidates = getattr(self.server, "setup_candidates", None)
+            self._send(HTTPStatus.OK, {
+                "configured": getattr(self.server, "setup_complete", False),
+                "team": getattr(self.server, "setup_summary", None),
+                "pending_source": dict(pending) if isinstance(pending, dict) else None,
+                "team_options_ready": bool(isinstance(candidates, dict) and candidates.get("team_options")),
+                "bookmarklet_seen": bool(getattr(self.server, "bookmarklet_seen", False)),
+            })
             return
         if parsed.path == "/api/setup/options":
             self._send(HTTPStatus.OK, getattr(self.server, "setup_candidates", None) or {})
@@ -565,6 +574,7 @@ class DraftRequestHandler(BaseHTTPRequestHandler):
                 raise CoordinatorError("observer token does not match the requested session")
 
         if operation == "connect-advisor":
+            self.server.bookmarklet_seen = True
             return self._operator_envelope(operation, self._connect_advisor(body), status="advisor_connected")
         if operation == "claim-owner":
             return self._operator_envelope(operation, self.coordinator.ownership.claim(str(body["session_id"]), label=str(body.get("label", ""))), status="owner_claimed")
@@ -924,6 +934,7 @@ class DraftHTTPServer(ThreadingHTTPServer):
         self.setup_complete = setup_complete
         self.setup_candidates = None
         self.setup_pending_source = setup_pending_source
+        self.bookmarklet_seen = False
         self.setup_summary = ({"league_id": coordinator.config.league_id, "season_id": coordinator.config.season_id, "team_id": coordinator.config.team_id, "our_team": coordinator.config.our_team} if setup_complete else None)
         # These credentials intentionally live only for this server process;
         # they are never persisted in Coordinator's SQLite state or exposed by

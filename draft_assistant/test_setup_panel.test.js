@@ -54,7 +54,7 @@ test("first-run panel saves source, selects only observed teams, saves, and pres
   const stepStates = () => [1, 2, 3, 4, 5].map((n) => nodes.get(`step-${n}`).dataset.state);
   assert.equal(nodes.get("setup-card").hidden, false);
   assert.deepEqual(stepStates(), ["current", "upcoming", "upcoming", "upcoming", "upcoming"]);
-  assert.match(nodes.get("state").textContent, /Step 1 of 3/);
+  assert.match(nodes.get("state").textContent, /Setup step 1 of 3/);
   await nodes.get("bookmark-done").handlers.click();
   assert.deepEqual(stepStates(), ["done", "current", "upcoming", "upcoming", "upcoming"]);
   nodes.get("setup-url-input").value = "https://fantasy.espn.com/basketball/team?leagueId=2000000000&seasonId=2028&teamId=7";
@@ -105,6 +105,6 @@ test("bookmark step completes automatically when the server saw the bookmarklet"
   await new Promise((resolve) => setImmediate(resolve));
   assert.equal(node("step-1").dataset.state, "done");
   assert.equal(node("step-2").dataset.state, "current");
-  assert.match(node("state").textContent, /Step 2 of 3/);
+  assert.match(node("state").textContent, /Setup step 2 of 3/);
   await node("bookmark-done").handlers.click();
 });

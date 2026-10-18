@@ -51,9 +51,9 @@
       $("setup-summary").textContent = summaryLine(setupInfo.team);
       $("setup-next").textContent = "Next: capture the player catalog in a practice draft (step 4), then use the bookmark in your real draft room on draft day.";
       setupPhaseText = "Setup is complete. Open your ESPN draft room and click the FBL Advisor bookmark when you are ready.";
-    } else if (current === 1) setupPhaseText = "Step 1 of 3: add the FBL Advisor bookmark to Chrome.";
-    else if (current === 2) setupPhaseText = "Step 2 of 3: paste your ESPN team page address to link your league.";
-    else setupPhaseText = setupInfo.team_options_ready ? "Step 3 of 3: choose your team from the list below." : "Step 3 of 3: open an ESPN draft room and click the FBL Advisor bookmark. Waiting for the team list…";
+    } else if (current === 1) setupPhaseText = "Setup step 1 of 3: add the FBL Advisor bookmark to Chrome.";
+    else if (current === 2) setupPhaseText = "Setup step 2 of 3: paste your ESPN team page address to link your league.";
+    else setupPhaseText = setupInfo.team_options_ready ? "Setup step 3 of 3: choose your team from the list below." : "Setup step 3 of 3: open an ESPN draft room and click the FBL Advisor bookmark, then pick your team in the box that appears there.";
     if (!sessionId) $("state").textContent = setupPhaseText;
   }
   function update(data) {

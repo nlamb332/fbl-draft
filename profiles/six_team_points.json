@@ -1,0 +1,62 @@
+{
+  "profile_id": "six_team_points_research",
+  "status": "research_only_advisory",
+  "live_consumption": false,
+  "consumer": "mock_draft.six_team",
+  "settings": {
+    "total_teams": 6,
+    "rounds": 14,
+    "picks": 84,
+    "starting_slots": ["PG", "SG", "G", "SF", "PF", "F", "C", "UTIL", "UTIL"],
+    "bench_slots": 5,
+    "ir_slots": null,
+    "snake_draft": true,
+    "keeper": false,
+    "daily_lineups": true,
+    "double_double_includes_triple_double": true,
+    "threshold_bonuses_stack": true
+  },
+  "scoring": {
+    "PTS": 0.5,
+    "REB": 1,
+    "AST": 1,
+    "STL": 2,
+    "BLK": 2,
+    "TO": -1,
+    "DD": 1,
+    "TD": 2,
+    "TF": -2,
+    "FLAGRANT_FOUL": -2,
+    "3PM": 0.5,
+    "POINTS_40_PLUS": 2,
+    "POINTS_50_PLUS": 2
+  },
+  "forecast_rate_semantics": {
+    "DD": "inclusive_rate_that_includes_triple_double_events",
+    "TD": "triple_double_rate_subset_of_DD",
+    "POINTS_40_PLUS": "inclusive_rate_that_includes_50_plus_events",
+    "POINTS_50_PLUS": "50_plus_rate_subset_of_40_plus"
+  },
+  "strategies": [
+    "custom_per_game",
+    "availability",
+    "market",
+    "lineup_aware",
+    "big_preference"
+  ],
+  "strategy_principles": [
+    "Use the six-team profile only for bounded research and advisory comparison; it is not a live LeagueConfig.",
+    "Draft from forecast records and select daily starters from forecast values plus the known synthetic schedule.",
+    "Score the forecast-selected starter IDs with a separate realized-stat world after selection so realized values do not leak into draft decisions.",
+    "Compare custom per-game, availability, market, lineup-aware, and fixed big-preference strategies on paired pools and seats.",
+    "Select a strategy on development seeds only and audit the fixed choice on independent held-out pool seeds."
+  ],
+  "evidence_limitations": [
+    "All pools, schedules, opponent profiles, availability, bonus rates, and realized shocks are generated assumptions rather than NBA or ESPN observations.",
+    "Native eligibility uses PG/SG/SF/PF/C records with G/F eligibility matching for generic slots; it is a research model, not a live ESPN rules probe.",
+    "IR is null and unverified in this profile; no IR behavior is modeled.",
+    "The lineup-aware score is a transparent slot-coverage heuristic and is not production marginal-lineup-v1.",
+    "The profile assumes daily lineups, no keeper rules, and snake draft order for this bounded study.",
+    "The small independent seed sets support reproducible sensitivity checks, not calibrated win probabilities or league forecasts."
+  ]
+}

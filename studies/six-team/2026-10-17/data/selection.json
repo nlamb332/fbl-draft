@@ -1,0 +1,8 @@
+{
+  "development_selected_strategy": "lineup_aware",
+  "development_paired_delta_mean": 41.99576909040195,
+  "selected_strategy_heldout_paired_delta_mean": 55.42331654458459,
+  "heldout_best_strategy_in_tested_set": "lineup_aware",
+  "heldout_best_paired_delta_mean": 55.42331654458459,
+  "selection_basis": "highest mean paired realized weekly points delta on development seeds; tie-break fewer inactive starters"
+}

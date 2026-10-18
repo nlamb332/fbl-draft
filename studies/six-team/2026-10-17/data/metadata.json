@@ -1,0 +1,65 @@
+{
+  "profile_id": "six_team_points_research",
+  "profile_sha256": "07e028e7fe4bfbbb66848a72e154424a9c20bcd38649bfaf962e8455a1397312",
+  "engine_sha256": "ed1746f173baad98b7975c4b19b0763f59866b5955aaf89eab1837394bf35c9e",
+  "teams": 6,
+  "rounds": 14,
+  "picks_per_draft": 84,
+  "roster_size": 14,
+  "starting_slots": [
+    "PG",
+    "SG",
+    "G",
+    "SF",
+    "PF",
+    "F",
+    "C",
+    "UTIL",
+    "UTIL"
+  ],
+  "bench_slots": 5,
+  "strategies": [
+    "custom_per_game",
+    "availability",
+    "market",
+    "lineup_aware",
+    "big_preference"
+  ],
+  "development_seeds": [
+    101,
+    102,
+    103,
+    104
+  ],
+  "heldout_seeds": [
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208
+  ],
+  "runs": 360,
+  "player_count": 126,
+  "schedule_days": 7,
+  "forecast_source": "synthetic_six_team_research",
+  "realized_source": "synthetic_six_team_realized",
+  "forecast_rate_semantics": {
+    "DD": "inclusive_rate_that_includes_triple_double_events",
+    "TD": "triple_double_rate_subset_of_DD",
+    "POINTS_40_PLUS": "inclusive_rate_that_includes_50_plus_events",
+    "POINTS_50_PLUS": "50_plus_rate_subset_of_40_plus"
+  },
+  "opponent_profile_library": 13,
+  "opponent_profiles_per_draft": 5,
+  "selection": {
+    "development_selected_strategy": "lineup_aware",
+    "development_paired_delta_mean": 41.99576909040195,
+    "selected_strategy_heldout_paired_delta_mean": 55.42331654458459,
+    "heldout_best_strategy_in_tested_set": "lineup_aware",
+    "heldout_best_paired_delta_mean": 55.42331654458459,
+    "selection_basis": "highest mean paired realized weekly points delta on development seeds; tie-break fewer inactive starters"
+  }
+}

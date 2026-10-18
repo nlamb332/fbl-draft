@@ -1,0 +1,41 @@
+{
+  "selected_strategy": "lineup_aware",
+  "heldout_pool_seeds": [
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208
+  ],
+  "bootstrap_resamples": 4000,
+  "bootstrap_seed": 20261017,
+  "paired_comparisons": [
+    {
+      "baseline": "availability",
+      "mean": 24.180611184428926,
+      "low": -2.1982889160005357,
+      "high": 51.07672389613535
+    },
+    {
+      "baseline": "custom_per_game",
+      "mean": 55.42331654458451,
+      "low": 5.263597138944054,
+      "high": 110.48501993015554
+    },
+    {
+      "baseline": "market",
+      "mean": 62.500679653213666,
+      "low": 9.850040796714538,
+      "high": 122.6087936447855
+    },
+    {
+      "baseline": "big_preference",
+      "mean": 117.95504739475973,
+      "low": 82.2723900450205,
+      "high": 151.9390574953545
+    }
+  ]
+}

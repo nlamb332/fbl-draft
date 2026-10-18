@@ -5,6 +5,10 @@ and its draft-strategy research. The package is self-contained: the live draft
 control plane and browser observer use only `draft_assistant` and `mock_draft`
 modules in this repository, with no dependency on the season-management code.
 
+For six-person leagues, see the [six-team strategy profile](docs/SIX_TEAM_STRATEGY.md).
+It uses the supplied Sleeper scoring and nine starters plus five bench players;
+the accompanying simulations are exploratory strategy research.
+
 ## Quick start (Windows)
 
 1. Install [Python 3.10 or newer](https://www.python.org/downloads/) and tick

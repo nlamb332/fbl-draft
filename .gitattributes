@@ -21,3 +21,5 @@
 /mock_draft/test* export-ignore
 /mock_draft/results export-ignore
 /mock_draft/*.md export-ignore
+/sleeper_advisor/tests export-ignore
+/docs/SLEEPER_ADVISOR.md -export-ignore

@@ -1,0 +1,46 @@
+import unittest
+
+from sleeper_advisor.scoring import fantasy_points
+
+OBSERVED = {
+    "pts": 0.5, "reb": 1, "ast": 1, "stl": 2, "blk": 2, "to": -1, "tpm": 0.5,
+    "dd": 1, "td": 2, "bonus_pt_40p": 2, "bonus_pt_50p": 2, "tf": -2, "ff": -2,
+}
+
+
+class ScoringTests(unittest.TestCase):
+    def test_observed_settings_line(self):
+        stats = {"pts": 20, "reb": 10, "ast": 5, "stl": 1, "blk": 1, "to": 2,
+                 "tpm": 2, "dd": 0.5, "td": 0.1}
+        total, parts, warnings = fantasy_points(stats, OBSERVED)
+        self.assertAlmostEqual(total, 28.7)
+        self.assertAlmostEqual(parts["pts"], 10)
+        self.assertAlmostEqual(parts["to"], -2)
+        self.assertAlmostEqual(parts["td"], 0.2)
+        self.assertAlmostEqual(sum(parts.values()), total)
+        keys = {w.split("'")[1] for w in warnings}
+        self.assertEqual(keys, {"bonus_pt_40p", "bonus_pt_50p", "tf", "ff"})
+        self.assertEqual(len(warnings), 4)
+
+    def test_missing_dd_td_is_zero_without_warning(self):
+        total, parts, warnings = fantasy_points(
+            {"pts": 10}, {"pts": 0.5, "dd": 1, "td": 2})
+        self.assertAlmostEqual(total, 5)
+        self.assertEqual(warnings, ())
+        self.assertNotIn("dd", parts)
+
+    def test_extra_direct_keys(self):
+        total, _, warnings = fantasy_points(
+            {"fgm": 8, "fga": 16, "pf": 3}, {"fgm": 1, "fga": -0.5, "pf": -1})
+        self.assertAlmostEqual(total, 8 - 8 - 3)
+        self.assertEqual(warnings, ())
+
+    def test_zero_weight_ignored_and_deterministic(self):
+        a = fantasy_points({"pts": 1}, {"pts": 1, "zzz": 0, "qd": 3, "ff": -2})
+        b = fantasy_points({"pts": 1}, {"ff": -2, "qd": 3, "zzz": 0, "pts": 1})
+        self.assertEqual(a, b)
+        self.assertEqual(len(a[2]), 2)
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -1,0 +1,829 @@
+{
+ "9001": {
+  "player_id": "9001",
+  "full_name": "Blake Sample01",
+  "first_name": "Blake",
+  "last_name": "Sample01",
+  "fantasy_positions": [
+   "C",
+   "PF"
+  ],
+  "team": "BOS",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9002": {
+  "player_id": "9002",
+  "full_name": "Casey Sample02",
+  "first_name": "Casey",
+  "last_name": "Sample02",
+  "fantasy_positions": [
+   "PG"
+  ],
+  "team": "LAL",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9003": {
+  "player_id": "9003",
+  "full_name": "Devon Sample03",
+  "first_name": "Devon",
+  "last_name": "Sample03",
+  "fantasy_positions": [
+   "SG",
+   "SF"
+  ],
+  "team": "MIL",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9004": {
+  "player_id": "9004",
+  "full_name": "Eli Sample04",
+  "first_name": "Eli",
+  "last_name": "Sample04",
+  "fantasy_positions": [
+   "PF"
+  ],
+  "team": "PHX",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9005": {
+  "player_id": "9005",
+  "full_name": "Finn Sample05",
+  "first_name": "Finn",
+  "last_name": "Sample05",
+  "fantasy_positions": [
+   "C"
+  ],
+  "team": "MIA",
+  "injury_status": "Out",
+  "active": true,
+  "sport": "nba"
+ },
+ "9006": {
+  "player_id": "9006",
+  "full_name": "Gray Sample06",
+  "first_name": "Gray",
+  "last_name": "Sample06",
+  "fantasy_positions": [
+   "PG",
+   "SG"
+  ],
+  "team": "DAL",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9007": {
+  "player_id": "9007",
+  "full_name": "Marko Đurić",
+  "first_name": "Marko",
+  "last_name": "Đurić",
+  "fantasy_positions": [
+   "SF"
+  ],
+  "team": "NYK",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9008": {
+  "player_id": "9008",
+  "full_name": "Indy Sample08",
+  "first_name": "Indy",
+  "last_name": "Sample08",
+  "fantasy_positions": [
+   "SF",
+   "PF"
+  ],
+  "team": "GSW",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9009": {
+  "player_id": "9009",
+  "full_name": "Jules Sample09",
+  "first_name": "Jules",
+  "last_name": "Sample09",
+  "fantasy_positions": [
+   "C"
+  ],
+  "team": "OKC",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9010": {
+  "player_id": "9010",
+  "full_name": "Kai Sample10",
+  "first_name": "Kai",
+  "last_name": "Sample10",
+  "fantasy_positions": [
+   "SG"
+  ],
+  "team": "DEN",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9011": {
+  "player_id": "9011",
+  "full_name": "Lane Sample11",
+  "first_name": "Lane",
+  "last_name": "Sample11",
+  "fantasy_positions": [
+   "PF",
+   "C"
+  ],
+  "team": "BOS",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9012": {
+  "player_id": "9012",
+  "full_name": "Alex Sample12",
+  "first_name": "Alex",
+  "last_name": "Sample12",
+  "fantasy_positions": [
+   "PG"
+  ],
+  "team": "LAL",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9013": {
+  "player_id": "9013",
+  "full_name": "Blake Sample13",
+  "first_name": "Blake",
+  "last_name": "Sample13",
+  "fantasy_positions": [
+   "C",
+   "PF"
+  ],
+  "team": "MIL",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9014": {
+  "player_id": "9014",
+  "full_name": "Casey Sample14",
+  "first_name": "Casey",
+  "last_name": "Sample14",
+  "fantasy_positions": [
+   "PG"
+  ],
+  "team": "PHX",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9015": {
+  "player_id": "9015",
+  "full_name": "Devon Sample15",
+  "first_name": "Devon",
+  "last_name": "Sample15",
+  "fantasy_positions": [
+   "SG",
+   "SF"
+  ],
+  "team": "MIA",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9016": {
+  "player_id": "9016",
+  "full_name": "Eli Sample16",
+  "first_name": "Eli",
+  "last_name": "Sample16",
+  "fantasy_positions": [
+   "PF"
+  ],
+  "team": "DAL",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9017": {
+  "player_id": "9017",
+  "full_name": "Finn Sample17",
+  "first_name": "Finn",
+  "last_name": "Sample17",
+  "fantasy_positions": [
+   "C"
+  ],
+  "team": "NYK",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9018": {
+  "player_id": "9018",
+  "full_name": "Gray Sample18",
+  "first_name": "Gray",
+  "last_name": "Sample18",
+  "fantasy_positions": [
+   "PG",
+   "SG"
+  ],
+  "team": "GSW",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9019": {
+  "player_id": "9019",
+  "full_name": "Harper Sample19",
+  "first_name": "Harper",
+  "last_name": "Sample19",
+  "fantasy_positions": [
+   "SF"
+  ],
+  "team": "OKC",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9020": {
+  "player_id": "9020",
+  "full_name": "Indy Sample20",
+  "first_name": "Indy",
+  "last_name": "Sample20",
+  "fantasy_positions": [
+   "SF",
+   "PF"
+  ],
+  "team": "DEN",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9021": {
+  "player_id": "9021",
+  "full_name": "Jules Sample21",
+  "first_name": "Jules",
+  "last_name": "Sample21",
+  "fantasy_positions": [
+   "C"
+  ],
+  "team": "BOS",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9022": {
+  "player_id": "9022",
+  "full_name": "Kai Sample22",
+  "first_name": "Kai",
+  "last_name": "Sample22",
+  "fantasy_positions": [
+   "SG"
+  ],
+  "team": "LAL",
+  "injury_status": "Doubtful",
+  "active": true,
+  "sport": "nba"
+ },
+ "9023": {
+  "player_id": "9023",
+  "full_name": "Lane Sample23",
+  "first_name": "Lane",
+  "last_name": "Sample23",
+  "fantasy_positions": [
+   "PF",
+   "C"
+  ],
+  "team": "MIL",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9024": {
+  "player_id": "9024",
+  "full_name": "Alex Sample24",
+  "first_name": "Alex",
+  "last_name": "Sample24",
+  "fantasy_positions": [
+   "PG"
+  ],
+  "team": "PHX",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9025": {
+  "player_id": "9025",
+  "full_name": "Blake Sample25",
+  "first_name": "Blake",
+  "last_name": "Sample25",
+  "fantasy_positions": [
+   "C",
+   "PF"
+  ],
+  "team": "MIA",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9026": {
+  "player_id": "9026",
+  "full_name": "Casey Sample26",
+  "first_name": "Casey",
+  "last_name": "Sample26",
+  "fantasy_positions": [
+   "PG"
+  ],
+  "team": "DAL",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9027": {
+  "player_id": "9027",
+  "full_name": "Devon Sample27",
+  "first_name": "Devon",
+  "last_name": "Sample27",
+  "fantasy_positions": [
+   "SG",
+   "SF"
+  ],
+  "team": "NYK",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9028": {
+  "player_id": "9028",
+  "full_name": "Eli Sample28",
+  "first_name": "Eli",
+  "last_name": "Sample28",
+  "fantasy_positions": [
+   "PF"
+  ],
+  "team": "GSW",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9029": {
+  "player_id": "9029",
+  "full_name": "Finn Sample29",
+  "first_name": "Finn",
+  "last_name": "Sample29",
+  "fantasy_positions": [
+   "C"
+  ],
+  "team": "OKC",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9030": {
+  "player_id": "9030",
+  "full_name": "Gray Sample30",
+  "first_name": "Gray",
+  "last_name": "Sample30",
+  "fantasy_positions": [
+   "PG",
+   "SG"
+  ],
+  "team": "DEN",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9031": {
+  "player_id": "9031",
+  "full_name": "Harper Sample31",
+  "first_name": "Harper",
+  "last_name": "Sample31",
+  "fantasy_positions": [
+   "SF"
+  ],
+  "team": "BOS",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9032": {
+  "player_id": "9032",
+  "full_name": "Indy Sample32",
+  "first_name": "Indy",
+  "last_name": "Sample32",
+  "fantasy_positions": [
+   "SF",
+   "PF"
+  ],
+  "team": "LAL",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9033": {
+  "player_id": "9033",
+  "full_name": "Jules Sample33",
+  "first_name": "Jules",
+  "last_name": "Sample33",
+  "fantasy_positions": [
+   "C"
+  ],
+  "team": "MIL",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9034": {
+  "player_id": "9034",
+  "full_name": "Kai Sample34",
+  "first_name": "Kai",
+  "last_name": "Sample34",
+  "fantasy_positions": [
+   "SG"
+  ],
+  "team": "PHX",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9035": {
+  "player_id": "9035",
+  "full_name": "Lane Sample35",
+  "first_name": "Lane",
+  "last_name": "Sample35",
+  "fantasy_positions": [
+   "PF",
+   "C"
+  ],
+  "team": "MIA",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9036": {
+  "player_id": "9036",
+  "full_name": "Alex Sample36",
+  "first_name": "Alex",
+  "last_name": "Sample36",
+  "fantasy_positions": [
+   "PG"
+  ],
+  "team": "DAL",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9037": {
+  "player_id": "9037",
+  "full_name": "Blake Sample37",
+  "first_name": "Blake",
+  "last_name": "Sample37",
+  "fantasy_positions": [
+   "C",
+   "PF"
+  ],
+  "team": "NYK",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9038": {
+  "player_id": "9038",
+  "full_name": "Casey Sample38",
+  "first_name": "Casey",
+  "last_name": "Sample38",
+  "fantasy_positions": [
+   "PG"
+  ],
+  "team": "GSW",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9039": {
+  "player_id": "9039",
+  "full_name": "Devon Sample39",
+  "first_name": "Devon",
+  "last_name": "Sample39",
+  "fantasy_positions": [
+   "SG",
+   "SF"
+  ],
+  "team": "OKC",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9040": {
+  "player_id": "9040",
+  "full_name": "Eli Sample40",
+  "first_name": "Eli",
+  "last_name": "Sample40",
+  "fantasy_positions": [
+   "PF"
+  ],
+  "team": "DEN",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9041": {
+  "player_id": "9041",
+  "full_name": "Finn Sample41",
+  "first_name": "Finn",
+  "last_name": "Sample41",
+  "fantasy_positions": [
+   "C"
+  ],
+  "team": "BOS",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9042": {
+  "player_id": "9042",
+  "full_name": "Gray Sample42",
+  "first_name": "Gray",
+  "last_name": "Sample42",
+  "fantasy_positions": [
+   "PG",
+   "SG"
+  ],
+  "team": "LAL",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9043": {
+  "player_id": "9043",
+  "full_name": "Harper Sample43",
+  "first_name": "Harper",
+  "last_name": "Sample43",
+  "fantasy_positions": [
+   "SF"
+  ],
+  "team": "MIL",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9044": {
+  "player_id": "9044",
+  "full_name": "Indy Sample44",
+  "first_name": "Indy",
+  "last_name": "Sample44",
+  "fantasy_positions": [
+   "SF",
+   "PF"
+  ],
+  "team": "PHX",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9045": {
+  "player_id": "9045",
+  "full_name": "Jules Sample45",
+  "first_name": "Jules",
+  "last_name": "Sample45",
+  "fantasy_positions": [
+   "C"
+  ],
+  "team": "MIA",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9046": {
+  "player_id": "9046",
+  "full_name": "Kai Sample46",
+  "first_name": "Kai",
+  "last_name": "Sample46",
+  "fantasy_positions": [
+   "SG"
+  ],
+  "team": "DAL",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9047": {
+  "player_id": "9047",
+  "full_name": "Lane Sample47",
+  "first_name": "Lane",
+  "last_name": "Sample47",
+  "fantasy_positions": [
+   "PF",
+   "C"
+  ],
+  "team": "NYK",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9048": {
+  "player_id": "9048",
+  "full_name": "Alex Sample48",
+  "first_name": "Alex",
+  "last_name": "Sample48",
+  "fantasy_positions": [
+   "PG"
+  ],
+  "team": "GSW",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9049": {
+  "player_id": "9049",
+  "full_name": "Blake Sample49",
+  "first_name": "Blake",
+  "last_name": "Sample49",
+  "fantasy_positions": [
+   "C",
+   "PF"
+  ],
+  "team": "OKC",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9050": {
+  "player_id": "9050",
+  "full_name": "Casey Sample50",
+  "first_name": "Casey",
+  "last_name": "Sample50",
+  "fantasy_positions": [
+   "PG"
+  ],
+  "team": "DEN",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9051": {
+  "player_id": "9051",
+  "full_name": "Devon Sample51",
+  "first_name": "Devon",
+  "last_name": "Sample51",
+  "fantasy_positions": [
+   "SG",
+   "SF"
+  ],
+  "team": "BOS",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9052": {
+  "player_id": "9052",
+  "full_name": "Eli Sample52",
+  "first_name": "Eli",
+  "last_name": "Sample52",
+  "fantasy_positions": [
+   "PF"
+  ],
+  "team": "LAL",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9053": {
+  "player_id": "9053",
+  "full_name": "Finn Sample53",
+  "first_name": "Finn",
+  "last_name": "Sample53",
+  "fantasy_positions": [
+   "C"
+  ],
+  "team": "MIL",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9054": {
+  "player_id": "9054",
+  "full_name": "Gray Sample54",
+  "first_name": "Gray",
+  "last_name": "Sample54",
+  "fantasy_positions": [
+   "PG",
+   "SG"
+  ],
+  "team": "PHX",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9055": {
+  "player_id": "9055",
+  "full_name": "Harper Sample55",
+  "first_name": "Harper",
+  "last_name": "Sample55",
+  "fantasy_positions": [
+   "SF"
+  ],
+  "team": "MIA",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9056": {
+  "player_id": "9056",
+  "full_name": "Indy Sample56",
+  "first_name": "Indy",
+  "last_name": "Sample56",
+  "fantasy_positions": [
+   "SF",
+   "PF"
+  ],
+  "team": "DAL",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9057": {
+  "player_id": "9057",
+  "full_name": "Jules Sample57",
+  "first_name": "Jules",
+  "last_name": "Sample57",
+  "fantasy_positions": [
+   "C"
+  ],
+  "team": "NYK",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9058": {
+  "player_id": "9058",
+  "full_name": "Kai Sample58",
+  "first_name": "Kai",
+  "last_name": "Sample58",
+  "fantasy_positions": [
+   "SG"
+  ],
+  "team": "GSW",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9059": {
+  "player_id": "9059",
+  "full_name": "Lane Sample59",
+  "first_name": "Lane",
+  "last_name": "Sample59",
+  "fantasy_positions": [
+   "PF",
+   "C"
+  ],
+  "team": "OKC",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9060": {
+  "player_id": "9060",
+  "full_name": "Alex Sample60",
+  "first_name": "Alex",
+  "last_name": "Sample60",
+  "fantasy_positions": [
+   "PG"
+  ],
+  "team": "DEN",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9061": {
+  "player_id": "9061",
+  "full_name": "Unlisted Coach61",
+  "first_name": "Unlisted",
+  "last_name": "Coach61",
+  "fantasy_positions": [],
+  "team": "BOS",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ },
+ "9062": {
+  "player_id": "9062",
+  "full_name": "Unlisted Coach62",
+  "first_name": "Unlisted",
+  "last_name": "Coach62",
+  "fantasy_positions": [],
+  "team": "LAL",
+  "injury_status": null,
+  "active": true,
+  "sport": "nba"
+ }
+}

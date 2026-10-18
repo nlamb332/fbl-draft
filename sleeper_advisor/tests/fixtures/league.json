@@ -1,0 +1,37 @@
+{
+ "league_id": "800000000000000001",
+ "name": "Example League",
+ "season": "2026",
+ "total_rosters": 6,
+ "roster_positions": [
+  "PG",
+  "SG",
+  "G",
+  "SF",
+  "PF",
+  "F",
+  "C",
+  "UTIL",
+  "UTIL",
+  "BN",
+  "BN",
+  "BN",
+  "BN",
+  "BN"
+ ],
+ "scoring_settings": {
+  "ast": 1.0,
+  "blk": 2.0,
+  "bonus_pt_40p": 2.0,
+  "bonus_pt_50p": 2.0,
+  "dd": 1.0,
+  "ff": -2.0,
+  "pts": 0.5,
+  "reb": 1.0,
+  "stl": 2.0,
+  "td": 2.0,
+  "tf": -2.0,
+  "to": -1.0,
+  "tpm": 0.5
+ }
+}

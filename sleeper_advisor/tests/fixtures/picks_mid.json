@@ -1,0 +1,212 @@
+[
+ {
+  "pick_no": 1,
+  "round": 1,
+  "draft_slot": 1,
+  "roster_id": 1,
+  "picked_by": "700000000000000002",
+  "player_id": "9001",
+  "is_keeper": null,
+  "metadata": {
+   "first_name": "Blake",
+   "last_name": "Sample01",
+   "position": "C",
+   "team": "BOS"
+  }
+ },
+ {
+  "pick_no": 2,
+  "round": 1,
+  "draft_slot": 2,
+  "roster_id": 2,
+  "picked_by": "700000000000000001",
+  "player_id": "9002",
+  "is_keeper": null,
+  "metadata": {
+   "first_name": "Casey",
+   "last_name": "Sample02",
+   "position": "PG",
+   "team": "LAL"
+  }
+ },
+ {
+  "pick_no": 3,
+  "round": 1,
+  "draft_slot": 3,
+  "roster_id": 3,
+  "picked_by": "700000000000000003",
+  "player_id": "9003",
+  "is_keeper": null,
+  "metadata": {
+   "first_name": "Devon",
+   "last_name": "Sample03",
+   "position": "SG",
+   "team": "MIL"
+  }
+ },
+ {
+  "pick_no": 4,
+  "round": 1,
+  "draft_slot": 4,
+  "roster_id": 4,
+  "picked_by": "",
+  "player_id": "9005",
+  "is_keeper": null,
+  "metadata": {
+   "first_name": "Finn",
+   "last_name": "Sample05",
+   "position": "C",
+   "team": "MIA"
+  }
+ },
+ {
+  "pick_no": 5,
+  "round": 1,
+  "draft_slot": 5,
+  "roster_id": 5,
+  "picked_by": "",
+  "player_id": "9004",
+  "is_keeper": null,
+  "metadata": {
+   "first_name": "Eli",
+   "last_name": "Sample04",
+   "position": "PF",
+   "team": "PHX"
+  }
+ },
+ {
+  "pick_no": 6,
+  "round": 1,
+  "draft_slot": 6,
+  "roster_id": 6,
+  "picked_by": "",
+  "player_id": "9006",
+  "is_keeper": null,
+  "metadata": {
+   "first_name": "Gray",
+   "last_name": "Sample06",
+   "position": "PG",
+   "team": "DAL"
+  }
+ },
+ {
+  "pick_no": 7,
+  "round": 2,
+  "draft_slot": 6,
+  "roster_id": 6,
+  "picked_by": "",
+  "player_id": "9007",
+  "is_keeper": null,
+  "metadata": {
+   "first_name": "Marko",
+   "last_name": "Đurić",
+   "position": "SF",
+   "team": "NYK"
+  }
+ },
+ {
+  "pick_no": 8,
+  "round": 2,
+  "draft_slot": 5,
+  "roster_id": 5,
+  "picked_by": "",
+  "player_id": "9008",
+  "is_keeper": null,
+  "metadata": {
+   "first_name": "Indy",
+   "last_name": "Sample08",
+   "position": "SF",
+   "team": "GSW"
+  }
+ },
+ {
+  "pick_no": 9,
+  "round": 2,
+  "draft_slot": 4,
+  "roster_id": 4,
+  "picked_by": "",
+  "player_id": "9010",
+  "is_keeper": null,
+  "metadata": {
+   "first_name": "Kai",
+   "last_name": "Sample10",
+   "position": "SG",
+   "team": "DEN"
+  }
+ },
+ {
+  "pick_no": 10,
+  "round": 2,
+  "draft_slot": 3,
+  "roster_id": 3,
+  "picked_by": "700000000000000003",
+  "player_id": "9009",
+  "is_keeper": null,
+  "metadata": {
+   "first_name": "Jules",
+   "last_name": "Sample09",
+   "position": "C",
+   "team": "OKC"
+  }
+ },
+ {
+  "pick_no": 11,
+  "round": 2,
+  "draft_slot": 2,
+  "roster_id": 2,
+  "picked_by": "700000000000000001",
+  "player_id": "9012",
+  "is_keeper": null,
+  "metadata": {
+   "first_name": "Alex",
+   "last_name": "Sample12",
+   "position": "PG",
+   "team": "LAL"
+  }
+ },
+ {
+  "pick_no": 12,
+  "round": 2,
+  "draft_slot": 1,
+  "roster_id": 1,
+  "picked_by": "700000000000000002",
+  "player_id": "9011",
+  "is_keeper": null,
+  "metadata": {
+   "first_name": "Lane",
+   "last_name": "Sample11",
+   "position": "PF",
+   "team": "BOS"
+  }
+ },
+ {
+  "pick_no": 13,
+  "round": 3,
+  "draft_slot": 1,
+  "roster_id": 1,
+  "picked_by": "700000000000000002",
+  "player_id": "9013",
+  "is_keeper": null,
+  "metadata": {
+   "first_name": "Blake",
+   "last_name": "Sample13",
+   "position": "C",
+   "team": "MIL"
+  }
+ },
+ {
+  "pick_no": 14,
+  "round": 3,
+  "draft_slot": 2,
+  "roster_id": 2,
+  "picked_by": "700000000000000001",
+  "player_id": "9014",
+  "is_keeper": null,
+  "metadata": {
+   "first_name": "Casey",
+   "last_name": "Sample14",
+   "position": "PG",
+   "team": "PHX"
+  }
+ }
+]

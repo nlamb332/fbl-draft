@@ -1,0 +1,42 @@
+{
+ "draft_id": "900000000000000001",
+ "type": "snake",
+ "season": "2026",
+ "sport": "nba",
+ "league_id": "800000000000000001",
+ "slot_to_roster_id": {
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 5,
+  "6": 6
+ },
+ "metadata": {
+  "league_id": "800000000000000001",
+  "type": "league_mock",
+  "scoring_type": "std",
+  "name": "Example League Mock"
+ },
+ "settings": {
+  "teams": 6,
+  "rounds": 14,
+  "pick_timer": 120,
+  "slots_pg": 1,
+  "slots_sg": 1,
+  "slots_g": 1,
+  "slots_sf": 1,
+  "slots_pf": 1,
+  "slots_f": 1,
+  "slots_c": 1,
+  "slots_util": 2,
+  "slots_bn": 5,
+  "cpu_autopick": 1
+ },
+ "status": "drafting",
+ "draft_order": {
+  "700000000000000001": 1,
+  "700000000000000002": 2,
+  "700000000000000003": 3
+ }
+}

@@ -176,6 +176,13 @@ Read `docs/LOCALHOST_HANDOFF.md`, `docs/DRAFT_RUNBOOK.md`, and the attended
 draft skill before operating a visible ESPN room. Live operation requires the
 room-specific identity and an explicit user handoff described there.
 
+## Sleeper advisor
+
+A separate advisor for Sleeper NBA drafts lives in `sleeper_advisor/`. It uses
+Sleeper's public read-only API (no bookmarklet, no login) and your league's
+scoring. On Windows double-click **Launch Sleeper Advisor.cmd**; see
+[docs/SLEEPER_ADVISOR.md](docs/SLEEPER_ADVISOR.md).
+
 ## Provenance
 
 This is a source snapshot extracted from the original workspace repository.

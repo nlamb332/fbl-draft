@@ -1,0 +1,1528 @@
+[
+ {
+  "player_id": "9001",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 1.0,
+   "adp_dynasty": 4.5,
+   "pts": 27.5,
+   "reb": 9.0,
+   "ast": 8.8,
+   "stl": 1.18,
+   "blk": 1.36,
+   "to": 3.5,
+   "tpm": 1.04,
+   "gp": 1.0,
+   "sp": 2900.0,
+   "fgm": 11.96,
+   "fga": 25.0,
+   "ftm": 4.58,
+   "fta": 5.5,
+   "dd": 0.67,
+   "td": 0.31
+  },
+  "player": {
+   "fantasy_positions": [
+    "C",
+    "PF"
+   ],
+   "first_name": "Blake",
+   "last_name": "Sample01",
+   "injury_status": null,
+   "team": "BOS"
+  }
+ },
+ {
+  "player_id": "9002",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 2.8,
+   "adp_dynasty": 6.3,
+   "pts": 27.0,
+   "reb": 10.33,
+   "ast": 9.31,
+   "stl": 1.7,
+   "blk": 0.37,
+   "to": 3.46,
+   "tpm": 2.55,
+   "gp": 1.0,
+   "sp": 2847.8,
+   "fgm": 11.74,
+   "fga": 24.55,
+   "ftm": 4.5,
+   "fta": 5.4,
+   "dd": 0.64,
+   "td": 0.27
+  },
+  "player": {
+   "fantasy_positions": [
+    "PG"
+   ],
+   "first_name": "Casey",
+   "last_name": "Sample02",
+   "injury_status": null,
+   "team": "LAL"
+  }
+ },
+ {
+  "player_id": "9003",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 2.6,
+   "adp_dynasty": 6.1,
+   "pts": 26.51,
+   "reb": 7.27,
+   "ast": 4.66,
+   "stl": 1.47,
+   "blk": 0.36,
+   "to": 3.43,
+   "tpm": 2.51,
+   "gp": 1.0,
+   "sp": 2795.6,
+   "fgm": 11.53,
+   "fga": 24.1,
+   "ftm": 4.42,
+   "fta": 5.3,
+   "dd": 0.61,
+   "td": 0.23
+  },
+  "player": {
+   "fantasy_positions": [
+    "SG",
+    "SF"
+   ],
+   "first_name": "Devon",
+   "last_name": "Sample03",
+   "injury_status": null,
+   "team": "MIL"
+  }
+ },
+ {
+  "player_id": "9004",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 4.4,
+   "adp_dynasty": 7.9,
+   "pts": 26.01,
+   "reb": 7.62,
+   "ast": 6.48,
+   "stl": 1.34,
+   "blk": 0.78,
+   "to": 3.39,
+   "tpm": 2.46,
+   "gp": 1.0,
+   "sp": 2743.4,
+   "fgm": 11.31,
+   "fga": 23.65,
+   "ftm": 4.33,
+   "fta": 5.2,
+   "dd": 0.58,
+   "td": 0.19
+  },
+  "player": {
+   "fantasy_positions": [
+    "PF"
+   ],
+   "first_name": "Eli",
+   "last_name": "Sample04",
+   "injury_status": null,
+   "team": "PHX"
+  }
+ },
+ {
+  "player_id": "9005",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 4.2,
+   "adp_dynasty": 7.7,
+   "pts": 25.52,
+   "reb": 8.42,
+   "ast": 8.22,
+   "stl": 1.12,
+   "blk": 1.27,
+   "to": 3.36,
+   "tpm": 0.97,
+   "gp": 1.0,
+   "sp": 2691.2,
+   "fgm": 11.1,
+   "fga": 23.2,
+   "ftm": 4.25,
+   "fta": 5.1,
+   "dd": 0.55,
+   "td": 0.15
+  },
+  "player": {
+   "fantasy_positions": [
+    "C"
+   ],
+   "first_name": "Finn",
+   "last_name": "Sample05",
+   "injury_status": "Out",
+   "team": "MIA"
+  }
+ },
+ {
+  "player_id": "9006",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 6.0,
+   "adp_dynasty": 9.5,
+   "pts": 25.03,
+   "reb": 9.64,
+   "ast": 8.69,
+   "stl": 1.6,
+   "blk": 0.35,
+   "to": 3.32,
+   "tpm": 2.37,
+   "gp": 1.0,
+   "sp": 2639.0,
+   "fgm": 10.88,
+   "fga": 22.75,
+   "ftm": 4.17,
+   "fta": 5.01,
+   "dd": 0.52,
+   "td": 0.11
+  },
+  "player": {
+   "fantasy_positions": [
+    "PG",
+    "SG"
+   ],
+   "first_name": "Gray",
+   "last_name": "Sample06",
+   "injury_status": null,
+   "team": "DAL"
+  }
+ },
+ {
+  "player_id": "9007",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 7.8,
+   "adp_dynasty": 11.3,
+   "pts": 24.53,
+   "reb": 6.8,
+   "ast": 5.26,
+   "stl": 1.48,
+   "blk": 0.42,
+   "to": 3.28,
+   "tpm": 2.32,
+   "gp": 1.0,
+   "sp": 2586.8,
+   "fgm": 10.67,
+   "fga": 22.3,
+   "ftm": 4.09,
+   "fta": 4.91,
+   "dd": 0.49
+  },
+  "player": {
+   "fantasy_positions": [
+    "SF"
+   ],
+   "first_name": "Marko",
+   "last_name": "Đurić",
+   "injury_status": null,
+   "team": "NYK"
+  }
+ },
+ {
+  "player_id": "9008",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 7.6,
+   "adp_dynasty": 11.1,
+   "pts": 24.04,
+   "reb": 6.68,
+   "ast": 5.17,
+   "stl": 1.45,
+   "blk": 0.41,
+   "to": 3.25,
+   "tpm": 2.27,
+   "gp": 1.0,
+   "sp": 2534.6,
+   "fgm": 10.45,
+   "fga": 21.85,
+   "ftm": 4.01,
+   "fta": 4.81,
+   "dd": 0.46
+  },
+  "player": {
+   "fantasy_positions": [
+    "SF",
+    "PF"
+   ],
+   "first_name": "Indy",
+   "last_name": "Sample08",
+   "injury_status": null,
+   "team": "GSW"
+  }
+ },
+ {
+  "player_id": "9009",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 9.4,
+   "adp_dynasty": 12.9,
+   "pts": 23.54,
+   "reb": 7.85,
+   "ast": 7.65,
+   "stl": 1.05,
+   "blk": 1.18,
+   "to": 3.21,
+   "tpm": 0.89,
+   "gp": 1.0,
+   "sp": 2482.4,
+   "fgm": 10.23,
+   "fga": 21.4,
+   "ftm": 3.92,
+   "fta": 4.71,
+   "dd": 0.43
+  },
+  "player": {
+   "fantasy_positions": [
+    "C"
+   ],
+   "first_name": "Jules",
+   "last_name": "Sample09",
+   "injury_status": null,
+   "team": "OKC"
+  }
+ },
+ {
+  "player_id": "9010",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 9.2,
+   "adp_dynasty": 12.7,
+   "pts": 23.05,
+   "reb": 6.45,
+   "ast": 4.15,
+   "stl": 1.31,
+   "blk": 0.33,
+   "to": 3.18,
+   "tpm": 2.18,
+   "gp": 1.0,
+   "sp": 2430.2,
+   "fgm": 10.02,
+   "fga": 20.95,
+   "ftm": 3.84,
+   "fta": 4.61,
+   "dd": 0.4
+  },
+  "player": {
+   "fantasy_positions": [
+    "SG"
+   ],
+   "first_name": "Kai",
+   "last_name": "Sample10",
+   "injury_status": null,
+   "team": "DEN"
+  }
+ },
+ {
+  "player_id": "9011",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 11.0,
+   "adp_dynasty": 14.5,
+   "pts": 22.55,
+   "reb": 6.74,
+   "ast": 5.72,
+   "stl": 1.2,
+   "blk": 0.69,
+   "to": 3.14,
+   "tpm": 2.13,
+   "gp": 1.0,
+   "sp": 2378.0,
+   "fgm": 9.8,
+   "fga": 20.5,
+   "ftm": 3.76,
+   "fta": 4.51,
+   "dd": 0.37
+  },
+  "player": {
+   "fantasy_positions": [
+    "PF",
+    "C"
+   ],
+   "first_name": "Lane",
+   "last_name": "Sample11",
+   "injury_status": null,
+   "team": "BOS"
+  }
+ },
+ {
+  "player_id": "9012",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 12.8,
+   "adp_dynasty": 16.3,
+   "pts": 22.05,
+   "reb": 8.62,
+   "ast": 7.75,
+   "stl": 1.45,
+   "blk": 0.32,
+   "to": 3.1,
+   "tpm": 2.09,
+   "gp": 1.0,
+   "sp": 2325.8,
+   "fgm": 9.59,
+   "fga": 20.05,
+   "ftm": 3.68,
+   "fta": 4.41,
+   "dd": 0.34
+  },
+  "player": {
+   "fantasy_positions": [
+    "PG"
+   ],
+   "first_name": "Alex",
+   "last_name": "Sample12",
+   "injury_status": null,
+   "team": "LAL"
+  }
+ },
+ {
+  "player_id": "9013",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 12.6,
+   "adp_dynasty": 16.1,
+   "pts": 21.56,
+   "reb": 7.27,
+   "ast": 7.07,
+   "stl": 0.99,
+   "blk": 1.09,
+   "to": 3.07,
+   "tpm": 0.82,
+   "gp": 1.0,
+   "sp": 2273.6,
+   "fgm": 9.37,
+   "fga": 19.6,
+   "ftm": 3.59,
+   "fta": 4.31,
+   "dd": 0.31
+  },
+  "player": {
+   "fantasy_positions": [
+    "C",
+    "PF"
+   ],
+   "first_name": "Blake",
+   "last_name": "Sample13",
+   "injury_status": null,
+   "team": "MIL"
+  }
+ },
+ {
+  "player_id": "9014",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 14.4,
+   "adp_dynasty": 17.9,
+   "pts": 21.07,
+   "reb": 8.28,
+   "ast": 7.44,
+   "stl": 1.4,
+   "blk": 0.31,
+   "to": 3.03,
+   "tpm": 1.99,
+   "gp": 1.0,
+   "sp": 2221.4,
+   "fgm": 9.16,
+   "fga": 19.15,
+   "ftm": 3.51,
+   "fta": 4.21,
+   "dd": 0.28
+  },
+  "player": {
+   "fantasy_positions": [
+    "PG"
+   ],
+   "first_name": "Casey",
+   "last_name": "Sample14",
+   "injury_status": "Questionable",
+   "team": "PHX"
+  }
+ },
+ {
+  "player_id": "9015",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 14.2,
+   "adp_dynasty": 17.7,
+   "pts": 20.57,
+   "reb": 5.86,
+   "ast": 3.79,
+   "stl": 1.21,
+   "blk": 0.3,
+   "to": 3.0,
+   "tpm": 1.94,
+   "gp": 1.0,
+   "sp": 2169.2,
+   "fgm": 8.94,
+   "fga": 18.7,
+   "ftm": 3.43,
+   "fta": 4.11,
+   "dd": 0.25
+  },
+  "player": {
+   "fantasy_positions": [
+    "SG",
+    "SF"
+   ],
+   "first_name": "Devon",
+   "last_name": "Sample15",
+   "injury_status": null,
+   "team": "MIA"
+  }
+ },
+ {
+  "player_id": "9016",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 16.0,
+   "adp_dynasty": 19.5,
+   "pts": 20.07,
+   "reb": 6.11,
+   "ast": 5.18,
+   "stl": 1.1,
+   "blk": 0.63,
+   "to": 2.96,
+   "tpm": 1.9,
+   "gp": 1.0,
+   "sp": 2117.0,
+   "fgm": 8.73,
+   "fga": 18.25,
+   "ftm": 3.35,
+   "fta": 4.01,
+   "dd": 0.22
+  },
+  "player": {
+   "fantasy_positions": [
+    "PF"
+   ],
+   "first_name": "Eli",
+   "last_name": "Sample16",
+   "injury_status": null,
+   "team": "DAL"
+  }
+ },
+ {
+  "player_id": "9017",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 17.8,
+   "adp_dynasty": 21.3,
+   "pts": 19.58,
+   "reb": 6.7,
+   "ast": 6.5,
+   "stl": 0.93,
+   "blk": 1.0,
+   "to": 2.92,
+   "tpm": 0.74,
+   "gp": 1.0,
+   "sp": 2064.8,
+   "fgm": 8.51,
+   "fga": 17.8,
+   "ftm": 3.26,
+   "fta": 3.92,
+   "dd": 0.19
+  },
+  "player": {
+   "fantasy_positions": [
+    "C"
+   ],
+   "first_name": "Finn",
+   "last_name": "Sample17",
+   "injury_status": null,
+   "team": "NYK"
+  }
+ },
+ {
+  "player_id": "9018",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 17.6,
+   "adp_dynasty": 21.1,
+   "pts": 19.08,
+   "reb": 7.59,
+   "ast": 6.81,
+   "stl": 1.29,
+   "blk": 0.29,
+   "to": 2.89,
+   "tpm": 1.8,
+   "gp": 1.0,
+   "sp": 2012.6,
+   "fgm": 8.3,
+   "fga": 17.35,
+   "ftm": 3.18,
+   "fta": 3.82,
+   "dd": 0.16
+  },
+  "player": {
+   "fantasy_positions": [
+    "PG",
+    "SG"
+   ],
+   "first_name": "Gray",
+   "last_name": "Sample18",
+   "injury_status": null,
+   "team": "GSW"
+  }
+ },
+ {
+  "player_id": "9019",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 19.4,
+   "adp_dynasty": 22.9,
+   "pts": 18.59,
+   "reb": 5.39,
+   "ast": 4.18,
+   "stl": 1.19,
+   "blk": 0.34,
+   "to": 2.85,
+   "tpm": 1.76,
+   "gp": 1.0,
+   "sp": 1960.4,
+   "fgm": 8.08,
+   "fga": 16.9,
+   "ftm": 3.1,
+   "fta": 3.72,
+   "dd": 0.13
+  },
+  "player": {
+   "fantasy_positions": [
+    "SF"
+   ],
+   "first_name": "Harper",
+   "last_name": "Sample19",
+   "injury_status": null,
+   "team": "OKC"
+  }
+ },
+ {
+  "player_id": "9020",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 19.2,
+   "adp_dynasty": 22.7,
+   "pts": 18.1,
+   "reb": 5.28,
+   "ast": 4.09,
+   "stl": 1.17,
+   "blk": 0.34,
+   "to": 2.82,
+   "tpm": 1.71,
+   "gp": 1.0,
+   "sp": 1908.2,
+   "fgm": 7.87,
+   "fga": 16.45,
+   "ftm": 3.02,
+   "fta": 3.62,
+   "dd": 0.1
+  },
+  "player": {
+   "fantasy_positions": [
+    "SF",
+    "PF"
+   ],
+   "first_name": "Indy",
+   "last_name": "Sample20",
+   "injury_status": null,
+   "team": "DEN"
+  }
+ },
+ {
+  "player_id": "9021",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 21.0,
+   "adp_dynasty": 24.5,
+   "pts": 17.6,
+   "reb": 6.12,
+   "ast": 5.92,
+   "stl": 0.86,
+   "blk": 0.91,
+   "to": 2.78,
+   "tpm": 0.67,
+   "gp": 1.0,
+   "sp": 1856.0,
+   "fgm": 7.65,
+   "fga": 16.0,
+   "ftm": 2.93,
+   "fta": 3.52
+  },
+  "player": {
+   "fantasy_positions": [
+    "C"
+   ],
+   "first_name": "Jules",
+   "last_name": "Sample21",
+   "injury_status": null,
+   "team": "BOS"
+  }
+ },
+ {
+  "player_id": "9022",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 22.8,
+   "adp_dynasty": 26.3,
+   "pts": 17.11,
+   "reb": 5.04,
+   "ast": 3.29,
+   "stl": 1.05,
+   "blk": 0.27,
+   "to": 2.74,
+   "tpm": 1.62,
+   "gp": 1.0,
+   "sp": 1803.8,
+   "fgm": 7.44,
+   "fga": 15.55,
+   "ftm": 2.85,
+   "fta": 3.42
+  },
+  "player": {
+   "fantasy_positions": [
+    "SG"
+   ],
+   "first_name": "Kai",
+   "last_name": "Sample22",
+   "injury_status": null,
+   "team": "LAL"
+  }
+ },
+ {
+  "player_id": "9023",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 22.6,
+   "adp_dynasty": 26.1,
+   "pts": 16.61,
+   "reb": 5.23,
+   "ast": 4.42,
+   "stl": 0.96,
+   "blk": 0.53,
+   "to": 2.71,
+   "tpm": 1.57,
+   "gp": 1.0,
+   "sp": 1751.6,
+   "fgm": 7.22,
+   "fga": 15.1,
+   "ftm": 2.77,
+   "fta": 3.32
+  },
+  "player": {
+   "fantasy_positions": [
+    "PF",
+    "C"
+   ],
+   "first_name": "Lane",
+   "last_name": "Sample23",
+   "injury_status": null,
+   "team": "MIL"
+  }
+ },
+ {
+  "player_id": "9024",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 24.4,
+   "adp_dynasty": 27.9,
+   "pts": 16.12,
+   "reb": 6.57,
+   "ast": 5.88,
+   "stl": 1.14,
+   "blk": 0.26,
+   "to": 2.67,
+   "tpm": 1.52,
+   "gp": 1.0,
+   "sp": 1699.4,
+   "fgm": 7.01,
+   "fga": 14.65,
+   "ftm": 2.69,
+   "fta": 3.22
+  },
+  "player": {
+   "fantasy_positions": [
+    "PG"
+   ],
+   "first_name": "Alex",
+   "last_name": "Sample24",
+   "injury_status": null,
+   "team": "PHX"
+  }
+ },
+ {
+  "player_id": "9025",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 24.2,
+   "adp_dynasty": 27.7,
+   "pts": 15.62,
+   "reb": 5.54,
+   "ast": 5.34,
+   "stl": 0.8,
+   "blk": 0.82,
+   "to": 2.64,
+   "tpm": 0.59,
+   "gp": 1.0,
+   "sp": 1647.2,
+   "fgm": 6.79,
+   "fga": 14.2,
+   "ftm": 2.6,
+   "fta": 3.12
+  },
+  "player": {
+   "fantasy_positions": [
+    "C",
+    "PF"
+   ],
+   "first_name": "Blake",
+   "last_name": "Sample25",
+   "injury_status": null,
+   "team": "MIA"
+  }
+ },
+ {
+  "player_id": "9026",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 26.0,
+   "adp_dynasty": 29.5,
+   "pts": 15.13,
+   "reb": 6.23,
+   "ast": 5.57,
+   "stl": 1.09,
+   "blk": 0.25,
+   "to": 2.6,
+   "tpm": 1.43,
+   "gp": 1.0,
+   "sp": 1595.0,
+   "fgm": 6.58,
+   "fga": 13.75,
+   "ftm": 2.52,
+   "fta": 3.03
+  },
+  "player": {
+   "fantasy_positions": [
+    "PG"
+   ],
+   "first_name": "Casey",
+   "last_name": "Sample26",
+   "injury_status": null,
+   "team": "DAL"
+  }
+ },
+ {
+  "player_id": "9027",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 27.8,
+   "adp_dynasty": 31.3,
+   "pts": 14.63,
+   "reb": 4.46,
+   "ast": 2.93,
+   "stl": 0.94,
+   "blk": 0.24,
+   "to": 2.56,
+   "tpm": 1.38,
+   "gp": 1.0,
+   "sp": 1542.8,
+   "fgm": 6.36,
+   "fga": 13.3,
+   "ftm": 2.44,
+   "fta": 2.93
+  },
+  "player": {
+   "fantasy_positions": [
+    "SG",
+    "SF"
+   ],
+   "first_name": "Devon",
+   "last_name": "Sample27",
+   "injury_status": null,
+   "team": "NYK"
+  }
+ },
+ {
+  "player_id": "9028",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 27.6,
+   "adp_dynasty": 31.1,
+   "pts": 14.13,
+   "reb": 4.6,
+   "ast": 3.88,
+   "stl": 0.87,
+   "blk": 0.47,
+   "to": 2.53,
+   "tpm": 1.34,
+   "gp": 1.0,
+   "sp": 1490.6,
+   "fgm": 6.14,
+   "fga": 12.85,
+   "ftm": 2.35,
+   "fta": 2.83
+  },
+  "player": {
+   "fantasy_positions": [
+    "PF"
+   ],
+   "first_name": "Eli",
+   "last_name": "Sample28",
+   "injury_status": null,
+   "team": "GSW"
+  }
+ },
+ {
+  "player_id": "9029",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 29.4,
+   "adp_dynasty": 32.9,
+   "pts": 13.64,
+   "reb": 4.97,
+   "ast": 4.77,
+   "stl": 0.74,
+   "blk": 0.72,
+   "to": 2.49,
+   "tpm": 0.52,
+   "gp": 1.0,
+   "sp": 1438.4,
+   "fgm": 5.93,
+   "fga": 12.4,
+   "ftm": 2.27,
+   "fta": 2.73
+  },
+  "player": {
+   "fantasy_positions": [
+    "C"
+   ],
+   "first_name": "Finn",
+   "last_name": "Sample29",
+   "injury_status": null,
+   "team": "OKC"
+  }
+ },
+ {
+  "player_id": "9030",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 29.2,
+   "adp_dynasty": 32.7,
+   "pts": 13.15,
+   "reb": 5.54,
+   "ast": 4.94,
+   "stl": 0.98,
+   "blk": 0.23,
+   "to": 2.46,
+   "tpm": 1.24,
+   "gp": 1.0,
+   "sp": 1386.2,
+   "fgm": 5.72,
+   "fga": 11.95,
+   "ftm": 2.19,
+   "fta": 2.63
+  },
+  "player": {
+   "fantasy_positions": [
+    "PG",
+    "SG"
+   ],
+   "first_name": "Gray",
+   "last_name": "Sample30",
+   "injury_status": null,
+   "team": "DEN"
+  }
+ },
+ {
+  "player_id": "9031",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 31.0,
+   "adp_dynasty": 34.5,
+   "pts": 12.65,
+   "reb": 3.99,
+   "ast": 3.1,
+   "stl": 0.91,
+   "blk": 0.27,
+   "to": 2.42,
+   "tpm": 1.2,
+   "gp": 1.0,
+   "sp": 1334.0,
+   "fgm": 5.5,
+   "fga": 11.5,
+   "ftm": 2.11,
+   "fta": 2.53
+  },
+  "player": {
+   "fantasy_positions": [
+    "SF"
+   ],
+   "first_name": "Harper",
+   "last_name": "Sample31",
+   "injury_status": null,
+   "team": "BOS"
+  }
+ },
+ {
+  "player_id": "9032",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 32.8,
+   "adp_dynasty": 36.3,
+   "pts": 12.16,
+   "reb": 3.87,
+   "ast": 3.01,
+   "stl": 0.88,
+   "blk": 0.26,
+   "to": 2.38,
+   "tpm": 1.15,
+   "gp": 1.0,
+   "sp": 1281.8,
+   "fgm": 5.29,
+   "fga": 11.05,
+   "ftm": 2.03,
+   "fta": 2.43
+  },
+  "player": {
+   "fantasy_positions": [
+    "SF",
+    "PF"
+   ],
+   "first_name": "Indy",
+   "last_name": "Sample32",
+   "injury_status": null,
+   "team": "LAL"
+  }
+ },
+ {
+  "player_id": "9033",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 32.6,
+   "adp_dynasty": 36.1,
+   "pts": 11.66,
+   "reb": 4.39,
+   "ast": 4.19,
+   "stl": 0.67,
+   "blk": 0.63,
+   "to": 2.35,
+   "tpm": 0.44,
+   "gp": 1.0,
+   "sp": 1229.6,
+   "fgm": 5.07,
+   "fga": 10.6,
+   "ftm": 1.94,
+   "fta": 2.33
+  },
+  "player": {
+   "fantasy_positions": [
+    "C"
+   ],
+   "first_name": "Jules",
+   "last_name": "Sample33",
+   "injury_status": null,
+   "team": "MIL"
+  }
+ },
+ {
+  "player_id": "9034",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 34.4,
+   "adp_dynasty": 37.9,
+   "pts": 11.17,
+   "reb": 3.64,
+   "ast": 2.42,
+   "stl": 0.79,
+   "blk": 0.21,
+   "to": 2.31,
+   "tpm": 1.06,
+   "gp": 1.0,
+   "sp": 1177.4,
+   "fgm": 4.86,
+   "fga": 10.15,
+   "ftm": 1.86,
+   "fta": 2.23
+  },
+  "player": {
+   "fantasy_positions": [
+    "SG"
+   ],
+   "first_name": "Kai",
+   "last_name": "Sample34",
+   "injury_status": null,
+   "team": "PHX"
+  }
+ },
+ {
+  "player_id": "9035",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 34.2,
+   "adp_dynasty": 37.7,
+   "pts": 10.67,
+   "reb": 3.72,
+   "ast": 3.13,
+   "stl": 0.73,
+   "blk": 0.38,
+   "to": 2.28,
+   "tpm": 1.01,
+   "gp": 1.0,
+   "sp": 1125.2,
+   "fgm": 4.64,
+   "fga": 9.7,
+   "ftm": 1.78,
+   "fta": 2.13
+  },
+  "player": {
+   "fantasy_positions": [
+    "PF",
+    "C"
+   ],
+   "first_name": "Lane",
+   "last_name": "Sample35",
+   "injury_status": null,
+   "team": "MIA"
+  }
+ },
+ {
+  "player_id": "9036",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 36.0,
+   "adp_dynasty": 39.5,
+   "pts": 10.18,
+   "reb": 4.52,
+   "ast": 4.01,
+   "stl": 0.83,
+   "blk": 0.2,
+   "to": 2.24,
+   "tpm": 0.96,
+   "gp": 1.0,
+   "sp": 1073.0,
+   "fgm": 4.43,
+   "fga": 9.25,
+   "ftm": 1.7,
+   "fta": 2.04
+  },
+  "player": {
+   "fantasy_positions": [
+    "PG"
+   ],
+   "first_name": "Alex",
+   "last_name": "Sample36",
+   "injury_status": null,
+   "team": "DAL"
+  }
+ },
+ {
+  "player_id": "9037",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 37.8,
+   "adp_dynasty": 41.3
+  },
+  "player": {
+   "fantasy_positions": [
+    "C",
+    "PF"
+   ],
+   "first_name": "Blake",
+   "last_name": "Sample37",
+   "injury_status": null,
+   "team": "NYK"
+  }
+ },
+ {
+  "player_id": "9038",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 37.6,
+   "adp_dynasty": 41.1
+  },
+  "player": {
+   "fantasy_positions": [
+    "PG"
+   ],
+   "first_name": "Casey",
+   "last_name": "Sample38",
+   "injury_status": null,
+   "team": "GSW"
+  }
+ },
+ {
+  "player_id": "9039",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 39.4,
+   "adp_dynasty": 42.9
+  },
+  "player": {
+   "fantasy_positions": [
+    "SG",
+    "SF"
+   ],
+   "first_name": "Devon",
+   "last_name": "Sample39",
+   "injury_status": null,
+   "team": "OKC"
+  }
+ },
+ {
+  "player_id": "9040",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 39.2,
+   "adp_dynasty": 42.7
+  },
+  "player": {
+   "fantasy_positions": [
+    "PF"
+   ],
+   "first_name": "Eli",
+   "last_name": "Sample40",
+   "injury_status": null,
+   "team": "DEN"
+  }
+ },
+ {
+  "player_id": "9041",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 41.0,
+   "adp_dynasty": 44.5
+  },
+  "player": {
+   "fantasy_positions": [
+    "C"
+   ],
+   "first_name": "Finn",
+   "last_name": "Sample41",
+   "injury_status": null,
+   "team": "BOS"
+  }
+ },
+ {
+  "player_id": "9042",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 42.8,
+   "adp_dynasty": 46.3
+  },
+  "player": {
+   "fantasy_positions": [
+    "PG",
+    "SG"
+   ],
+   "first_name": "Gray",
+   "last_name": "Sample42",
+   "injury_status": null,
+   "team": "LAL"
+  }
+ },
+ {
+  "player_id": "9043",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 42.6,
+   "adp_dynasty": 46.1
+  },
+  "player": {
+   "fantasy_positions": [
+    "SF"
+   ],
+   "first_name": "Harper",
+   "last_name": "Sample43",
+   "injury_status": null,
+   "team": "MIL"
+  }
+ },
+ {
+  "player_id": "9044",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 44.4,
+   "adp_dynasty": 47.9
+  },
+  "player": {
+   "fantasy_positions": [
+    "SF",
+    "PF"
+   ],
+   "first_name": "Indy",
+   "last_name": "Sample44",
+   "injury_status": null,
+   "team": "PHX"
+  }
+ },
+ {
+  "player_id": "9045",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 44.2,
+   "adp_dynasty": 47.7
+  },
+  "player": {
+   "fantasy_positions": [
+    "C"
+   ],
+   "first_name": "Jules",
+   "last_name": "Sample45",
+   "injury_status": null,
+   "team": "MIA"
+  }
+ },
+ {
+  "player_id": "9046",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 46.0,
+   "adp_dynasty": 49.5
+  },
+  "player": {
+   "fantasy_positions": [
+    "SG"
+   ],
+   "first_name": "Kai",
+   "last_name": "Sample46",
+   "injury_status": null,
+   "team": "DAL"
+  }
+ },
+ {
+  "player_id": "9047",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 47.8,
+   "adp_dynasty": 51.3
+  },
+  "player": {
+   "fantasy_positions": [
+    "PF",
+    "C"
+   ],
+   "first_name": "Lane",
+   "last_name": "Sample47",
+   "injury_status": null,
+   "team": "NYK"
+  }
+ },
+ {
+  "player_id": "9048",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 47.6,
+   "adp_dynasty": 51.1
+  },
+  "player": {
+   "fantasy_positions": [
+    "PG"
+   ],
+   "first_name": "Alex",
+   "last_name": "Sample48",
+   "injury_status": null,
+   "team": "GSW"
+  }
+ },
+ {
+  "player_id": "9049",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 49.4,
+   "adp_dynasty": 52.9
+  },
+  "player": {
+   "fantasy_positions": [
+    "C",
+    "PF"
+   ],
+   "first_name": "Blake",
+   "last_name": "Sample49",
+   "injury_status": null,
+   "team": "OKC"
+  }
+ },
+ {
+  "player_id": "9050",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 49.2,
+   "adp_dynasty": 52.7
+  },
+  "player": {
+   "fantasy_positions": [
+    "PG"
+   ],
+   "first_name": "Casey",
+   "last_name": "Sample50",
+   "injury_status": null,
+   "team": "DEN"
+  }
+ },
+ {
+  "player_id": "9051",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 51.0,
+   "adp_dynasty": 54.5
+  },
+  "player": {
+   "fantasy_positions": [
+    "SG",
+    "SF"
+   ],
+   "first_name": "Devon",
+   "last_name": "Sample51",
+   "injury_status": null,
+   "team": "BOS"
+  }
+ },
+ {
+  "player_id": "9052",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 52.8,
+   "adp_dynasty": 56.3
+  },
+  "player": {
+   "fantasy_positions": [
+    "PF"
+   ],
+   "first_name": "Eli",
+   "last_name": "Sample52",
+   "injury_status": null,
+   "team": "LAL"
+  }
+ },
+ {
+  "player_id": "9053",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 52.6,
+   "adp_dynasty": 56.1
+  },
+  "player": {
+   "fantasy_positions": [
+    "C"
+   ],
+   "first_name": "Finn",
+   "last_name": "Sample53",
+   "injury_status": null,
+   "team": "MIL"
+  }
+ },
+ {
+  "player_id": "9054",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 54.4,
+   "adp_dynasty": 57.9
+  },
+  "player": {
+   "fantasy_positions": [
+    "PG",
+    "SG"
+   ],
+   "first_name": "Gray",
+   "last_name": "Sample54",
+   "injury_status": null,
+   "team": "PHX"
+  }
+ },
+ {
+  "player_id": "9055",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 54.2,
+   "adp_dynasty": 57.7
+  },
+  "player": {
+   "fantasy_positions": [
+    "SF"
+   ],
+   "first_name": "Harper",
+   "last_name": "Sample55",
+   "injury_status": null,
+   "team": "MIA"
+  }
+ },
+ {
+  "player_id": "9056",
+  "category": "proj",
+  "season": "2026",
+  "stats": {
+   "adp_std": 56.0,
+   "adp_dynasty": 59.5
+  },
+  "player": {
+   "fantasy_positions": [
+    "SF",
+    "PF"
+   ],
+   "first_name": "Indy",
+   "last_name": "Sample56",
+   "injury_status": null,
+   "team": "DAL"
+  }
+ }
+]

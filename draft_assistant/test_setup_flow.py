@@ -63,6 +63,32 @@ class SetupFlowTests(unittest.TestCase):
         self.assertEqual(json.loads(self.config_path.read_text(encoding="utf-8"))["our_team"], "My Team")
         self.assertTrue(self.server.setup_complete)
 
+    def test_get_setup_reports_checklist_fields(self):
+        sent = []
+        self.handler._send = lambda status, payload, **kw: sent.append(payload)
+        self.handler._host_ok = lambda: True
+        self.handler.path = "/api/setup"
+        self.server.bookmarklet_seen = False
+        self.handler.do_GET()
+        first = sent.pop()
+        self.assertEqual((first["configured"], first["pending_source"], first["team_options_ready"], first["bookmarklet_seen"]), (False, None, False, False))
+        self.handler._dispatch_post("/api/setup/source", {
+            "url": "https://fantasy.espn.com/basketball/team?leagueId=2000000000&seasonId=2028&teamId=7"
+        })
+        names = ["My Team"] + [f"Other {index}" for index in range(13)]
+        self.handler._dispatch_post("/api/operator", {
+            "operation": "connect-advisor",
+            "current_room_url": "https://fantasy.espn.com/basketball/draft?leagueId=2000000088&seasonId=2028&teamId=7",
+            "visible_heading": "ESPN Fantasy Basketball Draft - Practice Draft for Example League",
+            "practice": True,
+            "pick_order": names,
+        })
+        self.handler.do_GET()
+        second = sent.pop()
+        self.assertEqual(second["pending_source"], {"league_id": "2000000000", "season_id": "2028", "team_id": "7"})
+        self.assertTrue(second["team_options_ready"])
+        self.assertTrue(second["bookmarklet_seen"])
+
     def test_mismatched_observed_team_identity_is_rejected(self):
         self.handler._dispatch_post("/api/setup/source", {
             "url": "https://fantasy.espn.com/basketball/team?leagueId=2000000000&seasonId=2028&teamId=7"

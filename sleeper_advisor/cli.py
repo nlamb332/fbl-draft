@@ -5,6 +5,7 @@ import argparse
 import hashlib
 import json
 import sys
+import threading
 import time
 from datetime import datetime
 from dataclasses import asdict
@@ -21,9 +22,10 @@ from .scoring import fantasy_points
 DEFAULT_CACHE_DIR = "runtime/sleeper"
 DEFAULT_PORT = 8766
 DEFAULT_INTERVAL = 3.0
-LEGEND = ("Added/wk = estimated starting-lineup Lock-In points gained. "
-          "Lock-In/wk values one selected game per player each week; depth ties use that value. "
-          "Forecast assumptions are not calibrated player predictions.")
+LEGEND = ("vs wait = weekly Lock-In points (incl. bench cover for absences) gained by taking this "
+          "player now instead of the best player likely to last until your next pick; the top "
+          "pick can be near zero and others negative. Lock-In/wk values one selected game per "
+          "player each week. Forecast assumptions are not calibrated player predictions.")
 CONFIG_KEYS = ("draft_url", "username")
 _MEMO_SECONDS = 600.0
 
@@ -61,6 +63,11 @@ class PollingClient:
     def projections(self, season: Any) -> list:
         return self._memoized(("projections", str(season)), lambda: self._client.projections(season))
 
+    def user(self, name_or_id: str) -> dict:
+        # Cached for the life of the poller: the participant list is looked up
+        # once per draft rather than on every tick.
+        return self._memoized(("user", str(name_or_id)), lambda: self._client.user(name_or_id))
+
     def draft(self, draft_id: str) -> dict:
         draft = self._client.draft(draft_id)
         if isinstance(draft, dict):
@@ -77,6 +84,16 @@ def _player_fp(player: Any, scoring: dict) -> float:
     if not player.has_projection:
         return 0.0
     return fantasy_points(player.stats, scoring)[0]
+
+
+def identity_banner(state: Any) -> str | None:
+    """Warning text when the advisor cannot see the user's team, else None."""
+    if state.identity in ("matched", "slot_override", "awaiting_order"):
+        return None
+    text = f"Advisor can't see your team: {state.identity_reason}. Recommendations ignore your roster."
+    if state.draft_members:
+        text += " Users in this draft: " + ", ".join(state.draft_members) + "."
+    return text
 
 
 def build_snapshot(state: Any, recs: Sequence[Any], draft: dict | None = None,
@@ -138,6 +155,9 @@ def build_snapshot(state: Any, recs: Sequence[Any], draft: dict | None = None,
         "current_pick": current,
         "on_clock_slot": state.on_clock_slot,
         "our_slot": state.our_slot,
+        "identity": state.identity,
+        "identity_banner": identity_banner(state),
+        "draft_members": list(state.draft_members),
         "our_next_picks": upcoming,
         "picks_away": picks_away,
         "on_clock": on_clock,
@@ -172,6 +192,7 @@ class Poller:
         self.draft_id = draft_id
         self.username = username
         self.slot = slot
+        self._original_slot = slot
         self.top = top
         self.recommend_fn = recommend_fn
         self.forecast_path = Path(forecast_path) if forecast_path is not None else Path(getattr(self.client, "cache_dir", DEFAULT_CACHE_DIR)) / "lock_in_forecasts.json"
@@ -180,6 +201,25 @@ class Poller:
         self.error: str | None = None
         self._key: tuple | None = None
         self._recs: list = []
+        self.original_draft_id = draft_id
+        self._lock = threading.Lock()
+
+    def switch_draft(self, draft_id: str) -> bool:
+        """Watch a different draft. Drops --slot unless it is the original draft."""
+        with self._lock:
+            if draft_id == self.draft_id:
+                return False
+            self.draft_id = draft_id
+            if draft_id != self.original_draft_id:
+                self.slot = None
+            else:
+                self.slot = self._original_slot
+            self.snapshot = None
+            self.error = None
+            self._key = None
+            self._recs = []
+            self.client.last_draft = {}
+            return True
 
     @property
     def complete(self) -> bool:
@@ -188,8 +228,10 @@ class Poller:
     def poll(self) -> bool:
         """One tick. Returns True when the advice was recomputed."""
         loading_forecasts = False
+        with self._lock:
+            draft_id, slot = self.draft_id, self.slot
         try:
-            state = build_state(self.client, self.draft_id, self.username, self.slot)
+            state = build_state(self.client, draft_id, self.username, slot)
             forecasts = None
             forecast_bytes = b""
             if self.forecast_path.exists() or self.forecast_explicit:
@@ -210,6 +252,8 @@ class Poller:
                               else self.recommend_fn(state, self.top))
             snapshot = build_snapshot(state, self._recs, self.client.last_draft, forecasts)
         except Exception as exc:  # network or data problems must not kill polling
+            if draft_id != self.draft_id:
+                return False
             self.error = f"{type(exc).__name__}: {exc}"
             if self.snapshot is not None:
                 self.snapshot = dict(self.snapshot, error=self.error)
@@ -217,9 +261,12 @@ class Poller:
                     self.snapshot["recommendations"] = []
                     self._key = None
             return False
-        self._key = key
-        self.error = None
-        self.snapshot = snapshot
+        with self._lock:
+            if draft_id != self.draft_id:  # switched while fetching; discard
+                return False
+            self._key = key
+            self.error = None
+            self.snapshot = snapshot
         return changed
 
 
@@ -262,6 +309,9 @@ def render_text(snap: dict) -> str:
     cur = snap["current_pick"]
     clock = "complete" if cur is None else f"pick {cur} (slot {snap['on_clock_slot']} on the clock)"
     lines.append(f"Status: {d['status']}  |  {snap['picks_made']} picks made  |  {clock}")
+    if snap.get("identity_banner"):
+        bar = "!" * 70
+        lines.extend([bar, "!!! " + snap["identity_banner"], bar])
     if snap["our_slot"] is None:
         lines.append("Our slot: unknown (use --slot N or --user USERNAME)")
     else:
@@ -289,7 +339,7 @@ def render_text(snap: dict) -> str:
     if not recs:
         lines.append("No recommendations available.")
     else:
-        lines.append(f"{'#':>2}  {'Player':<24} {'Pos':<8} {'Lock/wk':>7} {'ADP':>5} {'Added/wk':>8}  Why")
+        lines.append(f"{'#':>2}  {'Player':<24} {'Pos':<8} {'Lock/wk':>7} {'ADP':>5} {'vs wait':>8}  Why")
         for r in recs:
             adp = "-" if r["adp"] is None else f"{r['adp']:.1f}"
             lines.append(

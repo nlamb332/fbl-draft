@@ -3,7 +3,9 @@ from __future__ import annotations
 
 import json
 import threading
+import urllib.parse
 import webbrowser
+from pathlib import Path
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from typing import Any, Callable
 
@@ -11,6 +13,10 @@ from .api import parse_draft_id
 from .cli import LEGEND, Poller, poll_loop
 
 LOOPBACK_HOSTS = ("127.0.0.1", "localhost")
+SLEEPER_ORIGIN = "https://sleeper.com"
+CORS_PATHS = ("/api/state", "/overlay.js")
+MAX_DRAFT_ID_LEN = 25
+OVERLAY_PATH = Path(__file__).parent / "static" / "overlay.js"
 
 PAGE = """<!doctype html>
 <html lang="en">
@@ -38,6 +44,10 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 .legend,.foot{color:var(--muted);font-size:.85rem;margin-top:8px}
 .warn{color:var(--warn);font-size:.9rem}
 .err{color:var(--bad);font-weight:600}
+.idbanner{border-radius:10px;padding:12px;margin:12px 0;font-weight:700;background:#b3261e;color:#fff;border:2px solid #7a1812}
+textarea{width:100%;font:12px/1.3 ui-monospace,Consolas,monospace;height:4.5em}
+a.bm{display:inline-block;padding:6px 12px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;cursor:grab}
+button{font:inherit;padding:5px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}
 ul{margin:0;padding-left:18px}
 [hidden]{display:none}
 </style>
@@ -47,10 +57,17 @@ ul{margin:0;padding-left:18px}
 <h1 id="title">Sleeper Advisor</h1>
 <div class="sub" id="summary">Loading...</div>
 <div class="sub">Lock-In draft strategy · estimated weekly contribution · assumed game forecasts unless local forecasts are supplied</div>
+<div id="idbanner" class="idbanner" hidden></div>
 <div id="banner" class="banner" hidden></div>
 <div class="card"><h2>Your lineup</h2><div id="lineup"></div><div class="sub" id="bench"></div></div>
 <div class="card"><h2>Recommended picks</h2><div id="recs"></div><div class="legend" id="legend"></div></div>
 <div class="card" id="warnCard" hidden><h2>Warnings</h2><ul id="warnings" class="warn"></ul></div>
+<div class="card"><h2>Install the Sleeper bookmarklet</h2>
+<div class="sub">Shows this advice inside the Sleeper draft room. Drag the link to your bookmarks bar, then click it while on a <code>sleeper.com/draft/nba/...</code> page. If Chrome asks to allow access to local network devices, choose Allow. This tab keeps working on its own.</div>
+<p><a class="bm" id="bmlink">Sleeper Advisor</a></p>
+<div class="sub">Cannot drag? Copy this URL into a new bookmark's address field:</div>
+<textarea id="bmurl" readonly></textarea>
+<p><button id="bmcopy" type="button">Copy bookmarklet URL</button> <span class="sub" id="bmstatus"></span></p></div>
 <div class="foot"><span id="updated"></span> <span id="error" class="err"></span></div>
 </main>
 <script>
@@ -78,6 +95,25 @@ function table(headers, rows, numCols) {
   });
   return t;
 }
+function setupBookmarklet() {
+  var base = "http://127.0.0.1:" + location.port;
+  var code = "(function(){var B=" + JSON.stringify(base) + ";" +
+    "var p=location.pathname.split('/');" +
+    "if(location.origin!=='https://sleeper.com'||p[1]!=='draft'||p[2]!=='nba'||!/^[0-9]+$/.test(p[3]||'')){alert('Open a Sleeper NBA draft room (sleeper.com/draft/nba/...) first.');return;}" +
+    "if(window.__sleeperAdvisor){window.__sleeperAdvisor.toggle();return;}" +
+    "var s=document.createElement('script');s.src=B+'/overlay.js?v='+Date.now();" +
+    "s.onerror=function(){alert('Sleeper Advisor panel is not running at '+B+'. Start it first.');};" +
+    "document.head.appendChild(s);})();";
+  var url = "javascript:" + encodeURIComponent(code);
+  $("bmlink").setAttribute("href", url);
+  $("bmurl").value = url;
+  $("bmcopy").addEventListener("click", function () {
+    var ta = $("bmurl"); ta.focus(); ta.select();
+    var done = function (ok) { $("bmstatus").textContent = ok ? "Copied." : "Press Ctrl+C to copy the selected text."; };
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(url).then(function () { done(true); }, function () { done(false); }); }
+    else { try { done(document.execCommand("copy")); } catch (e) { done(false); } }
+  });
+}
 function replace(id, node) { var h = $(id); h.textContent = ""; h.appendChild(node); }
 function render(s) {
   if (!s.ready) {
@@ -89,6 +125,8 @@ function render(s) {
     var mine = s.our_slot === null ? "your slot unknown" : ("your slot " + s.our_slot);
     $("summary").textContent = (d.mock_type || "league draft") + " | " + d.type + " " + d.teams + " teams x " + d.rounds +
       " rounds | " + d.status + " | " + s.picks_made + " picks made | " + clock + " | " + mine;
+    var ib = $("idbanner");
+    if (s.identity_banner) { ib.hidden = false; ib.textContent = s.identity_banner; } else { ib.hidden = true; }
     var b = $("banner");
     if (s.on_clock) { b.hidden = false; b.className = "banner now"; b.textContent = ">>> YOU ARE ON THE CLOCK <<<"; }
     else if (s.picks_away !== null && s.picks_away > 0 && s.picks_away <= 2) { b.hidden = false; b.className = "banner"; b.textContent = "Your pick in " + s.picks_away; }
@@ -98,7 +136,7 @@ function render(s) {
       s.lineup.map(function (r) { return [r.slot, r.name === null ? "-" : r.name, r.positions.join("/"), fmt(r.lock_in_weekly_points, 1)]; }), [3]));
     $("bench").textContent = s.bench.length ? ("Bench: " + s.bench.map(function (r) { return r.name + " (" + r.positions.join("/") + ")"; }).join(", ")) : "Bench: empty";
     if (s.recommendations.length) {
-      replace("recs", table(["#", "Player", "Pos", "Lock-In/wk", "ADP", "Added/wk", "Why"],
+      replace("recs", table(["#", "Player", "Pos", "Lock-In/wk", "ADP", "vs wait", "Why"],
         s.recommendations.map(function (r) {
           var sc = (r.score >= 0 ? "+" : "") + r.score.toFixed(1);
           return [r.rank, r.name, r.positions.join("/"), fmt(r.components.lock_in_weekly_points, 1), fmt(r.adp, 1), { text: sc, cls: r.score >= 0 ? "pos" : "neg" }, r.explanation];
@@ -121,6 +159,7 @@ function tick() {
     $("error").textContent = "Panel server unreachable: " + e.message;
   });
 }
+setupBookmarklet();
 tick();
 setInterval(tick, 3000);
 </script>
@@ -143,6 +182,11 @@ class SnapshotStore:
                 self._snapshot = snapshot
             self._error = error
 
+    def clear(self) -> None:
+        with self._lock:
+            self._snapshot = None
+            self._error = None
+
     def payload(self) -> dict:
         with self._lock:
             snapshot, error = self._snapshot, self._error
@@ -160,15 +204,17 @@ class PanelHandler(BaseHTTPRequestHandler):
         pass
 
     # -- helpers ------------------------------------------------------------
-    def _send(self, status: int, body: bytes, content_type: str, extra: dict | None = None) -> None:
+    def _send(self, status: int, body: bytes, content_type: str, extra: dict | None = None,
+              csp: bool = True) -> None:
         self.send_response(status)
         self.send_header("Content-Type", content_type)
         self.send_header("Content-Length", str(len(body)))
         self.send_header("Cache-Control", "no-store")
         self.send_header("X-Content-Type-Options", "nosniff")
-        self.send_header("Content-Security-Policy",
-                         "default-src 'none'; style-src 'unsafe-inline'; "
-                         "script-src 'unsafe-inline'; connect-src 'self'")
+        if csp:
+            self.send_header("Content-Security-Policy",
+                             "default-src 'none'; style-src 'unsafe-inline'; "
+                             "script-src 'unsafe-inline'; connect-src 'self'")
         for key, value in (extra or {}).items():
             self.send_header(key, value)
         self.end_headers()
@@ -183,19 +229,62 @@ class PanelHandler(BaseHTTPRequestHandler):
         host = (self.headers.get("Host") or "").strip().lower()
         return host in {f"{name}:{port}" for name in LOOPBACK_HOSTS}
 
+    def _cors_headers(self, path: str) -> dict:
+        """CORS only for the Sleeper site on the overlay endpoints."""
+        if path not in CORS_PATHS:
+            return {}
+        headers = {"Vary": "Origin"}
+        if self.headers.get("Origin") == SLEEPER_ORIGIN:
+            headers["Access-Control-Allow-Origin"] = SLEEPER_ORIGIN
+        return headers
+
+    def _preflight(self, path: str) -> bool:
+        if path not in CORS_PATHS or self.headers.get("Origin") != SLEEPER_ORIGIN:
+            return False
+        headers = {"Access-Control-Allow-Origin": SLEEPER_ORIGIN, "Vary": "Origin",
+                   "Access-Control-Allow-Methods": "GET", "Access-Control-Max-Age": "600"}
+        if (self.headers.get("Access-Control-Request-Private-Network") or "").lower() == "true":
+            headers["Access-Control-Allow-Private-Network"] = "true"
+        self._send(204, b"", "text/plain; charset=utf-8", headers)
+        return True
+
+    def _state_body(self, query: str) -> tuple[int, bytes, str]:
+        drafts = urllib.parse.parse_qs(query, keep_blank_values=True).get("draft")
+        if drafts:
+            draft = drafts[0]
+            if not draft.isascii() or not draft.isdigit() or len(draft) > MAX_DRAFT_ID_LEN:
+                return 400, b"Invalid draft id", "text/plain; charset=utf-8"
+            poller = getattr(self.server, "poller", None)
+            if poller is not None and poller.switch_draft(draft):
+                self.server.store.clear()  # type: ignore[attr-defined]
+        body = json.dumps(self.server.store.payload(), ensure_ascii=False).encode("utf-8")  # type: ignore[attr-defined]
+        return 200, body, "application/json; charset=utf-8"
+
     def _dispatch(self) -> None:
         if not self._host_allowed():
             self._text(403, "Forbidden host")
             return
+        path, _, query = self.path.split("#", 1)[0].partition("?")
+        if self.command == "OPTIONS" and self._preflight(path):
+            return
         if self.command != "GET":
             self._text(405, "Method not allowed", {"Allow": "GET"})
             return
-        path = self.path.split("?", 1)[0].split("#", 1)[0]
+        cors = self._cors_headers(path)
         if path == "/":
             self._send(200, PAGE.encode("utf-8"), "text/html; charset=utf-8")
         elif path == "/api/state":
-            body = json.dumps(self.server.store.payload(), ensure_ascii=False).encode("utf-8")  # type: ignore[attr-defined]
-            self._send(200, body, "application/json; charset=utf-8")
+            status, body, ctype = self._state_body(query)
+            self._send(status, body, ctype, cors)
+        elif path == "/overlay.js":
+            try:
+                body = OVERLAY_PATH.read_bytes()
+            except OSError:
+                self._text(404, "Overlay script missing", cors)
+                return
+            # No CSP here: it governs the panel page, and the script runs in sleeper.com.
+            self._send(200, body, "application/javascript; charset=utf-8",
+                       dict(cors, **{"Cross-Origin-Resource-Policy": "cross-origin"}), csp=False)
         elif path == "/favicon.ico":
             self._send(204, b"", "image/x-icon")
         else:
@@ -204,13 +293,15 @@ class PanelHandler(BaseHTTPRequestHandler):
     do_GET = do_POST = do_PUT = do_DELETE = do_PATCH = do_HEAD = do_OPTIONS = _dispatch
 
 
-def create_server(store: SnapshotStore, host: str = "127.0.0.1", port: int = 0) -> ThreadingHTTPServer:
+def create_server(store: SnapshotStore, host: str = "127.0.0.1", port: int = 0,
+                  poller: Poller | None = None) -> ThreadingHTTPServer:
     """Bind a loopback-only server. Raises ValueError for any other host."""
     if host not in LOOPBACK_HOSTS:
         raise ValueError(f"The panel only binds to loopback ({', '.join(LOOPBACK_HOSTS)}); refusing {host!r}")
     server = ThreadingHTTPServer(("127.0.0.1", port), PanelHandler)
     server.daemon_threads = True
     server.store = store  # type: ignore[attr-defined]
+    server.poller = poller  # type: ignore[attr-defined]
     return server
 
 
@@ -219,7 +310,10 @@ def start_polling(poller: Poller, store: SnapshotStore, interval: float,
                   max_iterations: int | None = None) -> threading.Thread:
     """Poll in a daemon thread, publishing every tick to ``store``."""
     def publish(p: Poller, _changed: bool) -> None:
-        store.update(p.snapshot, p.error)
+        snap = p.snapshot
+        if snap is not None and snap["draft"]["draft_id"] != p.draft_id:
+            return  # stale result from a draft we have since left
+        store.update(snap, p.error)
 
     def run() -> None:
         poll_loop(poller, interval, sleep=sleep or stop.wait, max_iterations=max_iterations,
@@ -233,16 +327,16 @@ def start_polling(poller: Poller, store: SnapshotStore, interval: float,
 def cmd_serve(args: Any, client: Any, out: Any) -> int:
     draft_id = parse_draft_id(args.draft)
     store = SnapshotStore()
+    poller = Poller(client, draft_id, args.user, args.slot, args.top,
+                    forecast_path=getattr(args, "lock_in_forecasts", None))
     try:
-        server = create_server(store, args.host, args.port)
+        server = create_server(store, args.host, args.port, poller)
     except OSError as exc:
         print(f"error: could not start the panel on port {args.port} ({exc}). "
               "Is another copy already running? Try --port.", file=out)
         return 1
     port = server.server_address[1]
     url = f"http://127.0.0.1:{port}/"
-    poller = Poller(client, draft_id, args.user, args.slot, args.top,
-                    forecast_path=getattr(args,"lock_in_forecasts",None))
     stop = threading.Event()
     start_polling(poller, store, args.interval, stop)
     print(f"Sleeper advisor panel: {url}  (Ctrl+C to stop)", file=out, flush=True)

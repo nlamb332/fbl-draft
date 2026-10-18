@@ -11,7 +11,7 @@ for you.
 | | ESPN advisor | Sleeper advisor |
 | --- | --- | --- |
 | Data source | Scraped from the draft room page | Public Sleeper JSON API |
-| Bookmarklet / page runner | Required | None |
+| Bookmarklet / page runner | Required | Optional (in-page overlay, see below) |
 | Login | Your own browser session | None |
 | Access | Observes a browser tab | Read-only; nothing is written to Sleeper |
 | Launch | `Launch Advisor.cmd` | `Launch Sleeper Advisor.cmd` or `python -m sleeper_advisor` |
@@ -61,23 +61,69 @@ order. Before the order is set Sleeper does not publish it, so:
 Once the draft order exists the order wins over `--slot` (a warning says so).
 Traded picks and third-round-reversal drafts are accounted for.
 
+**Identity check.** The advisor reports how it identified you (`identity` in
+`/api/state` and `--json`): `matched` (your username is in the draft order or
+has picks), `slot_override` (only `--slot` was given), `unknown_user` (the
+username lookup failed), `not_in_draft` (the user exists but is not in this
+draft) or `none` (no username or slot). For anything except `matched` and
+`slot_override` a red banner appears in the CLI, the panel and the overlay:
+"Advisor can't see your team: ... Recommendations ignore your roster." When the
+draft already has an order, the banner lists the usernames in the draft with
+their slots so you can spot your own. User ids are never shown. Fix it by
+passing the right `--user`, or `--slot N`.
+
+## In-page overlay (bookmarklet)
+
+The panel can also show its advice inside the Sleeper draft room, like the ESPN
+advisor does. Start `serve` (default `http://127.0.0.1:8766/`), then on the panel
+home page find **Install the Sleeper bookmarklet**: drag the link to your
+bookmarks bar, or use **Copy bookmarklet URL** and paste it into a new
+bookmark's address field. Open your draft at `https://sleeper.com/draft/nba/<id>`
+and click the bookmark. It only runs on that page (it alerts elsewhere, and if
+the panel is not running). Clicking it again hides or shows the overlay.
+
+The overlay is a draggable, collapsible panel (the `x` closes it and stops
+polling). It shows the identity banner, whose pick it is, the top recommendations
+(vs wait, ADP), your open lineup slots, and an **Expand** button for the full
+tables. It reads the draft id from the page URL and polls
+`http://127.0.0.1:<port>/api/state?draft=<id>` every 3 seconds; a different draft
+id switches what the panel watches (reusing your username; `--slot` applies
+only to the draft you started the panel with).
+
+* Chrome may ask to **allow access to local network devices** (or "other apps
+  and services on this device") the first time. Choose **Allow**. The standalone
+  panel tab at `127.0.0.1` keeps working either way.
+* The server answers cross-origin requests from `https://sleeper.com` only, on
+  `/api/state` and `/overlay.js` (including the preflight and the
+  private-network header). Every other origin gets no CORS headers. It still
+  binds to loopback only, checks the Host header and accepts GET only.
+* The overlay uses a Shadow DOM and `textContent` only; nothing is read from or
+  written to Sleeper beyond the page URL.
+
 ## What the score means
 
-The default policy is `forecast-lock-in-lineup-v1`:
+The default policy is `forecast-lock-in-lookahead-v2`:
 
 * **Lock-In/wk** estimates one sequentially selected scoring game per player
   each week. More games offer more chances to lock a good score; their points
   are not added together.
-* **Added/wk** is the improvement in your best legal starting lineup after
-  adding the candidate, measured in estimated weekly Lock-In points.
-* Equal lineup gains are ordered by the player's weekly value, then ADP.
-  Depth options can have zero immediate lineup gain and still be useful.
+* **vs wait** compares taking the candidate now with taking the best player
+  likely to last until your next pick, after simulating the rest of your
+  draft (opponents pick roughly in ADP order; you take the best fit at each
+  later pick). The value counted is your weekly starting lineup minus the
+  expected loss when a starter misses a week (default 10% per starter, an
+  unverified assumption; set `defaults.weekly_absence_probability` in the
+  forecast file to change it). Bench players therefore earn value only by
+  covering the slots they can actually fill.
+* Scores are relative: the top pick can be near zero and the rest negative.
+  A negative score means you can probably do better by waiting, not that the
+  player is bad.
 * Native PG/SG/G/SF/PF/F/C/UTIL eligibility determines fit. A capacity check
   preserves enough remaining roster spots to fill the starting lineup. This
   is a capacity bound, not a guarantee of future player availability; an
   incomplete eligible player pool generates a warning.
   There are no fixed position quotas or arbitrary bench weights.
-* ADP timing is informational; it adds no score premium. Raw FP/game remains
+* ADP drives the opponent model and the survivor comparison only; there is no separate market premium. Raw FP/game remains
   available separately in JSON. Zero/negative-value players are omitted
   from the displayed best lineup; required slots may therefore appear empty.
 

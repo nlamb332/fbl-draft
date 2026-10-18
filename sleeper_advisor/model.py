@@ -68,6 +68,10 @@ class DraftState:
     available: tuple[SleeperPlayer, ...]
     our_next_picks: tuple[int, ...]
     warnings: tuple[str, ...]
+    # identity: matched | slot_override | awaiting_order | unknown_user | not_in_draft | none
+    identity: str = "none"
+    identity_reason: str = ""
+    draft_members: tuple[str, ...] = ()  # "name (slot N)"; never user ids
 
 
 # -- small coercion helpers ---------------------------------------------
@@ -273,6 +277,50 @@ def _pick_owner_roster(
     return owner
 
 
+# -- identity ------------------------------------------------------------------
+_MAX_MEMBERS = 24
+
+
+def _resolve_identity(
+    username: str | None, slot: int | None, user_id: str | None, in_order: bool,
+    has_picks: bool, slot_from_flag: bool, has_order: bool, lookup_problem: str,
+) -> tuple[str, str]:
+    """Classify how we identified the user. Returns ``(identity, reason)``."""
+    if in_order or (user_id and has_picks):
+        return "matched", ""
+    if slot is not None and slot_from_flag:
+        return "slot_override", ""
+    if not username and slot is None:
+        return "none", "no username or slot was given (use --user USERNAME or --slot N)"
+    if not user_id:
+        return "unknown_user", lookup_problem or "your username could not be resolved"
+    if has_order:
+        return "not_in_draft", f"{username!r} is not in this draft's order and has made no picks"
+    # A valid user before Sleeper assigns slots is expected, not an error.
+    return "awaiting_order", f"the draft order is not set yet; {username!r} will be matched once Sleeper assigns slots"
+
+
+def _draft_members(client: Any, draft_order: Mapping[Any, Any]) -> tuple[str, ...]:
+    """Usernames/display names in the draft (``name (slot N)``), by slot. No ids."""
+    entries = sorted(
+        ((_int(slot) if _int(slot) is not None else 10**6, str(uid)) for uid, slot in draft_order.items()),
+    )
+    names: list[str] = []
+    for slot, uid in entries[:_MAX_MEMBERS]:
+        try:
+            info = client.user(uid) or {}
+        except Exception:
+            continue
+        uname, display = _str_or_none(info.get("username")), _str_or_none(info.get("display_name"))
+        label = uname if not display or display == uname else f"{uname or '?'} / {display}"
+        if not uname and display:
+            label = display
+        if not (uname or display):
+            continue
+        names.append(f"{label} (slot {slot})" if slot < 10**6 else str(label))
+    return tuple(names)
+
+
 # -- state ---------------------------------------------------------------------
 def build_state(
     client: SleeperClient, draft_id: str, username: str | None = None, slot: int | None = None
@@ -312,22 +360,28 @@ def build_state(
 
     # our identity
     user_id: str | None = None
+    lookup_problem = ""
     if username:
         try:
             user_id = _str_or_none((client.user(username) or {}).get("user_id"))
             if not user_id:
                 warnings.append(f"Sleeper user {username!r} not found.")
+                lookup_problem = f"Sleeper user {username!r} was not found"
         except Exception as exc:
             warnings.append(f"Could not look up Sleeper user {username!r} ({exc}).")
+            lookup_problem = f"Sleeper user {username!r} could not be looked up"
 
     our_slot: int | None = None
     draft_order = draft.get("draft_order") or {}
-    if user_id and user_id in draft_order:
+    in_order = bool(user_id and user_id in draft_order)
+    if in_order:
         our_slot = _int(draft_order[user_id])
         if slot is not None and slot != our_slot:
             warnings.append(f"--slot {slot} ignored; draft order puts {username} in slot {our_slot}.")
+    slot_from_flag = False
     if our_slot is None and slot is not None:
         our_slot = slot
+        slot_from_flag = True
     if our_slot is None and user_id:
         mine = [p for p in picks if _str_or_none(p.get("picked_by")) == user_id]
         rosters = Counter(r for r in (_int(p.get("roster_id")) for p in mine) if r is not None)
@@ -341,6 +395,14 @@ def build_state(
     if our_slot is None:
         warnings.append("Our draft slot is unknown; recommending best available only.")
     our_roster_id = None if our_slot is None else s2r.get(our_slot, our_slot)
+
+    has_picks = bool(user_id) and any(_str_or_none(p.get("picked_by")) == user_id for p in picks)
+    identity, identity_reason = _resolve_identity(
+        username, slot, user_id, in_order, has_picks, slot_from_flag, bool(draft_order), lookup_problem
+    )
+    draft_members: tuple[str, ...] = ()
+    if identity in ("unknown_user", "not_in_draft") and isinstance(draft_order, Mapping):
+        draft_members = _draft_members(client, draft_order)
 
     def is_ours(pick: Mapping[str, Any]) -> bool:
         picked_by = _str_or_none(pick.get("picked_by"))
@@ -411,4 +473,7 @@ def build_state(
         available=available,
         our_next_picks=next_picks,
         warnings=tuple(warnings),
+        identity=identity,
+        identity_reason=identity_reason,
+        draft_members=draft_members,
     )

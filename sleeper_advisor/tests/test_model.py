@@ -297,5 +297,94 @@ class BuildStateTests(unittest.TestCase):
         self.assertEqual([p["pick_no"] for p in state.picks], list(range(1, 15)))
 
 
+USER_API = "https://api.sleeper.app/v1/user/"
+OTHER_USERS = {
+    "700000000000000001": {"user_id": "700000000000000001", "username": "user_b", "display_name": "User B"},
+    "700000000000000002": {"user_id": "700000000000000002", "username": "user_c", "display_name": "user_c"},
+}
+
+
+class IdentityTests(unittest.TestCase):
+    def setUp(self):
+        self._tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self._tmp.cleanup)
+        self.tmp = Path(self._tmp.name)
+
+    def state(self, scenario="mid", routes=None, **kwargs):
+        routes = routes or fixture_routes(scenario)
+        for uid, info in OTHER_USERS.items():
+            routes.setdefault(USER_API + uid, info)
+        routes.setdefault(USER_API + USER_ID, load_fixture("user"))  # the API also accepts ids
+        return build_state(SleeperClient(fake_fetch(routes), cache_dir=self.tmp), DRAFT_ID, **kwargs)
+
+    def test_matched_via_draft_order(self):
+        state = self.state("mid", username=USERNAME)
+        self.assertEqual(state.identity, "matched")
+        self.assertEqual(state.draft_members, ())
+
+    def test_matched_via_picks_when_order_missing(self):
+        routes = fixture_routes("mid")
+        draft = load_fixture("draft_drafting")
+        draft["draft_order"] = None
+        routes[f"https://api.sleeper.app/v1/draft/{DRAFT_ID}"] = draft
+        self.assertEqual(self.state(routes=routes, username=USERNAME).identity, "matched")
+
+    def test_slot_override_only(self):
+        state = self.state("pre", slot=2)
+        self.assertEqual(state.identity, "slot_override")
+        self.assertEqual(state.our_slot, 2)
+
+    def test_none(self):
+        state = self.state("mid")
+        self.assertEqual(state.identity, "none")
+        self.assertIn("--user", state.identity_reason)
+
+    def test_unknown_user_lists_members_without_ids(self):
+        routes = fixture_routes("mid")
+        routes[USER_API + "nosuchuser"] = None
+        state = self.state(routes=routes, username="nosuchuser")
+        self.assertEqual(state.identity, "unknown_user")
+        self.assertIn("nosuchuser", state.identity_reason)
+        self.assertIsNone(state.our_slot)
+        self.assertEqual(state.our_roster, ())
+        self.assertEqual(state.draft_members, ("user_b / User B (slot 1)", "user_c (slot 2)", "user_a / User A (slot 3)"))
+        for text in state.draft_members + (state.identity_reason,):
+            self.assertNotRegex(text, r"\d{10,}")
+
+    def test_unknown_user_lookup_error(self):
+        routes = fixture_routes("mid")
+        routes[USER_API + "user_a"] = OSError("down")
+        state = self.state(routes=routes, username=USERNAME)
+        self.assertEqual(state.identity, "unknown_user")
+
+    def test_unknown_user_with_slot_is_slot_override(self):
+        routes = fixture_routes("mid")
+        routes[USER_API + "nosuchuser"] = None
+        self.assertEqual(self.state(routes=routes, username="nosuchuser", slot=3).identity, "slot_override")
+
+    def test_not_in_draft(self):
+        routes = fixture_routes("mid")
+        routes[USER_API + "outsider"] = {"user_id": "700000000000000999", "username": "outsider"}
+        state = self.state(routes=routes, username="outsider")
+        self.assertEqual(state.identity, "not_in_draft")
+        self.assertIn("not in this draft", state.identity_reason)
+        self.assertEqual(len(state.draft_members), 3)  # includes user_a, found by id lookup
+
+    def test_awaiting_order_before_order_is_set(self):
+        routes = fixture_routes("pre")
+        routes[f"https://api.sleeper.app/v1/draft/{DRAFT_ID}"] = load_fixture("draft_pre")
+        state = self.state(routes=routes, username=USERNAME)
+        self.assertEqual(state.identity, "awaiting_order")
+        self.assertIn("not set yet", state.identity_reason)
+        self.assertEqual(state.draft_members, ())
+
+    def test_member_lookup_failures_are_skipped(self):
+        routes = fixture_routes("mid")
+        routes[USER_API + "nosuchuser"] = None
+        routes[USER_API + "700000000000000001"] = OSError("boom")
+        state = self.state(routes=routes, username="nosuchuser")
+        self.assertEqual(len(state.draft_members), 2)  # user_b skipped
+
+
 if __name__ == "__main__":
     unittest.main()

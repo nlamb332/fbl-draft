@@ -199,6 +199,17 @@ class ForecastFileTests(unittest.TestCase):
         with self.assertRaises(ForecastError):
             load_forecasts(self.write_json(raw), season="2026", scoring=SCORING)
 
+    def test_weekly_absence_probability_default_parse_and_bounds(self):
+        self.assertEqual(ForecastDefaults().weekly_absence_probability, 0.10)
+        raw = self.base_file()
+        raw["defaults"] = {"weekly_absence_probability": 0.25}
+        config = load_forecasts(self.write_json(raw), season="2026", scoring=SCORING)
+        self.assertEqual(config.defaults.weekly_absence_probability, 0.25)
+        for bad in (-0.1, 1.5, "0.1"):
+            raw["defaults"] = {"weekly_absence_probability": bad}
+            with self.assertRaises(ForecastError):
+                load_forecasts(self.write_json(raw), season="2026", scoring=SCORING)
+
 
 if __name__ == "__main__":
     unittest.main()

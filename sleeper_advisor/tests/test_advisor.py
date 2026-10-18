@@ -3,7 +3,7 @@ import random
 import time
 import unittest
 
-from sleeper_advisor.advisor import Recommendation, _survival, recommend
+from sleeper_advisor.advisor import POLICY_ID, Recommendation, _survival, recommend
 from sleeper_advisor.lock_in import ForecastConfig, GameForecast, estimate_player
 from sleeper_advisor.model import DraftState, SleeperLeague, SleeperPlayer
 
@@ -74,7 +74,7 @@ class AdvisorTests(unittest.TestCase):
         recs = {r.player_id: r for r in recommend(state(avail))}
         self.assertLess(recs["early"].components["survival"],
                         recs["late"].components["survival"])
-        self.assertIn("ADP 2.0", recs["early"].explanation)
+        self.assertTrue(recs["early"].explanation.startswith("Fills"))
 
     def test_replacement_logic_takes_player_who_will_not_last(self):
         avail = [player("goner", ("PG",), 40, adp=2),
@@ -152,10 +152,6 @@ class AdvisorTests(unittest.TestCase):
         self.assertLess(elapsed, 2.5)
 
 
-if __name__ == "__main__":
-    unittest.main()
-
-
 class LockInIntegrationTests(unittest.TestCase):
     def test_forecast_opportunities_change_pick_without_summing_games(self):
         lg = league(slots=("UTIL",), bench=1)
@@ -165,8 +161,10 @@ class LockInIntegrationTests(unittest.TestCase):
             "options": {1: (GameForecast(25, 20, 1), GameForecast(25, 0, 1))}})
         recs = recommend(state(players, lg=lg), forecasts=config)
         self.assertEqual(recs[0].player_id, "options")
-        self.assertLess(recs[0].score, 50)
-        self.assertGreater(recs[0].score, 30)
+        comp = recs[0].components
+        self.assertLess(comp["lineup_gain"], 50)
+        self.assertGreater(comp["lineup_gain"], 25)
+        self.assertGreater(comp["lock_in_weekly_points"], comp["lineup_gain"] - 1e-9)
 
     def test_wrong_season_rejected_before_recommendation(self):
         config = ForecastConfig(season="2027", scoring=SCORING)
@@ -189,3 +187,74 @@ class LockInIntegrationTests(unittest.TestCase):
         lg = league(slots=("PG", "C"), bench=0)
         recs = recommend(state([player("c", ("C",), 30)], lg=lg))
         self.assertTrue(any("cannot fill every starting slot" in w for w in recs[0].warnings))
+
+
+class LookaheadBalanceTests(unittest.TestCase):
+    """Balance must come from scoring only: no caps, quotas or bonuses."""
+
+    def _glut(self):
+        lg = league(slots=("G", "C", "UTIL"), bench=2, rounds=5)
+        roster = [player("rc1", ("C",), 50), player("rc2", ("C",), 49),
+                  player("rc3", ("C",), 48)]
+        return lg, roster
+
+    def test_policy_id_and_components(self):
+        self.assertEqual(POLICY_ID, "forecast-lock-in-lookahead-v2")
+        avail = [player("a", ("PG",), 30, adp=1), player("b", ("C",), 20, adp=2)]
+        rec = recommend(state(avail))[0]
+        for key in ("lineup_gain", "lookahead_value", "depth_value",
+                    "lock_in_weekly_points", "survival"):
+            self.assertIn(key, rec.components)
+        self.assertAlmostEqual(rec.components["lookahead_value"], rec.score, places=3)
+        self.assertTrue(any("absence probability" in w for w in rec.warnings))
+
+    def test_c_glut_prefers_somewhat_lower_value_guard(self):
+        lg, roster = self._glut()
+        avail = [player("c4", ("C",), 46, adp=1), player("pg", ("PG",), 40, adp=2),
+                 player("pg2", ("PG",), 10, adp=30)]
+        recs = recommend(state(avail, roster, lg=lg, cur=1, next_picks=(1, 12, 13)))
+        self.assertEqual(recs[0].player_id, "pg")
+
+    def test_much_better_center_still_wins_despite_glut(self):
+        lg, roster = self._glut()
+        avail = [player("star_c", ("C",), 90, adp=1), player("pg", ("PG",), 40, adp=2),
+                 player("pg2", ("PG",), 10, adp=30)]
+        recs = recommend(state(avail, roster, lg=lg, cur=1, next_picks=(1, 12, 13)))
+        self.assertEqual(recs[0].player_id, "star_c")
+
+    def test_depth_has_value_without_a_bench_bonus(self):
+        # Single UTIL slot: the backup is worth something only through the
+        # absence term, which is derived from player values.
+        lg = league(slots=("UTIL",), bench=1)
+        roster = [player("starter", ("PG",), 40)]
+        avail = [player("backup", ("PG",), 30, adp=1)]
+        rec = recommend(state(avail, roster, lg=lg, next_picks=(1,)))[0]
+        self.assertGreater(rec.components["depth_value"], 0.0)
+        self.assertAlmostEqual(rec.components["lineup_gain"], 0.0)
+
+    def test_absence_probability_read_from_forecast_defaults(self):
+        from sleeper_advisor.lock_in import ForecastDefaults
+        lg = league(slots=("UTIL",), bench=1)
+        roster = [player("starter", ("PG",), 40)]
+        avail = [player("backup", ("PG",), 30, adp=1)]
+        low = ForecastConfig(season="2026", scoring=SCORING,
+                             defaults=ForecastDefaults(weekly_absence_probability=0.0))
+        high = ForecastConfig(season="2026", scoring=SCORING,
+                              defaults=ForecastDefaults(weekly_absence_probability=0.5))
+        d_low = recommend(state(avail, roster, lg=lg, next_picks=(1,)), forecasts=low)[0]
+        d_high = recommend(state(avail, roster, lg=lg, next_picks=(1,)), forecasts=high)[0]
+        self.assertAlmostEqual(d_low.components["depth_value"], 0.0)
+        self.assertGreater(d_high.components["depth_value"], 1.0)
+
+    def test_opponents_removal_makes_scarce_tier_valuable(self):
+        # Two C and two PG remain; opponents will take the top-ADP players
+        # between our picks, so taking the one that will not last matters.
+        lg = league(slots=("PG", "C"), bench=0, rounds=2)
+        avail = [player("c_gone", ("C",), 40, adp=2), player("c_late", ("C",), 38, adp=50),
+                 player("pg_gone", ("PG",), 41, adp=1), player("pg_late", ("PG",), 39, adp=51)]
+        recs = recommend(state(avail, lg=lg, next_picks=(1, 8)))
+        self.assertIn(recs[0].player_id, ("pg_gone", "c_gone"))
+
+
+if __name__ == "__main__":
+    unittest.main()

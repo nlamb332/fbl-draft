@@ -31,7 +31,8 @@ DEFAULT_AVAILABILITY_PROBABILITY = 0.90
 
 _ROOT_FIELDS = frozenset({"mode", "season", "scoring", "defaults", "players", "source"})
 _DEFAULT_FIELDS = frozenset(
-    {"scheduled_games_per_week", "stddev_fraction", "availability_probability"}
+    {"scheduled_games_per_week", "stddev_fraction", "availability_probability",
+     "weekly_absence_probability"}
 )
 _PLAYER_FIELDS = frozenset({"weeks"})
 _GAME_FIELDS = frozenset({"mean", "stddev", "availability_probability"})
@@ -80,6 +81,8 @@ class ForecastDefaults:
     scheduled_games_per_week: int = DEFAULT_SCHEDULED_GAMES_PER_WEEK
     stddev_fraction: float = DEFAULT_STDDEV_FRACTION
     availability_probability: float = DEFAULT_AVAILABILITY_PROBABILITY
+    # Draft-advisor depth assumption: chance a given player misses a week.
+    weekly_absence_probability: float = 0.10
 
     def __post_init__(self) -> None:
         games = self.scheduled_games_per_week
@@ -93,6 +96,12 @@ class ForecastDefaults:
         )
         if not 0.0 <= availability <= 1.0:
             raise ForecastError("availability_probability must be between 0 and 1")
+        absence = _finite_number(
+            self.weekly_absence_probability, field_name="weekly_absence_probability"
+        )
+        if not 0.0 <= absence <= 1.0:
+            raise ForecastError("weekly_absence_probability must be between 0 and 1")
+        object.__setattr__(self, "weekly_absence_probability", absence)
         object.__setattr__(self, "stddev_fraction", fraction)
         object.__setattr__(self, "availability_probability", availability)
 
@@ -406,6 +415,10 @@ def _parse_defaults(raw: Any) -> ForecastDefaults:
     if "availability_probability" in value:
         kwargs["availability_probability"] = _finite_number(
             value["availability_probability"], field_name="defaults.availability_probability"
+        )
+    if "weekly_absence_probability" in value:
+        kwargs["weekly_absence_probability"] = _finite_number(
+            value["weekly_absence_probability"], field_name="defaults.weekly_absence_probability"
         )
     return ForecastDefaults(**kwargs)
 

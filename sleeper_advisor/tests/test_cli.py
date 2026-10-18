@@ -215,6 +215,58 @@ class PollerTests(unittest.TestCase):
             self.assertEqual(wrapped.last_draft["draft_id"], DRAFT_ID)
 
 
+class IdentityBannerTests(unittest.TestCase):
+    def routes(self):
+        routes = fixture_routes("mid")
+        routes[f"{API_ROOT}/user/nosuchuser"] = None
+        routes[f"{API_ROOT}/user/700000000000000001"] = {"username": "user_b", "display_name": "User B"}
+        routes[f"{API_ROOT}/user/700000000000000002"] = {"username": "user_c"}
+        routes[f"{API_ROOT}/user/700000000000000003"] = load_fixture("user")
+        return routes
+
+    def test_banner_in_text_and_json_when_unmatched(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            client = SleeperClient(fake_fetch(self.routes()), cache_dir=Path(tmp) / "sleeper")
+            code, text = run(["once", DRAFT_ID, "--user", "nosuchuser"], client)
+            self.assertEqual(code, 0)
+            self.assertIn("Advisor can't see your team:", text)
+            self.assertIn("Recommendations ignore your roster.", text)
+            self.assertIn("user_b / User B (slot 1)", text)
+            self.assertNotIn("700000000000000003", text)
+            self.assertLess(text.index("Advisor can't see"), text.index("Best lineup"))
+            code, text = run(["once", DRAFT_ID, "--user", "nosuchuser", "--json"], client)
+            data = json.loads(text)
+            self.assertEqual(data["identity"], "unknown_user")
+            self.assertIn("nosuchuser", data["identity_banner"])
+            self.assertEqual(len(data["draft_members"]), 3)
+
+    def test_no_banner_when_matched_or_slot_override(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            code, text = run(["once", DRAFT_ID, "--user", USERNAME, "--json"], fixture_client(tmp, "mid"))
+            data = json.loads(text)
+            self.assertEqual(data["identity"], "matched")
+            self.assertIsNone(data["identity_banner"])
+            self.assertNotIn("can't see your team", render_text(data))
+            code, text = run(["once", DRAFT_ID, "--slot", "3", "--json"], fixture_client(tmp, "mid"))
+            data = json.loads(text)
+            self.assertEqual(data["identity"], "slot_override")
+            self.assertIsNone(data["identity_banner"])
+
+    def test_banner_when_no_user_or_slot(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            code, text = run(["once", DRAFT_ID], fixture_client(tmp, "mid"))
+        self.assertIn("Advisor can't see your team: no username or slot was given", text)
+
+    def test_user_lookups_cached_across_polls(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            client = SleeperClient(fake_fetch(self.routes()), cache_dir=Path(tmp) / "sleeper")
+            poller = Poller(client, DRAFT_ID, "nosuchuser", top=2)
+            poller.poll()
+            poller.poll()
+            user_calls = [u for u in client.fetch_json.calls if "/user/" in u]
+            self.assertEqual(len(user_calls), 4)  # username + 3 members, once each
+
+
 class ConfigTests(unittest.TestCase):
     def test_config_round_trip(self):
         with tempfile.TemporaryDirectory() as tmp:

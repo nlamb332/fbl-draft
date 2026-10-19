@@ -6,22 +6,26 @@
 completed its manual practice trial: 140 picks and all ten own-turn
 recommendations matched. The last complete scan was saved, and tested reloads
 can start observation without rescanning. See [the trial review](DRAFT_MANUAL_TRIAL_2026-10-14.md).
-Automatic drafting issues #7 and #9 remain open, and queue fallback remains
-disabled. This new trial validates observation and manual recommendations.
+Queue fallback remains disabled. This new trial validates observation and manual recommendations.
 
-Final October 14 pre-merge verification passed 209 draft-assistant Python tests
-and 204 JavaScript tests. The suite counts below are historical October 13
-checkpoints.
+Measured on fbl-draft `main` at 590dad9 plus the #11 regression (October 19,
+Windows, Python 3.13.2, Node v24.15.0, run sequentially): Python
+`python -m pytest draft_assistant mock_draft` **302 passed**; Node
+`node --test "draft_assistant/*.test.js"` **222 passed**; the dress-rehearsal
+module passed (11 tests, about 48 s) in three consecutive repeats. A first
+Python run showed 9 setup errors from an inaccessible system pytest temp
+directory (`PermissionError` on `%TEMP%\pytest-of-<user>`), unrelated to the
+code; rerunning with `--basetemp` in a writable folder passed. All results are
+offline; browser and live ESPN gates remain open (see Live gates).
 
 The current integration implements the guarded queue lifecycle, direct/queue
 exclusion, durable dispatch provenance, exact-frame operator retries, terminal
 observation publication, and foreground checkpoint validation. Review corrected
 response-schema, stale read-back, restart, cancellation, and claim-only
-confirmation defects. The final merged Python suite passed **591 tests**,
-including the canonical-factory HTTP/export check, with no expected failures
-or errors. Node passed **128 tests**. Commands and artifacts are recorded in
-[the October 13 validation report](DRAFT_FIX_VALIDATION_2026-10-13.md). These
-are offline checks; browser/live gates remain pending. Repository skill source is version
+confirmation defects. Review corrected these defects; the offline evidence is recorded in
+[the October 13 validation report](DRAFT_FIX_VALIDATION_2026-10-13.md), whose
+counts are historical and superseded by the measurements above.
+Browser/live gates remain pending. Repository skill source is version
 1.3.3; the installed skill and all three reference files were synchronized and
 hash-checked on October 13, and skill validation passed.
 

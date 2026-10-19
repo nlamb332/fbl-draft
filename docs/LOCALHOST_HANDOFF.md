@@ -6,6 +6,17 @@ both `http://127.0.0.1:8765` and an ESPN practice-room link supplied by the
 owner. A real room always needs its own identity/rules checks and a separate,
 explicit user Start handoff. Queue fallback remains disabled.
 
+## Three different things
+
+| Mode | What it is | Starts a real draft? |
+|---|---|---|
+| Offline simulation | `test_dress_rehearsal` and the canonical-runner HTTP tests against a local fixture room. No ESPN, no browser. | No |
+| Attended ESPN practice | The panel plus an owner-provided ESPN practice-room link, a human present, foreground runner only. Live gates are tracked in fbl-season #2 and #8. | No |
+| Real draft | A real room with its own identity/rules checks and a separate, explicit user Start handoff. | Only after that Start |
+
+Providing a localhost or ESPN link, probing, claiming ownership or passing
+preflight never starts drafting in any mode.
+
 ## Start and check the coordinator
 
 Run these commands from the integration checkout (the directory containing

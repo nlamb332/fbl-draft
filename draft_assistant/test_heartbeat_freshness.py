@@ -154,6 +154,32 @@ class HeartbeatFreshnessTests(unittest.TestCase):
         self.coordinator.resume(self.sid)
         self.assertEqual(self.state(), "running")
 
+    def test_transfer_from_running_requires_successor_resume_and_survives_restart(self) -> None:
+        self.running_at(2)
+        old = self.coordinator.ownership.claim(self.sid, label="old owner")["owner_token"]
+        self.assertEqual(self.state(), "running")
+
+        moved = self.coordinator.ownership.transfer(
+            self.sid,
+            last_confirmed_revision=self.coordinator.status(self.sid)["latest_revision"],
+            label="successor",
+        )
+        self.assertTrue(moved["paused_running_session"])
+        self.assertEqual(self.state(), "paused")
+
+        # Fresh, complete, contiguous frames and heartbeats never resume it.
+        self.coordinator.heartbeat(self.frame(2, revision=2))
+        self.coordinator.ingest_observation(self.frame(3, revision=3))
+        self.assertEqual(self.state(), "paused")
+        # A restart keeps it paused and the old token stays revoked.
+        self.coordinator._recover_after_restart()
+        self.assertEqual(self.state(), "paused")
+        with self.assertRaises(OwnershipError):
+            self.coordinator.ownership.require(self.sid, old)
+        self.coordinator.ownership.require(self.sid, moved["owner_token"])
+        self.coordinator.resume(self.sid)
+        self.assertEqual(self.state(), "running")
+
     # --- transitions that keep the explicit-resume requirement --------------
 
     def test_stale_during_our_turn_pauses_and_needs_explicit_resume(self) -> None:

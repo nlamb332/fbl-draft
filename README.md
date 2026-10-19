@@ -130,7 +130,7 @@ tests and their fixtures are excluded from the ZIP download.
 ```powershell
 python -m unittest mock_draft.test_fixture -v
 python -m pytest draft_assistant mock_draft -q
-node --test draft_assistant/test_browser_observer.test.js draft_assistant/test_operator_runtime.test.js
+node --test "draft_assistant/*.test.js"
 ```
 
 The strategy study contains its own reproduction commands in

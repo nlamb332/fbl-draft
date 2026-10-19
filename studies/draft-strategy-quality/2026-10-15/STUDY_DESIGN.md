@@ -137,11 +137,10 @@ Validation included hand-calculated scoring examples, exhaustive small-roster
 lineup allocation, absence of future-score selection, paired randomness,
 drafted-player exclusion, and an exhaustive tiny draft with a known best branch.
 Forty-six research tests passed together before publication; earlier validation
-also passed 27 existing strategy/fixture checks. The local publication verifier
+also passed 27 existing strategy/fixture checks. The portable evidence verifier (`verify.py`)
 checked 4,956 complete draft histories and paired means. Two hundred forty
 recommendation-forced branches reproduced their reference with zero regret.
 
 The production strategy, recommendation service, and observer were unchanged.
-Frozen inputs, complete histories, candidate scores, checkpoints, provenance,
-source versions, and seeds remain stored locally; this folder publishes methods,
-aggregate results, and figures only.
+Portable summaries, per-draft outcome rows, and hashes are in `data/` and
+`ARTIFACTS.json`; detailed continuation trace sidecars remain outside this repository.

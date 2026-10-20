@@ -1,0 +1,39 @@
+{
+  "profile_id": "eight_team_lock_in_basketball_is_optional",
+  "status": "research_only_advisory",
+  "mode": "lock_in",
+  "mode_confirmed": false,
+  "live_consumption": false,
+  "settings": {
+    "total_teams": 8,
+    "rounds": 14,
+    "picks": 112,
+    "starting_slots": ["PG", "SG", "G", "SF", "PF", "F", "C", "UTIL", "UTIL"],
+    "bench_slots": 5,
+    "roster_size": 14,
+    "ir_slots": 1,
+    "roster_confirmed": false,
+    "snake_draft": true,
+    "double_double_includes_triple_double": true
+  },
+  "scoring": {
+    "fgm": 3, "fga": -1, "fgmi": 5,
+    "ftm": 1, "fta": 0, "ftmi": 12,
+    "tpm": 10, "tpa": -2, "tpmi": 6,
+    "dd": 35, "td": -200, "tf": 30, "ff": 75, "pf": 5,
+    "pts": 0.25, "reb": 1, "oreb": 7, "dreb": -2,
+    "ast": 4, "stl": 15, "blk": -10, "to": 8
+  },
+  "projection_coverage": {
+    "oreb": "derived as reb - dreb",
+    "pf": "estimated at 0.08 per projected minute (labelled assumption)",
+    "tf": "not projected; counted as 0",
+    "ff": "not projected; counted as 0",
+    "dd_td": "projected per-game rates modelled as discrete game outcomes; td is a subset of dd"
+  },
+  "evidence_limitations": [
+    "Roster slots and Lock-In mode are carried over from the six-team league and not confirmed; the live advisor reads both from the Sleeper draft.",
+    "Rankings use Sleeper 2026 season projections with default game-count, variance and availability assumptions.",
+    "No simulation study has been run for this league."
+  ]
+}

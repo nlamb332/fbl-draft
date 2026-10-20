@@ -41,6 +41,32 @@ class ScoringTests(unittest.TestCase):
         self.assertEqual(a, b)
         self.assertEqual(len(a[2]), 2)
 
+    def test_identity_components_derived_without_warning(self):
+        total, parts, warnings = fantasy_points(
+            {"reb": 10, "dreb": 7, "fga": 20, "fgm": 9, "tpa": 6, "tpm": 2},
+            {"oreb": 7, "dreb": -2, "fgmi": 5, "tpmi": 6})
+        self.assertAlmostEqual(parts["oreb"], 21)
+        self.assertAlmostEqual(parts["fgmi"], 55)
+        self.assertAlmostEqual(parts["tpmi"], 24)
+        self.assertAlmostEqual(total, 21 - 14 + 55 + 24)
+        self.assertEqual(warnings, ())
+
+    def test_missing_shot_keys_are_zero_and_attempts_rebuilt(self):
+        total, parts, warnings = fantasy_points(
+            {"ftm": 4, "ftmi": 2}, {"fta": 1, "tpmi": 6})
+        self.assertAlmostEqual(parts["fta"], 6)
+        self.assertNotIn("tpmi", parts)
+        self.assertEqual(warnings, ())
+
+    def test_unprojected_personal_fouls_estimated_from_minutes(self):
+        total, parts, warnings = fantasy_points({"sp": 1800}, {"pf": 5})
+        self.assertAlmostEqual(parts["pf"], 30 * 0.08 * 5)
+        self.assertEqual(len(warnings), 1)
+        self.assertIn("estimated from minutes", warnings[0])
+        _, parts, warnings = fantasy_points({"pf": 2, "sp": 1800}, {"pf": 5})
+        self.assertAlmostEqual(parts["pf"], 10)
+        self.assertEqual(warnings, ())
+
 
 if __name__ == "__main__":
     unittest.main()

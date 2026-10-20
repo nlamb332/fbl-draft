@@ -133,6 +133,20 @@ Double-double/triple-double and 40+/50+ scoring contributions stack when the
 input projections contain both event rates. Missing event rates count as zero
 and generate warnings; stacking does not supply an absent projection.
 
+Projected double-double and triple-double rates are modelled as discrete game
+outcomes (no bonus, DD only, TD) rather than averaged into every game, so a
+large bonus or penalty affects the lock/pass decision as a separate outcome.
+A penalised game is still charged in full when it is the one locked or the
+player's final game of the week.
+
+Sleeper projects `reb` and `dreb` but not `oreb`; the advisor derives `oreb`
+as `reb - dreb` and rebuilds any missing shot component from
+`fga = fgm + fgmi`, `fta = ftm + ftmi` and `tpa = tpm + tpmi`. Personal fouls
+(`pf`) are not projected; when scored they are estimated at 0.08 per projected
+minute, a labelled league-average assumption. Technical and flagrant fouls
+(`tf`, `ff`) are not projected and count as zero with a warning. For the
+eight-team custom-scoring league see `EIGHT_TEAM_LOCK_IN_STRATEGY.md`.
+
 ## Forecast inputs and assumptions
 
 Sleeper's public season averages do not include calibrated game variance,

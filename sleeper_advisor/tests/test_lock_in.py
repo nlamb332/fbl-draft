@@ -129,6 +129,27 @@ class LockInMathTests(unittest.TestCase):
         self.assertEqual(zero.weekly_points, 0.0)
         self.assertTrue(any("No scheduled games" in warning for warning in zero.warnings))
 
+    def test_bonus_outcomes_let_a_triple_double_penalty_be_passed(self):
+        scoring = {"pts": 1.0, "dd": 35.0, "td": -200.0}
+        stats = {"pts": 200.0, "dd": 0.9, "td": 0.5}
+        estimate = estimate_player(player(stats=stats), scoring)
+        mean = 200.0 + 35 * 0.9 - 200 * 0.5
+        self.assertAlmostEqual(estimate.fp_per_game, mean)
+        averaged = forecast_stopping_value(
+            [GameForecast(mean, abs(mean) * 0.2, 0.9)] * 3)
+        self.assertGreater(estimate.weekly_points, averaged + 40)
+        # No bonus rates: identical to the single-normal game model.
+        plain = estimate_player(player(stats={"pts": 30.0}), scoring)
+        self.assertAlmostEqual(plain.weekly_points, forecast_stopping_value(
+            [GameForecast(30.0, 6.0, 0.9)] * 3))
+
+    def test_game_outcomes_must_be_a_distribution(self):
+        with self.assertRaises(ForecastError):
+            GameForecast(10.0, 1.0, 1.0, ((0.5, 0.0), (0.4, 5.0)))
+        game = GameForecast(10.0, 0.0, 1.0, ((0.5, 0.0), (0.5, -20.0)))
+        self.assertAlmostEqual(game.expected_score, 0.0)
+        self.assertAlmostEqual(game.expected_max(5.0), 0.5 * 10 + 0.5 * 5)
+
 
 class ForecastFileTests(unittest.TestCase):
     def write_json(self, value):

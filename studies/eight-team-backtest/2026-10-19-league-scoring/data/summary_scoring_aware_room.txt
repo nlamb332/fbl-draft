@@ -1,0 +1,11 @@
+seed 0 done 196s
+seed 1 done 401s
+seed 2 done 610s
+seed 3 done 795s
+seed 4 done 1004s
+seed 5 done 1183s
+room=scoring_aware weeks=25 pool=508 drafts per strategy=48
+adp                      wk  1803.0  vs-ADP   +0.0/wk (±0.0)  all-play 0.616  rank 2.67  1st 17%  TD locked/season 5.83
+fp_per_game_out_aware    wk  1721.2  vs-ADP  -81.8/wk (±36.4)  all-play 0.503  rank 4.29  1st 8%  TD locked/season 1.85
+advisor                  wk  1770.0  vs-ADP  -32.9/wk (±37.4)  all-play 0.568  rank 3.54  1st 17%  TD locked/season 2.42
+advisor_out_aware        wk  1816.6  vs-ADP  +13.6/wk (±35.2)  all-play 0.601  rank 2.83  1st 33%  TD locked/season 3.42

@@ -1,0 +1,7 @@
+players (ADP <= 150, 2024-25 gp >= 10): 144
+realized season total  ~ forecast 0.422  ~ ADP 0.454
+realized FP per game   ~ forecast 0.745  ~ ADP 0.599
+games played           ~ forecast -0.111  ~ ADP 0.087
+rank blend 0.25 forecast + 0.75 ADP ~ season total 0.483
+rank blend 0.50 forecast + 0.50 ADP ~ season total 0.480
+rank blend 0.75 forecast + 0.25 ADP ~ season total 0.463

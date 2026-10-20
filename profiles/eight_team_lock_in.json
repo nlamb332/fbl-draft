@@ -1,9 +1,10 @@
 {
-  "profile_id": "eight_team_lock_in_basketball_is_optional",
+  "profile_id": "eight_team_lock_in_the_family",
   "status": "research_only_advisory",
   "mode": "lock_in",
   "mode_confirmed": true,
   "live_consumption": false,
+  "source": "Sleeper league API scoring_settings and roster_positions, read 2026-10-20",
   "settings": {
     "total_teams": 8,
     "rounds": 14,
@@ -12,28 +13,30 @@
     "bench_slots": 5,
     "roster_size": 14,
     "ir_slots": 1,
-    "roster_confirmed": false,
+    "roster_confirmed": true,
     "snake_draft": true,
     "double_double_includes_triple_double": true
   },
   "scoring": {
     "fgm": 3, "fga": -1, "fgmi": 5,
-    "ftm": 1, "fta": 0, "ftmi": 12,
+    "ftm": 1, "fta": 12,
     "tpm": 10, "tpa": -2, "tpmi": 6,
     "dd": 35, "td": -200, "tf": 30, "ff": 75, "pf": 5,
-    "pts": 0.25, "reb": 1, "oreb": 7, "dreb": -2,
-    "ast": 4, "stl": 15, "blk": -10, "to": 8
+    "pts": 0.5, "reb": 1, "oreb": 7, "dreb": -8,
+    "ast": 4, "stl": 15, "blk": -5, "to": 8,
+    "bonus_pt_40p": -40, "bonus_pt_50p": -50, "bonus_reb_20p": -20, "bonus_ast_15p": -15
   },
   "projection_coverage": {
     "oreb": "derived as reb - dreb",
     "pf": "estimated at 0.08 per projected minute (labelled assumption)",
     "tf": "not projected; counted as 0",
     "ff": "not projected; counted as 0",
+    "threshold_bonuses": "bonus_pt_40p, bonus_pt_50p, bonus_reb_20p and bonus_ast_15p are not projected; counted as 0",
     "dd_td": "projected per-game rates averaged into every game; a passable-outcome model was backtested and reverted"
   },
   "evidence_limitations": [
-    "Lock-In mode is confirmed by the user (2026-10-19). Roster slots are carried over from the six-team league and not confirmed; the live advisor reads them from the Sleeper draft.",
-    "Rankings use Sleeper 2026 season projections with default game-count, variance and availability assumptions.",
-    "Backtested on real 2025-26 games with 2024-25 forecasts and no waivers; see studies/eight-team-backtest/2026-10-19."
+    "Backtested on real 2025-26 games with 2024-25 forecasts and no waivers; see studies/eight-team-backtest/2026-10-19-league-scoring.",
+    "In that backtest the injury-aware advisor trailed ADP drafting by 146 +/- 39 weekly points in an ADP room and tied (+14 +/- 35) in a scoring-aware room.",
+    "Rankings use Sleeper 2026 season projections with default game-count, variance and availability assumptions."
   ]
 }

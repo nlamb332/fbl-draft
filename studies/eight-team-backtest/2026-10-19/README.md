@@ -1,8 +1,8 @@
 # Eight-team Lock-In backtest on 2025-26 games
 
-October 19, 2026. Strategy guidance and the results table: [EIGHT_TEAM_LOCK_IN_STRATEGY.md](../../../docs/EIGHT_TEAM_LOCK_IN_STRATEGY.md#backtest-on-the-2025-26-season).
+October 19, 2026. **Superseded:** this study used the scoring list first supplied for the league, which differs from the league's actual Sleeper settings. See [the league-scoring rerun](../2026-10-19-league-scoring/README.md). It remains as the record of why the passable triple-double model was reverted.
 
-A replay of real 2025-26 NBA regular-season games under the league's custom scoring (blocks −10, triple-double −200) and Lock-In rules, for eight-team, 14-round snake drafts. Unlike `studies/lock-in/2026-10-17`, nothing here is synthetic.
+A replay of real 2025-26 NBA regular-season games under the scoring list first supplied (blocks −10, triple-double −200) and Lock-In rules, for eight-team, 14-round snake drafts. Unlike `studies/lock-in/2026-10-17`, nothing here is synthetic.
 
 ## Files
 

@@ -1,95 +1,97 @@
 # Eight-team Sleeper Lock-In strategy ("Basketball is optional")
 
-October 19, 2026 (America/Chicago). Replaces the [six-team profile](SIX_TEAM_LOCK_IN_STRATEGY.md) for the eight-team league with the custom scoring below. Machine-readable settings: [eight_team_lock_in.json](../profiles/eight_team_lock_in.json).
+October 20, 2026 (America/Chicago). Applies to the eight-team league "THE FAMILY" and replaces the [six-team profile](SIX_TEAM_LOCK_IN_STRATEGY.md). Machine-readable settings: [eight_team_lock_in.json](../profiles/eight_team_lock_in.json).
 
-**Lock-In mode is confirmed** (user, 2026-10-19). **Roster assumed, not confirmed:** the six-team roster (PG, SG, G, SF, PF, F, C, UTIL, UTIL; five bench; one IR), giving a 14-round, 112-pick snake. The advisor reads the real team count, roster slots and scoring from the Sleeper draft, so the live recommendations do not depend on this assumption; only this document does.
+**Confirmed from the Sleeper league API:** Lock-In mode (confirmed by the user), eight teams, 14 rounds, and roster PG, SG, G, SF, PF, F, C, UTIL, UTIL + 5 bench + 1 IR. The scoring below is the league's actual `scoring_settings`. It differs from the list first supplied for this league: free-throw *attempts* are +12 (misses 0), defensive rebounds −8, blocks −5, points +0.5, and there are game-threshold penalties. An earlier version of this document and its backtest used the supplied list; they are kept in [studies/eight-team-backtest/2026-10-19](../studies/eight-team-backtest/2026-10-19/README.md) for reference only.
 
 ## Scoring
 
 | Sleeper key | Points | Sleeper key | Points | Sleeper key | Points |
 | --- | ---: | --- | ---: | --- | ---: |
 | `fgm` | +3 | `ftm` | +1 | `tpm` | +10 |
-| `fga` | −1 | `fta` | 0 | `tpa` | −2 |
-| `fgmi` | +5 | `ftmi` | +12 | `tpmi` | +6 |
+| `fga` | −1 | `fta` | **+12** | `tpa` | −2 |
+| `fgmi` | +5 | `ftmi` | 0 | `tpmi` | +6 |
 | `dd` | +35 | `td` | −200 | `pf` | +5 |
-| `tf` | +30 | `ff` | +75 | `pts` | +0.25 |
-| `reb` | +1 | `oreb` | +7 | `dreb` | −2 |
-| `ast` | +4 | `stl` | +15 | `blk` | −10 |
-| `to` | +8 | | | | |
+| `tf` | +30 | `ff` | +75 | `pts` | +0.5 |
+| `reb` | +1 | `oreb` | +7 | `dreb` | **−8** |
+| `ast` | +4 | `stl` | +15 | `blk` | −5 |
+| `to` | +8 | `bonus_pt_40p` | −40 | `bonus_pt_50p` | −50 |
+| `bonus_reb_20p` | −20 | `bonus_ast_15p` | −15 | | |
 
-Net value of one event once every key it triggers is added (a 3 is also a field goal; a rebound is also `oreb` or `dreb`):
+Net value of one event once every key it triggers is added (a 3 is also a field goal; a rebound is also `oreb` or `dreb`; a 50-point game also triggers the 40-point penalty):
 
 | Event | Net | Event | Net |
 | --- | ---: | --- | ---: |
-| Made 2 | +2.5 | Missed 2 | **+4** |
-| Made 3 | +10.75 | Missed 3 | +8 |
-| Made FT | +1.25 | Missed FT | **+12** |
-| Offensive rebound | +8 | Defensive rebound | −1 |
+| Made 2 | +3 | Missed 2 | +4 |
+| Made 3 | +11.5 | Missed 3 | +8 |
+| Made FT | **+13.5** | Missed FT | **+12** |
+| Offensive rebound | +8 | Defensive rebound | **−7** |
 | Steal | +15 | Turnover | +8 |
-| Assist | +4 | Block | **−10** |
+| Assist | +4 | Block | −5 |
 | Personal foul | +5 | Technical / flagrant | +30 / +75 |
 | Double-double | +35 | Triple-double (DD + TD) | **−165** |
+| 40-point game | −40 | 50-point game | −90 |
+| 20-rebound game | −20 | 15-assist game | −15 |
 
 ## What the scoring rewards
 
 Scored against Sleeper's 2026 season projections (403 players with real projections; default Lock-In assumptions):
 
-* **Shot volume, not efficiency.** A miss is worth more than a made 2. Field-goal misses are the single largest source of points (~40/game for a top-96 player), followed by 3PT misses and makes. High-usage, high-3PA guards dominate.
-* **Ball-dominant guards.** Assists (+4) and turnovers (+8) both pay. Of the top 72 players by weekly Lock-In value, about 40 are PG-eligible and 36 SG-eligible; only about 10 are C-eligible.
-* **Steals are gold, blocks are poison.** +15 per steal, −10 per block. Wembanyama falls from ADP 1 to about 30th; Holmgren, Mobley and Davis fall out of the top 70.
-* **Offensive rebounders over defensive rebounders.** Glass-cleaning defensive centers lose points on every board (Towns ~54th).
-* **Bad free-throw shooters with big FTA.** A missed FT (+12) is worth nearly ten makes. Giannis stays top 8 largely through `ftmi`.
-* **Triple-doubles cost a full −200 (−165 net of the DD bonus).** Lock-In does not make this avoidable. You are forced into a triple-double game whenever it is the player's last game of the week, and passing on one does not reliably leave a better game. Jokić projects a triple-double in about 49% of games and is worth about 143 FP/game (around 82nd). Do not draft him at ADP 2. Jalen Johnson and Giddey (16–17% triple-double rate) carry the same risk on a smaller scale. The backtest below tested a model that treated triple-doubles as passable. It drafted more of these players, locked about three times as many triple-double games and scored worse, so it was reverted.
+* **Free-throw attempts above everything.** Every attempt is worth +12 or more, made or missed. FTA is the largest scoring source (~57 points per game for a top-96 player), ahead of field-goal misses (~40). Players who live at the line rise: Dončić, Trae Young, Booker, Gilgeous-Alexander, Giannis, Banchero, Reaves, Avdija, Zion and Embiid.
+* **Shot volume, not efficiency.** A missed 2 is worth more than a made 2, and threes pay either way.
+* **Defensive rebounds are the biggest penalty** (−7 net, about −35 per game for a top-96 player). Rebounding centers collapse: Sabonis ~82nd, Towns ~79th, Jokić ~86th, Gobert outside the top 200. Only 7 C-eligible players make the top 72.
+* **Ball-dominant guards.** Assists (+4), turnovers (+8) and steals (+15) all pay. About 39 of the top 72 are PG-eligible and 38 SG-eligible.
+* **Triple-doubles cost a full −200 (−165 net of the DD bonus).** Lock-In does not make this avoidable: you are forced into a triple-double game whenever it is the player's last game of the week. Jokić projects one in about 49% of games. Do not draft him at ADP 2.
+* **Threshold penalties are not in the projections.** Sleeper does not project 40-point, 50-point, 20-rebound or 15-assist games, so the advisor counts them as 0 with a warning. They mainly dent elite scorers (Dončić, Gilgeous-Alexander, Edwards) in their best weeks; Lock-In lets you pass such a game only if a later game remains.
+
+Weekly Lock-In value falls gradually: about 275 at the 8th player, 241 at 24th, 203 at 48th, 180 at 72nd and 147 at 112th.
 
 ## Draft guidance
 
-1. **Rounds 1–2:** Dončić, Trae Young, LaMelo Ball, Cunningham, Mitchell, Edwards, Giannis, Curry, Banchero. Trae (ADP ~22) and LaMelo (ADP ~33) are the clearest early edges. Tatum ranks 7th on per-game projection; check his health before taking him that high.
-2. **Fade ADP-driven bigs and triple-double players:** Jokić, Wembanyama, Towns, Şengün, Davis, Mobley, Holmgren, Amen Thompson and Scottie Barnes all rank far below ADP. Let opponents take them.
-3. **Treat a huge ADP gap as availability risk, not free value.** This is the backtest's main lesson. Per-game projections pick the right *type* of player, but season totals depend on games played, and ADP knows things about injuries and roles that per-game projections miss. Sleeper's live projections are per game (`gp = 1`) even for players listed `Out` for the season, and the advisor does not use injury labels. Before taking any player whose ADP is far later than the pick, check the injury note and recent news. This year's main examples are Kyrie Irving (ADP ~111), Damian Lillard (~147) and Dejounte Murray (~113).
-4. **Moderate-gap value targets:** Garland, Herro, Michael Porter Jr., Keyonte George, Stephon Castle, Coby White, Jalen Green, Kon Knueppel, Immanuel Quickley and Julius Randle. They are high-volume guards and forwards whose ADP is later than their value, with no single long-term injury explaining the gap.
-5. **Still fill C.** With one C slot per team and few good C-eligible players, take a guard-friendly C (Adebayo, Siakam, Sabonis, Randle) before the C pool collapses. The advisor's lineup-fit model handles this from the actual roster; there is no position quota.
-6. **Tiebreaks the projections cannot see:** players prone to technical and flagrant fouls (+30 / +75 per event; not projected, counted as 0), and heavy foulers relative to their minutes.
+1. **Rounds 1–2:** Dončić, Trae Young, Booker, Gilgeous-Alexander, Mitchell, Edwards, Cunningham, Giannis, Banchero, Maxey. Trae (ADP ~22), Booker (~19) and Banchero (~29) are the early edges over ADP, but see item 3: Trae and the other high-variance-availability guards are exactly where the backtest lost points.
+2. **Fade ADP-driven bigs:** Jokić, Towns, Şengün, Davis, Mobley, Holmgren, Sabonis, Amen Thompson and Scottie Barnes rank far below ADP. Wembanyama (ADP 1) is about 25th.
+3. **Price availability yourself.** The backtest's clearest result: the advisor's players scored more per game played than ADP picks, but missed more games, and in a no-waiver season that cost more than the per-game edge. Sleeper's live projections are per game (`gp = 1`), and the advisor ignores injury labels and injury history. When the advisor wants a player well ahead of ADP, ask why the market is lower; if the answer is health, take the safer player of similar value. This year that applies to Kyrie Irving (ADP ~111), Damian Lillard (~147), Dejounte Murray (~113), Embiid and Morant.
+4. **Moderate-gap value targets:** Keyonte George, Coby White, Stephon Castle, Michael Porter Jr., Julius Randle, Jalen Green, Nickeil Alexander-Walker, Norman Powell, Immanuel Quickley, Garland and Herro.
+5. **Back up your center.** With few useful C-eligible players, a C/PF bench player (Siakam, Randle, Boozer, Derik Queen, Aaron Gordon) is the only cover for the C slot when your starter misses a week. The advisor's absence model did not show this edge late in the 2026 draft (every candidate scored "+0.0 vs waiting"), so make that call yourself.
+6. **Tiebreaks the projections cannot see:** technical- and flagrant-prone players (+30 / +75), heavy foulers, and players who draw contact.
 
-Weekly Lock-In value falls gradually: about 225 at the 8th player, 199 at 24th, 180 at 48th, 159 at 72nd and 139 at 112th.
+## Backtest on the 2025-26 season (league scoring)
 
-## Backtest on the 2025-26 season
+Study files: [studies/eight-team-backtest/2026-10-19-league-scoring](../studies/eight-team-backtest/2026-10-19-league-scoring/README.md).
 
-Study files: [studies/eight-team-backtest/2026-10-19](../studies/eight-team-backtest/2026-10-19/README.md).
+**Setup.** This is a replay on real data, using the current advisor code and the league's scoring file. Each run is an eight-team, 14-round snake draft with the confirmed roster. Our seat drafts with the strategy under test. Seven opponents draft by noisy rank, either ADP or per-game FP under this scoring, with a check that their lineup can still be filled.
 
-**Setup.** This is a replay on real data, not a synthetic world. Each run is an eight-team, 14-round snake draft with the assumed roster. Our seat drafts with the strategy under test. Seven opponents draft by noisy rank, with a check that their lineup can still be filled.
-
-* **Forecasts:** draft-time forecasts are 2024-25 per-game averages, restricted to the stat keys Sleeper's live projections carry, so the advisor's `oreb` and `pf` derivations get exercised. Sleeper's 2025 projections were revised after the season, so they are not used.
-* **ADP:** opponent ADP is Sleeper's 2025 `adp_std`.
-* **Season scoring:** each roster is scored on every 2025-26 regular-season game (25 weeks, 166 game days) under Lock-In rules. Each week the manager starts the best forecast lineup and benches anyone who missed all of the previous week. A starter's game is locked when it beats the forecast value of his remaining games. The last game is forced, and a DNP scores 0.
-* **Not modelled:** waivers, trades and IR moves. The in-season lock rule used the passable-triple-double forecast for every team (see the study README).
-* **Sample:** 48 drafts per strategy (every seat × 6 seeds). The advisor strategies run the production `recommend()` with a 1-second budget.
-
-Six long-term injuries were public before an October 2025 draft: Haliburton, Lillard, Tatum, Dejounte Murray, Irving and VanVleet. The "out-aware" strategies don't see those players, as if a draft-day injury check had removed them.
+* **Forecasts:** draft-time forecasts are 2024-25 per-game averages, restricted to the keys Sleeper's live projections carry. Sleeper's 2025 projections were revised after the season, so only their ADP is used.
+* **Season scoring:** every 2025-26 regular-season game (25 weeks) is scored under Lock-In rules, including the threshold penalties the forecasts cannot see. Each week the manager starts the best forecast lineup and benches anyone who missed all of the previous week. A game is locked when it beats the forecast value of that player's remaining games; the last game is forced, and a DNP scores 0.
+* **Not modelled:** waivers, trades and IR moves.
+* **Injury check:** "injury-aware" strategies don't see six players whose long-term injuries were public before October 2025.
+* **Sample:** 48 drafts per strategy.
 
 Mean weekly points versus drafting by ADP in the same seat and seed (± 95% interval):
 
 | Strategy | Room drafts by ADP | Room drafts by this scoring |
 | --- | ---: | ---: |
-| Draft by ADP (baseline) | 1512 /wk | 1490 /wk |
-| Per-game FP, out-aware | −215 ± 32 | +24 ± 33 |
-| Advisor, no injury check, triple-doubles passable | −223 ± 30 | +57 ± 28 |
-| Advisor, out-aware, triple-doubles passable | −40 ± 27 | +32 ± 30 |
-| **Advisor, out-aware, triple-doubles averaged (current)** | **−36 ± 27** | **+95 ± 33** |
+| Draft by ADP (baseline) | 1786 /wk | 1803 /wk |
+| Per-game FP, injury-aware | −384 ± 40 | −82 ± 36 |
+| Advisor, no injury check | −382 ± 49 | −33 ± 37 |
+| **Advisor, injury-aware (current advisor + manual check)** | **−146 ± 39** | **+14 ± 35** |
 
-For the current advisor, the all-play weekly win rate is 0.49 in the ADP room and 0.64 in the scoring-aware room (0.54 and 0.56 for ADP drafting). Its average finish is 4.75 of 8 in the ADP room and 2.46 of 8 in the scoring-aware room.
+All-play weekly win rate for the injury-aware advisor: 0.42 in the ADP room, 0.60 in the scoring-aware room (ADP drafting: 0.56 / 0.62). Average finish 6.54 and 2.83 of 8.
 
 **What it shows.**
 
-* The injury check is the largest single effect, worth about +185 weekly points in the ADP room. Skipping it filled rosters with players who barely played.
-* Averaging triple-double penalties into every game did as well or better than treating them as passable in both rooms, so the averaged model stays.
-* Against a room that also drafts for this scoring, the advisor wins clearly. Against a room drafting by ADP, it does not beat ADP drafting when it uses these forecasts. The forecast predicts realized 2025-26 FP per game better than ADP does (rank correlation 0.70 vs 0.61), but ADP predicts season totals better (0.42 vs 0.35), because in a fixed-roster season availability dominates.
+* **Under the real scoring, the backtest does not support the advisor over drafting by ADP.** It loses clearly in a room that drafts by ADP and ties in a room that drafts for this scoring.
+* The cause is availability, not player type. In the ADP room the advisor's picks averaged 188 realized points per game against 178 for ADP picks, but 52 games played against 60. Its early picks concentrated on players who missed time or regressed (Trae Young 15 games, Morant 20, Embiid 38; Cam Thomas forecast 232 per game, realized 140). ADP prices that risk; the advisor does not.
+* The forecast ranks per-game value better than ADP (rank correlation with realized 2025-26 FP per game 0.75 vs 0.60), and nearly matches it on season totals (0.42 vs 0.45). A 50/50 rank blend of the two did best on season totals (0.48).
+* The injury check alone is worth about +235 weekly points in the ADP room.
 
-**Limits.** Prior-season averages are a weaker forecast than Sleeper's live preseason projections, and they miss rookies, who are excluded from the pool. Positions are current, not 2025 preseason. With no waivers, a missed game costs more than it would in the real league, which favors ADP. The injury list is a hand-coded record of public preseason news. Only one season was tested.
+**Limits.** Prior-season averages are a weaker forecast than Sleeper's live preseason projections and miss rookies (excluded). Positions are current, not 2025 preseason. With no waivers, a missed game costs more than in the real league, which favors ADP. The injury list is hand-coded from public preseason news. One season only.
 
-## Advisor changes for this scoring
+## Advisor behaviour for this scoring
 
-* `oreb` is derived as `reb − dreb` (Sleeper projects `dreb` but not `oreb`). Missing shot components are rebuilt from the identities `fga = fgm + fgmi`, `fta = ftm + ftmi`, `tpa = tpm + tpmi`.
-* `pf` is not projected. It is estimated at 0.08 fouls per minute from projected minutes (about 2.4 fouls in 30 minutes, ~12 FP/game). This is a labelled league-average assumption and favors high-minute players.
-* `tf` and `ff` are not projected and count as 0 with a warning.
-* Double-double and triple-double rates are averaged into every game, as in the original advisor.
-* Not yet changed: the advisor still ignores injury labels when valuing players. Check them yourself at draft time (guidance item 3).
+* The advisor reads the league's scoring from Sleeper, so it already uses the table above.
+* `oreb` is derived as `reb − dreb`; missing shot components are rebuilt from `fga = fgm + fgmi`, `fta = ftm + ftmi`, `tpa = tpm + tpmi`.
+* `pf` is estimated at 0.08 fouls per projected minute (labelled assumption).
+* `tf`, `ff` and the 40/50-point, 20-rebound and 15-assist penalties are not projected and count as 0 with warnings.
+* Double-double and triple-double rates are averaged into every game. A model that treated triple-doubles as passable was backtested and reverted.
+* Not yet changed: the advisor does not account for injury status, injury history or the market's availability discount. The backtest identifies this as the main improvement to make.

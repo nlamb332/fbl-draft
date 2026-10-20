@@ -133,12 +133,6 @@ Double-double/triple-double and 40+/50+ scoring contributions stack when the
 input projections contain both event rates. Missing event rates count as zero
 and generate warnings; stacking does not supply an absent projection.
 
-Projected double-double and triple-double rates are modelled as discrete game
-outcomes (no bonus, DD only, TD) rather than averaged into every game, so a
-large bonus or penalty affects the lock/pass decision as a separate outcome.
-A penalised game is still charged in full when it is the one locked or the
-player's final game of the week.
-
 Sleeper projects `reb` and `dreb` but not `oreb`; the advisor derives `oreb`
 as `reb - dreb` and rebuilds any missing shot component from
 `fga = fgm + fgmi`, `fta = ftm + ftmi` and `tpa = tpm + tpmi`. Personal fouls

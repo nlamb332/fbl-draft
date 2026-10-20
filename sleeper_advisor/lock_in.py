@@ -108,17 +108,11 @@ class ForecastDefaults:
 
 @dataclass(frozen=True)
 class GameForecast:
-    """Conditional forecast for one scheduled game, in fantasy points.
-
-    ``outcomes`` optionally splits a played game into discrete bonus events:
-    ``(probability, points_added_to_mean)`` pairs summing to probability 1.
-    The default ``()`` is a single normal score around ``mean``.
-    """
+    """Conditional forecast for one scheduled game, in fantasy points."""
 
     mean: float
     stddev: float
     availability_probability: float
-    outcomes: tuple[tuple[float, float], ...] = ()
 
     def __post_init__(self) -> None:
         mean = _finite_number(self.mean, field_name="mean")
@@ -130,32 +124,9 @@ class GameForecast:
             raise ForecastError("stddev must be non-negative")
         if not 0.0 <= availability <= 1.0:
             raise ForecastError("availability_probability must be between 0 and 1")
-        outcomes = tuple(
-            (_finite_number(p, field_name="outcome probability"),
-             _finite_number(shift, field_name="outcome points"))
-            for p, shift in self.outcomes
-        )
-        if any(p < 0 for p, _ in outcomes) or (
-            outcomes and abs(sum(p for p, _ in outcomes) - 1.0) > 1e-9
-        ):
-            raise ForecastError("outcome probabilities must be non-negative and sum to 1")
         object.__setattr__(self, "mean", mean)
         object.__setattr__(self, "stddev", stddev)
         object.__setattr__(self, "availability_probability", availability)
-        object.__setattr__(self, "outcomes", outcomes)
-
-    @property
-    def expected_score(self) -> float:
-        return self.mean + sum(p * shift for p, shift in self.outcomes)
-
-    def expected_max(self, floor: float) -> float:
-        """Return ``E[max(score, floor)]`` for a played game."""
-        if not self.outcomes:
-            return normal_expected_max(self.mean, self.stddev, floor)
-        return sum(
-            p * normal_expected_max(self.mean + shift, self.stddev, floor)
-            for p, shift in self.outcomes if p
-        )
 
 
 @dataclass(frozen=True)
@@ -267,9 +238,9 @@ def forecast_stopping_value(games: Sequence[GameForecast]) -> float:
     for index in range(len(ordered) - 1, -1, -1):
         game = ordered[index]
         played = (
-            game.expected_score
+            game.mean
             if index == len(ordered) - 1
-            else game.expected_max(value)
+            else normal_expected_max(game.mean, game.stddev, value)
         )
         value = game.availability_probability * played + (
             1.0 - game.availability_probability
@@ -283,43 +254,10 @@ _normal_expected_max = normal_expected_max
 _forecast_stopping_value = forecast_stopping_value
 
 
-def _bonus_outcomes(
-    mean: float, stats: Any, scoring: Mapping[str, float]
-) -> tuple[float, tuple[tuple[float, float], ...]]:
-    """Split double/triple-double bonuses out of a per-game mean.
-
-    Projected ``dd`` and ``td`` are per-game rates with ``td`` a subset of
-    ``dd``.  A game is then a no-bonus, double-double-only or triple-double
-    outcome, so a large bonus or penalty (for example ``td = -200``) can be
-    passed in Lock-In instead of being averaged into every game.  Returns
-    ``(base_mean, outcomes)``; ``outcomes`` is empty without scored rates.
-    """
-    if not isinstance(stats, Mapping):
-        return mean, ()
-    w_dd, w_td = scoring.get("dd", 0.0), scoring.get("td", 0.0)
-    dd = stats.get("dd") if w_dd else 0.0
-    td = stats.get("td") if w_td else 0.0
-    dd = float(dd) if isinstance(dd, (int, float)) and not isinstance(dd, bool) else 0.0
-    td = float(td) if isinstance(td, (int, float)) and not isinstance(td, bool) else 0.0
-    td = min(max(td, 0.0), 1.0)
-    dd = min(max(dd, td), 1.0)
-    if not (w_dd * dd or w_td * td):
-        return mean, ()
-    base = mean - w_dd * dd - w_td * td
-    outcomes = ((1.0 - dd, 0.0), (dd - td, w_dd), (td, w_dd + w_td))
-    return base, tuple(o for o in outcomes if o[0] > 0)
-
-
-def _default_games(
-    mean: float,
-    defaults: ForecastDefaults,
-    stats: Any = None,
-    scoring: Mapping[str, float] | None = None,
-) -> tuple[GameForecast, ...]:
-    base, outcomes = _bonus_outcomes(mean, stats, scoring or {})
-    deviation = abs(base) * defaults.stddev_fraction
+def _default_games(mean: float, defaults: ForecastDefaults) -> tuple[GameForecast, ...]:
+    deviation = abs(mean) * defaults.stddev_fraction
     return tuple(
-        GameForecast(base, deviation, defaults.availability_probability, outcomes)
+        GameForecast(mean, deviation, defaults.availability_probability)
         for _ in range(defaults.scheduled_games_per_week)
     )
 
@@ -403,7 +341,7 @@ def estimate_player(
         if not all_games:
             warnings.append("No scheduled games in supplied weeks; weekly value is zero.")
     elif has_projection:
-        games = _default_games(mean, defaults, getattr(player, "stats", None), scoring_map)
+        games = _default_games(mean, defaults)
         weekly_points = forecast_stopping_value(games)
         fp_per_game = mean
         game_count = float(len(games))
@@ -417,7 +355,6 @@ def estimate_player(
             "stddev_fraction": defaults.stddev_fraction,
             "availability_probability": defaults.availability_probability,
             "variance_source": "unverified assumption; public projections lack per-game variance",
-            "bonus_event_source": "projected dd/td rates as discrete per-game outcomes",
             "availability_source": "unverified assumption; injury_status is not calibrated",
             "threshold_event_source": "public projections lack calibrated 40+ and 50+ event rates",
         }

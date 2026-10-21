@@ -1,0 +1,77 @@
+{
+  "fit_quality": {
+    "min_mae": 2.746,
+    "min_r2": 0.786,
+    "n_player_seasons": 3951
+  },
+  "min_fit": [
+    10.0773,
+    0.7596,
+    0.1873,
+    0.5609,
+    2.3387
+  ],
+  "pf_per_36": {
+    "C": 3.721,
+    "F": 2.885,
+    "G": 2.614
+  },
+  "pf_scale_band": [
+    0.905,
+    1.079
+  ],
+  "provenance": {
+    "fetched_on": "2026-10-21",
+    "filters": {
+      "min_games": 20,
+      "min_mpg": 10.0
+    },
+    "not_calibrated": [
+      "DD (no public season double-double counts)",
+      "_SPREAD (needs game logs)",
+      "TF/EJ/QD"
+    ],
+    "page_sha256": {
+      "2017_per_game": "9757054e64aaad56905c2ce9edbdbc0a34131a7721527c180eba432aaf4fddc7",
+      "2017_totals": "c185a4ba06c137d585a6d52ec446ecde97f4f649bd9b5d57713e436f2910822a",
+      "2018_per_game": "25080ed4f831e910a6be67a2dfe3e911d0fca934fc0e7b9cd972c9fd3b5348d5",
+      "2018_totals": "46cb0a5eaa4da8e2d07574f252d0b76a8d8a5998a24c233ee645a4814f6d4665",
+      "2019_per_game": "24337f417a0d9efeb77adc08bdc634499be3b84e6ff09de7c5192e85eed43c17",
+      "2019_totals": "e6222b0cc83a7bc8e096467179c9e06bb98d78756d4b1aaef00759423cf1c78b",
+      "2020_per_game": "d220443dee04ab02b0d0a08c0a77e82519b026a9dfcc7a343daa3cc655463d6e",
+      "2020_totals": "014bfc9cd3e1558e33f7cb3dd7481a88a0a9f7cc667377cfb0be5deac488ffb0",
+      "2021_per_game": "d879d220f21826525a634b7c30fc879e9cdafbd149452dac0d8fb198a1d58dac",
+      "2021_totals": "53fad11db3aa354d9810cf4616dfdc00e85c2c000ccbd1203b19bc366eed8b99",
+      "2022_per_game": "67a8a72f302c0278d1fcc7a88b4a0a267ea2e280b89eafa9495e5d2ce5c9471b",
+      "2022_totals": "36455293f9843f931d3da9b584fac86bb9e927a149b77b22790d773617cf8004",
+      "2023_per_game": "37860508686b258c379069747e63fd2a366d09bde7308dcd55b75d72841851e1",
+      "2023_totals": "fbef30a87c4f26ce51512c8165d9fed136c6b02f21edeb44fbed1831f06d606a",
+      "2024_per_game": "ad1efb900f00af2829ce5d82588160f73852c1a9acf34fe0f39416680fc9fcf4",
+      "2024_totals": "cd4373e0709aec5a0436651a02da2b896b9611a24a6fe13b9153b7fa29460856",
+      "2025_per_game": "aea54e31180d93bc4076e73c571556eba1a6b9360c10e4bbf0428cfc3be13853",
+      "2025_totals": "6c3d85cd7ca2ad2f13b82896a8031f318331dac08e5a119c98c8d83e79aae83f",
+      "2026_per_game": "923acee39d1c6a257009bd713707c5d61f6394dd232cae2143cf4a515eb98553",
+      "2026_totals": "bf2b6976d89e9a6b8d9f9d8cdd3b9e37910aaa21ccb36edb86f566d597abd75d"
+    },
+    "script": "scripts/calibrate_imputation.py",
+    "seasons_ending": [
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "source": "Basketball-Reference.com season tables (per_game, totals)",
+    "urls": [
+      "https://www.basketball-reference.com/leagues/NBA_<YYYY>_per_game.html",
+      "https://www.basketball-reference.com/leagues/NBA_<YYYY>_totals.html"
+    ]
+  },
+  "td_scale": 1.5605,
+  "version": "forecast-gap-imputation-v2-calibrated"
+}

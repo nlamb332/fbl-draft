@@ -38,7 +38,15 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--league-config", type=Path, help="private local league configuration JSON (keep under runtime/)")
     parser.add_argument("--promotion-path", dest="default_promotion_path", default=str(DEFAULT_PROMOTION_PATH), help="promotion artifact for automatic selection (default: accepted marginal-lineup-v1)")
     parser.add_argument("--foundation-only", action="store_true", help="ignore promotion artifacts and select with the foundation policy")
+    parser.add_argument("--projection-dataset", type=Path, help="refreshed dataset JSON from refresh-inputs; enables the projection freshness report (default off)")
+    parser.add_argument("--projection-max-age-hours", type=float, default=72.0, help="staleness threshold for --projection-dataset (default 72)")
+    parser.add_argument("--projection-staleness-gate", action="store_true", help="block readiness and automation when projection data is stale or unverified (default off; requires --projection-dataset)")
     sub = parser.add_subparsers(dest="command", required=True)
+    refresh = sub.add_parser("refresh-inputs", help="rebuild a provenance-stamped projection dataset from an ESPN capture and optional external sources")
+    refresh.add_argument("--espn", type=Path, help="attended ESPN capture JSON or normalized CSV (default: checked-in offline fallback)")
+    refresh.add_argument("--espn-captured-at", help="ISO capture time when the file does not carry a verifiable one")
+    refresh.add_argument("--external", action="append", default=[], metavar="NAME=PATH[:WEIGHT]", help="approved external projection file with its own captured_at; at most two")
+    refresh.add_argument("--out", type=Path, default=Path("runtime/projection_dataset.json"))
     serve_cmd = sub.add_parser("serve", help="serve the local control panel")
     serve_cmd.add_argument("--host", default="127.0.0.1")
     serve_cmd.add_argument("--port", type=int, default=8765)
@@ -110,6 +118,25 @@ def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     config = None
     setup_path = args.league_config or Path("runtime/league.json")
+    if args.command == "refresh-inputs":
+        from .projection_refresh import parse_external_spec, refresh_inputs, write_refresh
+
+        try:
+            dataset = refresh_inputs(espn_path=args.espn, espn_captured_at=args.espn_captured_at, externals=[parse_external_spec(spec) for spec in args.external])
+            block = dataset.provenance["projection_provenance"]
+            print(json.dumps({"out": str(write_refresh(dataset, args.out)), "players": len(dataset.players), "offline_fallback": block["offline_fallback"], "sources": block["sources"], "skipped_sources": block["skipped_sources"], "warnings": block["warnings"]}, sort_keys=True))
+            return 0
+        except Exception as exc:
+            print(json.dumps({"error": str(exc), "type": type(exc).__name__}, sort_keys=True), file=sys.stderr)
+            return 2
+    policy = None
+    if args.projection_staleness_gate and args.projection_dataset is None:
+        print(json.dumps({"error": "--projection-staleness-gate requires --projection-dataset", "type": "UsageError"}, sort_keys=True), file=sys.stderr)
+        return 2
+    if args.projection_dataset is not None:
+        from .projection_refresh import FreshnessPolicy
+
+        policy = FreshnessPolicy(args.projection_dataset, args.projection_max_age_hours, args.projection_staleness_gate)
     if args.command == "serve":
         if setup_path.exists():
             values = json.loads(setup_path.read_text(encoding="utf-8-sig"))
@@ -120,7 +147,7 @@ def main(argv: list[str] | None = None) -> int:
         pending_path = setup_path.with_name("setup-pending.json")
         pending = json.loads(pending_path.read_text(encoding="utf-8-sig")) if pending_path.exists() else None
         setup_complete = setup_path.exists() and pending is None
-        serve(coordinator=Coordinator(args.db, config=config, recover=True, promotion_path=_promotion(args)), host=args.host, port=args.port, page_dispatch_enabled=args.page_dispatch, page_runner_enabled=args.page_runner, open_browser=args.open_browser, setup_config_path=setup_path, setup_complete=setup_complete, setup_pending_source=pending if isinstance(pending, dict) and "league_id" in pending else None)
+        serve(coordinator=Coordinator(args.db, config=config, recover=True, promotion_path=_promotion(args), projection_policy=policy), host=args.host, port=args.port, page_dispatch_enabled=args.page_dispatch, page_runner_enabled=args.page_runner, open_browser=args.open_browser, setup_config_path=setup_path, setup_complete=setup_complete, setup_pending_source=pending if isinstance(pending, dict) and "league_id" in pending else None)
         return 0
     if args.league_config is not None:
         values = json.loads(args.league_config.read_text(encoding="utf-8-sig"))
@@ -139,7 +166,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     # A short-lived CLI client must not look like a service restart and pause
     # a session owned by the long-lived panel/browser process.
-    coordinator = Coordinator(args.db, config=config, recover=False, promotion_path=_promotion(args))
+    coordinator = Coordinator(args.db, config=config, recover=False, promotion_path=_promotion(args), projection_policy=policy)
     try:
         if args.command == "connect":
             result = coordinator.connect(args.url, practice=args.practice, session_id=args.session_id)

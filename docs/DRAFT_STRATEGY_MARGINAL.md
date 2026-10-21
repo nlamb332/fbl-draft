@@ -180,3 +180,25 @@ The 2.0 s budget is enforced with a foundation fallback (see Method 6).
   row shows the weakest result.
 - Gate parameters were tuned on the same simulator family (development seeds), so the
   held-out numbers measure generalization across seeds, not across simulators.
+
+## Injury-status availability haircut (opt-in, off by default)
+
+`LivePlayer.injury_status` is ignored by valuation unless
+`LeagueConfig(injury_policy=InjuryPolicy(enabled=True, ...))` is set. When enabled, a
+recognised status multiplies the player's GP/availability factor, in both the foundation
+score (`custom_fp x gp_factor`) and the marginal `activity_vector`/expected value. Out of
+the box nothing changes and no injury fields are added to candidates.
+
+| Status (case-insensitive) | Factor | Default |
+| --- | --- | --- |
+| healthy: blank, `ACTIVE`, `HEALTHY` | 1.0 | - |
+| `O`, `OUT`, `IR`, `SUSPENDED` | `out_factor` | 0.5 (draft-time status does not give the absence length) |
+| `DTD`, `Q`, `QUESTIONABLE`, `GTD` | `dtd_factor` | 0.95 |
+| anything else | 1.0 | candidate warning `unknown injury status` |
+
+Each candidate gains `injury_factor` and `injury_adjustment` components (season-value
+delta in the foundation; weekly lineup points in the marginal path) and an explanation
+clause. It is purely a scoring adjustment: no position cap, quota or exclusion. The
+defaults are unvalidated placeholders; when enabled, the policy is folded into the
+strategy and marginal fingerprints, so an existing promotion artifact does not cover it
+and it must be re-validated before promotion.

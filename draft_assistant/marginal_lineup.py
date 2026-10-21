@@ -58,6 +58,7 @@ from .contracts import (
     LivePlayer,
     snake_pick_numbers,
 )
+from .nba_schedule import real_team_games
 from .valuation import _games_factor, custom_fantasy_points, rank_players
 
 ALGORITHM_VERSION = "marginal-lineup-v1"
@@ -106,6 +107,7 @@ class MarginalParams:
     pf_scale: float = 1.0
     util_share: float = 1.0
     max_candidates: int | None = None
+    real_schedule: bool = False  # issue #8: real 2026-27 NBA game days; off until re-validated
 
     def as_dict(self) -> dict[str, Any]:
         return {
@@ -118,6 +120,7 @@ class MarginalParams:
             "pf_scale": self.pf_scale,
             "util_share": self.util_share,
             "max_candidates": self.max_candidates,
+            **({"real_schedule": True} if self.real_schedule else {}),
         }
 
 
@@ -430,15 +433,21 @@ def _uniforms(player_id: str, days: int) -> tuple[float, ...]:
     return cached
 
 
-def game_days(player: LivePlayer, weeks: int) -> tuple[bool, ...]:
+def game_days(player: LivePlayer, weeks: int, real_schedule: bool = False) -> tuple[bool, ...]:
+    if real_schedule:
+        real = real_team_games(player.nba_team, weeks)
+        if real is not None:
+            return real
     team_key = f"team:{player.nba_team}" if player.nba_team else f"solo:{player.player_id}"
     return _team_games(team_key, weeks)
 
 
-def activity_vector(player: LivePlayer, availability: float, weeks: int) -> tuple[bool, ...]:
+def activity_vector(
+    player: LivePlayer, availability: float, weeks: int, real_schedule: bool = False
+) -> tuple[bool, ...]:
     """Dated activity: team game days AND a stratified health draw."""
 
-    games = game_days(player, weeks)
+    games = game_days(player, weeks, real_schedule)
     draws = _uniforms(player.player_id, weeks * DAYS_PER_WEEK)
     return tuple(bool(games[day]) and draws[day] < availability for day in range(weeks * DAYS_PER_WEEK))
 
@@ -611,9 +620,9 @@ def rank_marginal(
             _mask(player.eligibility),
             fp,
             fp * gp_factor,
-            activity_vector(player, gp_factor, weeks),
+            activity_vector(player, gp_factor, weeks, p.real_schedule),
             market_hint,
-            game_days(player, weeks),
+            game_days(player, weeks, p.real_schedule),
             gp_factor,
         )
 
@@ -741,9 +750,10 @@ def rank_marginal(
         with_weekly = total / weeks
         marginal = with_weekly - baseline_weekly
         # Raw, replacement and imputation components explain the score.
-        raw_weekly = entry.expected * GAMES_PER_WEEK
+        games_week = sum(games) / weeks if p.real_schedule else GAMES_PER_WEEK
+        raw_weekly = entry.expected * games_week
         level = level_for(player.eligibility)
-        vor_weekly = (entry.expected - level) * GAMES_PER_WEEK
+        vor_weekly = (entry.expected - level) * games_week
         score = marginal + p.vor_weight * vor_weekly
         c_only = float(player.eligibility == ("C",))
         warnings = tuple(dict.fromkeys((*item.warnings, *tags.get(entry.player_id, ()))))

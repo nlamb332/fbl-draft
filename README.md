@@ -1,5 +1,10 @@
 # FBL Draft
 
+> **Inactive.** The draft is complete and this advisor is no longer used.
+> Season-long work lives in [fbl-season](https://github.com/nlamb332/fbl-season)
+> (ESPN) and [fbl-automation-sleeper-league](https://github.com/nlamb332/fbl-automation-sleeper-league)
+> (Sleeper).
+
 Independent repository snapshot for the FBL fantasy basketball draft assistant
 and its draft-strategy research. The package is self-contained: the live draft
 control plane and browser observer use only `draft_assistant` and `mock_draft`

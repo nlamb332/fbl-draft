@@ -252,3 +252,42 @@ def test_p95_recommendation_time_within_budget(pick: int, picked: int) -> None:
         assert result.status == "ranked"
     samples.sort()
     assert samples[int(0.95 * len(samples)) - 1] <= CONFIG.recommendation_budget_seconds
+
+
+def test_calibrated_imputation_is_flag_gated_and_default_fingerprint_unchanged() -> None:
+    assert "calibrated_imputation" not in MarginalParams().as_dict()
+    on = MarginalParams(calibrated_imputation=True)
+    assert on.as_dict()["calibrated_imputation"] is True
+    assert marginal_lineup.marginal_fingerprint(CONFIG) != marginal_lineup.marginal_fingerprint(CONFIG, on)
+    assert marginal_lineup.marginal_fingerprint(CONFIG) == marginal_lineup.marginal_fingerprint(CONFIG, MarginalParams())
+
+
+def test_calibrated_imputation_uses_checked_in_constants_and_keeps_contract() -> None:
+    cal = marginal_lineup.load_calibration()
+    assert cal["raw"]["provenance"]["source"].startswith("Basketball-Reference")
+    gap = LivePlayer("x", "X", ("C",), {"PTS": 20.0, "REB": 11.0, "AST": 3.0, "STL": 1.0, "BLK": 1.5, "MIN": 30.0},
+                     projected_gp=70, missing_stats=("EJ", "PF", "TF", "DD", "TD", "QD"), source="test")
+    default = impute_forecast_gaps(gap)
+    player, tags, filled = impute_forecast_gaps(gap, calibrated=True)
+    assert impute_forecast_gaps(gap, calibrated=True) == (player, tags, filled)
+    assert default == impute_forecast_gaps(gap)  # default path unaffected
+    assert player.stats["PF"] == pytest.approx(cal["pf_per_36"][("C",)] * 30.0 / 36.0, abs=1e-3)
+    assert 0.0 <= filled["TD"] <= filled["DD"] <= 1.0
+    assert all(marginal_lineup.CALIBRATED_IMPUTATION_VERSION in tag for tag in tags)
+    supplied = replace(gap, stats={**gap.stats, "PF": 0.0, "DD": 0.0, "TD": 0.0}, missing_stats=())
+    assert impute_forecast_gaps(supplied, calibrated=True)[0] is supplied
+    estimated = LivePlayer("y", "Y", ("G",), {"PTS": 12.0, "REB": 3.0, "AST": 4.0}, source="test")
+    assert impute_forecast_gaps(estimated, calibrated=True)[2]["PF"] > 0
+
+
+def test_calibration_script_position_mapping_and_ols() -> None:
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location("calibrate_imputation", Path(__file__).resolve().parent.parent / "scripts" / "calibrate_imputation.py")
+    script = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(script)
+    assert [script.position_class(p) for p in ("PG", "SG-PG", "SF", "PF", "SG-SF", "C", "PF-C", "C-PF")] == ["G", "G", "F", "F", "FG", "C", "CF", "CF"]
+    rows = [{"mp": 10 + 0.5 * p + 0.2 * r + 0.3 * a + 0.6 * s, "pts": p, "reb": r, "ast": a, "stl": s / 2, "blk": s / 2}
+            for p, r, a, s in ((10, 3, 2, 1), (20, 8, 1, 2), (5, 2, 6, 0.5), (15, 5, 5, 1.5), (25, 4, 9, 2.5), (8, 9, 1, 1), (12, 1, 3, 0.2))]
+    fit = script.ols(rows)
+    assert fit == pytest.approx([10, 0.5, 0.2, 0.3, 0.6], abs=1e-6)

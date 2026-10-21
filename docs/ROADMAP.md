@@ -38,3 +38,6 @@ for every pick.
 Credible foul and double/triple-double forecasts; ESPN bonus overlap behavior;
 actual market rankings; live integration reliability; and historical projection
 accuracy. Synthetic simulation gains alone do not resolve these questions.
+Imputation constants were re-estimated from public data and backtested in
+`docs/IMPUTATION_CALIBRATION.md` (flag-gated, default off; double-doubles and
+real preseason projections remain open).

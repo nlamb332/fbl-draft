@@ -93,6 +93,23 @@ MIN_FIT = (17.80, 0.520, 0.176, 0.303, 0.590)  # const, PTS, REB, AST, STL+BLK
 # round numbers matched to typical NBA box-score variability.
 _SPREAD = {"PTS": (2.0, 0.24), "REB": (1.0, 0.28), "AST": (1.0, 0.33)}
 
+# Calibrated alternative (issue #9), used only when ``MarginalParams.calibrated_imputation``
+# is set.  Produced by ``scripts/calibrate_imputation.py`` from public season tables;
+# provenance lives in the JSON.  Default behavior and fingerprints are unchanged.
+CALIBRATED_IMPUTATION_VERSION = "forecast-gap-imputation-v2-calibrated"
+CALIBRATION_PATH = Path(__file__).resolve().parent / "calibration" / "imputation_constants.json"
+_CLASS_KEYS = {"G": ("G",), "FG": ("F", "G"), "F": ("F",), "CF": ("C", "F"), "C": ("C",)}
+
+
+def load_calibration() -> dict[str, Any]:
+    """Calibrated constants (PF/36 by eligibility key, minutes fit, TD scale)."""
+
+    raw = json.loads(CALIBRATION_PATH.read_text(encoding="utf-8"))
+    pf = dict(PF_PER_36)  # classes without a public analogue keep their legacy rate
+    for name, rate in raw["pf_per_36"].items():
+        pf[_CLASS_KEYS[name]] = float(rate)
+    return {"pf_per_36": pf, "min_fit": tuple(raw["min_fit"]), "td_scale": float(raw["td_scale"]), "raw": raw}
+
 
 @dataclass(frozen=True)
 class MarginalParams:
@@ -105,11 +122,18 @@ class MarginalParams:
     opponent_market_weight: float = 0.25
     use_imputation: bool = True
     pf_scale: float = 1.0
+    calibrated_imputation: bool = False
     util_share: float = 1.0
     max_candidates: int | None = None
     real_schedule: bool = False  # issue #8: real 2026-27 NBA game days; off until re-validated
 
     def as_dict(self) -> dict[str, Any]:
+        data = self._base_dict()
+        if self.calibrated_imputation:  # absent when off so existing fingerprints are unchanged
+            data["calibrated_imputation"] = True
+        return data
+
+    def _base_dict(self) -> dict[str, Any]:
         return {
             "weeks": self.weeks,
             "completion_days": self.completion_days,
@@ -146,6 +170,8 @@ def marginal_fingerprint(config: LeagueConfig, params: MarginalParams | None = N
         "min_fit": list(MIN_FIT),
         "games_per_week": GAMES_PER_WEEK,
     }
+    if p.calibrated_imputation:
+        payload["calibration"] = {k: v for k, v in load_calibration()["raw"].items() if k != "provenance"}
     encoded = json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()
 
@@ -171,8 +197,8 @@ def _stat_map(player: LivePlayer) -> dict[str, float]:
     return values
 
 
-def _estimated_minutes(stats: Mapping[str, float]) -> float:
-    const, pts, reb, ast, stocks = MIN_FIT
+def _estimated_minutes(stats: Mapping[str, float], min_fit: Sequence[float] = MIN_FIT) -> float:
+    const, pts, reb, ast, stocks = min_fit
     value = const + pts * stats.get("PTS", 0.0) + reb * stats.get("REB", 0.0) + ast * stats.get("AST", 0.0) + stocks * (stats.get("STL", 0.0) + stats.get("BLK", 0.0))
     return max(10.0, min(40.0, value))
 
@@ -206,6 +232,7 @@ def impute_forecast_gaps(
     player: LivePlayer,
     *,
     pf_scale: float | None = None,
+    calibrated: bool = False,
 ) -> tuple[LivePlayer, tuple[str, ...], dict[str, float]]:
     """Fill absent PF/DD/TD forecasts; return (player, warnings, imputed values).
 
@@ -219,26 +246,32 @@ def impute_forecast_gaps(
     stats = _stat_map(player)
     imputed: dict[str, float] = {}
     scale = 1.0 if pf_scale is None else pf_scale
+    cal = load_calibration() if calibrated else None
+    pf_table = cal["pf_per_36"] if cal else PF_PER_36
+    min_fit = cal["min_fit"] if cal else MIN_FIT
+    version = CALIBRATED_IMPUTATION_VERSION if cal else IMPUTATION_VERSION
     if "PF" not in stats:
         key = tuple(sorted(player.eligibility))
-        rate = PF_PER_36.get(key, PF_DEFAULT_PER_36)
+        rate = pf_table.get(key, PF_DEFAULT_PER_36)
         minutes = stats.get("MIN")
         source = "projected MIN"
         if minutes is None or minutes <= 0:
-            minutes = _estimated_minutes(stats)
+            minutes = _estimated_minutes(stats, min_fit)
             source = "estimated MIN"
         imputed["PF"] = round(rate * scale * minutes / 36.0, 4)
         imputed_source_pf = source
     else:
         imputed_source_pf = ""
+    td_scale = cal["td_scale"] if cal else 1.0
     if "DD" not in stats and "TD" not in stats and {"PTS", "REB", "AST"} <= set(stats):
         double, triple = double_triple_probabilities(stats)
+        triple = min(triple * td_scale, double)
         imputed["DD"] = round(double, 4)
         imputed["TD"] = round(triple, 4)
     elif "DD" not in stats and "TD" in stats and {"PTS", "REB", "AST"} <= set(stats):
         imputed["DD"] = round(double_triple_probabilities(stats)[0], 4)
     elif "TD" not in stats and "DD" in stats and {"PTS", "REB", "AST"} <= set(stats):
-        imputed["TD"] = round(double_triple_probabilities(stats)[1], 4)
+        imputed["TD"] = round(min(double_triple_probabilities(stats)[1] * td_scale, 1.0), 4)
     if not imputed:
         return player, (), {}
     merged = dict(player.stats)
@@ -247,11 +280,11 @@ def impute_forecast_gaps(
     filled = replace(player, stats=merged, missing_stats=remaining_missing)
     tags = []
     if "PF" in imputed:
-        tags.append(f"imputed PF={imputed['PF']:.2f}/game ({IMPUTATION_VERSION}: eligibility-class rate x {imputed_source_pf})")
+        tags.append(f"imputed PF={imputed['PF']:.2f}/game ({version}: eligibility-class rate x {imputed_source_pf})")
     if "DD" in imputed or "TD" in imputed:
         tags.append(
             f"imputed DD={imputed.get('DD', stats.get('DD', 0.0)):.3f} TD={imputed.get('TD', stats.get('TD', 0.0)):.3f} per game "
-            f"({IMPUTATION_VERSION}: independent PTS/REB/AST tails)"
+            f"({version}: independent PTS/REB/AST tails)"
         )
     return filled, tuple(tags), imputed
 
@@ -609,7 +642,7 @@ def rank_marginal(
     def entry_for(player: LivePlayer, market_hint: float) -> _Entry:
         source = player
         if p.use_imputation:
-            source, notes, filled = impute_forecast_gaps(player, pf_scale=p.pf_scale)
+            source, notes, filled = impute_forecast_gaps(player, pf_scale=p.pf_scale, calibrated=p.calibrated_imputation)
             if notes:
                 tags[player.player_id] = notes
                 imputed_values[player.player_id] = filled

@@ -58,7 +58,8 @@ from .contracts import (
     LivePlayer,
     snake_pick_numbers,
 )
-from .valuation import _games_factor, custom_fantasy_points, rank_players
+from .injury import injury_factor
+from .valuation import _base_games_factor, custom_fantasy_points, rank_players
 
 ALGORITHM_VERSION = "marginal-lineup-v1"
 IMPUTATION_VERSION = "forecast-gap-imputation-v1"
@@ -143,6 +144,8 @@ def marginal_fingerprint(config: LeagueConfig, params: MarginalParams | None = N
         "min_fit": list(MIN_FIT),
         "games_per_week": GAMES_PER_WEEK,
     }
+    if config.injury_policy.enabled:
+        payload["injury_policy"] = config.injury_policy.as_dict()
     encoded = json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()
 
@@ -596,6 +599,7 @@ def rank_marginal(
 
     tags: dict[str, tuple[str, ...]] = {}
     imputed_values: dict[str, dict[str, float]] = {}
+    injury_weekly: dict[str, tuple[float, float]] = {}
 
     def entry_for(player: LivePlayer, market_hint: float) -> _Entry:
         source = player
@@ -605,7 +609,12 @@ def rank_marginal(
                 tags[player.player_id] = notes
                 imputed_values[player.player_id] = filled
         fp, _, _ = custom_fantasy_points(source, config)
-        gp_factor, _ = _games_factor(player)
+        base_gp, _ = _base_games_factor(player)
+        haircut, _ = injury_factor(player, config.injury_policy)
+        gp_factor = base_gp * haircut
+        if config.injury_policy.enabled:
+            # Weekly points lost to the haircut, surfaced as an audit line.
+            injury_weekly[player.player_id] = (haircut, fp * (gp_factor - base_gp) * GAMES_PER_WEEK)
         return _Entry(
             player.player_id,
             _mask(player.eligibility),
@@ -766,12 +775,15 @@ def rank_marginal(
             "foundation_score": item.score,
             "foundation_rank": float(foundation_rank[entry.player_id]),
         }
+        if entry.player_id in injury_weekly:
+            components["injury_factor"], components["injury_adjustment"] = injury_weekly[entry.player_id]
         explanation = (
             f"marginal lineup {marginal:+.1f} weekly pts "
             f"(standalone {raw_weekly:.1f}; replacement {level:.1f} FP/g; "
             f"over-replacement {vor_weekly:+.1f}"
             + ("; C-only" if c_only else "")
             + (f"; imputed {','.join(sorted(filled))}" if filled else "")
+            + (f"; injury adjustment {components['injury_adjustment']:+.1f} weekly pts" if components.get("injury_factor", 1.0) != 1.0 else "")
             + ")"
         )
         scored.append((score, CandidateScore(entry.player_id, player.name, score, components, explanation, warnings)))

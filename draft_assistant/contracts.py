@@ -62,6 +62,29 @@ class RoomIdentity:
 
 
 @dataclass(frozen=True)
+class InjuryPolicy:
+    """Opt-in availability haircut keyed on ``LivePlayer.injury_status``.
+
+    Off by default: the haircut has not been re-validated against held-out
+    drafts, so valuation ignores injury status unless ``enabled`` is set.
+    See :mod:`draft_assistant.injury` for the status mapping.
+    """
+
+    enabled: bool = False
+    out_factor: float = 0.5
+    dtd_factor: float = 0.95
+
+    def __post_init__(self) -> None:
+        for name in ("out_factor", "dtd_factor"):
+            value = getattr(self, name)
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not 0.0 <= value <= 1.0:
+                raise ValueError(f"invalid {name}: must be within 0..1")
+
+    def as_dict(self) -> dict[str, object]:
+        return {"enabled": self.enabled, "out_factor": self.out_factor, "dtd_factor": self.dtd_factor}
+
+
+@dataclass(frozen=True)
 class LeagueConfig:
     league_id: str = "1000000000"
     season_id: str = "2027"
@@ -76,6 +99,7 @@ class LeagueConfig:
     double_double_includes_triple_double: bool = True
     max_observation_age_seconds: float = 10.0
     recommendation_budget_seconds: float = 2.0
+    injury_policy: InjuryPolicy = field(default_factory=InjuryPolicy)
 
     def __post_init__(self) -> None:
         if self.teams != 14 or self.rounds != 10 or tuple(self.starting_slots) != ("C", "G", "G", "F", "F", "UTIL") or self.bench_slots != 4:

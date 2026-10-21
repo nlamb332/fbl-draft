@@ -26,6 +26,7 @@ from .contracts import (
     LivePlayer,
     utc_now,
 )
+from .injury import injury_factor
 
 TOTAL_GAMES = 82.0
 _EPSILON = 1e-12
@@ -46,6 +47,11 @@ class PlayerValue:
     coverage_bonus: float
     score: float
     warnings: tuple[str, ...] = ()
+    # Injury haircut (see injury.py).  ``injury_adjustment`` is the change in
+    # season value versus the un-haircut factor; neutral when the policy is off.
+    injury_factor: float = 1.0
+    injury_adjustment: float = 0.0
+    injury_active: bool = False
 
 
 def _number(value: Any) -> float | None:
@@ -111,9 +117,21 @@ def custom_fantasy_points(
     return total, tuple(dict.fromkeys(warnings)), components
 
 
-def _games_factor(player: LivePlayer) -> tuple[float, tuple[str, ...]]:
-    """Choose direct projected GP first, then availability, with provenance."""
+def _games_factor(player: LivePlayer, policy: Any = None) -> tuple[float, tuple[str, ...]]:
+    """Choose direct projected GP first, then availability, with provenance.
 
+    With an enabled injury ``policy`` the result is further multiplied by the
+    status haircut; without one it is exactly the base factor.
+    """
+
+    factor, warnings = _base_games_factor(player)
+    if policy is not None and policy.enabled:
+        haircut, injury_warnings = injury_factor(player, policy)
+        return factor * haircut, tuple(dict.fromkeys((*warnings, *injury_warnings)))
+    return factor, warnings
+
+
+def _base_games_factor(player: LivePlayer) -> tuple[float, tuple[str, ...]]:
     warnings: list[str] = []
     gp = _number(player.projected_gp)
     if gp is not None:
@@ -159,12 +177,19 @@ def value_player(
     cached = (_base_cache or {}).get(player.player_id)
     if cached is None:
         custom, score_warnings, _ = custom_fantasy_points(player, cfg)
-        gp_factor, gp_warnings = _games_factor(player)
+        gp_factor, gp_warnings = _base_games_factor(player)
         if _base_cache is not None:
             _base_cache[player.player_id] = (custom, score_warnings, gp_factor, gp_warnings)
     else:
         custom, score_warnings, gp_factor, gp_warnings = cached
+    # The haircut is applied outside the cache so a cache shared across
+    # configurations can never serve a stale policy.
+    policy = cfg.injury_policy
+    haircut, injury_warnings = injury_factor(player, policy)
+    base_gp_factor = gp_factor
+    gp_factor = base_gp_factor * haircut
     season = custom * gp_factor
+    injury_adjustment = custom * (gp_factor - base_gp_factor)
     coverage_raw = _coverage(player, roster)
     # Coverage is a tie adjustment.  It is bounded at two percent of the
     # production value and consequently cannot erase a meaningful projection
@@ -178,7 +203,10 @@ def value_player(
         coverage_raw=coverage_raw,
         coverage_bonus=coverage_bonus,
         score=score,
-        warnings=tuple(dict.fromkeys((*score_warnings, *gp_warnings))),
+        warnings=tuple(dict.fromkeys((*score_warnings, *gp_warnings, *injury_warnings))),
+        injury_factor=haircut,
+        injury_adjustment=injury_adjustment,
+        injury_active=policy.enabled,
     )
 
 
@@ -239,18 +267,24 @@ def _candidate(
     )
     if value.coverage_bonus > 0:
         explanation += f"; small coverage tie adjustment +{value.coverage_bonus:.3f}"
+    components = {
+        "custom_fp": value.custom_fp,
+        "gp_factor": value.gp_factor,
+        "season_value": value.season_value,
+        "coverage_raw": value.coverage_raw,
+        "coverage_bonus": value.coverage_bonus if tie_applied else 0.0,
+        "rank": float(rank),
+    }
+    if value.injury_active:
+        components["injury_factor"] = value.injury_factor
+        components["injury_adjustment"] = value.injury_adjustment
+        if value.injury_factor != 1.0:
+            explanation += f"; injury adjustment {value.injury_adjustment:+.2f} (availability x{value.injury_factor:.2f})"
     return CandidateScore(
         player_id=player.player_id,
         name=player.name,
         score=value.score,
-        components={
-            "custom_fp": value.custom_fp,
-            "gp_factor": value.gp_factor,
-            "season_value": value.season_value,
-            "coverage_raw": value.coverage_raw,
-            "coverage_bonus": value.coverage_bonus if tie_applied else 0.0,
-            "rank": float(rank),
-        },
+        components=components,
         explanation=explanation,
         warnings=value.warnings,
     )
@@ -324,6 +358,8 @@ def strategy_fingerprint(config: LeagueConfig) -> str:
         "lookahead_max_candidates": ROLLOUT_MAX_CANDIDATES,
         "opponent_model": OPPONENT_MODEL_VERSION,
     }
+    if config.injury_policy.enabled:
+        payload["injury_policy"] = config.injury_policy.as_dict()
     encoded = json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()
 

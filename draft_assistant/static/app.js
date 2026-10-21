@@ -86,6 +86,10 @@
     $("coverage").textContent = `${roster.length}/10 players · ${coverage} (eligibility counts)`;
     const readiness = status.readiness || {};
     const readinessNode = $("readiness");
+    const freshness = status.projection_freshness;
+    const freshnessNode = $("projection-freshness");
+    freshnessNode.hidden = !freshness || (freshness.ok && !freshness.offline_fallback);
+    freshnessNode.textContent = freshness ? "Projection data: " + freshness.status + (freshness.enforced ? " (blocks automation)" : " (warning only)") + ". " + (freshness.warnings || []).join("; ") : "";
     readinessNode.replaceChildren();
     if (readiness.ready) readinessNode.appendChild(text("li", "Ready for explicit start."));
     else (readiness.reasons || ["Readiness has not been evaluated."]).forEach((reason) => readinessNode.appendChild(text("li", reason)));

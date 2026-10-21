@@ -100,6 +100,7 @@ class Coordinator:
         clock: Callable[[], str] = utc_now,
         recover: bool = True,
         promotion_path: Any = None,
+        projection_policy: Any = None,
     ) -> None:
         if db_path is None:
             db_path = Path("runtime") / "control.sqlite3"
@@ -109,6 +110,9 @@ class Coordinator:
         # The promotion artifact is server-side configuration.  HTTP callers
         # (including the ESPN page) cannot supply or override it.
         self.promotion_path = promotion_path
+        # Optional projection staleness policy (default off); see
+        # docs/PROJECTION_PROVENANCE.md.  Server-side only, like promotion_path.
+        self.projection_policy = projection_policy
         self.clock = clock
         self.csrf_token = secrets.token_urlsafe(32)
         self._lock = threading.RLock()
@@ -917,8 +921,19 @@ class Coordinator:
                 reasons.append("draft clock is unknown or negative")
             if not checks["autopick"]:
                 reasons.append("autopick must be explicitly false before automation can run")
+        freshness = self.projection_freshness()
+        if freshness is not None and freshness["enforced"]:
+            checks["projection_fresh"] = bool(freshness["ok"])
+            if not freshness["ok"]:
+                reasons.append("projection data is stale or unverified: " + "; ".join(freshness["warnings"]))
         ready = bool(checks) and all(checks.values())
         return {"ready": ready, "checks": checks, "reasons": reasons, "session_id": session_id, "revision": row["latest_revision"]}
+
+    def projection_freshness(self) -> dict[str, Any] | None:
+        """Projection staleness report, or None when no policy is configured."""
+        if self.projection_policy is None:
+            return None
+        return self.projection_policy.evaluate(now=self.clock())
 
     def start(self, session_id: str) -> dict[str, Any]:
         return self._set_running(session_id, "start")
@@ -1829,6 +1844,7 @@ class Coordinator:
             "owner": self.ownership.describe(session_id),
             "observation": obs.to_dict() if obs else None,
             "observation_age_seconds": timestamp_age(obs.observed_at) if obs else None,
+            "projection_freshness": self.projection_freshness(),
             "actions": action_payloads,
             "unresolved_actions": [payload for payload in action_payloads if payload.get("status") in {"pending", "submitted", "uncertain"}],
             "queue_mutations": [self._queue_mutation_from_row(q) for q in self._db.execute("SELECT * FROM queue_mutations WHERE session_id=? ORDER BY created_at", (session_id,)).fetchall()],
